@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-monocypher",
+  "name": "Monocypher",
+  "developers": [
+    {
+      "name": "Copyright (c) 2017-2023, Loup Vaillant Copyright © 2017-2019, Michael Savage Copyright © 2017-2023, Fabio Scotoni All rights reserved"
+    }
+  ],
+  "website": "https://github.com/LoupVaillant/Monocypher",
+  "licenses": [
+    "up-bsd2-license"
+  ]
+}

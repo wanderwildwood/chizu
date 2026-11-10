@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-openstreetmap-carto",
+  "name": "OpenStreetMap Carto",
+  "developers": [
+    {
+      "name": "2025 OpenStreetMap Carto"
+    }
+  ],
+  "website": "https://github.com/gravitystorm/openstreetmap-carto",
+  "licenses": [
+    "up-cc0-1"
+  ]
+}

@@ -1,0 +1,10 @@
+/* Used in home screen quick actions. */
+"search" = "Sök";
+/* Used in home screen quick actions. */
+"bookmarks_and_tracks" = "Favoriter";
+/* Used in home screen quick actions. */
+"route" = "Rutt";
+/* Needed to explain why we always require access to GPS coordinates, and not only when the app is active. */
+NSLocationAlwaysUsageDescription = "Appen behöver din position även i bakgrunden för navigering och för att spara spåret från din senaste färd.";
+/* Needed to explain why we require access to GPS coordinates when the app is active. */
+NSLocationWhenInUseUsageDescription = "Din position behövs för navigering och för att spara spåret från din senaste färd.";

@@ -1,0 +1,8 @@
+{
+  "uniqueId": "up-boost",
+  "name": "Boost",
+  "website": "https://www.boost.org",
+  "licenses": [
+    "up-boost-license"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-r-ntgen",
+  "name": "Röntgen",
+  "developers": [
+    {
+      "name": "2023 Sergey Vartanov"
+    }
+  ],
+  "website": "https://github.com/enzet/Roentgen",
+  "licenses": [
+    "up-cc-by-4"
+  ]
+}

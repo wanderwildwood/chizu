@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The house style at night: the same decisions with ink and paper changed over. -->
+<resources>
+  <color name="house_ink">#FFFFFFFF</color>
+  <color name="house_paper">#FF000000</color>
+  <color name="house_hint">#FFAAAAAA</color>
+  <bool name="house_light_bars">false</bool>
+</resources>

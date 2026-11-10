@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-old-maps-me-icons",
+  "name": "Old MAPS.ME icons",
+  "developers": [
+    {
+      "name": "2011-2015 My.com B.V"
+    }
+  ],
+  "website": "https://github.com/mapsme/omim/blob/a2682a0b2aab96a132df61f22c983ace6a37c62f/NOTICE#L20-L21",
+  "licenses": [
+    "up-cc-by-4"
+  ]
+}

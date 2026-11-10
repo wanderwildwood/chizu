@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-wikipedia",
+  "name": "Wikipedia",
+  "developers": [
+    {
+      "name": "Wikipedia"
+    }
+  ],
+  "website": "https://www.wikipedia.org",
+  "licenses": [
+    "up-cc-by-sa-4"
+  ]
+}

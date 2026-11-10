@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-jansson",
+  "name": "Jansson",
+  "developers": [
+    {
+      "name": "2009-2013 Petri Lehtinen"
+    }
+  ],
+  "website": "https://www.digip.org/jansson",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-organic-maps",
+  "name": "Organic Maps",
+  "developers": [
+    {
+      "name": "2025 Organic Maps Contributors"
+    }
+  ],
+  "website": "https://github.com/organicmaps/organicmaps",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

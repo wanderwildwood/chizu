@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: the words of the house About and Licenses pages (the shared HouseAbout.kt and
+     LicencesScreen.kt draw them). Kept apart from strings.xml so a newer CoMaps merges cleanly. -->
+<resources>
+    <!-- About dialog. Keep the names of the app, people, projects and licenses as they are -->
+    <string name="about_title">Atlas %1$s</string>
+    <string name="about_what">An offline map of the world. Download a region once, then search, find a route and follow it by car, on foot or by bike with no connection. Drawn for an E Ink screen: black on white, nothing that moves.</string>
+    <string name="about_privacy_heading">Privacy</string>
+    <string name="about_privacy">Your position, searches, routes, favorites and tracks stay on this phone; nothing about you is collected and there is no account. The network is used to download and update the maps you choose, from the CoMaps map servers, which see your internet address and which regions you fetch, as any download does. On a phone that has Google Play services, the Google Fused Location Service switch (Settings, Privacy) lets Google\'s location service help find your position, and that may contact Google; switched off, only the phone\'s own positioning is used. A link you press opens in your browser.</string>
+    <string name="about_terms_heading">Terms</string>
+    <string name="about_terms">Atlas is free software and comes with no warranty: use it at your own risk. Maps can be wrong or out of date, and a route is a suggestion. The road, its signs and your own judgment come first.</string>
+    <string name="about_built_on">Atlas is CoMaps in house dress: the map engine, search and routing are the work of the CoMaps, Organic Maps and MAPS.ME contributors. Map data © OpenStreetMap contributors, ODbL.</string>
+    <string name="about_feed_the_llamas">Feed the llamas</string>
+    <string name="about_close">Close</string>
+    <string name="about_no_browser_address">No browser is installed. The address is %1$s.</string>
+    <string name="about_open_drawer">Open %1$s</string>
+    <string name="about_close_drawer">Close %1$s</string>
+    <string name="about_intro_head">What it does</string>
+    <string name="about_contact_head">Contact</string>
+    <string name="about_links_head">Links</string>
+
+    <string name="licences_title">Licenses</string>
+    <string name="licences_back">Back</string>
+    <string name="licences_source_head">Source code</string>
+    <string name="licences_no_text">%s needs no license text here.</string>
+    <string name="licences_licence">Atlas is free software under the GNU General Public License, version 3 only. Copyright wander wildwood. It is built from CoMaps, which is under the Apache License 2.0: copyright 2026 CoMaps Contributors, 2025 Organic Maps Contributors and 2020 My.com B.V. (Mail.Ru Group) for their parts.</string>
+    <string name="licences_full_head">Full texts</string>
+    <string name="licences_full_gpl">GNU General Public License v3 (full text)</string>
+    <string name="licences_full_apache">Apache License 2.0 (full text)</string>
+    <string name="licences_full_ofl">SIL Open Font License 1.1 (full text)</string>
+
+    <!-- shared-about -->
+    <string name="about_write_to">Write to %1$s</string>
+    <string name="about_no_mail_app">No email app is installed. The address is %1$s.</string>
+    <string name="privacy_who_title">Who we are</string>
+    <string name="privacy_who">This app is made by wander wildwood, an independent developer: one person, not a company. That makes wander wildwood the data controller for anything the app itself handles, and that is very little: what you put in stays on this phone unless you send it somewhere yourself, or the app sends it to the CoMaps map servers as described above, and nothing comes to the developer.</string>
+    <string name="privacy_contact_title">How to contact us</string>
+    <string name="privacy_contact">Write to email@wanderthe.dev, about your data or anything else.</string>
+    <string name="privacy_rights_title">Your rights</string>
+    <string name="privacy_rights">Under the GDPR you can ask to see the data held about you, to have it corrected or deleted, to limit or object to its use, to take a copy with you, to withdraw consent, and to complain to a data protection authority. Since the app keeps what it stores only on your phone, you can do most of this yourself: delete favorites, tracks and downloaded maps in the app, clear the app\'s data in Android\'s settings, or uninstall the app. What the CoMaps map servers receive is covered by their own privacy policy.</string>
+    <!-- /shared-about -->
+
+    <!-- The About sits over the screen it was opened from. -->
+    <style name="HouseTheme.About" parent="Theme.Material3.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <!-- the bars keep the look of the screen underneath: white, dark icons -->
+        <item name="android:statusBarColor">@android:color/white</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@android:color/white</item>
+        <item name="android:windowLightNavigationBar">true</item>
+    </style>
+</resources>

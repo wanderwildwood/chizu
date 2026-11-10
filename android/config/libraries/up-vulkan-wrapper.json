@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-vulkan-wrapper",
+  "name": "Vulkan Wrapper",
+  "developers": [
+    {
+      "name": "2016 Google Inc"
+    }
+  ],
+  "website": "https://github.com/googlesamples/android-vulkan-tutorials",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

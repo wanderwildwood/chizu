@@ -1,0 +1,32 @@
+Komunum-gvidata senpaga kaj malfermkoda mapaplikaĵo bazita sur OpenStreetMap-datumoj kaj plifortigita per engaĝiĝo al travidebleco, privateco kaj neprofitcela funkciado. CoMaps estas forko/spin-off de Organic Maps, kiu siavice estas forko de Maps.ME.
+
+Legu plu pri la kialoj por la projekto kaj ĝia direkto ĉe <b><i>codeberg.org/comaps</i></b>.
+Aliĝu al la komunumo tie kaj helpu krei la plej bonan mapaplikaĵon
+• Uzu la aplikaĵon kaj diskonigu ĝin
+• Donu rimarkojn kaj raportu problemojn
+• Ĝisdatigu mapdatumojn en la aplikaĵon aŭ en la OpenStreetMap-retejo
+
+‣ <b>Senreta-fokusa</b>: Planu kaj navigu vian vojaĝon eksterlande sen bezono de poŝtelefona konekto, serĉu vojpunktojn dum malproksima piedvojaĝo, ktp. Ĉiuj funkcioj de la aplikaĵo estas dezajnitaj por funkcii senrete.
+‣ <b>Respektante privatecon</b>: La aplikaĵo estas projektita konsiderante privatecon — ĝi ne identigas homojn, ne spuras uzantojn kaj ne kolektas personajn informojn. Sen reklamoj.
+‣ <b>Simpla kaj rafinita</b>: Esencaj, facile uzeblaj funkcioj kiuj simple funkcias.
+‣ <b>Ŝparas baterion kaj spacon</b>: Ne elĉerpas vian baterion kiel aliaj navigadaj aplikaĵoj. Kompaktaj mapoj ŝparas valoran spacon en via telefono.
+‣ <b>Senpaga kaj konstruita de la komunumo</b>: Homoj kiel vi helpis konstrui la aplikaĵon per aldono de lokoj al OpenStreetMap, testado de ĝi, donado de rimarkoj pri ĝiaj funkcioj kaj kontribuado per siaj programistaj kapabloj kaj mono.
+‣ <b>Malferma kaj travidebla decidofarado kaj financoj, neprofitcela kaj tute malfermkoda.</b>
+
+<b>Ĉefaj funkcioj</b>:
+• Elŝuteblaj detalaj mapoj kun lokoj, kiuj ne disponeblas en Google Maps
+• Subĉiela reĝimo kun elstarigitaj migrovojoj, kampadejoj, akvofontoj, pintoj, nivellinioj ktp.
+• Piedvojoj kaj biciklovojoj
+• Interesaj lokoj kiel restoracioj, benzinejoj, hoteloj, vendejoj, vidindaĵoj kaj multe pli
+• Serĉu laŭ nomo, adreso aŭ kategorio de interesaj lokoj
+• Navigado kun voĉaj instrukcioj por piedirado, biciklado aŭ veturado
+• Marku viajn favorajn lokojn per unu frapeto
+• Senretaj Vikipedio-artikoloj
+• Metroa tavolo kaj itineroj
+• Registrado de trakoj
+• Eksporti kaj importi favoratojn kaj trakojn en formatoj KML, KMZ kaj GPX
+• Malhela reĝimo por uzi nokte
+• Plibonigu mapdatumojn por ĉiuj uzante bazan enkonstruitan redaktilon
+
+<b>Jen libereco</b>
+Malkovru vian vojaĝon, navigu la mondon kun privateco kaj komunumo ĉefloke!

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-gb-postcode-data",
+  "name": "gb-postcode-data",
+  "developers": [
+    {
+      "name": "osm-search"
+    }
+  ],
+  "website": "https://github.com/osm-search/gb-postcode-data/",
+  "licenses": [
+    "up-gpl2-license"
+  ]
+}

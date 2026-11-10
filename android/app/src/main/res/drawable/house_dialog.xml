@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- A dialog: paper inside a 2dp rim of ink with a 12dp corner (house rule). -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+  <solid android:color="@color/house_paper"/>
+  <stroke android:width="@dimen/house_edge" android:color="@color/house_ink"/>
+  <corners android:radius="@dimen/house_dialog_corner"/>
+</shape>

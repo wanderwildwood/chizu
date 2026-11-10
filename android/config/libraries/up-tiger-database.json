@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-tiger-database",
+  "name": "TIGER database",
+  "developers": [
+    {
+      "name": "US Census Bureau"
+    }
+  ],
+  "website": "https://www.census.gov/geographies/mapping-files/time-series/geo/tiger-geodatabase-file.html",
+  "licenses": [
+    "up-tiger-database-terms"
+  ]
+}

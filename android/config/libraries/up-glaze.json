@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-glaze",
+  "name": "glaze",
+  "developers": [
+    {
+      "name": "2019 - present, Stephen Berry"
+    }
+  ],
+  "website": "https://stephenberry.github.io/glaze",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

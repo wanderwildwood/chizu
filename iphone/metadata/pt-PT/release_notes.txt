@@ -1,0 +1,13 @@
+• Reformulação das indicações de mudança de direção no CarPlay: corrige vários erros, como o atraso nas instruções, a direção errada na manobra seguinte e o funcionamento da próxima manobra apenas com a síntese de voz ativa
+• Correção de uma falha antiga nos resultados de pesquisa do CarPlay
+• Compatibilidade com automóveis que limitam a apresentação de listas no CarPlay durante a condução
+• Correção dos ícones de definições invisíveis no CarPlay no iOS 27
+• Correção da posição da seta ao iniciar a navegação no painel e mudar para a vista principal
+• Melhor contraste no modo escuro: texto e estradas mais legíveis
+• Adição de áreas perigosas
+• Distinção entre locais com opções vegetarianas e locais exclusivamente vegetarianos
+• A aplicação deixa de dizer «siga em frente» ao atravessar estradas largas
+• Divisão da Tanzânia, do Vietname, da Malásia e da província chinesa de Guangdong em mapas mais pequenos
+• Palavra-chave de pesquisa «?reviews», que encontra locais com avaliações
+• Apresentação de informações sobre artigos em segunda mão na página dos locais; adição de espaços de música, cafetarias e muito mais
+• Dados do OpenStreetMap à data de 5 de novembro e futuras atualizações semanais

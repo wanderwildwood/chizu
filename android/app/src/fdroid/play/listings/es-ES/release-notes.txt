@@ -1,0 +1,9 @@
+• Mejora del contraste en modo oscuro: texto y carreteras más legibles
+• Inclusión de zonas peligrosas
+• Distinción entre opciones vegetarianas y solo vegetariano
+• Eliminada indicación «siga recto» al cruzar carreteras grandes
+• Modo de vista previa de la ruta (haz clic en un paso durante planificación de ruta)
+• Mejorada interfaz de Android Auto
+• Inclusión de nombres de sucursales en PDIs, info de segunda mano, locales de música...
+
+Más info en comaps.app/latest

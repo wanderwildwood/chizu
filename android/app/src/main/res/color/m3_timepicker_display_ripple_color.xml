@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Nothing ripples (house rule). This replaces the Material library's selector of the same
+     name, so every button, card and control that reads it draws no ripple. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:color="@android:color/transparent"/>
+</selector>

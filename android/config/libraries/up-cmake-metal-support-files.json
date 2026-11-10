@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-cmake-metal-support-files",
+  "name": "CMake Metal support files",
+  "developers": [
+    {
+      "name": "2024 Darryl Pogue and Contributors"
+    }
+  ],
+  "website": "https://github.com/dpogue/CMake-MetalShaderSupport",
+  "licenses": [
+    "up-cmake-support-license"
+  ]
+}

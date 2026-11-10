@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-dear-imgui",
+  "name": "Dear ImGui",
+  "developers": [
+    {
+      "name": "2014-2025 Omar Cornut"
+    }
+  ],
+  "website": "https://github.com/ocornut/imgui",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

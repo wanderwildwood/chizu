@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-freetype",
+  "name": "FreeType",
+  "developers": [
+    {
+      "name": "2013 The FreeType Project"
+    }
+  ],
+  "website": "https://www.freetype.org",
+  "licenses": [
+    "up-freetype-license"
+  ]
+}

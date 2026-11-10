@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: the round stop button in the guidance foot. Filled once it has been tapped. -->
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+  <item android:state_activated="true">
+    <shape android:shape="oval">
+      <solid android:color="@color/house_ink" />
+    </shape>
+  </item>
+  <item>
+    <shape android:shape="oval">
+      <solid android:color="@color/house_paper" />
+      <stroke android:width="@dimen/house_edge" android:color="@color/house_ink" />
+    </shape>
+  </item>
+</selector>

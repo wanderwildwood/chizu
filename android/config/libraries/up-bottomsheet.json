@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-bottomsheet",
+  "name": "BottomSheet",
+  "developers": [
+    {
+      "name": "2011, 2015 Kai Liao"
+    }
+  ],
+  "website": "https://cocosw.com/BottomSheet",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

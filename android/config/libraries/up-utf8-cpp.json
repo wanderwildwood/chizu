@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-utf8-cpp",
+  "name": "UTF8-CPP",
+  "developers": [
+    {
+      "name": "2006 Nemanja Trifunovic"
+    }
+  ],
+  "website": "https://github.com/nemtrif/utfcpp",
+  "licenses": [
+    "up-boost-license"
+  ]
+}

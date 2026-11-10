@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-pugixml",
+  "name": "Pugixml",
+  "developers": [
+    {
+      "name": "2006-2015 Arseny Kapoulkine"
+    }
+  ],
+  "website": "https://pugixml.org/",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

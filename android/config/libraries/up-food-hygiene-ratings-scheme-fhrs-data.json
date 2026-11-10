@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-food-hygiene-ratings-scheme-fhrs-data",
+  "name": "Food Hygiene Ratings Scheme (FHRS) Data",
+  "developers": [
+    {
+      "name": "Food Standards Agency"
+    }
+  ],
+  "website": "https://data.food.gov.uk/catalog/datasets/38dd8d6a-5ab1-4f50-b753-ab33288e3200",
+  "licenses": [
+    "up-ogl3"
+  ]
+}

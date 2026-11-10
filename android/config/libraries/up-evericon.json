@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-evericon",
+  "name": "Evericon",
+  "developers": [
+    {
+      "name": "2018 Aleksey Popov"
+    }
+  ],
+  "website": "https://www.evericons.com/",
+  "licenses": [
+    "up-cc0-1"
+  ]
+}

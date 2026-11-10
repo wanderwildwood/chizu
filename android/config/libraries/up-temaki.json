@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-temaki",
+  "name": "Temaki",
+  "developers": [
+    {
+      "name": "2025 Rapid Editor"
+    }
+  ],
+  "website": "https://github.com/rapideditor/temaki",
+  "licenses": [
+    "up-cc0-1"
+  ]
+}

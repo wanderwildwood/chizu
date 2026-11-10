@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-icu",
+  "name": "ICU",
+  "developers": [
+    {
+      "name": "1995–2016 IBM Corporation and others"
+    }
+  ],
+  "website": "https://site.icu-project.org",
+  "licenses": [
+    "up-icu-license"
+  ]
+}

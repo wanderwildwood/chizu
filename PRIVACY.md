@@ -1,0 +1,88 @@
+# Atlas — Privacy Policy
+
+Last reviewed 10 November 2026.
+
+This is the policy for Atlas (chizu, 地図), the app published from this repository.
+
+## The short version
+
+The developer collects nothing about you. There is no account, no sign-up, no analytics, no advertising and no crash reporting, and no server belonging to the developer that the app talks to. Atlas is an offline map: your position, searches, routes, favorites and recorded tracks are worked out and kept on your phone. The network is used to download the maps you choose, and for the few other things listed below, each because you used the feature.
+
+## Where it comes from
+
+Atlas is built from CoMaps (CoMaps Contributors), which continues Organic Maps (Organic Maps Contributors) and MAPS.ME (My.com B.V.). The map engine, search and routing are theirs; Atlas changes how the app looks and what it leaves out: it has no map editing and no OpenStreetMap sign-in. Atlas is a separate project and has no connection to CoMaps, Organic Maps or the OpenStreetMap Foundation.
+
+Where the app processes personal data, that processing happens on your own device, under your control.
+
+## What the app stores, and where
+
+On the phone only:
+
+- **Downloaded maps**, the region files you chose.
+- **Favorites and recorded tracks**, with the names, notes and colors you give them.
+- **Search history**, which you can clear in the search screen or switch off in Settings, Privacy.
+- **Home and recent destinations**: the place you set as Home, and the last twelve places you started a drive to, so they are one tap away. "Clear Recent Places and Searches" on the search screen empties the list; holding the Home button lets you forget Home.
+- **Settings**, and the last position of the map.
+
+The manifest sets `allowBackup="false"` and excludes everything from Android's cloud backup and phone-to-phone transfer, so Android does not copy any of this off the phone. There is no cloud copy and no copy held by the developer.
+
+Things leave the app's storage only when you ask:
+
+- **Backup** (Settings) writes your favorites and tracks to a folder you choose, when you say or on the schedule you set.
+- **Share and export** hand a place, your position, a favorites list or a track to the app you pick, through Android's share screen.
+
+Uninstalling the app deletes all of it, apart from backup files and exports you saved elsewhere.
+
+## Permissions, and what each is for
+
+From the app's manifest (`android/app/src/main/AndroidManifest.xml`):
+
+- `ACCESS_FINE_LOCATION`, `ACCESS_COARSE_LOCATION`: your position on the map, and following a route. `ACCESS_LOCATION_EXTRA_COMMANDS`: asking the phone's positioning to refresh its satellite data for a faster fix.
+- `FOREGROUND_SERVICE`, `FOREGROUND_SERVICE_LOCATION`: navigation and track recording keep running with the screen off, with a notification that says so.
+- `INTERNET`, `ACCESS_NETWORK_STATE`: downloading maps, and the other connections listed below; whether a connection is there, and whether it is Wi-Fi.
+- `FOREGROUND_SERVICE_DATA_SYNC`: a map download carries on while the app is in the background.
+- `POST_NOTIFICATIONS`: the notifications for navigation, track recording and downloads.
+- `READ_CONTACTS`: asked for once, the first time you open the search, and the search works the same if you say no. If you allow it, typing a name in the search offers people from your contacts who have a postal address, and a tap searches the map for that address. The names and addresses are read on the phone as you type and are not stored or sent anywhere.
+- `WAKE_LOCK`: keeping the phone awake during navigation and downloads.
+- `androidx.car.app.NAVIGATION_TEMPLATES`, `androidx.car.app.ACCESS_SURFACE`: showing the map on a car's screen through Android Auto, when you connect to one.
+
+Your position is used on the phone. It is not sent to the developer or to the map servers; routes and searches are computed on the phone from the downloaded maps.
+
+## Who else receives anything
+
+- **The CoMaps map servers.** To list, download and update maps the app contacts the CoMaps servers (`cdn-us-1.comaps.app` for the list of mirrors, then one of the mirrors the CoMaps project and its volunteers run). As with any download they see your internet address and which region files you fetch. Settings lets you name a different map server instead.
+- **Google**, only on a phone that has Google Play services (or microG) and only while the "Google Fused Location Service" switch in Settings, Privacy is on. Android's fused location service then helps find your position and may contact Google. With the switch off, or on a phone without those services, only the phone's own positioning is used.
+- **Your browser, phone and mail apps.** A website, phone number, email address or Wikipedia link on a place's page opens in the app that handles it; what that site or service learns is between you and it.
+- **Android's speech engine.** Spoken directions are read out by the text-to-speech engine installed on the phone; the app hands it the words of each instruction.
+
+<!-- shared-about privacy section -->
+## Who we are
+
+Atlas is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Atlas keeps what you put in it on your phone, apart from what it sends to the CoMaps map servers as described above, and sends nothing to the developer, so the developer holds no data about you.
+
+## How to contact us
+
+Write to email@wanderthe.dev about your data, this policy or anything else. The same address is in the app, under About.
+
+## Your rights
+
+If you are in the EU, the EEA or the UK, the GDPR gives you the right to:
+
+- see the personal data held about you (access)
+- have it corrected (rectification) or deleted (erasure)
+- limit how it is used (restriction)
+- object to its use (objection)
+- get a copy to take elsewhere (portability)
+- withdraw your consent at any time, where something rests on it
+- complain to a data protection supervisory authority, for example the one where you live
+
+Similar laws elsewhere, such as the CCPA in California, give you the right to know, delete and correct, and to opt out of the sale or sharing of your data. Nothing from Atlas is sold or shared.
+
+Since Atlas keeps what it stores only on your phone, you can exercise most of these rights yourself: delete favorites, tracks and downloaded maps in the app, clear the app's data in Android's settings, or uninstall the app, which deletes all of it. For anything you cannot do yourself, write to the address above.
+
+Atlas connects to the CoMaps map servers. They are separate from this app and from its developer, and what they receive is covered by their own privacy policy; ask them about what they hold.
+<!-- /shared-about privacy section -->
+
+## Changes
+
+Changes to this policy are made in this file, and its history in the repository shows each one.

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-droid-sans-fallback",
+  "name": "Droid Sans Fallback",
+  "developers": [
+    {
+      "name": "Ascender Corporation"
+    }
+  ],
+  "website": "https://www.droidfonts.com/droidfonts/",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "uniqueId": "up-chromium-s-courgette",
+  "name": "Chromium's Courgette",
+  "website": "https://chromium.googlesource.com/chromium/src/courgette",
+  "licenses": [
+    "up-bsd3-license"
+  ]
+}

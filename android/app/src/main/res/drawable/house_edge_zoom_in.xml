@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- House rule: an edge of ink, not a shadow, stands a button off the map. Drawn as the
+     button's foreground, in the button's own shape. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle">
+  <solid android:color="@android:color/transparent"/>
+  <stroke android:width="@dimen/house_edge" android:color="@color/house_ink"/>
+  <corners android:topLeftRadius="24dp" android:topRightRadius="24dp" android:bottomLeftRadius="5dp" android:bottomRightRadius="5dp"/>
+</shape>

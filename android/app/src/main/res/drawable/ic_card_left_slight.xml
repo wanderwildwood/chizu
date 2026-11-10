@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: a turn sign for the guidance card, plain black. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+  android:width="24dp"
+  android:height="24dp"
+  android:viewportWidth="24"
+  android:viewportHeight="24">
+  <group android:pivotX="12" android:scaleX="-1">
+    <path android:pathData="M8,21 V15 L13.6,9.4" android:strokeColor="#FF000000" android:strokeWidth="3.2" android:strokeLineJoin="round" />
+    <path android:pathData="M19,4 L17.9,13.2 L9.8,5.1 Z" android:fillColor="#FF000000" />
+  </group>
+</vector>

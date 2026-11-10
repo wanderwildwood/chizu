@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-succinct-library",
+  "name": "succinct library",
+  "developers": [
+    {
+      "name": "2011 Giuseppe Ottaviano"
+    }
+  ],
+  "website": "https://github.com/ot/succinct",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

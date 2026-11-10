@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-maki",
+  "name": "Maki",
+  "developers": [
+    {
+      "name": "2022 Mapbox"
+    }
+  ],
+  "website": "https://github.com/mapbox/maki",
+  "licenses": [
+    "up-cc0-1"
+  ]
+}

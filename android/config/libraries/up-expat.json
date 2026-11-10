@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-expat",
+  "name": "Expat",
+  "developers": [
+    {
+      "name": "1998–2000 Thai Open Source Software Center Ltd and Clark Cooper, © 2001–2019 Expat maintainers"
+    }
+  ],
+  "website": "https://libexpat.github.io",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

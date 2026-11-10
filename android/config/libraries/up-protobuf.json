@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-protobuf",
+  "name": "Protobuf",
+  "developers": [
+    {
+      "name": "2014 Google Inc"
+    }
+  ],
+  "website": "https://github.com/google/protobuf",
+  "licenses": [
+    "up-bsd3-license"
+  ]
+}

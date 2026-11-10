@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-maps-me",
+  "name": "MAPS.ME",
+  "developers": [
+    {
+      "name": "2020 My.com B.V. (Mail.Ru Group)"
+    }
+  ],
+  "website": "https://github.com/mapsme/omim",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

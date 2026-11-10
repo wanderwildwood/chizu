@@ -1,0 +1,8 @@
+{
+  "uniqueId": "up-bsdiff",
+  "name": "bsdiff",
+  "website": "https://www.daemonology.net/bsdiff",
+  "licenses": [
+    "up-bsd3-license"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-glfw",
+  "name": "GLFW",
+  "developers": [
+    {
+      "name": "2002-2006 Marcus Geelnard"
+    }
+  ],
+  "website": "https://www.glfw.org",
+  "licenses": [
+    "up-zlib-license"
+  ]
+}

@@ -1,0 +1,9 @@
+• Migliorato il contrasto in modalità scura: testo e strade più leggibili
+• Aggiunte zone pericolose
+• Distinzione tra opzioni vegetariane e solo vegetariane
+• Rimossa l’indicazione «prosegui dritto» quando si attraversano strade principali
+• Aggiunta modalità anteprima del percorso (cliccando una tratta durante la pianificazione)
+• Interfaccia di Android Auto migliorata
+• Aggiunti i nomi delle filiali nei POI, info di seconda mano, locali di musica...
+
+Maggiori dettagli su comaps.app/latest

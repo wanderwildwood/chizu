@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-just-gtfs",
+  "name": "just_gtfs",
+  "developers": [
+    {
+      "name": "2020 mesozoic-drones"
+    }
+  ],
+  "website": "https://github.com/mesozoic-drones/just_gtfs",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

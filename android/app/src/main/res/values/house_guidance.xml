@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- The guidance card: the button that shows the map, and the one on the map that goes back. -->
+  <string name="guidance_map">Map</string>
+  <!-- A highway exit in the list of coming turns, followed by its number: "Exit 384". -->
+  <string name="guidance_exit">Exit</string>
+  <string name="guidance_turns">Turns</string>
+  <!-- A speed with its unit on the guidance card: "45 mph". -->
+  <string name="guidance_speed">%1$d %2$s</string>
+  <!-- Settings, Navigation: on = miles and feet, off = kilometers and meters. -->
+  <string name="units_miles_switch">Miles and feet</string>
+
+  <!-- The minus and plus beside a value that moves a step at a time. -->
+  <string name="step_smaller">Smaller</string>
+  <string name="step_larger">Larger</string>
+
+  <!-- Home and recent destinations. -->
+  <string name="go_home">Home</string>
+  <string name="go_set_home">Set as Home</string>
+  <string name="go_home_set">Home is now %1$s.\n\nThe Home button on the map plans the route there.</string>
+  <string name="go_home_is">Home is %1$s.\n\nTo change it, open another place and choose Set as Home.</string>
+  <!-- Under Home in Favorites when no place is Home yet. -->
+  <string name="go_home_unset">Not set</string>
+  <string name="go_home_forget">Forget Home</string>
+  <string name="go_home_not_set">Home is not set yet.\n\nOpen your home on the map, or search for it, then choose Set as Home on its page.</string>
+  <!-- A destination picked on the map that has no name. -->
+  <string name="go_place_unnamed">Place on the map</string>
+  <!-- A recent destination and how far away it is: "Forest Avenue 12 · 3.1 mi". -->
+  <string name="go_recent_with_distance">%1$s · %2$s</string>
+
+  <!-- Two routes to choose from while planning a drive. -->
+  <string name="route_choice_fastest">Fastest</string>
+  <string name="route_choice_no_highways">No highways</string>
+  <!-- A route's time and length under its name: "12 min · 4.8 mi". -->
+  <string name="route_choice_figures">%1$s · %2$s</string>
+</resources>

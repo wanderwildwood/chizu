@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Android 12 draws a splash of its own (the icon on a colored field); it cannot be turned
+       off, only emptied. Same items as values/themes.xml plus the three that empty it. -->
+  <style name="MwmTheme.Splash">
+    <item name="android:windowBackground">@color/house_paper</item>
+    <item name="android:navigationBarColor">@color/house_paper</item>
+    <item name="android:statusBarColor">@color/house_paper</item>
+    <item name="android:windowLightStatusBar">true</item>
+    <item name="android:windowLightNavigationBar">true</item>
+    <item name="android:windowSplashScreenBackground">@color/house_paper</item>
+    <item name="android:windowSplashScreenAnimatedIcon">@drawable/splash_nothing</item>
+    <item name="android:windowSplashScreenAnimationDuration">0</item>
+  </style>
+</resources>

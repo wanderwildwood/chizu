@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-skarupke-hash-tables",
+  "name": "Skarupke Hash Tables",
+  "developers": [
+    {
+      "name": "Malte Skarupke 2017"
+    }
+  ],
+  "website": "https://github.com/skarupke/flat_hash_map",
+  "licenses": [
+    "up-boost-license"
+  ]
+}

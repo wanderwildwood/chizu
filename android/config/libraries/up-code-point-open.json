@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-code-point-open",
+  "name": "Code-Point® Open",
+  "developers": [
+    {
+      "name": "UK Ordnance Survey"
+    }
+  ],
+  "website": "https://osdatahub.os.uk/downloads/open/CodePointOpen",
+  "licenses": [
+    "up-ogl3"
+  ]
+}

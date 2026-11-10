@@ -1,0 +1,9 @@
+• Verbesserter Darkmode:  Text und Straßen sind besser erkennbar
+• Gefahrenzonen wurden hinzugefügt
+• Unterscheidung zwischen Option für Vegetarier und nur vegitarisch
+• Es wird nicht mehr "gerade ausgehen" beim Überqueren großer Kreuzungen gesagt
+• Vorschau für Routen hinzugefügt
+• Verbesserte Android Auto Oberflächlich und Wechsel zwischen Auto/Smartphone
+• Markennamen von POIs and Secondhand Informationen, Konzertlocation, Kantine und mehr hinzugefügt
+
+Weitere Details unter comaps.app/latest

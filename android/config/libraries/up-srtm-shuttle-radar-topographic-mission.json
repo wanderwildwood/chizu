@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-srtm-shuttle-radar-topographic-mission",
+  "name": "SRTM (Shuttle Radar Topographic Mission)",
+  "developers": [
+    {
+      "name": "NASA"
+    }
+  ],
+  "website": "https://www.earthdata.nasa.gov/data/instruments/srtm",
+  "licenses": [
+    "up-srtm-shuttle-radar-topographic-mission-terms"
+  ]
+}

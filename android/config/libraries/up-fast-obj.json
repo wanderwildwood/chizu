@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-fast-obj",
+  "name": "fast_obj",
+  "developers": [
+    {
+      "name": "2013 thisistherk"
+    }
+  ],
+  "website": "https://github.com/thisistherk/fast_obj",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

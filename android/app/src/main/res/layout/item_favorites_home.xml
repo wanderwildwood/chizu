@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: Home, the first row of Favorites. It says where Home is; a tap can forget it. -->
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/home_row"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:orientation="vertical">
+  <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_clickable_card"
+    android:duplicateParentState="true"
+    android:gravity="center_vertical"
+    android:orientation="horizontal">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:layout_width="40dp"
+      android:layout_height="40dp"
+      android:layout_margin="@dimen/margin_half"
+      android:importantForAccessibility="no"
+      android:padding="@dimen/margin_quarter_plus"
+      app:srcCompat="@drawable/ic_home_outline"
+      app:tint="?iconTint" />
+    <LinearLayout
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:orientation="vertical"
+      android:paddingTop="@dimen/margin_half_plus"
+      android:paddingEnd="@dimen/margin_base"
+      android:paddingBottom="@dimen/margin_half_plus">
+      <com.google.android.material.textview.MaterialTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/go_home"
+        android:textAppearance="@style/MwmTextAppearance.Body1" />
+      <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/home_place"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textAppearance="@style/MwmTextAppearance.Body3" />
+    </LinearLayout>
+  </LinearLayout>
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="2dp"
+    android:layout_marginHorizontal="@dimen/margin_base"
+    android:background="@drawable/dotted_rule"
+    android:layerType="software" />
+</LinearLayout>

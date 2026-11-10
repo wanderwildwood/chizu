@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-dejavu-sans",
+  "name": "DejaVu Sans",
+  "developers": [
+    {
+      "name": "2003 Bitstream Inc., © 2006 Tavmjong Bah"
+    }
+  ],
+  "website": "https://dejavu-fonts.org/",
+  "licenses": [
+    "up-dejavufonts-license"
+  ]
+}

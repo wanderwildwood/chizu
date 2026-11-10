@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-anti-grain-geometry",
+  "name": "Anti-Grain Geometry",
+  "developers": [
+    {
+      "name": "2002–2005 Maxim Shemanarev"
+    }
+  ],
+  "website": "https://agg.sourceforge.net/antigrain.com/index.html",
+  "licenses": [
+    "up-agg-license"
+  ]
+}

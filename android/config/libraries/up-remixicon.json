@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-remixicon",
+  "name": "Remixicon",
+  "developers": [
+    {
+      "name": "2020 Wendy Gao, Jimmy Cheung"
+    }
+  ],
+  "website": "https://github.com/Remix-Design/remixicon",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

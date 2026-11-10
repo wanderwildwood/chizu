@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- A delete in a menu asks for a second tap: "Delete — tap again". -->
+  <string name="armed_tap_again">%1$s — tap again</string>
+  <item name="page_turn_listener" type="id"/>
+</resources>

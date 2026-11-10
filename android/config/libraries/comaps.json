@@ -1,0 +1,8 @@
+{
+  "uniqueId": "comaps",
+  "name": "CoMaps",
+  "description": "The app Atlas is built from: the map engine, search, routing and the Android app around them.",
+  "developers": [{ "name": "CoMaps Contributors" }],
+  "website": "https://codeberg.org/comaps/comaps",
+  "licenses": ["up-apache2-license"]
+}

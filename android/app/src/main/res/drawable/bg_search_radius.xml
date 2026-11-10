@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The search bar while it floats over the map: paper inside an edge of ink. -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/house_paper"/>
+    <stroke android:width="1dp" android:color="@color/house_ink"/>
+    <corners android:radius="8dp"/>
+</shape>

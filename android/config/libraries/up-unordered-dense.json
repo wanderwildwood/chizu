@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-unordered-dense",
+  "name": "unordered_dense",
+  "developers": [
+    {
+      "name": "2022 Martin Leitner-Ankerl"
+    }
+  ],
+  "website": "https://github.com/martinus/unordered_dense",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

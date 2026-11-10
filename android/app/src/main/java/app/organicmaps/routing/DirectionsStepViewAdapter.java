@@ -1,0 +1,73 @@
+package app.organicmaps.routing;
+
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.imageview.ShapeableImageView;
+import com.google.android.material.textview.MaterialTextView;
+
+import app.organicmaps.R;
+import app.organicmaps.sdk.routing.RouteStepInfo;
+
+public class DirectionsStepViewAdapter extends RecyclerView.Adapter<DirectionsStepViewAdapter.DirectionsStepViewHolder>
+{
+    private final Context mContext;
+    private final RouteStepInfo[] mItems;
+    private final OnDirectionStepClickListener mClickListener;
+
+    public DirectionsStepViewAdapter(Context context, RouteStepInfo[] routeStepInfo,
+                                     OnDirectionStepClickListener clickListener)
+    {
+        mContext = context;
+        mItems = routeStepInfo == null ? new RouteStepInfo[0] : routeStepInfo;
+        mClickListener = clickListener;
+    }
+
+    @NonNull
+    @Override
+    public DirectionsStepViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
+    {
+        return new DirectionsStepViewHolder(
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.directions_step_item, parent, false));
+    }
+
+    @Override
+    public void onBindViewHolder(DirectionsStepViewHolder holder, int position)
+    {
+        RouteStepInfo info = mItems[position];
+
+        // Atlas: the same plain black signs as on the guidance card.
+        holder.mIcon.setImageResource(com.wanderwildwood.chizu.ui.GuidanceCard.sign(info));
+
+        holder.mTitle.setText(info.formattedDistance.toString(mContext));
+        holder.mSubtitle.setText(info.textualInstruction);
+        holder.itemView.setOnClickListener(v -> mClickListener.onDirectionStepClick(info.index));
+    }
+
+    @Override
+    public int getItemCount() { return mItems.length; }
+
+    public interface OnDirectionStepClickListener
+    {
+      void onDirectionStepClick(int segmentIndex);
+    }
+
+    static class DirectionsStepViewHolder extends RecyclerView.ViewHolder
+    {
+        public ShapeableImageView mIcon;
+        public MaterialTextView mTitle, mSubtitle;
+
+        DirectionsStepViewHolder(@NonNull View itemView)
+        {
+            super(itemView);
+            mIcon = itemView.findViewById(R.id.step_icon);
+            mTitle = itemView.findViewById(R.id.step_title);
+            mSubtitle = itemView.findViewById(R.id.step_subtitle);
+        }
+    }
+}

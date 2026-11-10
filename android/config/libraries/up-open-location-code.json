@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-open-location-code",
+  "name": "Open Location Code",
+  "developers": [
+    {
+      "name": "2015–2018 Google Inc"
+    }
+  ],
+  "website": "https://github.com/google/open-location-code",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

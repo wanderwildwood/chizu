@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-khmer-os",
+  "name": "Khmer OS",
+  "developers": [
+    {
+      "name": "2005 Danh Hong, © 2005 Open Forum of Cambodia"
+    }
+  ],
+  "website": "https://www.khmeros.info/en/fonts",
+  "licenses": [
+    "up-lgpl21-license"
+  ]
+}

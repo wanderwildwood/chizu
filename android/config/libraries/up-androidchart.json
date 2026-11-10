@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-androidchart",
+  "name": "AndroidChart",
+  "developers": [
+    {
+      "name": "2020 Philipp Jahoda"
+    }
+  ],
+  "website": "https://github.com/AppDevNext/AndroidChart",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

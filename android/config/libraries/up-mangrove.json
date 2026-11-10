@@ -1,0 +1,14 @@
+{
+  "uniqueId": "up-mangrove",
+  "name": "Mangrove",
+  "developers": [
+    {
+      "name": "Open Reviews Association"
+    }
+  ],
+  "website": "https://mangrove.reviews",
+  "licenses": [
+    "up-cc-by-4",
+    "up-cc-by-sa-4"
+  ]
+}

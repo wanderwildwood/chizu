@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <color name="base_accent">#FFFFFFFF</color>
+  <color name="base_accent_pressed">#FFBBBBBB</color>
+
+  <color name="base_red">#888888</color>
+  <color name="dark_red">#888888</color>
+  <color name="base_yellow">#FFFFFF</color>
+  <color name="base_green">#FFFFFF</color>
+  <color name="yellow">#FFFFFF</color>
+  <color name="active_track_recording">#FFFFFFFF</color>
+  <color name="bg_dl_update">#FFFFFF</color>
+
+  <color name="icon_tint">#FFF</color>
+
+  <color name="icon_tint_light">#FF797979</color>
+
+  <color name="divider">#FFFFFFFF</color>
+
+  <!-- Backgrounds -->
+  <color name="bg_window">#FF000000</color>
+  <color name="bg_primary">#000000</color>
+  <color name="bg_cards">#FF222222</color>
+  <color name="bg_panel">@color/bg_window</color>
+  <color name="bg_primary_dark">#FF222222</color>
+  <color name="bg_app">#000000</color>
+
+  <color name="bg_menu">#FF000000</color>
+
+  <color name="bg_statusbar">#000000</color>
+
+  <!-- Buttons -->
+  <color name="button_pressed">#40CCCCCC</color>
+  <color name="button_disabled">@color/white_12</color>
+  <color name="button_text">#FFFFFFFF</color>
+  <color name="button_text_disabled">#4CFFFFFF</color>
+
+  <color name="button_accent_normal">@color/base_accent</color>
+  <color name="button_accent_pressed">@color/base_accent_pressed</color>
+  <color name="button_accent_disabled">#FF505050</color>
+  <color name="button_accent_text">#FF000000</color>
+  <color name="button_accent_text_disabled">#4CFFFFFF</color>
+
+  <!-- LanesView -->
+  <color name="nav_lane_arrow_active">@color/white_primary</color>
+
+  <color name="elevation_profile_dot_enabled">#FFFFFF</color>
+  <color name="elevation_profile">@color/base_accent</color>
+
+  <!-- Downloader icons -->
+  <color name="bg_dl_done">#575757</color>
+  <color name="bg_dl_download">#FFFFFF</color>
+
+  <color name="fg_dl_done">#CDCDCD</color>
+  <color name="fg_dl_folder">#000000</color>
+  <color name="fg_dl_folder_done">#CDCDCD</color>
+
+  <!-- Rating -->
+  <color name="fg_rating_star">#FFFFFF</color>
+  <color name="bg_rating_star">#606060</color>
+
+  <!-- Categories -->
+  <color name="foreground_color">#000</color>
+
+  <color name="amenity">#FFFFFF</color>
+  <color name="entertainment">#FFFFFF</color>
+  <color name="food">#FFFFFF</color>
+  <color name="shop">#FFFFFF</color>
+  <color name="cm_services">#FFFFFF</color>
+  <color name="medical">#FFFFFF</color>
+  <color name="hotel">#FFFFFF</color>
+  <color name="parking">#FFFFFF</color>
+  <color name="tourism">#FFFFFF</color>
+  <color name="transport">#FFFFFF</color>
+  <color name="water">#FFFFFF</color>
+</resources>

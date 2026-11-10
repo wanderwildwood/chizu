@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-bytesize",
+  "name": "Bytesize",
+  "developers": [
+    {
+      "name": "2016 Dan Klammer"
+    }
+  ],
+  "website": "https://github.com/danklammer/bytesize-icons",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

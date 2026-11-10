@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-padauk",
+  "name": "Padauk",
+  "developers": [
+    {
+      "name": "2011 SIL International"
+    }
+  ],
+  "website": "https://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=padauk",
+  "licenses": [
+    "up-sil-license"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-tabler",
+  "name": "Tabler",
+  "developers": [
+    {
+      "name": "2020 Paweł Kuna"
+    }
+  ],
+  "website": "https://tablericons.com/",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "uniqueId": "openstreetmap-data",
+  "name": "OpenStreetMap map data",
+  "description": "The maps themselves: every region file is made from OpenStreetMap.",
+  "developers": [{ "name": "OpenStreetMap contributors" }],
+  "website": "https://www.openstreetmap.org/copyright",
+  "licenses": ["openstreetmap-odbl"]
+}

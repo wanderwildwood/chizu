@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-us-zip-codes-database",
+  "name": "US Zip Codes Database",
+  "developers": [
+    {
+      "name": "Pareto Software, LLC"
+    }
+  ],
+  "website": "https://simplemaps.com/data/us-zips",
+  "licenses": [
+    "up-cc-by-4"
+  ]
+}

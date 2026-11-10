@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-panoramax",
+  "name": "Panoramax",
+  "developers": [
+    {
+      "name": "2023 Adrien Pavie"
+    }
+  ],
+  "website": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Panoramax.svg",
+  "licenses": [
+    "up-cc-by-4"
+  ]
+}

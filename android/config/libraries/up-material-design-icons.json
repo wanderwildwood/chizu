@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-material-design-icons",
+  "name": "Material Design Icons",
+  "developers": [
+    {
+      "name": "2021 Google"
+    }
+  ],
+  "website": "https://github.com/google/material-design-icons",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

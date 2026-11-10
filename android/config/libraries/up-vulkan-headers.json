@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-vulkan-headers",
+  "name": "Vulkan Headers",
+  "developers": [
+    {
+      "name": "2015 Khronos Group"
+    }
+  ],
+  "website": "https://github.com/KhronosGroup/Vulkan-Headers",
+  "licenses": [
+    "up-apache2-license"
+  ]
+}

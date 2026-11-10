@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: a place lately driven to; a tap plans the route there. -->
+<com.google.android.material.textview.MaterialTextView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  style="@style/MwmWidget.TextView.Search"
+  android:ellipsize="end"
+  android:textAlignment="viewStart"
+  app:drawableStartCompat="@drawable/ic_route_to"
+  tools:text="Forest Avenue 12 · 3.1 mi"/>

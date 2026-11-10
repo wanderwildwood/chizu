@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-font-awesome-free",
+  "name": "Font Awesome Free",
+  "developers": [
+    {
+      "name": "2021 Fonticons, Inc"
+    }
+  ],
+  "website": "https://github.com/FortAwesome/Font-Awesome",
+  "licenses": [
+    "up-cc-by-4"
+  ]
+}

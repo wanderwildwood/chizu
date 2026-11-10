@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-streetcomplete-taginfo-categorize",
+  "name": "StreetComplete Taginfo Categorize",
+  "developers": [
+    {
+      "name": "2025"
+    }
+  ],
+  "website": "https://github.com/mnalis/StreetComplete-taginfo-categorize",
+  "licenses": [
+    "up-cc0-1"
+  ]
+}

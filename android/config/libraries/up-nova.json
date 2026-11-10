@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-nova",
+  "name": "Nova",
+  "developers": [
+    {
+      "name": "2019 scadini"
+    }
+  ],
+  "website": "https://github.com/scadini/nova-icon",
+  "licenses": [
+    "up-mit-license"
+  ]
+}

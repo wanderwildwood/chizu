@@ -1,0 +1,13 @@
+{
+  "uniqueId": "up-libkdtree",
+  "name": "libkdtree++",
+  "developers": [
+    {
+      "name": "2004-2007 Martin F. Krafft, parts are © 2004-2008 Paul Harris and © 2007-2008 Sylvain Bougerel"
+    }
+  ],
+  "website": "https://libkdtree.alioth.debian.org",
+  "licenses": [
+    "up-artistic-license"
+  ]
+}

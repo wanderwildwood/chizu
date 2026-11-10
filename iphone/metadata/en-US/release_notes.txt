@@ -1,0 +1,13 @@
+• CarPlay turn guidance rewrite: Solves several bugs, e.g., instructions being lagged, next turn showing wrong direction, next turn only working with TTS on
+• Solve long-standing crash in CarPlay search results
+• Handle cars that limit list displays in CarPlay when driving
+• Fix invisible settings icons on iOS 27 in CarPlay
+• Fix arrow position when starting navigation from dashboard and moving to main view
+• Improve dark mode contrast: more legible text and roads
+• Add Hazardous Areas
+• Distinguish Vegetarian "options" vs "only"
+• Stop saying "go straight" when crossing large roads
+• Split Tanzania, Vietnam, Malaysia, China Guangdong into smaller maps
+• “?reviews” search keyword, which finds places that have reviews
+• Show second-hand information on place page, added music venues, cafeterias and more
+• OpenStreetMap data as of November 5 and further weekly updates
