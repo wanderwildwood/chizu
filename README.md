@@ -62,6 +62,17 @@ build needs `-PdisableHWAsan`.
 A release build is signed with a key in a `signing/` folder that is not in this
 repository. Without it, the release comes out unsigned.
 
+## Getting it, and keeping it
+
+Download <https://github.com/wanderwildwood/chizu/releases/latest/download/chizu.apk>
+and sideload it. That address always points at the newest release, and every release
+publishes a `.sha256` beside the APK if you would rather check than trust.
+
+For updates without doing this by hand, add this repository to
+[Obtainium](https://github.com/ImranR98/Obtainium):
+
+    https://github.com/wanderwildwood/chizu
+
 ## License
 
 Atlas is licensed under the GNU General Public License, version 3 only: see
