@@ -1,4 +1,4 @@
-# Atlas
+# 地図 chizu — Atlas
 
 地図 *chizu* — a map: the ground drawn on paper, to be read rather than watched.
 
