@@ -135,6 +135,7 @@ import app.organicmaps.widget.menu.MainMenu;
 import app.organicmaps.widget.placepage.PlacePageController;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
+import com.wanderwildwood.chizu.StreamedMap;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
@@ -195,6 +196,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
   private PanelAnimator mPanelAnimator;
   @Nullable
   private OnmapDownloader mOnmapDownloader;
+  // Atlas: the streamed map, drawn over the map where no map is on the phone.
+  @Nullable
+  private StreamedMap.Layer mStreamedMap;
   private boolean mIsTabletLayout;
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
@@ -626,6 +630,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     mMapController = new MapController(findViewById(R.id.map), MwmApplication.from(this).getLocationHelper(), this,
                                        this::reportUnsupported, isLaunchByDeeplink);
     getLifecycle().addObserver(mMapController);
+    mStreamedMap = new StreamedMap.Layer(this, findViewById(R.id.stream_map));
 
     initNavigationButtons();
 
@@ -1191,6 +1196,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   protected void onResume()
   {
     super.onResume();
+    if (mStreamedMap != null)
+      mStreamedMap.onResume();
     ThemeSwitcher.INSTANCE.restart(mMapController.isRenderingActive());
     refreshSearchToolbar();
     setFullscreen(isFullscreen());
@@ -1221,6 +1228,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     if (mOnmapDownloader != null)
       mOnmapDownloader.onPause();
+    if (mStreamedMap != null)
+      mStreamedMap.onPause();
     MwmApplication.from(this).getSensorHelper().removeListener(this);
     dismissLocationErrorDialog();
     dismissAlertDialog();
@@ -1231,6 +1240,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   protected void onStart()
   {
     super.onStart();
+    if (mStreamedMap != null)
+      mStreamedMap.onStart();
     Framework.nativePlacePageActivationListener(this);
     BookmarkManager.INSTANCE.addLoadingListener(this);
     RoutingController.get().attach(this);
@@ -1245,6 +1256,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   protected void onStop()
   {
     super.onStop();
+    if (mStreamedMap != null)
+      mStreamedMap.onStop();
     Framework.nativeRemovePlacePageActivationListener(this);
     BookmarkManager.INSTANCE.removeLoadingListener(this);
     MwmApplication.from(this).getLocationHelper().removeListener(this);
@@ -1272,6 +1285,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
   protected void onSafeDestroy()
   {
     super.onSafeDestroy();
+    if (mStreamedMap != null)
+      mStreamedMap.onDestroy();
+    mStreamedMap = null;
     mLocationPermissionRequest.unregister();
     mLocationPermissionRequest = null;
     mLocationResolutionRequest.unregister();
@@ -1480,6 +1496,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mDisplayManager.isDeviceDisplayUsed())
     {
       mMapController.updateBottomWidgetsOffset(offsetX, offsetY);
+      if (mStreamedMap != null)
+        mStreamedMap.setBottomCover(offsetY);
       // Atlas: while a route is followed the arrow stands a third of the way up the map that
       // shows above the bottom bar, not against the bar.
       final int mapHeight = getWindow().getDecorView().getHeight();
@@ -1768,6 +1786,9 @@ public class MwmActivity extends BaseMwmFragmentActivity
     closeFloatingToolbarsAndPanels(true);
     mMapButtonsViewModel.setLayoutMode(MapButtonsController.LayoutMode.regular);
     refreshLightStatusBar();
+    // Atlas: the download panel stood back for a route from the route server; it is due again now.
+    if (mOnmapDownloader != null)
+      mOnmapDownloader.updateState(false);
   }
 
   @Override
@@ -1807,6 +1828,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     // Atlas: the map download panel steps aside for a route from the route server.
     if (mOnmapDownloader != null)
       mOnmapDownloader.updateState(false);
+    if (mStreamedMap != null)
+      mStreamedMap.onRouteChanged();
 
     if (!RoutingController.get().isPlanning())
       return;
@@ -2646,6 +2669,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public void onTrimMemory(int level)
   {
     super.onTrimMemory(level);
+    if (mStreamedMap != null)
+      mStreamedMap.onLowMemory();
     Logger.d(TAG, "trim memory, level = " + level);
 
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM)

@@ -117,6 +117,9 @@ public class Framework
   @Size(2)
   public static native double[] nativeGetScreenRectCenter();
 
+  /// Atlas: {latitude, longitude at the middle of the screen, Mercator units per pixel, bearing up the screen}.
+  public static native double[] nativeGetViewport();
+
   public static native DistanceAndAzimut nativeGetDistanceAndAzimuth(double dstMerX, double dstMerY, double srcLat,
                                                                      double srcLon, double north);
 

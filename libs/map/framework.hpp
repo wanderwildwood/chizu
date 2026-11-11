@@ -667,6 +667,8 @@ public:
   m2::PointD GetVisiblePixelCenter() const;
 
   m2::PointD const & GetViewportCenter() const;
+  /// Atlas: the screen as it is drawn now, for the streamed map that lies over this one.
+  ScreenBase const & GetCurrentModelView() const { return m_currentModelView; }
   void SetViewportCenter(m2::PointD const & pt, int zoomLevel = -1, bool isAnim = true,
                          bool trackVisibleViewport = false);
   void SetViewportCenterAndAngle(m2::PointD const & pt, int zoomLevel, double angle, bool isAnim = true,

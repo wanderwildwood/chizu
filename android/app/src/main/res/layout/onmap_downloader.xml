@@ -95,5 +95,15 @@
         android:visibility="visible"
         tools:visibility="visible"/>
     </FrameLayout>
+    <!-- Atlas: the streamed map, offered until it has been switched on. -->
+    <com.google.android.material.button.MaterialButton
+      android:id="@+id/downloader_online"
+      style="@style/MwmWidget.M3.Button.Secondary"
+      android:layout_width="180dp"
+      android:layout_height="wrap_content"
+      android:layout_marginTop="@dimen/margin_half"
+      android:text="@string/streamed_map_show_online"
+      android:visibility="gone"
+      tools:visibility="visible"/>
   </LinearLayout>
 </ScrollView>

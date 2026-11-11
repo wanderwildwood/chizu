@@ -20,7 +20,9 @@ import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.WheelProgressView;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
+import com.wanderwildwood.chizu.StreamedMap;
 import java.util.List;
 
 public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
@@ -38,6 +40,8 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
   private final MaterialTextView mSize;
   private final WheelProgressView mProgress;
   private final MaterialButton mButton;
+  // Atlas: "Show it online", until the streamed map has been switched on.
+  private final MaterialButton mOnlineButton;
   private final View mOfflineExplanation;
 
   private int mStorageSubscriptionSlot;
@@ -141,6 +145,12 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
       boolean failed = (mCurrentCountry.status == CountryItem.STATUS_FAILED);
 
       showFrame = (enqueued || progress || failed || mCurrentCountry.status == CountryItem.STATUS_DOWNLOADABLE);
+      // Atlas: with the streamed map on, the map is drawn here anyway; the panel would only cover it.
+      // A download that is under way or has failed still shows.
+      final boolean streamed = StreamedMap.isOn(mActivity);
+      if (streamed && mCurrentCountry.status == CountryItem.STATUS_DOWNLOADABLE)
+        showFrame = false;
+      UiUtils.showIf(!streamed && !progress && !enqueued, mOnlineButton);
 
       if (showFrame)
       {
@@ -215,6 +225,18 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     View controls = mFrame.findViewById(R.id.downloader_controls_frame);
     mProgress = controls.findViewById(R.id.wheel_downloader_progress);
     mButton = controls.findViewById(R.id.downloader_button);
+    mOnlineButton = mFrame.findViewById(R.id.downloader_online);
+    mOnlineButton.setOnClickListener(
+        v -> new MaterialAlertDialogBuilder(mActivity, R.style.MwmTheme_M3_AlertDialog)
+                 .setTitle(R.string.streamed_map_ask_title)
+                 .setMessage(R.string.streamed_map_ask_body)
+                 .setPositiveButton(R.string.streamed_map_use,
+                                    (dialog, which) -> {
+                                      StreamedMap.setOn(mActivity, true);
+                                      updateState(false);
+                                    })
+                 .setNegativeButton(R.string.streamed_map_not_now, null)
+                 .show());
 
     mOfflineExplanation = mFrame.findViewById(R.id.offline_explanation);
     updateOfflineExplanationVisibility();

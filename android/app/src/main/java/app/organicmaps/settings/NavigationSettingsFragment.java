@@ -17,6 +17,7 @@ import app.organicmaps.sdk.settings.UnitLocale;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.Utils;
 import com.wanderwildwood.chizu.OnlineRoutes;
+import com.wanderwildwood.chizu.StreamedMap;
 
 @Keep
 public class NavigationSettingsFragment extends BaseXmlSettingsFragment
@@ -34,6 +35,7 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
 
     initMeasureUnitsPrefsCallbacks();
     initOnlineRoutesPrefsCallbacks();
+    initStreamedMapPrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
     initAndroidAutoSupportPrefsCallback();
@@ -100,6 +102,36 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     pref.setOnPreferenceChangeListener((preference, newValue) -> {
       UnitLocale.setUnits((Boolean) newValue ? UnitLocale.UNITS_FOOT : UnitLocale.UNITS_METRIC);
       return true;
+    });
+  }
+
+  // Atlas: the switch for the streamed map, and the address of a tile server of one's own.
+  private void initStreamedMapPrefsCallbacks()
+  {
+    final TwoStatePreference onPref = getPreference(getString(R.string.pref_streamed_map));
+    onPref.setChecked(StreamedMap.isOn(requireContext()));
+    onPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      StreamedMap.setOn(requireContext(), (Boolean) newValue);
+      return true;
+    });
+
+    final TwoStatePreference wifiPref = getPreference(getString(R.string.pref_streamed_map_wifi));
+    wifiPref.setChecked(StreamedMap.isWifiOnly(requireContext()));
+    wifiPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      StreamedMap.setWifiOnly(requireContext(), (Boolean) newValue);
+      return true;
+    });
+
+    final EditTextPreference serverPref = getPreference(getString(R.string.pref_streamed_map_server));
+    final String server = StreamedMap.server(requireContext());
+    serverPref.setText(server);
+    serverPref.setSummary(server.isEmpty() ? getString(R.string.streamed_map_server_default) : server);
+    serverPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final String clean = OnlineRoutes.cleanServer((String) newValue);
+      StreamedMap.setServer(requireContext(), clean);
+      serverPref.setText(clean);
+      serverPref.setSummary(clean.isEmpty() ? getString(R.string.streamed_map_server_default) : clean);
+      return false; // The cleaned address was set above.
     });
   }
 

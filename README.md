@@ -39,8 +39,12 @@ What Atlas changes:
 - **A route without the map.** For a place whose region is not on the phone, Atlas can
   get the route from a route server and guide by the card all the same. It asks before the
   first time. The server is the routing server of [FOSSGIS](https://www.fossgis.de/)
-  (Valhalla, from OpenStreetMap data) unless Settings names one of your own. The map of
-  such a place still has to be downloaded to be seen.
+  (Valhalla, from OpenStreetMap data) unless Settings names one of your own.
+- **A map without the download.** Where no region is on the phone, Atlas can draw the
+  map from a map server as you look at it, in the same black and white, with your
+  position and the route on it. It asks before the first time, and a switch keeps it to
+  Wi-Fi. The server is [OpenFreeMap](https://openfreemap.org/) unless Settings names one
+  of your own. A downloaded region is always drawn from the phone.
 - **What is left out.** No map editing and no OpenStreetMap sign-in, so no account of any
   kind. No donation prompts. One build, with no store variants.
 - **About and Licenses.** The same two pages as in the other wander wildwood apps. The
@@ -58,7 +62,10 @@ Your position, searches, routes, favorites and tracks stay on the phone. The net
 used to download the maps you choose, from the CoMaps map servers. For a route whose map
 is not on the phone, Atlas asks once whether it may get the route online; after a yes it
 sends the start and the destination of such a route to the FOSSGIS routing server, or to
-a route server of your own named in Settings. Nothing goes to the developer. The whole of
+a route server of your own named in Settings. Where no map is on the phone, Atlas asks
+once whether it may show the map online; after a yes it fetches the pieces of map under
+the screen from the OpenFreeMap map server, or from a map server of your own, so that
+server sees which area you look at. Nothing goes to the developer. The whole of
 it is in [PRIVACY.md](PRIVACY.md).
 
 ## Building

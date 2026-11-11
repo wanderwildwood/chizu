@@ -13,6 +13,12 @@
       android:id="@+id/map"
       android:layout_width="match_parent"
       android:layout_height="match_parent" />
+    <!-- Atlas: the streamed map lies over the map where no map is on the phone. Touches pass through. -->
+    <com.wanderwildwood.chizu.ui.PassThroughFrame
+      android:id="@+id/stream_map"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:visibility="gone" />
     <include
       android:id="@+id/onmap_downloader"
       layout="@layout/onmap_downloader"

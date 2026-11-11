@@ -1229,6 +1229,30 @@ JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetScree
   return jLatLon;
 }
 
+// Atlas: what the screen shows, measured on the screen itself so that no convention of ScreenBase is
+// relied on: {latitude and longitude at the middle of the screen, Mercator units per pixel, the
+// compass bearing in degrees that points up the screen}.
+JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_Framework_nativeGetViewport(JNIEnv * env, jclass)
+{
+  ScreenBase const & screen = frm()->GetCurrentModelView();
+  m2::RectD const & pixels = screen.PixelRect();
+  double const kStep = 100.0;
+  m2::PointD const middlePx = pixels.Center();
+  m2::PointD const middle = screen.PtoG(middlePx);
+  m2::PointD const right = screen.PtoG(m2::PointD(middlePx.x + kStep, middlePx.y));
+  double const dx = right.x - middle.x;
+  double const dy = right.y - middle.y;
+  // Screen-right points to the compass direction atan2(east, north); up the screen is 90 degrees less.
+  double bearing = math::RadToDeg(atan2(dx, dy)) - 90.0;
+  if (bearing < 0.0)
+    bearing += 360.0;
+
+  double viewport[] = {mercator::YToLat(middle.y), mercator::XToLon(middle.x), sqrt(dx * dx + dy * dy) / kStep, bearing};
+  jdoubleArray jViewport = env->NewDoubleArray(4);
+  env->SetDoubleArrayRegion(jViewport, 0, 4, viewport);
+  return jViewport;
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeRestoreDownloadQueue(JNIEnv * env, jclass)
 {
   frm()->GetStorage().RestoreDownloadQueue();

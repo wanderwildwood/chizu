@@ -16,4 +16,21 @@
   <string name="online_routes_server_message">The address of a Valhalla server of your own, starting with https://. Leave it empty to use the FOSSGIS server.</string>
   <string name="pref_online_routes" translatable="false">AtlasOnlineRoutes</string>
   <string name="pref_online_route_server" translatable="false">AtlasOnlineRouteServer</string>
+  <!-- Atlas: the streamed map, drawn from a tile server where no map is on the phone. -->
+  <string name="streamed_map_show_online">Show it online</string>
+  <string name="streamed_map_ask_title">Show the map online?</string>
+  <string name="streamed_map_ask_body">The map for this area is not on your phone. Atlas can get the part you are looking at from the OpenFreeMap map server, piece by piece as you move. The server sees which area you look at.</string>
+  <string name="streamed_map_use">Show the map online</string>
+  <string name="streamed_map_not_now">Not now</string>
+  <string name="streamed_map_switch">Streamed map</string>
+  <string name="streamed_map_switch_summary">Where no map is on your phone, show the map from a map server as you look at it.</string>
+  <string name="streamed_map_wifi">Streamed map on Wi-Fi only</string>
+  <string name="streamed_map_wifi_summary">On mobile data, show only the parts of the map already seen.</string>
+  <string name="streamed_map_server">Map server</string>
+  <string name="streamed_map_server_default">OpenFreeMap (tiles.openfreemap.org)</string>
+  <string name="streamed_map_server_message">The address of a map tile server of your own (OpenMapTiles layout), starting with https://. Leave it empty to use OpenFreeMap.</string>
+  <string name="streamed_map_credit">OpenFreeMap © OpenMapTiles Data from OpenStreetMap</string>
+  <string name="pref_streamed_map" translatable="false">AtlasStreamedMap</string>
+  <string name="pref_streamed_map_server" translatable="false">AtlasStreamedMapServer</string>
+  <string name="pref_streamed_map_wifi" translatable="false">AtlasStreamedMapWifi</string>
 </resources>

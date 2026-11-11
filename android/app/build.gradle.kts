@@ -79,6 +79,15 @@ android {
         targetSdk = providers.gradleProperty("propTargetSdkVersion").get().toInt()
         base.archivesName = "${appName.replace(" ", "")}-${defaultConfig.versionCode!!}"
         ndk.debugSymbolLevel = "full"
+        // Atlas: a library that comes ready-built (MapLibre) is packed for the same processors as
+        // the map engine, as chosen with -Parm64 and the like; with no choice, for all four.
+        val chosenAbis = listOfNotNull(
+            "armeabi-v7a".takeIf { project.hasProperty("arm32") || project.hasProperty("armeabi-v7a") },
+            "arm64-v8a".takeIf { project.hasProperty("arm64") || project.hasProperty("arm64-v8a") },
+            "x86".takeIf { project.hasProperty("x86") },
+            "x86_64".takeIf { project.hasProperty("x86_64") || project.hasProperty("x64") },
+        )
+        if (chosenAbis.isNotEmpty()) ndk.abiFilters += chosenAbis
         buildConfigField("String", "REVIEW_URL", "\"\"")
         buildConfigField("String", "SUPPORT_MAIL", "\"email@wanderthe.dev\"")
         println("Version: ${versionName!!}")
@@ -313,6 +322,10 @@ dependencies {
     implementation(libs.compose.foundation)
     implementation(libs.compose.material3)
     implementation(libs.mmd)
+
+    // The streamed map: MapLibre draws map tiles from a server where no map is on the phone.
+    implementation(libs.maplibre)
+    implementation(libs.okhttp)
 
     // Test Dependencies
     androidTestImplementation(libs.androidx.test.junit)

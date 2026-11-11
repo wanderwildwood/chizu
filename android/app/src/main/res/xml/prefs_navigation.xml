@@ -36,6 +36,27 @@
     android:persistent="false"
     android:title="@string/online_routes_server"
     app:singleLineTitle="false" />
+  <!-- Atlas: the streamed map. Not persisted here: StreamedMap keeps both values. -->
+  <SwitchPreferenceCompat
+    android:key="@string/pref_streamed_map"
+    android:persistent="false"
+    android:summary="@string/streamed_map_switch_summary"
+    android:title="@string/streamed_map_switch"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <SwitchPreferenceCompat
+    android:key="@string/pref_streamed_map_wifi"
+    android:persistent="false"
+    android:summary="@string/streamed_map_wifi_summary"
+    android:title="@string/streamed_map_wifi"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <EditTextPreference
+    android:dialogMessage="@string/streamed_map_server_message"
+    android:key="@string/pref_streamed_map_server"
+    android:persistent="false"
+    android:title="@string/streamed_map_server"
+    app:singleLineTitle="false" />
 
   <SwitchPreferenceCompat
     android:key="@string/pref_3d"
