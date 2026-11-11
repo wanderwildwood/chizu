@@ -9,6 +9,7 @@ import androidx.core.view.ViewCompat;
 import app.organicmaps.MwmActivity;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
+import app.organicmaps.sdk.Router;
 import app.organicmaps.sdk.downloader.CountryItem;
 import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.routing.RoutingController;
@@ -127,8 +128,11 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
   {
     updateOfflineExplanationVisibility();
 
-    boolean showFrame =
-        (mCurrentCountry != null && !mCurrentCountry.present && !RoutingController.get().isNavigating());
+    // Atlas: a route that came from the route server needs no map here. The panel would cover it,
+    // and with auto-download on it would fetch the region the person just did without.
+    final boolean onlineRoute = Router.isOnline() && RoutingController.get().isPlanning();
+    boolean showFrame = (mCurrentCountry != null && !mCurrentCountry.present
+                         && !RoutingController.get().isNavigating() && !onlineRoute);
     if (showFrame)
     {
       boolean enqueued = (mCurrentCountry.status == CountryItem.STATUS_ENQUEUED);

@@ -6,7 +6,7 @@ This is the policy for Atlas (chizu, 地図), the app published from this reposi
 
 ## The short version
 
-The developer collects nothing about you. There is no account, no sign-up, no analytics, no advertising and no crash reporting, and no server belonging to the developer that the app talks to. Atlas is an offline map: your position, searches, routes, favorites and recorded tracks are worked out and kept on your phone. The network is used to download the maps you choose, and for the few other things listed below, each because you used the feature.
+The developer collects nothing about you. There is no account, no sign-up, no analytics, no advertising and no crash reporting, and no server belonging to the developer that the app talks to. Atlas is an offline map: your position, searches, routes, favorites and recorded tracks are worked out and kept on your phone. The network is used to download the maps you choose, and for the few other things listed below, each because you used the feature. One of them is a route from a route server, for a place whose map is not on your phone: Atlas asks before it does that the first time.
 
 ## Where it comes from
 
@@ -46,11 +46,12 @@ From the app's manifest (`android/app/src/main/AndroidManifest.xml`):
 - `WAKE_LOCK`: keeping the phone awake during navigation and downloads.
 - `androidx.car.app.NAVIGATION_TEMPLATES`, `androidx.car.app.ACCESS_SURFACE`: showing the map on a car's screen through Android Auto, when you connect to one.
 
-Your position is used on the phone. It is not sent to the developer or to the map servers; routes and searches are computed on the phone from the downloaded maps.
+Your position is used on the phone. It is not sent to the developer or to the map servers; searches are computed on the phone from the downloaded maps, and so are routes, unless you have agreed to online routes (below).
 
 ## Who else receives anything
 
 - **The CoMaps map servers.** To list, download and update maps the app contacts the CoMaps servers (`cdn-us-1.comaps.app` for the list of mirrors, then one of the mirrors the CoMaps project and its volunteers run). As with any download they see your internet address and which region files you fetch. Settings lets you name a different map server instead.
+- **The route server, only if you said yes to online routes.** When the map a route needs is not on your phone, Atlas asks once whether it may get the route online. After a yes, each such route sends the start (usually where you are), the destination, any stops, whether it is by car, on foot or by bicycle, and what you chose to avoid, to the routing server of FOSSGIS e.V. (`valhalla1.openstreetmap.de`), a German association whose volunteers run it. A new route is asked for when you leave the line. The server sees your internet address and the name of the app, and keeps requests in its server log; FOSSGIS does not say for how long. Nothing else is sent, and nothing at all for a route inside your downloaded maps. Settings, Navigation has the switch to turn online routes off again, and a field for the address of a route server of your own, which then receives the same instead.
 - **Google**, only on a phone that has Google Play services (or microG) and only while the "Google Fused Location Service" switch in Settings, Privacy is on. Android's fused location service then helps find your position and may contact Google. With the switch off, or on a phone without those services, only the phone's own positioning is used.
 - **Your browser, phone and mail apps.** A website, phone number, email address or Wikipedia link on a place's page opens in the app that handles it; what that site or service learns is between you and it.
 - **Android's speech engine.** Spoken directions are read out by the text-to-speech engine installed on the phone; the app hands it the words of each instruction.
@@ -58,7 +59,7 @@ Your position is used on the phone. It is not sent to the developer or to the ma
 <!-- shared-about privacy section -->
 ## Who we are
 
-Atlas is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Atlas keeps what you put in it on your phone, apart from what it sends to the CoMaps map servers as described above, and sends nothing to the developer, so the developer holds no data about you.
+Atlas is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Atlas keeps what you put in it on your phone, apart from what it sends to the CoMaps map servers and, if you agreed to online routes, the route server, as described above, and sends nothing to the developer, so the developer holds no data about you.
 
 ## How to contact us
 
@@ -80,7 +81,7 @@ Similar laws elsewhere, such as the CCPA in California, give you the right to kn
 
 Since Atlas keeps what it stores only on your phone, you can exercise most of these rights yourself: delete favorites, tracks and downloaded maps in the app, clear the app's data in Android's settings, or uninstall the app, which deletes all of it. For anything you cannot do yourself, write to the address above.
 
-Atlas connects to the CoMaps map servers. They are separate from this app and from its developer, and what they receive is covered by their own privacy policy; ask them about what they hold.
+Atlas connects to the CoMaps map servers and, if you agreed to online routes, to the FOSSGIS route server. They are separate from this app and from its developer, and what they receive is covered by their own privacy policies; ask them about what they hold.
 <!-- /shared-about privacy section -->
 
 ## Changes

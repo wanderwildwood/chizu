@@ -1804,6 +1804,10 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public void onBuiltRoute()
   {
+    // Atlas: the map download panel steps aside for a route from the route server.
+    if (mOnmapDownloader != null)
+      mOnmapDownloader.updateState(false);
+
     if (!RoutingController.get().isPlanning())
       return;
 
@@ -1822,13 +1826,23 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Override
   public void onCommonBuildError(int lastResultCode, @NonNull String[] lastMissingMaps)
   {
+    // Atlas: a route whose map is not on the phone can come from a route server (asked once).
+    if (com.wanderwildwood.chizu.OnlineRoutes.onBuildError(this, lastResultCode, lastMissingMaps,
+                                                           this::onOfflineBuildError))
+      return;
+    onOfflineBuildError(lastResultCode, lastMissingMaps, false);
+  }
+
+  /// @param asked the person chose "download the map" in a dialog: no need for Wi-Fi or the auto-download setting.
+  private void onOfflineBuildError(int lastResultCode, @NonNull String[] lastMissingMaps, boolean asked)
+  {
     // Atlas: planning a route does not stop to ask about maps. With "Auto-download maps" on and
     // Wi-Fi up, the maps a route needs are fetched without a question. With it off, a route that
     // was found but would be better with more maps is simply shown, with a download button beside
     // the directions and save buttons (RoutingBottomMenuController). Only a route that cannot be
     // made at all still says why.
-    if (ResultCodesHelper.isDownloadable(lastResultCode, lastMissingMaps.length) && Config.isAutodownloadEnabled()
-        && ConnectionState.INSTANCE.isWifiConnected())
+    if (ResultCodesHelper.isDownloadable(lastResultCode, lastMissingMaps.length)
+        && (asked || (Config.isAutodownloadEnabled() && ConnectionState.INSTANCE.isWifiConnected())))
     {
       final RoutingMapsDownloadFragment downloader = RoutingMapsDownloadFragment.create(
           getSupportFragmentManager().getFragmentFactory(), getApplicationContext(), lastMissingMaps);

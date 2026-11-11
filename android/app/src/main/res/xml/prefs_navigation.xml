@@ -22,6 +22,21 @@
     </intent>
   </PreferenceScreen>
 
+  <!-- Atlas: routes from a route server. Not persisted here: OnlineRoutes keeps both values. -->
+  <SwitchPreferenceCompat
+    android:key="@string/pref_online_routes"
+    android:persistent="false"
+    android:summary="@string/online_routes_switch_summary"
+    android:title="@string/online_routes_switch"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <EditTextPreference
+    android:dialogMessage="@string/online_routes_server_message"
+    android:key="@string/pref_online_route_server"
+    android:persistent="false"
+    android:title="@string/online_routes_server"
+    app:singleLineTitle="false" />
+
   <SwitchPreferenceCompat
     android:key="@string/pref_3d"
     android:title="@string/pref_map_3d_title"

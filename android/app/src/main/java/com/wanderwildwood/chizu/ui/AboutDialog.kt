@@ -25,6 +25,8 @@ fun AboutDialog(onDismiss: () -> Unit) {
             AboutSection(null, stringResource(R.string.about_built_on)),
         ),
         sourceUrl = SOURCE_URL,
+        // FOSSGIS asks apps that use its route server to offer this link beside the OpenStreetMap credit.
+        links = listOf(AboutLinkData(stringResource(R.string.about_link_fix_the_map), "https://www.openstreetmap.org/fixthemap")),
     )
     val labels = AboutLabels(
         close = stringResource(R.string.about_close),

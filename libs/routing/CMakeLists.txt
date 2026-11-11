@@ -150,6 +150,8 @@ set(SRC
   routing_session.hpp
   routing_settings.cpp
   routing_settings.hpp
+  online_router.cpp
+  online_router.hpp
   ruler_router.cpp
   ruler_router.hpp
   segment.cpp
@@ -202,6 +204,7 @@ target_link_libraries(${PROJECT_NAME}
   PUBLIC
     base
     coding
+    cppjansson
     geometry
     i18n
     indexer

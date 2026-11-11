@@ -15,6 +15,7 @@
 #include "routing/features_road_graph.hpp"
 #include "routing/following_info.hpp"
 #include "routing/index_router.hpp"
+#include "routing/online_router.hpp"
 #include "routing/maxspeeds.hpp"
 #include "routing/route.hpp"
 #include "routing/routing_callbacks.hpp"
@@ -249,7 +250,8 @@ RoadWarningMarkType GetRoadType(RoutingOptions::Option road)
 }
 
 drape_ptr<df::Subroute> CreateDrapeSubroute(vector<RouteSegment> const & segments, m2::PointD const & startPt,
-                                            double baseDistance, double baseDepth, routing::RouterType routerType)
+                                            double baseDistance, double baseDepth, routing::RouterType routerType,
+                                            bool wholeLine)
 {
   auto subroute = make_unique_dp<df::Subroute>();
   subroute->m_baseDistance = baseDistance;
@@ -277,7 +279,8 @@ drape_ptr<df::Subroute> CreateDrapeSubroute(vector<RouteSegment> const & segment
     return nullptr;
   }
 
-  if (routerType == RouterType::Ruler)
+  // An online route has no real segments either: its line is drawn whole, as the ruler's is.
+  if (routerType == RouterType::Ruler || wholeLine)
   {
     auto const subrouteLen = segments.back().GetDistFromBeginningMerc() - baseDistance;
     subroute->m_headFakeDistance = -kBias;
@@ -621,8 +624,13 @@ void RoutingManager::SetRouterImpl(RouterType type)
   std::unique_ptr<IRouter> router;
   std::unique_ptr<AbsentRegionsFinder> absentFinder;
 
+  bool const online = m_onlineRouting && (vehicleType == VehicleType::Car || vehicleType == VehicleType::Pedestrian ||
+                                         vehicleType == VehicleType::Bicycle);
+
   if (type == RouterType::Ruler)
     router = make_unique<RulerRouter>();
+  else if (online)
+    router = make_unique<OnlineRouter>(vehicleType, m_onlineServerUrl);  // No map files: nothing to find absent.
   else
   {
     auto & dataSource = m_callbacks.m_dataSourceGetter();
@@ -908,7 +916,8 @@ bool RoutingManager::InsertRoute(Route const & route)
 
     auto const startPt = route.GetSubrouteAttrs(subrouteIndex).GetStart().GetPoint();
     auto subroute = CreateDrapeSubroute(segments, startPt, distance,
-                                        static_cast<double>(subroutesCount - subrouteIndex - 1), m_currentRouterType);
+                                        static_cast<double>(subroutesCount - subrouteIndex - 1), m_currentRouterType,
+                                        m_onlineRouting /* wholeLine */);
     if (!subroute)
       continue;
     distance = segments.back().GetDistFromBeginningMerc();
@@ -951,8 +960,10 @@ bool RoutingManager::InsertRoute(Route const & route)
     default: CHECK(false, ("Unknown router type"));
     }
 
-    CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
-    if (m_currentRouterType == RouterType::Vehicle)
+    // An online route's segments belong to no map file: there is nothing to look up for them.
+    if (!m_onlineRouting)
+      CollectRoadWarnings(segments, startPt, subroute->m_baseDistance, getMwmId, roadWarnings);
+    if (m_currentRouterType == RouterType::Vehicle && !m_onlineRouting)
       CollectTrafficLights(segments, startPt, trafficLights);
 
     auto const subrouteId =
@@ -1577,6 +1588,23 @@ void RoutingManager::SetRouter(RouterType type)
 
   SetLastUsedRouter(type);
   SetRouterImpl(type);
+}
+
+void RoutingManager::SetOnlineRouting(bool enabled, std::string const & serverUrl)
+{
+  CHECK_THREAD_CHECKER(m_threadChecker, ("SetOnlineRouting"));
+
+  if (m_onlineRouting == enabled && m_onlineServerUrl == serverUrl)
+    return;
+
+  m_onlineRouting = enabled;
+  m_onlineServerUrl = serverUrl;
+
+  if (m_currentRouterType != RouterType::Count)
+  {
+    HidePreviewSegments();
+    SetRouterImpl(m_currentRouterType);
+  }
 }
 
 // static

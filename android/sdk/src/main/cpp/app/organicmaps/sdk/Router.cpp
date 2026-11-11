@@ -24,6 +24,17 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Router_nativeSet(JNIEnv *, jclas
   frm()->GetRoutingManager().SetRouter(type);
 }
 
+JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Router_nativeSetOnline(JNIEnv * env, jclass, jboolean enabled,
+                                                                       jstring serverUrl)
+{
+  frm()->GetRoutingManager().SetOnlineRouting(enabled, serverUrl ? jni::ToNativeString(env, serverUrl) : std::string());
+}
+
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_Router_nativeIsOnline(JNIEnv *, jclass)
+{
+  return frm()->GetRoutingManager().IsOnlineRouting();
+}
+
 JNIEXPORT jint JNICALL Java_app_organicmaps_sdk_Router_nativeGet(JNIEnv *, jclass)
 {
   return static_cast<jint>(frm()->GetRoutingManager().GetRouter());

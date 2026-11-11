@@ -384,6 +384,11 @@ public:
 
   void SetRouteSegments(std::vector<RouteSegment> && routeSegments);
 
+  /// Atlas: for a route that came from a server. None of its segments belongs to a map file, which
+  /// SetRouteSegments takes for "fake", and the position is not drawn onto a fake segment. Such a
+  /// route is a real road line all the way: call this after SetRouteSegments so the position follows it.
+  void MatchPositionToAllSegments() { m_poly.SetFakeSegmentIndexes({}); }
+
   std::vector<RouteSegment> & GetRouteSegments() { return m_routeSegments; }
   std::vector<RouteSegment> const & GetRouteSegments() const { return m_routeSegments; }
   RoutingSettings const & GetCurrentRoutingSettings() const { return m_routingSettings; }

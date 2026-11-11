@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Atlas: a route from a route server when the map for it is not on the phone. -->
+  <string name="online_routes_ask_title">Get this route online?</string>
+  <string name="online_routes_ask_body">The map for this route is not on your phone. Atlas can send your start and destination to the FOSSGIS routing server and get the route from there.</string>
+  <string name="online_routes_use">Use online routes</string>
+  <string name="online_routes_download_instead">Download the map instead</string>
+  <string name="online_routes_failed_title">The route server did not answer.</string>
+  <string name="online_routes_failed_body">Try again in a moment, or download the map for this area to route without a connection.</string>
+  <string name="online_routes_try_again">Try again</string>
+  <string name="online_routes_download_map">Download the map</string>
+  <string name="online_routes_switch">Online routes</string>
+  <string name="online_routes_switch_summary">When the map for a route is not on your phone, get the route from a route server.</string>
+  <string name="online_routes_server">Route server</string>
+  <string name="online_routes_server_default">FOSSGIS (valhalla1.openstreetmap.de)</string>
+  <string name="online_routes_server_message">The address of a Valhalla server of your own, starting with https://. Leave it empty to use the FOSSGIS server.</string>
+  <string name="pref_online_routes" translatable="false">AtlasOnlineRoutes</string>
+  <string name="pref_online_route_server" translatable="false">AtlasOnlineRouteServer</string>
+</resources>

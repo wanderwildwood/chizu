@@ -344,8 +344,30 @@ public class RoutingController
     mHasContainerSavedState = true;
   }
 
+  // Atlas: true only while buildOnline() runs.
+  private boolean mOnlineBuild;
+
+  /// Atlas: builds the current route again, this time from a route server (an empty address is
+  /// the default server). Any other build goes back to the maps on the phone first.
+  public void buildOnline(@NonNull String serverUrl)
+  {
+    Router.setOnline(true, serverUrl);
+    mOnlineBuild = true;
+    try
+    {
+      build();
+    }
+    finally
+    {
+      mOnlineBuild = false;
+    }
+  }
+
   private void build()
   {
+    if (!mOnlineBuild && Router.isOnline())
+      Router.setOnline(false, "");
+
     Framework.nativeRemoveRoute();
 
     Logger.d(TAG, "build");

@@ -5,6 +5,7 @@ import android.view.View;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.preference.EditTextPreference;
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.TwoStatePreference;
@@ -15,6 +16,7 @@ import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.settings.UnitLocale;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.Utils;
+import com.wanderwildwood.chizu.OnlineRoutes;
 
 @Keep
 public class NavigationSettingsFragment extends BaseXmlSettingsFragment
@@ -31,6 +33,7 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     super.onViewCreated(view, savedInstanceState);
 
     initMeasureUnitsPrefsCallbacks();
+    initOnlineRoutesPrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
     initAndroidAutoSupportPrefsCallback();
@@ -97,6 +100,29 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     pref.setOnPreferenceChangeListener((preference, newValue) -> {
       UnitLocale.setUnits((Boolean) newValue ? UnitLocale.UNITS_FOOT : UnitLocale.UNITS_METRIC);
       return true;
+    });
+  }
+
+  // Atlas: the switch for routes from a route server, and the address of a server of one's own.
+  private void initOnlineRoutesPrefsCallbacks()
+  {
+    final TwoStatePreference onPref = getPreference(getString(R.string.pref_online_routes));
+    onPref.setChecked(OnlineRoutes.isOn(requireContext()));
+    onPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      OnlineRoutes.setOn(requireContext(), (Boolean) newValue);
+      return true;
+    });
+
+    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_route_server));
+    final String server = OnlineRoutes.server(requireContext());
+    serverPref.setText(server);
+    serverPref.setSummary(server.isEmpty() ? getString(R.string.online_routes_server_default) : server);
+    serverPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final String clean = OnlineRoutes.cleanServer((String) newValue);
+      OnlineRoutes.setServer(requireContext(), clean);
+      serverPref.setText(clean);
+      serverPref.setSummary(clean.isEmpty() ? getString(R.string.online_routes_server_default) : clean);
+      return false; // The cleaned address was set above.
     });
   }
 

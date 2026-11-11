@@ -150,6 +150,10 @@ public:
   routing::RoutingSession & RoutingSession() { return m_routingSession; }
   void SetRouter(routing::RouterType type);
   routing::RouterType GetRouter() const { return m_currentRouterType; }
+  /// Atlas: routes for car, foot and bicycle come from a server instead of the map files.
+  /// An empty address means the default public server.
+  void SetOnlineRouting(bool enabled, std::string const & serverUrl);
+  bool IsOnlineRouting() const { return m_onlineRouting; }
   bool IsRoutingActive() const { return m_routingSession.IsActive(); }
   bool IsRouteBuilt() const { return m_routingSession.IsBuilt(); }
   bool IsRouteBuilding() const { return m_routingSession.IsBuilding(); }
@@ -420,6 +424,8 @@ private:
   Callbacks m_callbacks;
   df::DrapeEngineSafePtr m_drapeEngine;
   routing::RouterType m_currentRouterType = routing::RouterType::Count;
+  bool m_onlineRouting = false;
+  std::string m_onlineServerUrl;
   bool m_loadAltitudes = false;
   routing::RoutingSession m_routingSession;
   Delegate & m_delegate;

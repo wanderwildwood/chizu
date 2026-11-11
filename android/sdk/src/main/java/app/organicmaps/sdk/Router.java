@@ -20,6 +20,18 @@ public enum Router
     nativeSet(routerType.type);
   }
 
+  /// Atlas: routes for car, foot and bicycle come from a server instead of the map files.
+  /// An empty address means the default public server.
+  public static void setOnline(boolean enabled, @NonNull String serverUrl)
+  {
+    nativeSetOnline(enabled, serverUrl);
+  }
+
+  public static boolean isOnline()
+  {
+    return nativeIsOnline();
+  }
+
   public static Router get()
   {
     return valueOf(nativeGet());
@@ -43,6 +55,10 @@ public enum Router
   private final int type;
 
   private static native void nativeSet(int routerType);
+
+  private static native void nativeSetOnline(boolean enabled, String serverUrl);
+
+  private static native boolean nativeIsOnline();
 
   private static native int nativeGet();
 
