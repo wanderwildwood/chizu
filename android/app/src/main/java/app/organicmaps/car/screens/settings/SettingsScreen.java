@@ -63,7 +63,6 @@ public class SettingsScreen extends BaseMapScreen
   private ListTemplate createSettingsListTemplate()
   {
     final ItemList.Builder builder = new ItemList.Builder();
-    builder.addItem(createThemeItem());
     builder.addItem(createRoutingOptionsItem());
     builder.addItem(create3dBuildingsItem());
     builder.addItem(createIncreaseFontScaleItem(R.string.increase_font_size, 0.5));

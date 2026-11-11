@@ -29,8 +29,35 @@
   <string name="streamed_map_server">Map server</string>
   <string name="streamed_map_server_default">OpenFreeMap (tiles.openfreemap.org)</string>
   <string name="streamed_map_server_message">The address of a map tile server of your own (OpenMapTiles layout), starting with https://. Leave it empty to use OpenFreeMap.</string>
-  <string name="streamed_map_credit">OpenFreeMap © OpenMapTiles Data from OpenStreetMap</string>
+  <string name="streamed_map_credit">The map shown online: OpenFreeMap © OpenMapTiles. Data from OpenStreetMap.</string>
   <string name="pref_streamed_map" translatable="false">AtlasStreamedMap</string>
   <string name="pref_streamed_map_server" translatable="false">AtlasStreamedMapServer</string>
   <string name="pref_streamed_map_wifi" translatable="false">AtlasStreamedMapWifi</string>
+  <!-- Atlas: help while the phone looks for its position. -->
+  <string name="fix_help_line">Looking for your position</string>
+  <string name="fix_help_line_satellites">Looking for your position: %1$d satellites seen, %2$d in use</string>
+  <string name="fix_help_title">Looking for your position</string>
+  <string name="fix_help_body">The phone has not found where it is yet. A first fix can take several minutes, longest indoors, and after the phone was off for a while or has traveled far. It helps to stand under open sky and keep still. If the phone\'s location settings offer A-GPS (assisted GPS), switching it on makes the first fix much faster while the phone has a connection; on the Kompakt it is off until you switch it on.</string>
+  <string name="fix_help_satellites">Satellites seen: %1$d, in use: %2$d (a fix needs at least four in use).</string>
+  <string name="fix_help_last_none">No earlier position is known.</string>
+  <string name="fix_help_last_now">The last position is less than a minute old.</string>
+  <string name="fix_help_last_minutes">The last position is %1$d minutes old.</string>
+  <string name="fix_help_last_hours">The last position is %1$d hours old.</string>
+  <string name="fix_help_settings">Location settings</string>
+  <!-- Atlas: an address looked up on an address server, for a house number the maps on the phone lack. -->
+  <string name="online_address_row">Look up “%1$s” online</string>
+  <string name="online_address_ask_title">Look the address up online?</string>
+  <string name="online_address_ask_body">Atlas can send the address you typed to an address server and show where it is: the geocoder of the US Census Bureau for an address in the United States, Photon (run by Komoot, from OpenStreetMap data) anywhere else. The server sees the address and your internet address. Nothing is sent while you type.</string>
+  <string name="online_address_use">Look it up online</string>
+  <string name="online_address_not_now">Not now</string>
+  <string name="online_address_found">Found online</string>
+  <string name="online_address_none">The address server found nothing for this address.</string>
+  <string name="online_address_failed">The address server did not answer. Is the phone online?</string>
+  <string name="online_address_switch">Online address lookup</string>
+  <string name="online_address_switch_summary">Search offers to look an address up on an address server.</string>
+  <string name="online_address_server">Address server</string>
+  <string name="online_address_server_default">US Census geocoder, Photon (photon.komoot.io)</string>
+  <string name="online_address_server_message">The address of a Photon server of your own, ending in /api and starting with https://. Leave it empty to use the US Census geocoder in the United States and Photon elsewhere.</string>
+  <string name="pref_online_address" translatable="false">AtlasOnlineAddress</string>
+  <string name="pref_online_address_server" translatable="false">AtlasOnlineAddressServer</string>
 </resources>

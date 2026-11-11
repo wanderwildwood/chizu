@@ -331,6 +331,7 @@ dependencies {
     androidTestImplementation(libs.androidx.test.junit)
     testImplementation(libs.junit)
     testImplementation(libs.mockito.core)
+    testImplementation("org.json:json:20240303") // the real org.json for unit tests; on the phone Android has its own
 }
 
 android.applicationVariants.configureEach {

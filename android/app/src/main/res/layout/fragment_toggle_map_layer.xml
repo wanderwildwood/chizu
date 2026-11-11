@@ -46,4 +46,15 @@
     android:minHeight="@dimen/toggle_map_layer_frame_height"
     android:paddingStart="@dimen/margin_base"
     android:paddingEnd="@dimen/margin_base" />
+  <!-- Atlas: whose map the streamed map is, one tap from the map (the layers button). -->
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/streamed_map_credit"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_base"
+    android:layout_marginEnd="@dimen/margin_base"
+    android:layout_marginBottom="@dimen/margin_base"
+    android:text="@string/streamed_map_credit"
+    android:textAppearance="@style/MwmTextAppearance.Body3"
+    android:visibility="gone" />
 </LinearLayout>

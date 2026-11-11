@@ -15,6 +15,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.maplayer.Mode;
 import app.organicmaps.sdk.util.SharedPropertiesUtils;
 import app.organicmaps.util.ThemeSwitcher;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.widget.recycler.SpanningLinearLayoutManager;
@@ -40,6 +41,10 @@ public class ToggleMapLayerFragment extends Fragment
         (MapButtonsController) requireActivity().getSupportFragmentManager().findFragmentById(R.id.map_buttons);
     MaterialButton mCloseButton = mRoot.findViewById(R.id.close_button);
     mCloseButton.setOnClickListener(view -> closeLayerBottomSheet());
+
+    // Atlas: with the streamed map switched on, the sheet says whose map that is.
+    UiUtils.showIf(com.wanderwildwood.chizu.StreamedMap.isOn(requireContext()),
+                   mRoot.findViewById(R.id.streamed_map_credit));
 
     initRecycler(mRoot);
     return mRoot;

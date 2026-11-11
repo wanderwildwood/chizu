@@ -27,6 +27,9 @@ import com.google.android.material.textview.MaterialTextView;
 class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHolder>
 {
   private static final int TYPE_CONTACT = 100;
+  private static final int TYPE_ONLINE = 101; // Atlas: the row that looks a typed address up online.
+  @Nullable
+  private String mOnlineQuery;
   @NonNull
   private List<ContactPlaces.Place> mContacts = Collections.emptyList();
 
@@ -134,6 +137,34 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
       lines.setSpan(new StyleSpan(Typeface.BOLD), 0, place.name.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       ((MaterialTextView) itemView).setText(lines);
       itemView.setOnClickListener(v -> mSearchFragment.setQuery(place.address, false));
+    }
+  }
+
+  /** Atlas: under a typed address, the offer to look it up on an address server; nothing is sent before the press. */
+  private class OnlineViewHolder extends SearchDataViewHolder
+  {
+    OnlineViewHolder(@NonNull View view)
+    {
+      super(view);
+      final MaterialTextView text = (MaterialTextView) view;
+      text.setSingleLine(false);
+      final int gap = view.getResources().getDimensionPixelSize(R.dimen.margin_half);
+      text.getLayoutParams().height = ViewGroup.LayoutParams.WRAP_CONTENT;
+      text.setMinimumHeight(view.getResources().getDimensionPixelSize(R.dimen.search_item_height));
+      text.setPaddingRelative(text.getPaddingStart(), gap, text.getPaddingEnd(), gap);
+      text.setCompoundDrawablesRelativeWithIntrinsicBounds(R.drawable.ic_cloud_download, 0, 0, 0);
+      Graphics.tint(text, androidx.appcompat.R.attr.colorAccent);
+    }
+
+    @Override
+    void bind(@NonNull SearchResult result, int position)
+    {}
+
+    void bind(@NonNull String query)
+    {
+      ((MaterialTextView) itemView).setText(itemView.getResources().getString(R.string.online_address_row, query));
+      itemView.setOnClickListener(
+          v -> com.wanderwildwood.chizu.OnlineAddress.lookUp(mSearchFragment.requireActivity(), query));
     }
   }
 
@@ -255,6 +286,8 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
         new SuggestViewHolder(inflater.inflate(R.layout.item_search_suggest, parent, false));
       case TYPE_CONTACT ->
         new ContactViewHolder(inflater.inflate(R.layout.item_search_suggest, parent, false));
+      case TYPE_ONLINE ->
+        new OnlineViewHolder(inflater.inflate(R.layout.item_search_suggest, parent, false));
       case SearchResult.TYPE_RESULT ->
         new ResultViewHolder(inflater.inflate(R.layout.item_search_result, parent, false));
       default -> throw new IllegalArgumentException("Unhandled view type given");
@@ -266,17 +299,23 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
   {
     // Contacts stand above the results; a result keeps its own number, which the map goes by.
     final int contacts = mContacts.size();
+    final int above = rowsAbove();
     if (position < contacts)
       ((ContactViewHolder) holder).bind(mContacts.get(position));
+    else if (position < above)
+      ((OnlineViewHolder) holder).bind(mOnlineQuery);
     else
-      holder.bind(mResults[position - contacts], position - contacts);
+      holder.bind(mResults[position - above], position - above);
   }
 
   @Override
   public int getItemViewType(int position)
   {
     final int contacts = mContacts.size();
-    return position < contacts ? TYPE_CONTACT : mResults[position - contacts].type;
+    if (position < contacts)
+      return TYPE_CONTACT;
+    final int above = rowsAbove();
+    return position < above ? TYPE_ONLINE : mResults[position - above].type;
   }
 
   @Override
@@ -288,7 +327,7 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
   @Override
   public int getItemCount()
   {
-    int res = mContacts.size();
+    int res = rowsAbove();
     if (mResults == null)
       return res;
 
@@ -299,6 +338,21 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
   public void clear()
   {
     refreshData(null);
+  }
+
+  /** Atlas: the rows that stand above the results: people from the contacts, then the online lookup. */
+  private int rowsAbove()
+  {
+    return mContacts.size() + (mOnlineQuery != null ? 1 : 0);
+  }
+
+  /** Atlas: the typed address to offer an online lookup for, or null for no such row (see OnlineAddress). */
+  void setOnlineQuery(@Nullable String query)
+  {
+    if (android.text.TextUtils.equals(mOnlineQuery, query))
+      return;
+    mOnlineQuery = query;
+    notifyDataSetChanged();
   }
 
   /** Atlas: the people to offer above the results (see ContactPlaces). */

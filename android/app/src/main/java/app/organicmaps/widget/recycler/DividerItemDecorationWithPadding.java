@@ -61,7 +61,8 @@ public class DividerItemDecorationWithPadding extends RecyclerView.ItemDecoratio
       if (viewHolder instanceof Holders.SectionViewHolder || viewHolder instanceof Holders.HeaderViewHolder
           || isSectionHeader || viewHolderNext instanceof Holders.SectionViewHolder
           || viewHolderNext instanceof Holders.HeaderViewHolder || isNextSectionHeader
-          || viewHolderNext instanceof Holders.GeneralViewHolder)
+          // Atlas: one solid rule sets the actions apart from the lists; between the actions the dotted rule.
+          || (viewHolderNext instanceof Holders.GeneralViewHolder && !(viewHolder instanceof Holders.GeneralViewHolder)))
         mDivider.setBounds(0, top, right, bottom);
       else
       {

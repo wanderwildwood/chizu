@@ -29,6 +29,7 @@ import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
+import com.wanderwildwood.chizu.Continents;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -42,6 +43,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 {
   private static final int TYPE_COUNTRY = 0;
   private static final int TYPE_HEADER = 1;
+  private static final int TYPE_CONTINENT = 2; // Atlas: a continent in the list of all maps.
 
   private static final String DOWNLOADER_MENU_ID = "DOWNLOADER_BOTTOM_SHEET";
 
@@ -49,6 +51,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   private final Activity mActivity;
   private final DownloaderFragment mFragment;
   private boolean mMyMapsMode = true;
+  // Atlas: the continent whose countries the list of all maps shows (its name's string id), 0 while it lists the continents.
+  private int mContinentName;
   private boolean mSearchResultsMode;
   private String mSearchQuery;
 
@@ -89,6 +93,14 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     {
       mItem = null;
       mHeaderText = headerText;
+    }
+    // Atlas: a continent row; its name's string id says which.
+    public int mContinentName;
+    public GenericItem(int continentName, @NonNull String name)
+    {
+      mItem = null;
+      mHeaderText = name;
+      mContinentName = continentName;
     }
   }
 
@@ -229,6 +241,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     if (kind == TYPE_COUNTRY)
       return inflate(parent, R.layout.downloader_item);
+    else if (kind == TYPE_CONTINENT)
+      return inflate(parent, R.layout.downloader_item_continent);
     else
       return inflate(parent, R.layout.downloader_item_header);
   }
@@ -258,6 +272,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         mHolder.bind(item.mItem);
       else if (item.mHeaderText != null)
         mHolder.bind(item.mHeaderText);
+      if (mKind == TYPE_CONTINENT)
+        itemView.setOnClickListener(v -> openContinent(item.mContinentName));
     }
   }
 
@@ -528,14 +544,58 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     }
   }
 
+  // Atlas: the list of all maps is browsed by continent: first the continents, then one continent's countries.
+  private boolean showsContinents()
+  {
+    return !mMyMapsMode && !mSearchResultsMode && CountryItem.isRoot(getCurrentRootId());
+  }
+
+  private static int continentNameOf(@NonNull CountryItem ci)
+  {
+    // The two world overview files belong to no continent, and every phone has them already.
+    if ("World".equals(ci.id) || "WorldCoasts".equals(ci.id))
+      return 0;
+    final Continents.Continent continent = Continents.of(ci.id);
+    return continent == null ? Continents.OTHER : continent.name;
+  }
+
+  private void openContinent(int continentName)
+  {
+    mContinentName = continentName;
+    processData();
+    mRecycler.scrollToPosition(0);
+    mFragment.update();
+  }
+
+  private void addContinentRows()
+  {
+    final java.util.Set<Integer> present = new java.util.HashSet<>();
+    for (CountryItem ci : mItems)
+      present.add(continentNameOf(ci));
+    for (Continents.Continent continent : Continents.ALL)
+      if (present.contains(continent.name))
+        mItemsAndHeader.add(new GenericItem(continent.name, mActivity.getString(continent.name)));
+    if (present.contains(Continents.OTHER))
+      mItemsAndHeader.add(new GenericItem(Continents.OTHER, mActivity.getString(Continents.OTHER)));
+  }
+
   private void collectHeaders()
   {
     mItemsAndHeader.clear();
+
+    final boolean continents = showsContinents();
+    if (continents && mContinentName != 0)
+      mItemsAndHeader.add(new GenericItem(mActivity.getString(mContinentName)));
 
     int headerId = 0;
     int prev = -1;
     for (CountryItem ci : mItems)
     {
+      // Atlas: under "All maps" the maps near the phone stay on top; the rest waits inside its continent.
+      if (continents && mContinentName == 0 && ci.category != CountryItem.CATEGORY_NEAR_ME)
+        continue;
+      if (continents && mContinentName != 0 && continentNameOf(ci) != mContinentName)
+        continue;
       // Disable headers when using the search
       if (!mSearchResultsMode)
       {
@@ -554,8 +614,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
         {
           if (ci.category != prev)
           {
+            // Atlas: no "Downloaded" heading; the chosen tab above the list says it.
             headerId = CountryItem.CATEGORY_DOWNLOADED;
-            mItemsAndHeader.add(new GenericItem(mActivity.getString(R.string.downloader_downloaded_subtitle)));
             prev = ci.category;
           }
         }
@@ -572,6 +632,9 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
       }
       mItemsAndHeader.add(new GenericItem(ci));
     }
+
+    if (continents && mContinentName == 0)
+      addContinentRows();
   }
 
   void refreshData()
@@ -669,6 +732,8 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     if (mItemsAndHeader.get(position).mItem != null)
       return TYPE_COUNTRY;
+    else if (mItemsAndHeader.get(position).mContinentName != 0)
+      return TYPE_CONTINENT;
     else
       return TYPE_HEADER;
   }
@@ -737,8 +802,19 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     if (!canGoUpwards())
       return false;
 
+    // Atlas: Back from a continent's countries shows the continents again.
+    if (mContinentName != 0 && showsContinents())
+    {
+      mContinentName = 0;
+      processData();
+      mRecycler.scrollToPosition(0);
+      mFragment.update();
+      return true;
+    }
+
     PathEntry entry = mPath.pop();
     mMyMapsMode = entry.myMapsMode;
+    mBackPressedCallback.setEnabled(canGoUpwards()); // Atlas: a tab can go all the way up at once.
     refreshData();
 
     LinearLayoutManager lm = (LinearLayoutManager) mRecycler.getLayoutManager();
@@ -758,6 +834,7 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
   {
     goDeeper(getCurrentRootItem(), false);
     mMyMapsMode = false;
+    mContinentName = 0;
     refreshData();
   }
 

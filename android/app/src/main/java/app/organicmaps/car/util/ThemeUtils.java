@@ -106,6 +106,9 @@ public final class ThemeUtils
 
   private static boolean isNight(@NonNull CarContext context, @NonNull ThemeMode themeMode)
   {
+    // Atlas: light only. The dark map styles and symbols are not in the app.
+    if (true)
+      return false;
     if (themeMode == ThemeMode.NIGHT)
       return true;
     if (themeMode == ThemeMode.SUNRISE_SUNSET)

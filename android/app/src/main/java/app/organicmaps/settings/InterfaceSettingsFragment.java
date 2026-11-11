@@ -40,7 +40,6 @@ public class InterfaceSettingsFragment extends BaseXmlSettingsFragment implement
   {
     super.onViewCreated(view, savedInstanceState);
 
-    initMapStylePrefsCallbacks();
     initZoomPrefsCallbacks();
     initLeftButtonPrefs();
   }

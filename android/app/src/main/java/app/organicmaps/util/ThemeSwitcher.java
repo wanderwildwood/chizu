@@ -78,6 +78,8 @@ public enum ThemeSwitcher
 
   private void setTheme(@NonNull String theme)
   {
+    // Atlas: light only. The dark map styles and symbols are not in the app, so nothing may ask for them.
+    theme = Config.UiTheme.DEFAULT;
     UiModeManager uiModeManager = (UiModeManager) mContext.getSystemService(Context.UI_MODE_SERVICE);
     String oldTheme = Config.UiTheme.getCurrent();
 

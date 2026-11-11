@@ -137,7 +137,8 @@ class BottomPanel
     boolean search = adapter.isSearchResultsMode();
 
     boolean show = !search;
-    UiUtils.showIf(show && adapter.isMyMapsMode(), mFab);
+    // Atlas: the "All maps" tab does what the round plus button did.
+    UiUtils.hide(mFab);
 
     String root = adapter.getCurrentRootId();
 

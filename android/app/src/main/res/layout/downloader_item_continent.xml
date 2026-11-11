@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: one continent in the list of all maps. -->
+<com.google.android.material.textview.MaterialTextView
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/title"
+  android:layout_width="match_parent"
+  android:layout_height="wrap_content"
+  android:minHeight="@dimen/height_item_oneline"
+  android:gravity="center_vertical"
+  android:paddingStart="@dimen/margin_base"
+  android:paddingEnd="@dimen/margin_base"
+  android:background="?clickableBackground"
+  android:textAlignment="viewStart"
+  android:textAppearance="@style/MwmTextAppearance.Body1"
+  tools:text="North America"/>

@@ -106,6 +106,8 @@ android {
     }
     androidResources {
         ignoreAssetsPatterns += "!design"
+        // Atlas: light only. The dark symbol sets (symbols/<density>/dark) stay out of the app.
+        ignoreAssetsPatterns += "!<dir>dark"
     }
     kotlinOptions {
         // TODO: Remove after upgrading to Gradle 9.0 or higher.

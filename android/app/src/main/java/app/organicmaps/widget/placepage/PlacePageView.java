@@ -510,7 +510,7 @@ public class PlacePageView extends Fragment
   private void updateAddReviewView()
   {
     updateViewFragment(PlacePageAddReviewFragment.class, ADD_REVIEW_FRAGMENT_TAG, R.id.place_page_add_review_fragment,
-        true /* the fragment manages visibility on its own */);
+        false /* Atlas: no review row; it led to a site that wants an OpenStreetMap sign-in. */);
   }
 
   private boolean hasWikipediaEntry()

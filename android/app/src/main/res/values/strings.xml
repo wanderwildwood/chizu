@@ -209,7 +209,7 @@
     <string name="prefs_group_map_appearance">Map appearance</string>
     <string name="prefs_group_map_appearance_summary">Map language, label size</string>
     <string name="prefs_group_interface">Interface</string>
-    <string name="prefs_group_interface_summary">Night mode, buttons, language</string>
+    <string name="prefs_group_interface_summary">Buttons, language</string>
     <string name="prefs_group_data_management">Data management</string>
     <string name="prefs_group_data_management_summary">Map storage, backup favorites</string>
     <string name="prefs_group_information">Information</string>

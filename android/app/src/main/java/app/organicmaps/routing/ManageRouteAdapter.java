@@ -84,6 +84,8 @@ public class ManageRouteAdapter extends RecyclerView.Adapter<ManageRouteAdapter.
     }
 
     holder.mImageViewIcon.setImageDrawable(AppCompatResources.getDrawable(mContext, iconId));
+    // Atlas: every row's icon in ink (the position arrow came in blue).
+    holder.mImageViewIcon.setColorFilter(android.graphics.Color.BLACK);
     String title, subtitle;
 
     if (mRoutePoints.get(position).mIsMyPosition)

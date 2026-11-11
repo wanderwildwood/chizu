@@ -2,9 +2,11 @@ package app.organicmaps.downloader;
 
 import com.wanderwildwood.chizu.ui.PagedList;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
@@ -21,6 +23,7 @@ import app.organicmaps.sdk.downloader.MapManager;
 import app.organicmaps.sdk.search.MapSearchListener;
 import app.organicmaps.sdk.search.SearchEngine;
 import app.organicmaps.sdk.util.log.Logger;
+import app.organicmaps.util.UiUtils;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import app.organicmaps.widget.PlaceholderView;
@@ -35,6 +38,9 @@ public class DownloaderFragment
   private DownloaderToolbarController mToolbarController;
 
   private BottomPanel mBottomPanel;
+  private View mTabs;
+  private TextView mTabDownloaded;
+  private TextView mTabAll;
   @Nullable
   private DownloaderAdapter mAdapter;
 
@@ -118,6 +124,49 @@ public class DownloaderFragment
   {
     mToolbarController.update();
     mBottomPanel.update();
+    updateTabs();
+  }
+
+  // Atlas: Downloaded / All maps. The chosen tab is a black stone with its label in white.
+  private void setupTabs(@NonNull View view)
+  {
+    mTabs = view.findViewById(R.id.downloader_tabs);
+    mTabDownloaded = view.findViewById(R.id.downloader_tab_downloaded);
+    mTabAll = view.findViewById(R.id.downloader_tab_all);
+    mTabDownloaded.setOnClickListener(v -> showTab(true));
+    mTabAll.setOnClickListener(v -> showTab(false));
+  }
+
+  private void showTab(boolean downloaded)
+  {
+    if (mAdapter == null || (mAdapter.isMyMapsMode() == downloaded && !mAdapter.canGoUpwards()))
+      return;
+    // Back to the top of the downloaded maps first; "All maps" is one step in from there.
+    while (mAdapter.canGoUpwards())
+      mAdapter.goUpwards();
+    if (!downloaded)
+      mAdapter.setAvailableMapsMode();
+    getRecyclerView().scrollToPosition(0);
+    update();
+  }
+
+  private void updateTabs()
+  {
+    if (mTabs == null || mAdapter == null)
+      return;
+    UiUtils.showIf(!mAdapter.isSearchResultsMode(), mTabs);
+    styleTab(mTabDownloaded, mAdapter.isMyMapsMode());
+    styleTab(mTabAll, !mAdapter.isMyMapsMode());
+  }
+
+  private static void styleTab(@NonNull TextView tab, boolean chosen)
+  {
+    if (chosen)
+      tab.setBackgroundResource(R.drawable.stone_tab);
+    else
+      tab.setBackground(null);
+    tab.setTextColor(chosen ? Color.WHITE : Color.BLACK);
+    tab.setSelected(chosen);
   }
 
   @CallSuper
@@ -184,6 +233,7 @@ public class DownloaderFragment
       mAdapter.attach();
     }
 
+    setupTabs(view);
     mBottomPanel = new BottomPanel(this, view);
     mToolbarController = new DownloaderToolbarController(view, requireActivity(), this);
     requireActivity().getOnBackPressedDispatcher().addCallback(getViewLifecycleOwner(),

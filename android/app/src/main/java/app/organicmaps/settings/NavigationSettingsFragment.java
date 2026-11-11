@@ -35,6 +35,7 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
 
     initMeasureUnitsPrefsCallbacks();
     initOnlineRoutesPrefsCallbacks();
+    initOnlineAddressPrefsCallbacks();
     initStreamedMapPrefsCallbacks();
     initPerspectivePrefsCallbacks();
     initAutoZoomPrefsCallbacks();
@@ -131,6 +132,29 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
       StreamedMap.setServer(requireContext(), clean);
       serverPref.setText(clean);
       serverPref.setSummary(clean.isEmpty() ? getString(R.string.streamed_map_server_default) : clean);
+      return false; // The cleaned address was set above.
+    });
+  }
+
+  // Atlas: the switch for looking an address up online, and the address of a server of one's own.
+  private void initOnlineAddressPrefsCallbacks()
+  {
+    final TwoStatePreference onPref = getPreference(getString(R.string.pref_online_address));
+    onPref.setChecked(com.wanderwildwood.chizu.OnlineAddress.isOn(requireContext()));
+    onPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      com.wanderwildwood.chizu.OnlineAddress.setOn(requireContext(), (Boolean) newValue);
+      return true;
+    });
+
+    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_address_server));
+    final String server = com.wanderwildwood.chizu.OnlineAddress.server(requireContext());
+    serverPref.setText(server);
+    serverPref.setSummary(server.isEmpty() ? getString(R.string.online_address_server_default) : server);
+    serverPref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final String clean = OnlineRoutes.cleanServer((String) newValue);
+      com.wanderwildwood.chizu.OnlineAddress.setServer(requireContext(), clean);
+      serverPref.setText(clean);
+      serverPref.setSummary(clean.isEmpty() ? getString(R.string.online_address_server_default) : clean);
       return false; // The cleaned address was set above.
     });
   }

@@ -199,6 +199,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   // Atlas: the streamed map, drawn over the map where no map is on the phone.
   @Nullable
   private StreamedMap.Layer mStreamedMap;
+  private com.wanderwildwood.chizu.FixHelp mFixHelp;
   private boolean mIsTabletLayout;
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
@@ -614,6 +615,14 @@ public class MwmActivity extends BaseMwmFragmentActivity
       }
       refreshLightStatusBar();
       updateBottomWidgetsOffset(windowInsets.getInsets(WindowInsetsCompat.Type.systemBars()).left);
+      // Atlas: the white band behind the status bar is as tall as the bar.
+      final View statusBand = findViewById(R.id.status_band);
+      final int statusBarHeight = windowInsets.getInsets(WindowInsetsCompat.Type.statusBars()).top;
+      if (statusBand != null && statusBand.getLayoutParams().height != statusBarHeight)
+      {
+        statusBand.getLayoutParams().height = statusBarHeight;
+        statusBand.requestLayout();
+      }
       mCurrentWindowInsets = windowInsets;
       return windowInsets;
     });
@@ -631,6 +640,16 @@ public class MwmActivity extends BaseMwmFragmentActivity
                                        this::reportUnsupported, isLaunchByDeeplink);
     getLifecycle().addObserver(mMapController);
     mStreamedMap = new StreamedMap.Layer(this, findViewById(R.id.stream_map));
+    mFixHelp = new com.wanderwildwood.chizu.FixHelp(this, findViewById(R.id.fix_help));
+    // Atlas: the place whose page is open is marked on the streamed map too.
+    mPlacePageViewModel.getMapObject().observe(this, mapObject -> {
+      if (mStreamedMap == null)
+        return;
+      if (mapObject == null)
+        mStreamedMap.clearSelected();
+      else
+        mStreamedMap.setSelected(mapObject.getLat(), mapObject.getLon());
+    });
 
     initNavigationButtons();
 
@@ -1198,6 +1217,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
     super.onResume();
     if (mStreamedMap != null)
       mStreamedMap.onResume();
+    if (mFixHelp != null)
+      mFixHelp.onResume();
     ThemeSwitcher.INSTANCE.restart(mMapController.isRenderingActive());
     refreshSearchToolbar();
     setFullscreen(isFullscreen());
@@ -1230,6 +1251,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
       mOnmapDownloader.onPause();
     if (mStreamedMap != null)
       mStreamedMap.onPause();
+    if (mFixHelp != null)
+      mFixHelp.onPause();
     MwmApplication.from(this).getSensorHelper().removeListener(this);
     dismissLocationErrorDialog();
     dismissAlertDialog();
@@ -1496,8 +1519,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (mDisplayManager.isDeviceDisplayUsed())
     {
       mMapController.updateBottomWidgetsOffset(offsetX, offsetY);
-      if (mStreamedMap != null)
-        mStreamedMap.setBottomCover(offsetY);
       // Atlas: while a route is followed the arrow stands a third of the way up the map that
       // shows above the bottom bar, not against the bar.
       final int mapHeight = getWindow().getDecorView().getHeight();

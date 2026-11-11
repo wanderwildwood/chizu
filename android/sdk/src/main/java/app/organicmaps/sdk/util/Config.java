@@ -287,10 +287,7 @@ public final class Config
     @NonNull
     public static String getCurrent()
     {
-      final String res = getString(KEY_UI_THEME, DEFAULT);
-      if (isValid(res))
-        return res;
-
+      // Atlas: light only, whatever an older version stored.
       return DEFAULT;
     }
 
@@ -305,10 +302,7 @@ public final class Config
     @NonNull
     public static String getUiThemeSettings()
     {
-      final String res = getString(KEY_UI_THEME_SETTINGS, DEFAULT);
-      if (isValid(res) || isAuto(res) || isNavAuto(res))
-        return res;
-
+      // Atlas: light only, whatever an older version stored.
       return DEFAULT;
     }
 

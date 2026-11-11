@@ -36,6 +36,20 @@
     android:persistent="false"
     android:title="@string/online_routes_server"
     app:singleLineTitle="false" />
+  <!-- Atlas: an address looked up online. Not persisted here: OnlineAddress keeps both values. -->
+  <SwitchPreferenceCompat
+    android:key="@string/pref_online_address"
+    android:persistent="false"
+    android:summary="@string/online_address_switch_summary"
+    android:title="@string/online_address_switch"
+    android:widgetLayout="@layout/preference_switch"
+    app:singleLineTitle="false" />
+  <EditTextPreference
+    android:dialogMessage="@string/online_address_server_message"
+    android:key="@string/pref_online_address_server"
+    android:persistent="false"
+    android:title="@string/online_address_server"
+    app:singleLineTitle="false" />
   <!-- Atlas: the streamed map. Not persisted here: StreamedMap keeps both values. -->
   <SwitchPreferenceCompat
     android:key="@string/pref_streamed_map"

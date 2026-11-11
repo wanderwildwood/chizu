@@ -91,7 +91,10 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
       if (!isAdded())
         return;
 
+      askForContactsOnce(query);
       mSearchAdapter.setContacts(ContactPlaces.find(requireContext(), query));
+      mSearchAdapter.setOnlineQuery(
+          com.wanderwildwood.chizu.OnlineAddress.offers(requireContext(), query) ? query.trim() : null);
 
       if (TextUtils.isEmpty(query))
       {
@@ -185,6 +188,18 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
 
   // Atlas: contacts are asked for once, the first time the search opens; people with an address
   // are then offered while their name is typed (ContactPlaces). No button to a contact picker.
+  // Atlas: the contacts question waits until two letters are typed, the point at which a name could be found.
+  private void askForContactsOnce(@Nullable String query)
+  {
+    if (query == null || query.trim().length() < 2 || ContactPlaces.allowed(requireContext()))
+      return;
+    final SharedPreferences atlas = requireContext().getSharedPreferences("atlas", Context.MODE_PRIVATE);
+    if (atlas.getBoolean("contacts_asked", false))
+      return;
+    atlas.edit().putBoolean("contacts_asked", true).apply();
+    mContactsPermissionLauncher.launch(Manifest.permission.READ_CONTACTS);
+  }
+
   private final ActivityResultLauncher<String> mContactsPermissionLauncher =
       registerForActivityResult(new ActivityResultContracts.RequestPermission(), granted -> {});
 
@@ -303,13 +318,6 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mShowOnMapFab = root.findViewById(R.id.show_on_map_fab);
     mShowOnMapFab.setOnClickListener(v -> showAllResultsOnMap());
     ViewCompat.setOnApplyWindowInsetsListener(mResultsPlaceholder, new WindowInsetUtils.ScrollableContentInsetsListener(mResultsPlaceholder));
-
-    final SharedPreferences atlas = requireContext().getSharedPreferences("atlas", Context.MODE_PRIVATE);
-    if (!ContactPlaces.allowed(requireContext()) && !atlas.getBoolean("contacts_asked", false))
-    {
-      atlas.edit().putBoolean("contacts_asked", true).apply();
-      mContactsPermissionLauncher.launch(Manifest.permission.READ_CONTACTS);
-    }
 
     mResults.setLayoutManager(new LinearLayoutManager(view.getContext()));
     mResults.setAdapter(mSearchAdapter);

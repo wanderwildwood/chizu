@@ -3,4 +3,15 @@
   <!-- A delete in a menu asks for a second tap: "Delete — tap again". -->
   <string name="armed_tap_again">%1$s — tap again</string>
   <item name="page_turn_listener" type="id"/>
+  <!-- Atlas: the map list's second tab, beside "Downloaded". -->
+  <string name="downloader_tab_all">All maps</string>
+  <!-- Atlas: the continents the list of all maps is browsed by. -->
+  <string name="continent_africa">Africa</string>
+  <string name="continent_antarctica">Antarctica</string>
+  <string name="continent_asia">Asia</string>
+  <string name="continent_europe">Europe</string>
+  <string name="continent_north_america">North America</string>
+  <string name="continent_oceania">Oceania</string>
+  <string name="continent_south_america">South America</string>
+  <string name="continent_other">Other</string>
 </resources>

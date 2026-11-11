@@ -11,12 +11,9 @@ import android.net.ConnectivityManager
 import android.net.NetworkCapabilities
 import android.os.Handler
 import android.os.Looper
-import android.util.TypedValue
-import android.view.Gravity
 import android.view.View
 import android.view.ViewGroup
 import android.widget.FrameLayout
-import android.widget.TextView
 import app.organicmaps.MwmApplication
 import app.organicmaps.R
 import app.organicmaps.sdk.Framework
@@ -143,13 +140,13 @@ object StreamedMap {
         private var shown = false
         private var last = DoubleArray(4)
         private var lastPosition = ""
+        private var selected = EMPTY
+        private var lastSelected = ""
         private var routeAt = 0L
         private var routeDirty = true
         private var hadRoute = false
         private var networkAt = 0L
         private var fetching: Boolean? = null
-        private var creditView: View? = null
-        private var bottomCover = 0
         private val density = activity.resources.displayMetrics.density
 
         private val tick = object : Runnable {
@@ -168,23 +165,13 @@ object StreamedMap {
         }
         fun onPause() { resumed = false; handler.removeCallbacks(tick); mapView?.onPause() }
         fun onStop() { started = false; mapView?.onStop() }
-        fun onDestroy() { handler.removeCallbacks(tick); mapView?.onDestroy(); mapView = null; map = null; style = null; creditView = null }
+        fun onDestroy() { handler.removeCallbacks(tick); mapView?.onDestroy(); mapView = null; map = null; style = null }
         fun onLowMemory() { mapView?.onLowMemory() }
 
-        /** How much of the foot of the map the bars and panels cover, in pixels: the credit stands above it. */
-        fun setBottomCover(pixels: Int) {
-            bottomCover = pixels
-            placeCredit()
-        }
+        /** The place whose page is open: marked on the streamed map, as Atlas marks it on its own. */
+        fun setSelected(lat: Double, lon: Double) { selected = pointJson(lat, lon, null) }
 
-        private fun placeCredit() {
-            val view = creditView ?: return
-            val params = view.layoutParams as FrameLayout.LayoutParams
-            val margin = bottomCover + (4 * density).toInt()
-            if (params.bottomMargin == margin) return
-            params.bottomMargin = margin
-            view.layoutParams = params
-        }
+        fun clearSelected() { selected = EMPTY }
 
         /** A route was built or rebuilt: its line is read again at the next tick. */
         fun onRouteChanged() { routeDirty = true }
@@ -216,6 +203,14 @@ object StreamedMap {
             }
             updatePosition()
             updateRoute()
+            updateSelected()
+        }
+
+        private fun updateSelected() {
+            val s = style ?: return
+            if (selected == lastSelected) return
+            lastSelected = selected
+            s.getSourceAs<GeoJsonSource>(SRC_SELECTED)?.setGeoJson(selected)
         }
 
         /**
@@ -295,8 +290,6 @@ object StreamedMap {
             val view = MapView(activity, options)
             mapView = view
             frame.addView(view, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
-            frame.addView(credit().also { creditView = it })
-            placeCredit()
             view.onCreate(null)
             if (started) view.onStart()
             if (resumed) view.onResume()
@@ -310,6 +303,7 @@ object StreamedMap {
                     map = ready
                     last = DoubleArray(4)
                     lastPosition = ""
+                    lastSelected = ""
                     routeDirty = true
                 }
             }
@@ -319,6 +313,7 @@ object StreamedMap {
         private fun addOwnLayers(s: Style) {
             s.addSource(GeoJsonSource(SRC_ROUTE))
             s.addSource(GeoJsonSource(SRC_POSITION))
+            s.addSource(GeoJsonSource(SRC_SELECTED))
             val below = "label-water" // The first of the names: the route lies under every name.
             s.addLayerBelow(
                 LineLayer("route-edge", SRC_ROUTE).withProperties(
@@ -333,6 +328,13 @@ object StreamedMap {
                     PropertyFactory.lineCap("round"), PropertyFactory.lineJoin("round"),
                 ),
                 below,
+            )
+            s.addImage(IMG_RING, ring())
+            s.addLayer(
+                SymbolLayer("selected", SRC_SELECTED).withProperties(
+                    PropertyFactory.iconImage(IMG_RING),
+                    PropertyFactory.iconAllowOverlap(true), PropertyFactory.iconIgnorePlacement(true),
+                ),
             )
             s.addImage(IMG_ARROW, arrow(moving = true))
             s.addImage(IMG_DOT, arrow(moving = false))
@@ -350,6 +352,20 @@ object StreamedMap {
                     PropertyFactory.iconAllowOverlap(true), PropertyFactory.iconIgnorePlacement(true),
                 ),
             )
+        }
+
+        /** The chosen place: a wide ring in ink with a white edge, open in the middle so the map shows through. */
+        private fun ring(): Bitmap {
+            val size = (44 * density).toInt()
+            val bitmap = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888)
+            val canvas = Canvas(bitmap)
+            val c = size / 2f
+            val white = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.WHITE; style = Paint.Style.STROKE; strokeWidth = 9 * density }
+            val ink = Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.BLACK; style = Paint.Style.STROKE; strokeWidth = 5 * density }
+            canvas.drawCircle(c, c, size * 0.32f, white)
+            canvas.drawCircle(c, c, size * 0.32f, ink)
+            canvas.drawCircle(c, c, 2.5f * density, Paint(Paint.ANTI_ALIAS_FLAG).apply { color = Color.BLACK })
+            return bitmap
         }
 
         /** Where the phone is: an arrow in ink while it moves, a ringed dot while it stands. */
@@ -377,22 +393,11 @@ object StreamedMap {
             return bitmap
         }
 
-        /** The credit the tile service asks for, small, in a corner of the streamed map. */
-        private fun credit(): View = TextView(activity).apply {
-            setText(R.string.streamed_map_credit)
-            setTextSize(TypedValue.COMPLEX_UNIT_SP, 10f)
-            setTextColor(Color.BLACK)
-            setBackgroundColor(Color.WHITE)
-            val pad = (3 * density).toInt()
-            setPadding(pad, 0, pad, 0)
-            layoutParams = FrameLayout.LayoutParams(
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.BOTTOM or Gravity.START,
-            )
-        }
-
         private companion object {
             const val SRC_ROUTE = "atlas-route"
             const val SRC_POSITION = "atlas-position"
+            const val SRC_SELECTED = "atlas-selected"
+            const val IMG_RING = "atlas-ring"
             const val IMG_ARROW = "atlas-arrow"
             const val IMG_DOT = "atlas-dot"
         }

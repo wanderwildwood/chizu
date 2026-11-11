@@ -19,6 +19,30 @@
       android:layout_width="match_parent"
       android:layout_height="match_parent"
       android:visibility="gone" />
+    <!-- Atlas: a white band behind the status bar, so the clock and icons never sit on streets. -->
+    <View
+      android:id="@+id/status_band"
+      android:layout_width="match_parent"
+      android:layout_height="0dp"
+      android:layout_alignParentTop="true"
+      android:background="#FFFFFF" />
+    <!-- Atlas: says so when the phone is slow to find its position; a press explains. -->
+    <TextView
+      android:id="@+id/fix_help"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/status_band"
+      android:layout_marginStart="88dp"
+      android:layout_marginEnd="@dimen/margin_base"
+      android:layout_marginTop="@dimen/margin_half"
+      android:minHeight="48dp"
+      android:gravity="center_vertical"
+      android:paddingStart="12dp"
+      android:paddingEnd="12dp"
+      android:background="@drawable/fix_help_frame"
+      android:textAppearance="@style/MwmTextAppearance.Body1"
+      android:textColor="#000000"
+      android:visibility="gone" />
     <include
       android:id="@+id/onmap_downloader"
       layout="@layout/onmap_downloader"

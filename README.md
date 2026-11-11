@@ -45,6 +45,14 @@ What Atlas changes:
   position and the route on it. It asks before the first time, and a switch keeps it to
   Wi-Fi. The server is [OpenFreeMap](https://openfreemap.org/) unless Settings names one
   of your own. A downloaded region is always drawn from the phone.
+- **An address the map does not know.** Where the map data has no house number, Search
+  offers to look the typed address up online and shows where it is. It asks before the
+  first time and sends nothing while you type. In the United States the address goes to
+  the geocoder of the [US Census Bureau](https://geocoding.geo.census.gov/), anywhere else
+  to [Photon](https://photon.komoot.io/) (Komoot, from OpenStreetMap data), unless
+  Settings names a Photon server of your own.
+- **Waiting for a position.** When the phone is slow to find where it is, a line on the
+  map says so, with how many satellites it sees; a press explains what helps.
 - **What is left out.** No map editing and no OpenStreetMap sign-in, so no account of any
   kind. No donation prompts. One build, with no store variants.
 - **About and Licenses.** The same two pages as in the other wander wildwood apps. The
@@ -65,7 +73,9 @@ sends the start and the destination of such a route to the FOSSGIS routing serve
 a route server of your own named in Settings. Where no map is on the phone, Atlas asks
 once whether it may show the map online; after a yes it fetches the pieces of map under
 the screen from the OpenFreeMap map server, or from a map server of your own, so that
-server sees which area you look at. Nothing goes to the developer. The whole of
+server sees which area you look at. An address is sent to an address server only when
+you press "Look up … online" under it in Search, after the same one-time question.
+Nothing goes to the developer. The whole of
 it is in [PRIVACY.md](PRIVACY.md).
 
 ## Building
