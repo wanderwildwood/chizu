@@ -33,10 +33,12 @@ class OnlineAddressTest {
         val json = """{"result":{"addressMatches":[{"coordinates":{"x":-76.9283,"y":38.8450},"matchedAddress":"12 MILL LN, ADA, DC, 20233"}]}}"""
         val found = OnlineAddress.parseCensus(json)
         assertEquals(1, found.size)
-        assertEquals("12 MILL LN, ADA, DC, 20233", found[0].name)
+        assertEquals("12 Mill Ln, Ada, DC, 20233", found[0].name)
+        assertEquals("cm://map?v=1&ll=38.845000,-76.928300&n=12%20Mill%20Ln%2C%20Ada%2C%20DC%2C%2020233&z=17", OnlineAddress.link(found[0]))
         assertEquals(38.8450, found[0].lat, 1e-9)
         assertEquals(-76.9283, found[0].lon, 1e-9)
         assertTrue(OnlineAddress.parseCensus("""{"result":{"addressMatches":[]}}""").isEmpty())
+        assertEquals("100 Main St NW, Ada, DC, 20233", OnlineAddress.tidyCapitals("100 MAIN ST NW, ADA, DC, 20233"))
     }
 
     @Test

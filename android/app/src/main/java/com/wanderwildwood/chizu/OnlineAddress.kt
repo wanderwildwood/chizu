@@ -102,12 +102,26 @@ object OnlineAddress {
         for (i in 0 until minOf(matches.length(), MOST)) {
             val match = matches.optJSONObject(i) ?: continue
             val at = match.optJSONObject("coordinates") ?: continue
-            val name = match.optString("matchedAddress").trim()
+            val name = tidyCapitals(match.optString("matchedAddress").trim())
             if (name.isEmpty() || !at.has("x") || !at.has("y")) continue
             found.add(Found(name, at.getDouble("y"), at.getDouble("x")))
         }
         return found
     }
+
+    /**
+     * "12 MILL LN NW, ADA, DC, 20233" as "12 Mill Ln NW, Ada, DC, 20233": the Census writes in capitals. The state
+     * (the third part) and compass points keep theirs.
+     */
+    @JvmStatic
+    fun tidyCapitals(address: String): String =
+        address.split(", ").mapIndexed { part, text ->
+            if (part == 2 && text.length == 2) text
+            else text.split(" ").joinToString(" ") { word ->
+                if (word in setOf("NE", "NW", "SE", "SW") || word.any { it.isLowerCase() }) word
+                else word.lowercase(Locale.ROOT).replaceFirstChar { it.titlecase(Locale.ROOT) }
+            }
+        }.joinToString(", ")
 
     /** The places in a Photon answer (GeoJSON), each named by what it is and where. */
     @JvmStatic
@@ -200,9 +214,13 @@ object OnlineAddress {
             .show()
     }
 
-    /** Shows the place on the map, the way a map link from another app does. */
+    /** The link that shows [place] on the map under its own name, the way a map link from another app does. */
+    @JvmStatic
+    fun link(place: Found): String =
+        String.format(Locale.ROOT, "cm://map?v=1&ll=%.6f,%.6f&n=%s&z=17", place.lat, place.lon, encode(place.name).replace("+", "%20"))
+
     private fun open(activity: Activity, place: Found) {
-        val link = String.format(Locale.ROOT, "geo:%.6f,%.6f?z=17", place.lat, place.lon)
+        val link = link(place)
         try {
             activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(link)).setPackage(activity.packageName))
         } catch (e: ActivityNotFoundException) {

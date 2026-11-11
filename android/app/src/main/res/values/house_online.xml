@@ -37,7 +37,7 @@
   <string name="fix_help_line">Looking for your position</string>
   <string name="fix_help_line_satellites">Looking for your position: %1$d satellites seen, %2$d in use</string>
   <string name="fix_help_title">Looking for your position</string>
-  <string name="fix_help_body">The phone has not found where it is yet. A first fix can take several minutes, longest indoors, and after the phone was off for a while or has traveled far. It helps to stand under open sky and keep still. If the phone\'s location settings offer A-GPS (assisted GPS), switching it on makes the first fix much faster while the phone has a connection; on the Kompakt it is off until you switch it on.</string>
+  <string name="fix_help_body">The phone has not found where it is yet. A first fix can take several minutes, longest indoors. Stand under open sky and keep still. A-GPS in the phone\'s location settings makes it much faster; on the Kompakt it is off until you switch it on.</string>
   <string name="fix_help_satellites">Satellites seen: %1$d, in use: %2$d (a fix needs at least four in use).</string>
   <string name="fix_help_last_none">No earlier position is known.</string>
   <string name="fix_help_last_now">The last position is less than a minute old.</string>
