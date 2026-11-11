@@ -146,7 +146,8 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
     mTvBookmarkGroup = view.findViewById(R.id.tv__bookmark_set);
     mTvBookmarkGroup.setOnClickListener(this);
     mIvColor = view.findViewById(R.id.iv__bookmark_color);
-    mIvColor.setOnClickListener(this);
+    // Atlas: a favorite has no color to pick; the panel shows sixteen greys.
+    mIvColor.setVisibility(View.GONE);
 
     // For tracks and bookmarks, the same category is used, so this portion is common for both.
     mBookmarkCategory = Utils.getParcelable(savedInstanceState, STATE_BOOKMARK_CATEGORY,

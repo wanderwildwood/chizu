@@ -31,7 +31,8 @@ public final class Graphics
     final Bitmap bmp = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
 
     final Paint paint = new Paint();
-    paint.setColor(color);
+    // Atlas: the disc of a favorite or a track is ink, whatever color the file gives it.
+    paint.setColor(android.graphics.Color.BLACK);
     paint.setAntiAlias(true);
 
     final Canvas c = new Canvas(bmp);
@@ -50,7 +51,8 @@ public final class Graphics
     final Bitmap bmp = Bitmap.createBitmap(size, size, Bitmap.Config.ARGB_8888);
 
     final Paint paint = new Paint();
-    paint.setColor(color);
+    // Atlas: the disc of a favorite or a track is ink, whatever color the file gives it.
+    paint.setColor(android.graphics.Color.BLACK);
     paint.setAntiAlias(true);
 
     final Canvas c = new Canvas(bmp);

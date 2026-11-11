@@ -310,7 +310,6 @@ public class PlacePageView extends Fragment
     mColorIcon = mFrame.findViewById(R.id.item_icon);
     mTvCategory = mFrame.findViewById(R.id.tv__category);
     mEditBookmark = mFrame.findViewById(R.id.edit_Bookmark);
-    mColorIcon.setOnClickListener(this);
     mTvCategory.setOnClickListener(this);
     mEditBookmark.setOnClickListener(this);
 
@@ -1141,8 +1140,6 @@ public class PlacePageView extends Fragment
     }
     else if (id == R.id.direction_frame)
       showBigDirection();
-    else if (id == R.id.item_icon)
-      showColorDialog();
     else if (id == R.id.edit_Bookmark)
       showBookmarkEditFragment();
     else if (id == R.id.tv__category)

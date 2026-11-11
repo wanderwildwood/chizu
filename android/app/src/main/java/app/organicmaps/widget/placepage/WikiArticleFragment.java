@@ -4,8 +4,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
@@ -15,6 +20,7 @@ import app.organicmaps.base.BaseMwmFragment;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.WindowInsetUtils;
 
+import java.util.Map;
 import java.util.Objects;
 
 public class WikiArticleFragment extends BaseMwmFragment
@@ -47,6 +53,7 @@ public class WikiArticleFragment extends BaseMwmFragment
 
     webView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.bg_app));
     webView.setVerticalScrollBarEnabled(true);
+    webView.setWebViewClient(new HouseTypeClient());
 
     final String html = buildHtml(mDescription, textColor, textColorSecondary);
     webView.loadDataWithBaseURL(
@@ -74,7 +81,10 @@ public class WikiArticleFragment extends BaseMwmFragment
             "  margin: 0;" +
             "  padding: 0;" +
             "}" +
+            "@font-face { font-family: 'Lato'; font-weight: 400; src: url('" + FONT_HOST + "lato_regular.ttf'); }" +
+            "@font-face { font-family: 'Lato'; font-weight: 700; src: url('" + FONT_HOST + "lato_bold.ttf'); }" +
             "body {" +
+            "  font-family: 'Lato', sans-serif;" +
             "  padding: 24px 20px 32px;" +
             "  color: " + textColor + ";" +
             "  line-height: 1.45;" +
@@ -111,6 +121,40 @@ public class WikiArticleFragment extends BaseMwmFragment
             "<p class='source'><b>wikipedia.org</b></p>" +
             "</body>" +
             "</html>";
+  }
+
+  // Atlas: the page is set in Lato like the rest of the app. The two font files are the app's
+  // own font resources, handed to the page under a made-up address that never reaches a network.
+  private static final String FONT_HOST = "https://font.atlas.invalid/";
+
+  private class HouseTypeClient extends WebViewClient
+  {
+    @Nullable
+    @Override
+    public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request)
+    {
+      final String url = request.getUrl().toString();
+      if (!url.startsWith(FONT_HOST))
+        return null;
+      final int font = url.endsWith("lato_bold.ttf") ? R.font.lato_bold : R.font.lato_regular;
+      return new WebResourceResponse("font/ttf", null, 200, "OK", Map.of("Access-Control-Allow-Origin", "*"),
+                                     view.getResources().openRawResource(font));
+    }
+
+    // With a client set, a link would open inside this page; it goes to the browser as before.
+    @Override
+    public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request)
+    {
+      try
+      {
+        startActivity(new Intent(Intent.ACTION_VIEW, request.getUrl()));
+      }
+      catch (ActivityNotFoundException ignored)
+      {
+        // No app for the link: the page stays as it is.
+      }
+      return true;
+    }
   }
 
   private String colorToCssHex(int colorRes)

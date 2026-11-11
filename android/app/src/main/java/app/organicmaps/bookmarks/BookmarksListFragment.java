@@ -258,7 +258,7 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
     adapter.setOnClickListener((v, position) -> onItemClick(position));
     adapter.setOnLongClickListener((v, position) -> onItemMore(position));
     adapter.setMoreListener((v, position) -> onItemMore(position));
-    adapter.setIconClickListener(this::showColorDialog);
+    // Atlas: no color to pick, so a row's icon takes no press of its own.
   }
 
   private void configureFab(@NonNull View view)

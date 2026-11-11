@@ -436,6 +436,13 @@ public class Holders
 
     public void setTrackIconClickListener(IconClickListener listener)
     {
+      // Atlas: with no listener the icon takes no press (there is no color to pick).
+      if (listener == null)
+      {
+        mIcon.setOnClickListener(null);
+        mIcon.setClickable(false);
+        return;
+      }
       mIcon.setOnClickListener(v -> listener.onItemClick((ShapeableImageView) v, getBindingAdapterPosition()));
     }
   }
