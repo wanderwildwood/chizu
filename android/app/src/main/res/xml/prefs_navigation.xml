@@ -83,12 +83,6 @@
     android:title="@string/pref_map_auto_zoom"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />
-  <Preference
-    android:key="@string/pref_tts_screen"
-    android:persistent="false"
-    android:title="@string/pref_tts_enable_title"
-    app:icon="@drawable/ic_record_voice_over"
-    app:singleLineTitle="false"/>
   <SwitchPreferenceCompat
     android:defaultValue="true"
     android:key="@string/pref_speedlimit"
@@ -96,6 +90,19 @@
     android:widgetLayout="@layout/preference_switch"
     app:icon="@drawable/ic_speed"
     app:singleLineTitle="true" />
+  <ListPreference
+    android:key="@string/pref_tts_speed_cameras"
+    android:title="@string/speedcams_alert_title"
+    app:singleLineTitle="false"
+    android:entries="@array/speed_cameras"
+    android:entryValues="@array/speed_cameras_values"
+    android:defaultValue="@string/auto_enum_value" />
+  <Preference
+    android:enabled="true"
+    android:key="@string/pref_tts_speed_cameras_info"
+    android:persistent="false"
+    android:selectable="false"
+    android:summary="@string/prefs_speed_cameras_information" />
   <Preference
     android:key="@string/pref_android_auto_support"
     android:persistent="false"

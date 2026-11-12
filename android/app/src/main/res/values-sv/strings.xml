@@ -200,19 +200,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-byggnader är avstängda i energisparläge</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Röstinstruktioner</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Läs upp gatunamn</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">När funktionen är aktiverad läses namnet på gatan eller avfarten som du ska svänga in på upp.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Röstspråk</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Testa röstinstruktioner</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kontrollera volymen eller systemets inställningar för talsyntes om du inte hör rösten nu</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Inte tillgängligt</string>
     <string name="pref_map_auto_zoom">Automatisk zoom</string>
     <string name="placepage_distance">Avstånd</string>
     <string name="search_show_on_map">Visa på kartan</string>
@@ -515,9 +508,6 @@
     <string name="enable_logging">Aktivera loggning</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Allmän återkoppling</string>
-    <string name="prefs_languages_information">Vi använder systemets talsyntes för röstinstruktioner. Många Android-enheter använder Googles talsyntes, som du kan ladda ner eller uppdatera från Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">För vissa språk behöver du installera en talsyntes eller ett extra språkpaket från en appbutik (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid).\nÖppna enhetens inställningar → Språk och inmatning → Tal → Text till tal.\nHär kan du hantera inställningarna för talsyntes, till exempel ladda ner språkpaket för användning offline, och välja en annan talsyntesmotor.</string>
-    <string name="prefs_languages_information_off_link">Kolla in den här guiden för mer information</string>
     <string name="transliteration_title">Translitterera till latinska alfabetet</string>
     <string name="learn_more">Läs mer</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -727,9 +717,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Exportera alla favoriter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Inställningar för talsyntes</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Inställningar för talsyntes hittades inte, är du säker på att din enhet stöder det?</string>
     <string name="drive_through">Drive-in</string>
     <string name="clear_the_search">Rensa sökning</string>
     <string name="zoom_in">Zooma in</string>
@@ -777,7 +765,6 @@
     <string name="level_value_generic">Nivå: %s</string>
     <string name="download_map_title">Ladda ner översiktskartan för hela världen</string>
     <string name="disconnect_usb_cable_title">Koppla ur USB-kabel</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="editor_add_phone">Lägg till telefonnummer</string>
     <string name="delete_place_empty_comment_error">Vänligen förklara varför platsen raderas</string>
     <string name="empty_street_name_error">Ange ett gatunamn</string>
@@ -852,12 +839,8 @@
     <string name="error_enter_correct_instagram_page">Ange ett giltigt Instagram-användarnamn eller en webbadress</string>
     <string name="about_headline">Ett öppet projekt som drivs av gemenskapen</string>
     <string name="prefs_group_map_appearance">Kartans utseende</string>
-    <string name="prefs_group_map_appearance_summary">Kartspråk, textstorlek, 2D-/3D-byggnader</string>
     <string name="prefs_group_interface">Gränssnitt</string>
-    <string name="prefs_group_interface_summary">Nattläge, knappar, språk</string>
     <string name="prefs_group_data_management">Datahantering</string>
-    <string name="prefs_group_route_summary">Längdenheter, röstinstruktioner, ruttinställningar</string>
-    <string name="prefs_group_privacy_summary">Sökhistorik</string>
     <string name="power_management">Energiinställningar</string>
     <string name="pref_speedlimit_title">Visa hastighetsgränser</string>
     <string name="charge_socket_type1">Typ 1</string>
@@ -868,13 +851,9 @@
     <string name="bookmark_share_email_subject">Följ länken %1$s eller klistra in koordinaterna %2$s i din kartapp för att se den här platsen.</string>
     <string name="my_position_share_email">Följ länken %1$s eller klistra in koordinaterna %2$s i din kartapp för att se min position.</string>
     <string name="pref_about_summary">Rapportera problem, få hjälp, donera\nVersion: v%1$s</string>
-    <string name="prefs_group_data_management_summary">Kartlagring, säkerhetskopiering av favoriter</string>
-    <string name="prefs_group_advanced_summary">Aktivera loggning</string>
     <string name="download_resources_custom_url_summary_none">Inte angivet</string>
     <string name="editor_business_vacant_button">Verksamhetslokalen är ledig</string>
     <string name="download_resources_custom_url_message">Ange en annan server för kartnedladdningar. Lämna fältet tomt för att använda CoMaps standardserver.</string>
-    <string name="tts_toggle_enable">Aktivera röstinstruktioner</string>
-    <string name="tts_toggle_disable">Inaktivera röstinstruktioner</string>
     <string name="enable_long_tap_fullscreen">Tryck och håll för att dölja användargränssnittet</string>
     <string name="long_tap_disabled_toast">För att dölja användargränssnittet, aktivera tryck och håll i inställningarna</string>
     <string name="downloader_check_updates_button">Sök efter uppdateringar</string>
@@ -903,7 +882,6 @@
     <string name="decrease_font_size">Minska textstorleken på kartetiketter</string>
     <string name="prefs_speed_cameras_information">Varningar för fartkameror är inaktiverade i länder där sådana varningar är förbjudna enligt lokal lagstiftning.</string>
     <string name="planning_route_preview">Förhandsgranska</string>
-    <string name="prefs_group_power_summary">Tid innan skärmen släcks, mobildata</string>
     <string name="bookmarks_text_placement_title">Visa namn på favoriter på kartan</string>
     <string name="population">Befolkning: %s</string>
     <string name="sort_categories">Sortera favoritlistor</string>
@@ -917,9 +895,6 @@
     <string name="pref_backup_history_title">Antal säkerhetskopior att spara</string>
     <string name="dialog_report_error_with_logs">Skicka oss en felrapport:\n - Öppna Inställningar och välj ”Avancerat”\n - Slå på ”Aktivera loggning”\n - Återskapa problemet\n - Öppna ”Om och hjälp”, tryck på ”Rapportera en bugg” och skicka rapporten via e-post eller chatt\n - Inaktivera loggning</string>
     <string name="destination">Destination</string>
-    <string name="pref_tts_no_system_tts_short">Ingen talsyntesmotor hittades. Kontrollera appinställningarna</string>
-    <string name="navigation_start_tts_message">"Startar navigering. Språk för röstinstruktioner: "</string>
-    <string name="navigation_start_tts_disabled_message">Röstinstruktioner inaktiverade: ingen talsyntesmotor är tillgänglig</string>
     <string name="charge_socket_type2">Typ 2 (utan kabel)</string>
     <string name="charge_socket_type2_cable">Typ 2 (med kabel)</string>
     <string name="charge_socket_type2_combo">Typ 2-kombo</string>

@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-здания отключаются в режиме энергосбережения</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Голосовые инструкции</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Проговаривать названия улиц</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">При включении название улицы или съезда, на который нужно повернуть, будет произноситься вслух.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Язык подсказок</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Тест голосовых подсказок</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Проверьте громкость или системные настройки преобразования текста в речь, если сейчас ничего не слышно</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Не доступны</string>
     <string name="pref_map_auto_zoom">Автомасштабирование</string>
     <string name="placepage_distance">Расстояние</string>
     <string name="search_show_on_map">Посмотреть на карте</string>
@@ -543,9 +536,6 @@
     <string name="enable_logging">Включить запись логов</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Отправить отзыв</string>
-    <string name="prefs_languages_information">Подсказки озвучиваются системным синтезатором речи (TTS). На многих устройствах используется Google TTS, его можно загрузить или обновить в Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Для некоторых языков, возможно, необходимо установить дополнительный синтезатор речи (TTS) из магазина приложений (Google Play, Galaxy Store, App Gallery, FDroid). \nЧтобы настроить синтезатор речи, перейдите в Настройки → Язык и ввод → Синтез речи. \nЗдесь можно установить дополнительные языковые пакеты или выбрать другой синтезатор речи.</string>
-    <string name="prefs_languages_information_off_link">Ознакомьтесь с подробностями в этом руководстве</string>
     <string name="transliteration_title">Транслитерация в латиницу</string>
     <string name="learn_more">Узнать больше</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -733,7 +723,6 @@
     <!-- Telegram group url for the "?" About page -->
     <string name="telegram_url">https://t.me/Atlas_RU</string>
     <!-- A link to the TTS FAQ -->
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <!-- Translated CoMaps site -->
     <string name="translated_om_site_url">https://comaps.app/ru/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
@@ -784,9 +773,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Экспортировать все избранные</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Системные настройки синтеза речи</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Настройки синтеза речи не найдены, вы уверены, что ваше устройство поддерживает их?</string>
     <string name="drive_through">С окошком для водителей</string>
     <string name="clear_the_search">Очистите поиск</string>
     <string name="zoom_in">Приблизить</string>
@@ -904,7 +891,6 @@
     <string name="edit_socket_info_tooltip">Добавьте новые розетки или отредактируйте существующие.</string>
     <string name="charge_socket_unknown_other">Другая или неизвестная</string>
     <string name="list_description_empty">Отредактируйте список, чтобы добавить описание</string>
-    <string name="pref_tts_no_system_tts_short">Не найден движок синтезатора речи, проверьте настройки приложения</string>
     <string name="unknown_power_output">неизвестно</string>
     <string name="opens_tomorrow_at">Откроется завтра в %s</string>
     <string name="opens_day_at">Откроется %1$s на %2$s</string>
@@ -936,8 +922,6 @@
     <string name="power_management">Энергопотребление</string>
     <string name="destination">Назначение</string>
     <string name="stop">Остановка</string>
-    <string name="navigation_start_tts_message">"Запуск Навигации, язык голосовых подсказок: "</string>
-    <string name="navigation_start_tts_disabled_message">Голосовые подсказки отключены: Движок TTS не доступен</string>
     <string name="charge_socket_type2_combo">Type 2 combo</string>
     <string name="charge_socket_type1">Type 1</string>
     <string name="charge_socket_nacs">NACS</string>
@@ -947,18 +931,10 @@
     <string name="invalid_route">Неверный маршрут</string>
     <string name="route_recalculating">Пересчёт маршрута…</string>
     <string name="location_privacy">Приватность местоположения</string>
-    <string name="prefs_group_map_appearance_summary">Язык карты, размер шрифта, 2D/3D здания</string>
     <string name="prefs_group_interface">Внешний вид</string>
     <string name="prefs_group_map_appearance">Оформление карты</string>
-    <string name="prefs_group_interface_summary">Ночной режим, кнопки, язык</string>
     <string name="prefs_group_data_management">Хранилище данных</string>
-    <string name="prefs_group_data_management_summary">Хранилище карт, резервная копия избранного</string>
-    <string name="prefs_group_route_summary">Единицы измерения, голосовые инструкции, настройки маршрутов</string>
-    <string name="prefs_group_advanced_summary">Включить запись логов</string>
-    <string name="prefs_group_privacy_summary">История поиска</string>
     <string name="pref_about_summary">Сообщить о проблеме, получить помощь, помочь проекту\nВерсия: v%1$s</string>
-    <string name="tts_toggle_enable">Включить голосовые подсказки</string>
-    <string name="tts_toggle_disable">Выключить голосовые подсказки</string>
     <string name="enable_long_tap_fullscreen">Скрыть интерфейс долгим нажатием на карту</string>
     <string name="long_tap_disabled_toast">Чтобы скрыть интерфейс, включите долгий тап в настройках</string>
     <string name="downloader_check_updates_button">Проверить обновления</string>
@@ -968,7 +944,6 @@
     <string name="downloader_check_updates_eol">Обновления карт недоступны для этой версии. Пожалуйста, обновите приложение!</string>
     <string name="downloader_check_updates_error">Ошибка проверки обновлений</string>
     <string name="planning_route_preview">обзор маршрута</string>
-    <string name="prefs_group_power_summary">Блокировка экрана, мобильные данные</string>
     <string name="sort_categories">Порядок сортировки</string>
     <string name="setting_value_system_default">Как в системе</string>
     <string name="by_recently_used">Сначала недавние</string>

@@ -72,11 +72,6 @@
     <string name="auto">Awtomatek</string>
     <string name="pref_map_3d_title">Gwel gemusur</string>
     <string name="pref_map_3d_buildings_title">Drehevyansow 3D</string>
-    <string name="pref_tts_enable_title">Danvonadow Lev</string>
-    <string name="pref_tts_street_names_title">Lenna Henwyn Stretow</string>
-    <string name="pref_tts_language_title">Yeth Lev</string>
-    <string name="pref_tts_test_voice_title">Prov Danvonadow Lev</string>
-    <string name="pref_tts_unavailable">Ankavadow</string>
     <string name="search_show_on_map">Gweles war vappa</string>
     <string name="menu">Rol</string>
     <string name="website">Gwiasva</string>
@@ -317,7 +312,6 @@
     <string name="splash_subtitle">Data mappa dhyworth OpenStreetMap</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_tip_00">Meur ras rag ow tevnydhya agan mappys drehevys gans an gemeneth!</string>
@@ -416,8 +410,6 @@
     <string name="off">Marow</string>
     <string name="on">Byw</string>
     <string name="pref_map_3d_buildings_disabled_summary">Drehevyansow 3D yw marowhes yn fordh erbysyon batri</string>
-    <string name="pref_tts_street_names_description">Mar pyw, an hanow a\'n stret po fordh \'mes rag mos yn-mes a vydh lennys.</string>
-    <string name="pref_tts_playing_test_voice">Checkyewgh an ughelder po settyansow system Tekst-dhe-Areth mar ny glewowgh an lev lemmyn</string>
     <string name="pref_map_auto_zoom">Moghhe/lehe yn awtomatek</string>
     <string name="placepage_distance">Pellder</string>
     <string name="how_to_support_us">Bodhegewgh ha gwellhewgh Atlas</string>
@@ -530,9 +522,6 @@
     <string name="increase_font_size">Moghhe labelyow mappa</string>
     <string name="traffic_data_unavailable">Data daromdak nag yw kavadow</string>
     <string name="enable_logging">Bywhe kovadhow</string>
-    <string name="prefs_languages_information">Ni a dhevnydh lev system rag danvonadow. Meur a dhevisyow Android a dhevnydh TTS Google, hwi a yll iskarga po nowedhi dhyworth Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Rag nebes yethow, res yw dhywgh lea synthesyell lev po fardel yeth geworransel yn gwerthji appys (Google Play, Galaxy Store, App Gallery, FDroid). \nYgerewgh agas settyansyow devis → Yeth hag ynworrans → Areth → Eskorrans tekst dhe areth. \nHwi a yll dyghtya omma an settyansow rag synthesyans kows (rag ensampel, rag iskarga fardel yeth rag devnydh dhywarlinen) ha dewis jynn tekst-dhe-areth aral.</string>
-    <string name="prefs_languages_information_off_link">Rag moy kedhlow checkyewgh an kowethlyver ma mar pleg</string>
     <string name="prefs_speed_cameras_information">Gwarnyans kamera tooth yw marowhes yn broyow le may gwarnyansow yw difennys erbynn lagha leel.</string>
     <string name="transliteration_title">Treylya y\'n lytherennans Latin</string>
     <string name="routing_add_start_point">Devnydhyewgh hwithrans po tevewgh war\'n mappa rag keworra dalleth</string>
@@ -620,8 +609,6 @@
     <string name="aa_location_permissions_request">Yma edhom dhe Atlas hedhas dh\'gas tyller. Pan saw yw, checkyewgh an messach war agas klapkodh.</string>
     <string name="aa_request_permission_notification">Yma edhom dhe\'n app ma agas kummyas</string>
     <string name="aa_request_permission_activity_text">Yma edhom dhe Atlas yn Android Auto kumyasow dh\'gas tyller rag oberi yn effeythus</string>
-    <string name="pref_tts_open_system_settings">Settyansow system tekst-dhe-areth</string>
-    <string name="pref_tts_no_system_tts">Settyansow tekst-dhe-areth nag o kevys, owgh hwi sur agas devis a skoodh henna?</string>
     <string name="drive_through">Drivya-dredh</string>
     <string name="self_service">Omwonis</string>
     <string name="power_save_dialog_summary">Rag navygacyon moggha kewar, ni a gomend ow marowhe fordh batri yn settyansow batri a\'n glapkodh.</string>
@@ -654,9 +641,6 @@
     <string name="open_now">Ygor lemmyn</string>
     <string name="closed_now">Deges lemmyn</string>
     <string name="at">dhe %s</string>
-    <string name="pref_tts_no_system_tts_short">Nyns eus jynn tekst-dhe-areth kevys, checkyewgh an settyansow app</string>
-    <string name="navigation_start_tts_message">"Ow talleth navygacyon, yeth lev: "</string>
-    <string name="navigation_start_tts_disabled_message">Lenna danvonadow marow: jynn tekst-dhe-areth nag yw kavadow</string>
     <string name="offline_explanation_text">Res yw dhywgh iskarga unn mappa rag gweles ha viajya an arenebedh.\nIskargewgh mappys rag arenebedhow le may hwi a vynn viajya.</string>
     <string name="list_description_empty">Golegi an rol rag keworra deskrifans</string>
     <string name="pref_maplanguage_local">Yeth Leel</string>
@@ -685,8 +669,6 @@
     <string name="route_recalculating">Daskalkya an fordh…</string>
     <string name="population">Poblans: %s</string>
     <string name="charge_socket_type1_combo">Kesunyans Eghen 1</string>
-    <string name="tts_toggle_enable">Bywhe danvonadow lev</string>
-    <string name="tts_toggle_disable">Marowhe danvonadow lev</string>
     <string name="downloader_check_updates_button">Checkya rag nowedhyansow</string>
     <string name="downloader_check_updates_checking">Ow checkya rag nowedhyansow...</string>
     <string name="downloader_check_updates_updated">Yma nowedhyansow mappa kavadow!</string>

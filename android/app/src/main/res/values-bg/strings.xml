@@ -199,19 +199,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D сградите са изключени в режим на пестене на енергия</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Гласови инструкции</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Обявете имена на улици</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Когато е активирано, името на улицата или изхода, по който да завиете, ще бъде произнесено на глас.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Език на инструкциите</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Тестване на гласови указания</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Проверете силата на звука или системните настройки за преобразуване на текст в реч, ако сега не чувате гласа.</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Не е налично</string>
     <string name="pref_map_auto_zoom">Автоматично мащабиране</string>
     <string name="search_show_on_map">Преглед на картата</string>
     <!-- Text in menu -->
@@ -495,9 +488,6 @@
     <string name="enable_logging">Активиране на запис на дневник</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Обща обратна връзка</string>
-    <string name="prefs_languages_information">Навигирането се озвучава от системен синтезатор на реч (TTS). Много устройства използват Google TTS, който може да бъде изтеглен или актуализиран от Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts).</string>
-    <string name="prefs_languages_information_off">За някои езици може да се наложи да инсталирате допълнителен синтезатор на реч (TTS) от магазина за приложения (Google Play, Samsung Galaxy Store, Huawei AppGallery, F-Droid). \nЗа да настроите синтезатора на реч, отидете в Настройки → Езици и въвеждане → Синтезиран говор. \nТук можете да инсталирате допълнителни езикови пакети или да изберете синтезатор на реч.</string>
-    <string name="prefs_languages_information_off_link">За повече информация вижте това ръководство.</string>
     <string name="transliteration_title">Изпиши на латиница</string>
     <string name="learn_more">Научете повече</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -681,9 +671,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Експортиране на всички отметки и следи</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Настройки на системата за синтез на реч</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Настройките за синтез на речта не бяха открити, сигурни ли сте, че устройството ви ги поддържа?</string>
     <string name="drive_through">С прозорец за шофьори</string>
     <string name="clear_the_search">Изчистване на търсенето</string>
     <string name="zoom_in">Увеличаване на мащаба</string>
@@ -723,7 +711,6 @@
     <string name="nav_auto">Автоматично в навигацията</string>
     <string name="parks">Паркове</string>
     <string name="deep_purple">Тъмно Лилаво</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="placepage_distance">Разстояние</string>
     <string name="menu">Меню</string>
     <string name="light_blue">Светло Синьо</string>

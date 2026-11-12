@@ -202,11 +202,8 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Trimačiai pastatai yra išjungti energijos taupymo veiksenoje</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Balso instrukcijos</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Balso instrukcijų kalba</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Nepasiekiama</string>
     <string name="pref_map_auto_zoom">Automatinis mastelis</string>
     <string name="placepage_distance">Atstumas</string>
     <string name="search_show_on_map">Rodyti žemėlapyje</string>
@@ -527,9 +524,6 @@
     <string name="enable_logging">Įgalinti derinimo žurnalą</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Bendro pobūdžio atsiliepimas</string>
-    <string name="prefs_languages_information">Balso instrukcijoms naudojame sistemos šnekos sintezatorių. Dauguma „Android“ įrenginių naudoja „Google“ šnekos sintezatorių, kurį galite atsisiųsti ar atnaujinti iš „Google Play Store“ parduotuvės (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Kai kurioms kalboms gali tekti įdiegti papildomą šnekos sintezatorių ar kalbos paketą iš programėlių parduotuvės („Google Play“, „Galaxy Store“, „AppGallery“, „F-Droid“). \nAtverkite įrenginio nustatymus → Kalbos ir įvestis → Kalba → Teksto į kalbą išvestis. \nČia galite tvarkyti šnekos sintezatoriaus nustatymus (pavyzdžiui, atsisiųsti kalbos paketą naudojimui neprisijungus) ar pasirinkti kitą šnekos sintezės modulį.</string>
-    <string name="prefs_languages_information_off_link">Jei norite išsamesnės informacijos, žvilgtelėkite į šią instrukciją</string>
     <string name="transliteration_title">Transliteruoti užrašus lotyniškais rašmenimis</string>
     <string name="learn_more">Išsamesnė informacija</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -704,9 +698,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Eksportuoti pasižymėtas žymes ir trasas</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Šnekos sintezės sistemos nustatymai</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Šnekos sintezės nustatymų modulis nerastas, ar esate tikri, kad jūsų įrenginys ją palaiko?</string>
     <string name="drive_through">Pravažiavimas</string>
     <string name="clear_the_search">Išvalyti paiešką</string>
     <string name="zoom_in">Pritraukti vaizdą</string>
@@ -748,11 +740,7 @@
     <string name="location_settings">Vietos nustatymai</string>
     <string name="maps_storage_summary">Pasirinkite aplanką atsiųstiems žemėlapiams įrašyti</string>
     <string name="category_secondhand">Naudotos prekės</string>
-    <string name="pref_tts_street_names_title">Sakyti gatvių pavadinimus</string>
-    <string name="pref_tts_street_names_description">Įjungus šią parinktį, bus įvardijamos gatvės ir išvažiavimai, į kuriuos siūloma sukti.</string>
     <string name="level_value_generic">Aukštas: %s</string>
-    <string name="pref_tts_test_voice_title">Išbandyti balso instrukcijas</string>
-    <string name="pref_tts_playing_test_voice">Patikrinkite sistemos kalbos sintezės garsumo nustatymus, jeigu dabar negirdite balso</string>
     <plurals name="tracks">
         <item quantity="one">%d trasa</item>
         <item quantity="few">%d trasos</item>
@@ -761,7 +749,6 @@
     <string name="avoid_tolls">Vengti mokamų kelių</string>
     <string name="avoid_motorways">Vengti greitkelių</string>
     <string name="enable_keep_screen_on">Laikyti ekraną įjungtą</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="app_tip_00">Dėkojame, kad naudojatės mūsų bendruomenės sukurtais žemėlapiais!</string>
     <string name="app_tip_02">Patinka šį programėlė? Paremkite, paaukodami jos vystymui! Dar ne? Papasakokite mums, kodėl, ir mes pasistengsime tai pataisyti!</string>
     <string name="app_tip_05">Ar žinote, jog galite pasirinkti savo dabartinę vietą žemėlapyje?</string>
@@ -839,7 +826,6 @@
     <string name="osm_note_hint">Arba, jeigu norite, galite palikti pastabą „OpenStreetMap“ bendruomenei, kad kas nors kitas pridėtų ar pakoreguotų šią vietą.</string>
     <string name="hours_confirmed_time_ago">Patvirtinta %s</string>
     <string name="existence_confirmed_time_ago">Egzistavimas patvirtintas %s</string>
-    <string name="pref_tts_no_system_tts_short">Neaptikta jokia šnekos sintezės sistema, patikrinkite programėlės nustatymus</string>
     <string name="osm_note_toast">Pastaba bus nusiųsta į „OpenStreetMap“</string>
     <string name="unknown_power_output">nežinoma</string>
     <string name="editor_place_doesnt_exist_description">Praneškite „OpenStreetMap“ bendruomenei apie šią klaidą, apibūdindami, kaip ši vieta atrodo dabar</string>
@@ -887,8 +873,6 @@
     <string name="place_page_update_too_old_map">Atnaujinti regiono žemėlapį</string>
     <string name="place_page_too_old_to_edit">„OpenStreetMap“ žemėlapio redagavimas negalimas, nes žemėlapio duomenys per seni.</string>
     <string name="prefs_speed_cameras_information">Įspėjimai apie greičio matuoklius negalimi šalyse, kuriose tai draudžiama įstatymu.</string>
-    <string name="navigation_start_tts_message">"Pradedama navigacija, balso instrukcijų kalba: "</string>
-    <string name="navigation_start_tts_disabled_message">Balso instrukcijos išjungtos: šnekos sintezės sistema neprieinama</string>
     <string name="pref_maplanguage_local">Vietos kalba</string>
     <string name="location_privacy_info">Programos vietovės duomenis gauna iš jūsų įrenginio operacinės sistemos vietovės tarnybos, kuri šiuos duomenis gali taip pat bendrinti su „Google“ ir/ar jūsų įrenginio gamintoju. Jei norite to išvengti, naudokitės privatumą saugančia „Android“ operacinės sistemos atmaina.</string>
     <string name="location_privacy">Vietovės duomenų privatumas</string>

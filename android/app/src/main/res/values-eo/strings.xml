@@ -139,15 +139,10 @@
     <string name="routing_download_maps_along">Elŝutu ĉiujn mapojn laŭlonge de via itinero</string>
     <string name="pref_about_summary">Raporti problemojn, ricevi helpon, donaci\nVersio: v%1$s</string>
     <string name="prefs_group_map_appearance">Mapaspekto</string>
-    <string name="prefs_group_map_appearance_summary">Maplingvo, etikedgrandeco, 2D/3D-konstruaĵoj</string>
     <string name="editor_report_problem_send_button">Sendi</string>
     <string name="prefs_group_interface">Interfaco</string>
-    <string name="prefs_group_interface_summary">Nokta reĝimo, butonoj, lingvo</string>
     <string name="prefs_group_data_management">Datumadministrado</string>
-    <string name="prefs_group_data_management_summary">Mapstokado, sekurkopii favoratojn</string>
-    <string name="prefs_group_route_summary">Unuoj, voĉaj instrukcioj, itineraj agordoj</string>
     <string name="prefs_group_advanced">Altnivelaj</string>
-    <string name="prefs_group_advanced_summary">Ŝalti protokoladon</string>
     <string name="enable_logging">Aktivigi protokoladon</string>
     <string name="download_resources_custom_url_title">Agordebla mapservilo</string>
     <string name="download_resources_custom_url_summary_none">Ne agordita</string>
@@ -157,14 +152,7 @@
     <string name="pref_map_3d_buildings_title">3D-konstruaĵoj</string>
     <string name="power_managment_title">Energiŝpara reĝimo</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D-konstruaĵoj estas malŝaltitaj en energiŝpara reĝimo</string>
-    <string name="pref_tts_enable_title">Voĉaj instrukcioj</string>
-    <string name="pref_tts_street_names_title">Anonci stratnomojn</string>
     <string name="auto">Aŭtomata</string>
-    <string name="pref_tts_language_title">Voĉa lingvo</string>
-    <string name="pref_tts_test_voice_title">Testi voĉaj instrukcioj</string>
-    <string name="pref_tts_unavailable">Ne disponebla</string>
-    <string name="tts_toggle_enable">Ŝalti voĉajn instrukciojn</string>
-    <string name="tts_toggle_disable">Malŝalti voĉajn instrukciojn</string>
     <string name="placepage_distance">Distanco</string>
     <string name="search_show_on_map">Montri sur la mapo</string>
     <string name="menu">Menuo</string>
@@ -320,7 +308,6 @@
     <string name="pref_maplanguage_local">Loka lingvo</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="volume">Volumo</string>
@@ -380,8 +367,6 @@
     <string name="error_enter_correct_name">Bonvolu enigi ĝustan nomon</string>
     <string name="bookmarks_error_message_empty_list_name">Bonvolu enigi la listnomon</string>
     <string name="bookmarks_error_title_list_name_already_taken">Ĉi tiu nomo jam estas uzata</string>
-    <string name="pref_tts_open_system_settings">Sistemagordoj de parolsintezo</string>
-    <string name="pref_tts_playing_test_voice">Kontrolu la volumon aŭ la sistemagordojn de parolsintezo, se vi nun ne aŭdas la voĉon</string>
     <string name="pref_map_auto_zoom">Aŭtomata zomo</string>
     <string name="enable_long_tap_fullscreen_description">Denove longe premi la mapon por vidi la interfacon</string>
     <string name="enable_long_tap_fullscreen">Premi longe por kaŝi la uzantinterfacon</string>
@@ -435,7 +420,6 @@
     <string name="editor_login_error_dialog">Ensaluta eraro</string>
     <string name="editor_profile_changes">Konfirmitaj ŝanĝoj</string>
     <string name="download_resources_custom_url_message">Superregu la defaŭltan servilon por mapelŝutado. Lasu malplena por uzi la defaŭltan servilon de CoMaps.</string>
-    <string name="pref_tts_street_names_description">Kiam ebligita, la nomo de la strato aŭ elirejo, sur kiun oni devas turniĝi, estos voĉlegata.</string>
     <string name="editor_focus_map_on_location">Trenu la mapon por meti la krucon ĉe la loko de la loko aŭ komerco.</string>
     <string name="editor_edit_place_title">Redaktado</string>
     <string name="editor_add_place_title">Aldonado</string>
@@ -537,7 +521,6 @@
         <item quantity="one">%d trako</item>
         <item quantity="other">%d trakoj</item>
     </plurals>
-    <string name="prefs_group_privacy_summary">Serĉhistorio</string>
     <string name="terms_of_use">Uzkondiĉoj</string>
     <string name="button_layer_traffic">Trafiko</string>
     <string name="subway">Metroo</string>
@@ -564,12 +547,6 @@
     </plurals>
     <string name="power_management">Energi-administrado</string>
     <string name="bookmarks_empty_list_message">Por konservi lokon, frapu lokon sur la mapo kaj poste frapu la stelan ikonon</string>
-    <string name="prefs_languages_information">Ni uzas la sisteman parolsintezon por voĉaj instrukcioj. Multaj Android-aparatoj uzas Google TTS. Vi povas elŝuti aŭ ĝisdatigi ĝin de la Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Por iuj lingvoj, vi devos instali parolsintezilon aŭ aldonan lingvan pakaĵon el aplikaĵvendejo (Google Play, Galaxy Store, AppGallery, F-Droid).\nMalfermu la agordojn de via aparato → Lingvo kaj enigo → Parolo → Teksto-al-parola eligo.\nĈi tie vi povas administri la agordojn de parolsintezo (ekzemple, elŝuti lingvan pakaĵon por senreta uzo) kaj elekti alian parolsintezilon.</string>
-    <string name="prefs_languages_information_off_link">Por pliaj informoj, bonvolu konsulti ĉi tiun gvidilon</string>
-    <string name="pref_tts_no_system_tts">La agordoj de parolsintezo ne troviĝis. Ĉu vi certas, ke via aparato subtenas parolsintezon?</string>
-    <string name="pref_tts_no_system_tts_short">Neniu parolsintezilo troviĝis. Kontrolu la agordojn de la aplikaĵo.</string>
-    <string name="navigation_start_tts_disabled_message">Voĉaj instrukcioj malŝaltitaj: parolsintezilo ne disponeblas</string>
     <string name="prefs_speed_cameras_information">Avertoj pri rapidkameraoj estas malŝaltitaj en landoj, kie tio estas malpermesita laŭ la loka leĝaro.</string>
     <string name="learn_more">Pliaj informoj</string>
     <string name="routing_add_start_point">Serĉu aŭ frapu la mapon por aldoni deirpunkton de la itinero</string>
@@ -593,7 +570,6 @@
     <string name="feedback_general">Ĝeneralaj rimarkoj</string>
     <string name="placepage_remove_stop">Forigi halton</string>
     <string name="placepage_add_stop">Aldoni halton</string>
-    <string name="prefs_group_power_summary">Ekrana malŝalto, poŝtelefona interreto</string>
     <string name="sort_categories">Ordigi favoratlistojn</string>
     <string name="setting_value_system_default">Sistema defaŭlto</string>
     <string name="by_type">Laŭ tipo</string>
@@ -686,7 +662,6 @@
     <string name="stop">Halto</string>
     <string name="share_track">Kunhavigi trako</string>
     <string name="delete_track_dialog_title">Forigi %s?</string>
-    <string name="navigation_start_tts_message">"Navigado komenciĝas, lingvo de voĉaj instrukcioj: "</string>
     <string name="charge_socket_schuko">Schuko</string>
     <string name="unknown_socket_type">nekonata konektilo</string>
     <string name="edit_socket_info_tooltip">Kreu novajn konektilojn aŭ redaktu ekzistantajn.</string>

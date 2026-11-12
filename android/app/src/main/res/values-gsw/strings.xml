@@ -39,7 +39,6 @@
     <string name="placepage_more_button">Meh</string>
     <string name="error_enter_correct_twitter_page">Gib e gültigi Twitter-Webadresse oder en Benutzername ii</string>
     <string name="feedback_general">Allgemeins Feedback</string>
-    <string name="prefs_languages_information_off">Für gwüssi Spraache muesch du en andere Spraachgenerator oder es zuesätzlichs Spraachpaket us em App Store installiere (Google Play, Galaxy Store, App Gallery, FDroid). \nÖffne d Iistellige vo dim Grät → Sprache und Eingabe → Sprache → Text-to-Speech-Ausgabe. \nDa chasch d Iistellige für Sprachsynthese verwalte (biispiilswiis es Sprachpaket für d Offline-Verwendig abelade) und es anders Spraachusgabeprogramm uuswähle.</string>
     <string name="learn_more">Wiiteri Informatione</string>
     <string name="routing_add_finish_point">Nutz d Suechi oder tipp uf d Charte, zum en Ziilpunkt hinzuezfüege</string>
     <string name="placepage_add_stop">Stopp hinzuefüege</string>
@@ -90,7 +89,6 @@
     <string name="app_tip_06">Du chasch debi helfe, eusi App i dini Spraach z übersetze.</string>
     <string name="app_tip_09">Euses Hauptziel ischs, schnelli, dateschutzorientierti und benutzerfründlichi Charte z erstelle, wo du wirsch liebe.</string>
     <string name="aa_location_permissions_request">Atlas bruucht Zuegriff uf de Standort. Wenns sicher isch, prüef d Benachrichtigung uf dim Telefon.</string>
-    <string name="pref_tts_no_system_tts">D Iistellige für d Sprachsynthese sind nöd gfunde worde. Bisch du sicher, dass dis Grät sie unterstützt?</string>
     <string name="error_no_file_manager_app">S Dialogfeld zur Ordneruuswahl cha nöd aazeigt werde, will kei geigneti App uf dim Grät installiert isch. Bitte installier e Dateimanager-App und versuechs nomal.</string>
     <string name="pref_backup_now_summary_ok">Sicherig erfolgriich abgschlosse</string>
     <string name="pref_backup_now_summary_empty_lists">Kei Ört und Tracks für es Backup vorhande</string>
@@ -220,13 +218,6 @@
     <string name="pref_map_3d_title">Perspektivischi Aasicht</string>
     <string name="pref_map_3d_buildings_title">3D-Gebäude</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D-Gebäude werded im Energiesparmodus uusgschaltet</string>
-    <string name="pref_tts_enable_title">Sprachfüehrig</string>
-    <string name="pref_tts_street_names_title">Strassenäme aakündige</string>
-    <string name="pref_tts_street_names_description">Wenn aktiviert, wird de Name vo de Strass oder Uusfahrt, wo abboge wird, luut aakündigt.</string>
-    <string name="pref_tts_language_title">Sprach für d Sprachfüehrig</string>
-    <string name="pref_tts_test_voice_title">Test d Sprachaawisige</string>
-    <string name="pref_tts_playing_test_voice">Überprüef d Luutstärchi oder d Text-To-Speech-Iistellige vom System, wenn du d Stimm jetzt nöd ghörsch</string>
-    <string name="pref_tts_unavailable">Nöd verfüegbar</string>
     <string name="pref_map_auto_zoom">Auto-Zoom</string>
     <string name="placepage_distance">Entfernig</string>
     <string name="search_show_on_map">Uf de Charte aaluege</string>
@@ -486,7 +477,6 @@
     <string name="splash_subtitle">Chartedate vo OpenStreetMap</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_tip_00">Danke, dass du eusi vo de Community erstellte Charte bruuchsch!</string>
     <string name="app_tip_01">Mit dinere Spend und dinere Unterstützig chönd mir die beste Charte vo de Welt erstelle!</string>
@@ -504,7 +494,6 @@
     <string name="browser_not_available">Webbrowser isch nöd verfüegbar</string>
     <string name="volume">Luutstärchi</string>
     <string name="bookmarks_export">Alli Ört und Tracks exportiere</string>
-    <string name="pref_tts_open_system_settings">Iistellige vom Sprachsynthesesystem</string>
     <string name="drive_through">Drive-trough</string>
     <string name="clear_the_search">Lösch d Suechi</string>
     <string name="zoom_in">Vergrössere</string>
@@ -566,7 +555,6 @@
     <string name="editor_operator">Betriiber</string>
     <string name="mobile_data_dialog">Mobils Internet verwende, zum genaueri Informatione aazzeige?</string>
     <string name="mobile_data_description">Für Benachrichtigunge über Charteaktualisierige und s Ufelade vo Änderige isch e mobili Internetverbindig erforderlich</string>
-    <string name="prefs_languages_information_off_link">Wiiteri Informatione findsch i dere Aaleitig</string>
     <string name="privacy_policy">Dateschutzerchlärig</string>
     <string name="notification_channel_downloader">Charte-Downloader</string>
     <string name="unable_to_calc_alert_subtitle">Es het kei Route chönne gfunde werde. Das chan a dine Routingoptione oder a unvollständige OpenStreetMap-Date ligge. Bitte änder dini Routingoptione und versuechs nomal.</string>
@@ -579,7 +567,6 @@
     <string name="operator">Betriiber: %s</string>
     <string name="editor_reset_edits_message">Alli lokale Änderige verwerfe?</string>
     <string name="delete_place_empty_comment_error">Gib bitte de Grund für d Löschig aa</string>
-    <string name="prefs_languages_information">Mir verwendet Text-To-Speech-System für Sprachaawiisige. Vieli Android-Grät nutzed Google-TTS, wo du bi Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts) abelade oder aktualisiere chasch</string>
     <string name="transliteration_title">Transliteration is latiinische Alphabet</string>
     <string name="pref_tts_speedcams_always">Immer warne</string>
     <string name="avoid_unpaved">Unbefestigti Strasse miide</string>
@@ -597,7 +584,6 @@
     <string name="delete_track_dialog_title">%s lösche?</string>
     <string name="existence_confirmed_time_ago">Existenz bestätigt %s</string>
     <string name="hours_confirmed_time_ago">Bestätigt %s</string>
-    <string name="pref_tts_no_system_tts_short">Keis Text-to-Speech-Modul gfunde, überprüef d App-Iistellige</string>
     <string name="opens_at">Öffnet am %s</string>
     <string name="closes_at">Schlüsst am %s</string>
     <string name="opens_tomorrow_at">Öffnet morn am %s</string>
@@ -643,8 +629,6 @@
     <string name="place_page_too_old_to_edit">OpenStreetMap-Bearbeitig isch deaktiviert, will d Chartedate z alt sind.</string>
     <string name="prefs_speed_cameras_information">Blitzerwarnige sind i Länder deaktiviert, wo Warnige dur lokali Gsetz verbote sind.</string>
     <string name="pref_maplanguage_local">Lokali Spraach</string>
-    <string name="navigation_start_tts_message">"Navigation wird gstartet, Spraach vo de Spraachaasage: "</string>
-    <string name="navigation_start_tts_disabled_message">Spraachaasage deaktiviert: TTS-Engine nöd verfüegbar</string>
     <string name="location_privacy_info">Apps bechömed Standortdate vo dim Standortdienst vom Betriebssystem, wo din Standort möglicherwiis a Google und/oder din Grätehersteller wiitergit. Nutz es dateschutzkonforms Android-Betriebssystem, zum das vermiide.</string>
     <string name="location_privacy">Standort-Dateschutz</string>
     <string name="pref_speedlimit_title">Zeig Tempolimits aa</string>

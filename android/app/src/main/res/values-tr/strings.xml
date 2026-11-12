@@ -207,19 +207,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3B yapılar güç tasarrufu modundayken kapatılır</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Sesli Yönlendirme</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Sokak Adlarını Söyle</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Etkinleştirildiğinde, dönülecek sokağın veya çıkışın adı sesli olarak söylenecektir.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Ses Dili</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Sesli Navigasyon Testi</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Sesi duyamıyorsanız ses seviyesini veya sistem metin okuma ayarlarını kontrol edin</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Yok</string>
     <string name="pref_map_auto_zoom">Kendiliğinden yaklaştır</string>
     <string name="placepage_distance">Mesafe</string>
     <string name="search_show_on_map">Haritada görüntüle</string>
@@ -536,9 +529,6 @@
     <string name="enable_logging">Günlüğü etkinleştir</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Genel Geri Bildirim</string>
-    <string name="prefs_languages_information">Sesli yönlendirme için TTS sistemini kullanıyoruz. Çoğu Android cihaz, Google TTS\'yi kullanıyor. Uygulamayı, Google Play\'den indirebilir veya güncelleyebilirsiniz (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Bazı diller için uygulama mağazasından (Google Play, Galaxy Store, App Gallery, FDroid) farklı bir konuşma sentezleyicisi veya ek bir dil paketi yüklemeniz gerekebilir. Cihaz ayarları → Dil ve Giriş → Konuşma → Metin Okuma seçeneğini açın. Buradan konuşma sentezi ayarlarını yönetebilir (örneğin, çevrimdışı kullanım için bir dil paketini karşıdan yükleyebilir) ve başka bir metin okuma motorunu seçebilirsiniz.</string>
-    <string name="prefs_languages_information_off_link">Daha fazla bilgi için lütfen bu kılavuzu inceleyin</string>
     <string name="transliteration_title">Latin alfabesine çevir</string>
     <string name="learn_more">Daha fazla bilgi edinin</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -767,9 +757,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Tüm Yer İmlerini Dışa Aktar</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Konuşma sentezleme ile ilgili sistem ayarları</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Konuşma Sentezi ayarları bulunamadı, aygıtınızın bunu desteklediğinden emin misiniz?</string>
     <string name="drive_through">Arabaya servis</string>
     <string name="clear_the_search">Aramayı temizleyin</string>
     <string name="zoom_in">Yakınlaştır</string>
@@ -810,7 +798,6 @@
     <string name="wikimedia_commons">Wikimedia Commons</string>
     <string name="menu">Menü</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="app_site_url">https://comaps.app/tr/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="telegram_url">https://t.me/Atlas_TR</string>
@@ -859,7 +846,6 @@
     <string name="existence_confirmed_time_ago">%s varlığı onaylandı</string>
     <string name="share_track">Rotayı paylaş</string>
     <string name="delete_track_dialog_title">%s silinsin mi?</string>
-    <string name="pref_tts_no_system_tts_short">Metinden sese dönüştürme motoru bulunamadı, uygulama ayarlarını kontrol edin</string>
     <string name="offline_explanation_title">Çevrimdışı Haritalar</string>
     <string name="offline_explanation_text">Bölgeyi görüntülemek ve yön bulmak için bir harita indirilmesi gerekiyor.\nYolculuk etmek istediğiniz bölgelerin haritalarını indirin.</string>
     <string name="editor_place_doesnt_exist_description">OpeenStreetMap topluluğuna bir hata notu göndermek için şimdi mekanın nasıl gözüktüğünü tarif et</string>
@@ -897,8 +883,6 @@
     <string name="pref_alt_map_lang_handling_system_order">Sistem dili sırasına göre kullan</string>
     <string name="pref_alt_map_lang_handling_local_only">Sadece anadil olduğu yerlerde tercih et</string>
     <string name="pref_about_summary">Sorun bildirin, yardım alın, bağış yapın\nSürüm: v%1$s</string>
-    <string name="prefs_group_interface_summary">Gece modu, butonlar, dil</string>
-    <string name="prefs_group_route_summary">Birimler, sesli yönlendirme, rota seçenekleri</string>
     <string name="download_resources_custom_url_error_scheme">Lütfen http:// veya https:// ile başlayan bir URL giriniz</string>
     <string name="enable_long_tap_fullscreen">Kullanıcı arayüzünü gizlemek için uzun basın</string>
     <string name="long_tap_disabled_toast">Arayüzü gizlemek için ayarlarda uzun basışı etkinleştirin</string>
@@ -912,11 +896,9 @@
     <string name="editor_business_vacant_button">İşletme kapanmış</string>
     <string name="editor_mark_business_vacant_title">İşletmeyi kapanmış olarak işaretle</string>
     <string name="editor_submit">Gönder</string>
-    <string name="prefs_group_power_summary">Ekran zaman aşımı, mobil veri</string>
     <string name="population">Nüfus: %s</string>
     <string name="pref_maplanguage_local">Yerel Dil</string>
     <string name="stop">Durak</string>
-    <string name="navigation_start_tts_disabled_message">Sesli yönlendirme devre dışı: TTS motoru mevcut değil</string>
     <string name="rooms">%s oda</string>
     <string name="invalid_route">Geçersiz rota</string>
     <string name="building_route">Rota oluşturuluyor…</string>
@@ -930,18 +912,12 @@
     <string name="capacity_disabled">Engelli park yeri: %s</string>
     <string name="prefs_group_interface">Arayüz</string>
     <string name="prefs_group_advanced">Gelişmiş</string>
-    <string name="prefs_group_privacy_summary">Arama geçmişi</string>
     <string name="setting_value_system_default">Sistem varsayılanı</string>
     <string name="bookmark_share_email_subject">Bu konumu görmek için %1$s bu linki takip et veya %2$s bu koordinatları harita aplikasyonuna yapıştır.</string>
     <string name="my_position_share_email">Konumumu görmek için %1$s bu linki takip et veya %2$s bu koordinatları harita aplikasyonuna yapıştır.</string>
     <string name="prefs_group_map_appearance">Harita görünümü</string>
-    <string name="prefs_group_map_appearance_summary">Harita dili, etiket boyutu, 2D/3D binalar</string>
     <string name="prefs_group_data_management">Veri yönetimi</string>
-    <string name="prefs_group_data_management_summary">Harita depolama, yer imlerini yedekleri</string>
-    <string name="prefs_group_advanced_summary">Günlük kaydını etkinleştir</string>
     <string name="download_resources_custom_url_summary_none">Ayarlanmadı</string>
-    <string name="tts_toggle_enable">Sesli talimatları etkinleştir</string>
-    <string name="tts_toggle_disable">Sesli talimatları devre dışı bırak</string>
     <string name="downloader_check_updates_checking">Güncellemeler kontrol ediliyor...</string>
     <string name="downloader_check_updates_updated">Harita güncellemeleri mevcut!</string>
     <string name="downloader_check_updates_no_updates">Güncelleme yok</string>
@@ -960,7 +936,6 @@
     <string name="search_in_all_lists">Tüm listelerde ara</string>
     <string name="change_app_locale">Uygulama dili</string>
     <string name="destination">Varış Noktası</string>
-    <string name="navigation_start_tts_message">"Navigasyon başlatılıyor, sesli talimat dili: "</string>
     <string name="charge_socket_type1_combo">Tip 1 kombinasyonu</string>
     <string name="charge_socket_schuko">AB içi</string>
     <string name="list_description_empty">Açıklama eklemek için listeyi düzenle</string>

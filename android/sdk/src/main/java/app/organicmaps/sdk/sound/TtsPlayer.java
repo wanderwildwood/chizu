@@ -52,6 +52,11 @@ public enum TtsPlayer
   private static final float SPEECH_RATE = 1.0f;
   private static final int TTS_SPEAK_DELAY_MILLIS = 50;
 
+  // Atlas: no voice. The Kompakt has no speech engine, so none is ever asked for: initialize() stops
+  // before it makes a TextToSpeech, isReady() and isEnabled() stay false whatever the saved settings
+  // say, and nothing is spoken. Directions are on the screen only.
+  private static final boolean VOICE_AVAILABLE = false;
+
   @Nullable
   private static List<Pair<String, String>> sSupportedLanguages = null;
 
@@ -196,6 +201,9 @@ public enum TtsPlayer
   {
     mContext = context;
 
+    if (!VOICE_AVAILABLE)
+      return;
+
     if (mTts != null || mInitializing || mUnavailable)
       return;
 
@@ -296,7 +304,7 @@ public enum TtsPlayer
 
   public void speak(String textToSpeak)
   {
-    if (Config.TTS.isEnabled())
+    if (isReady() && Config.TTS.isEnabled())
       try
       {
         final boolean isMusicActive = mAudioManager.isMusicActive();

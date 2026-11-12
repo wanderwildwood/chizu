@@ -158,7 +158,10 @@ object OnlineAddress {
 
     private fun inUnitedStates(activity: Activity): Boolean {
         fun there(lat: Double, lon: Double): Boolean {
-            val id = MapManager.nativeFindCountry(lat, lon) ?: return false
+            // Empty out at sea, where no map file covers the spot: the map engine stops the app when
+            // asked about a map it has no name for.
+            val id = MapManager.nativeFindCountry(lat, lon)
+            if (id.isNullOrEmpty()) return false
             return id == UNITED_STATES || CountryItem.fill(id).topmostParentId == UNITED_STATES
         }
         val here = MwmApplication.from(activity).locationHelper.savedLocation

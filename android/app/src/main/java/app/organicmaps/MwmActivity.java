@@ -111,7 +111,6 @@ import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.search.SearchEngine;
 import app.organicmaps.sdk.settings.RoadType;
 import app.organicmaps.sdk.settings.UnitLocale;
-import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.ConnectionState;
 import app.organicmaps.sdk.util.LocationUtils;
@@ -1948,26 +1947,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
     return false;
   }
 
-  private void deliverTtsMessage()
-  {
-    if (Config.isTtsMessageDelivered())
-      return;
-
-    String languageDisplayName = TtsPlayer.INSTANCE.getLanguageDisplayName();
-
-    if (languageDisplayName != null)
-    {
-      String navigationStartMessage = getResources().getString(R.string.navigation_start_tts_message);
-      navigationStartMessage += languageDisplayName;
-      Toast.makeText(this, navigationStartMessage, Toast.LENGTH_LONG).show();
-    }
-    else
-      Toast.makeText(this, getResources().getString(R.string.navigation_start_tts_disabled_message), Toast.LENGTH_LONG)
-          .show();
-
-    Config.setTtsMessageDelivered();
-  }
-
   private boolean showStartPointNotice()
   {
     final RoutingController controller = RoutingController.get();
@@ -2342,8 +2321,6 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     if (!showRoutingDisclaimer())
       return;
-
-    deliverTtsMessage();
 
     closeFloatingPanels();
     setFullscreen(false);

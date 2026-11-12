@@ -207,19 +207,14 @@
     <string name="length">Length</string>
     <string name="share_my_location">Share my location</string>
     <string name="prefs_group_map_appearance">Map appearance</string>
-    <string name="prefs_group_map_appearance_summary">Map language, label size</string>
     <string name="prefs_group_interface">Interface</string>
-    <string name="prefs_group_interface_summary">Buttons, language</string>
     <string name="prefs_group_data_management">Data management</string>
-    <string name="prefs_group_data_management_summary">Map storage, backup favorites</string>
     <string name="prefs_group_information">Information</string>
     <string name="prefs_group_route">Navigation</string>
-    <string name="prefs_group_route_summary">Units, voice instructions, routing options</string>
     <string name="pref_zoom_title">Zoom buttons</string>
     <string name="pref_zoom_summary">Display on the map</string>
     <!-- Settings advanced group in settings screen -->
     <string name="prefs_group_advanced">Advanced</string>
-    <string name="prefs_group_advanced_summary">Links, map server</string>
     <string name="download_resources_custom_url_title">Custom map server</string>
     <string name="download_resources_custom_url_message">Override the default map download server used for map downloads. Leave empty to use the CoMaps servers.</string>
     <string name="download_resources_custom_url_summary_none">Not set</string>
@@ -238,24 +233,6 @@
     <string name="pref_map_3d_buildings_title">3D buildings</string>
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D buildings are disabled in power saving mode</string>
-    <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Voice instructions</string>
-    <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Announce street names</string>
-    <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">When enabled, the name of the street or exit to turn onto will be spoken aloud.</string>
-    <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Voice language</string>
-    <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Test voice directions</string>
-    <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Check the volume or system Text-To-Speech settings if you don\'t hear the voice now</string>
-    <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Not available</string>
-    <!-- Bottom nav when planning route: button that enables TTS -->
-    <string name="tts_toggle_enable">Enable voice instructions</string>
-    <!-- Bottom nav when planning route: button that disables TTS -->
-    <string name="tts_toggle_disable">Disable voice instructions</string>
     <string name="pref_map_auto_zoom">Auto zoom</string>
     <string name="placepage_distance">Distance</string>
     <string name="search_show_on_map">View on map</string>
@@ -641,11 +618,6 @@
     <string name="enable_logging">Enable logging</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">General feedback</string>
-    <string name="prefs_languages_information">We use system TTS for voice instructions. Many Android devices use Google TTS, you can download or update it from the Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">For some languages, you will need to install a speech synthesizer or an additional language pack from an app store (Google Play, Galaxy Store, App Gallery, F-Droid).
-\nOpen your device\'s settings → Language and input → Speech → Text to speech output.
-\nHere you can manage the settings for speech synthesis (for example, to download language a pack for offline use) and select a different text-to-speech engine.</string>
-    <string name="prefs_languages_information_off_link">For more information please check this guide</string>
     <string name="prefs_speed_cameras_information">Speed camera warnings are disabled in countries where alerts are prohibited by local law.</string>
     <string name="transliteration_title">Transliterate into the Latin alphabet</string>
     <string name="learn_more">Learn more</string>
@@ -696,10 +668,8 @@
     </plurals>
     <!-- Settings privacy group in settings screen -->
     <string name="prefs_group_privacy">Privacy</string>
-    <string name="prefs_group_privacy_summary">Search history</string>
     <string name="privacy_policy">Privacy policy</string>
     <string name="power_management">Power management</string>
-    <string name="prefs_group_power_summary">Power saving, screen</string>
     <string name="terms_of_use">Terms of use</string>
     <string name="button_layer_traffic">Traffic</string>
     <string name="subway">Subway</string>
@@ -850,8 +820,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <!-- Instagram account url for the "?" About page -->
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <!-- A link to the TTS FAQ -->
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
@@ -903,10 +871,6 @@
     <string name="volume">Volume</string>
     <!-- Favorite categories screen, button that opens share dialog to export all Favorites -->
     <string name="bookmarks_export">Export all favorites</string>
-    <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Speech synthesis system settings</string>
-    <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Speech Synthesis settings were not found, are you sure your device supports it?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Clear the search</string>
     <string name="zoom_in">Zoom in</string>
@@ -992,9 +956,6 @@
     <!-- Title of the bottom sheet when sharing the track -->
     <string name="share_track">Share track</string>
     <string name="delete_track_dialog_title">Delete %s?</string>
-    <string name="pref_tts_no_system_tts_short">No text-to-speech engine found, check the app settings</string>
-    <string name="navigation_start_tts_message">"Starting navigation, voice instruction language: "</string>
-    <string name="navigation_start_tts_disabled_message">"Voice instructions disabled: TTS engine not available"</string>
     <string name="unknown_power_output">unknown</string>
     <string name="charge_socket_type2">Type 2 (no cable)</string>
     <string name="charge_socket_type2_cable">Type 2 (w/ cable)</string>

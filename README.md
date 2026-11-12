@@ -60,9 +60,9 @@ What Atlas changes:
   fonts and icons are taken from CoMaps' notice page (`data/copyright.html`) by
   `android/config/gen-credits.py`.
 
-Everything else is CoMaps as it is: the offline search, car, walking and cycling routes
-(spoken, where the phone has a speech engine), favorites and recorded tracks, and import
-and export of KML, KMZ and GPX files.
+Everything else is CoMaps as it is: the offline search, car, walking and cycling routes,
+favorites and recorded tracks, and import and export of KML, KMZ and GPX files. Directions
+are shown on the screen; Atlas does not speak them, and CoMaps' voice settings are left out.
 
 ## What it sends, and what it does not
 

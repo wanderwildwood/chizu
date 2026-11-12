@@ -190,19 +190,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">ساختمان های سه بعدی در حالت صرفه جویی در مصرف برق خاموش می شوند</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">دستور العمل صوتی</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">نام خیابان ها را اعلام کنید</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">وقتی فعال باشد، نام خیابان یا خروجی که باید به آن بپیچید با صدای بلند گفته می شود.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">زبان صدا</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">تست دستورالعمل های صوتی</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">اگر اکنون صدا را نمی شنوید، میزان صدا یا تنظیمات تبدیل متن به گفتار سیستم را بررسی کنید</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">موجود نیست</string>
     <string name="pref_map_auto_zoom">بزرگنمایی خودکار</string>
     <string name="placepage_distance">مسافت</string>
     <string name="search_show_on_map">مشاهده بر روی نقشه</string>
@@ -509,9 +502,6 @@
     <string name="enable_logging">ورود به سیستم را فعال کنید</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">\"تنظیمات: دکمه \"ارسال بازخورد کلی</string>
-    <string name="prefs_languages_information">ما از سامانه نوشتار‌به‌گفتار برای دستورالعمل‌های صدایی بهره می‌گیریم. بسیاری از دستگاه‌های اندروید از Google TTS استفاده می کنند، شما می‌توانید آن را از Google Play بارگیری کنید (https://play.google.com/store/apps/details؟id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">برای بعضی از زبان‌ها، شما باید speech synthesizer یا یک بسته زبان دیگر را از فروشگاه برنامه (Google Play, Galaxy Store, App Gallery, FDroid) نصب کنید. \n تنظیمات دستگاه خود را باز کنید. → زبان و ورودی → گفتار → خروجی متن به گفتار. می توانید تنظیمات برای ترکیب گفتار (به عنوان مثال، بسته‌های زبان را برای استفاده آفلاین دانلود کنید) را مدیریت کنید و یک موتور دیگر متن به گفتار را انتخاب کنید.</string>
-    <string name="prefs_languages_information_off_link">برای اطلاعات بیشتر لطفا این راهنما را بررسی کنید</string>
     <string name="transliteration_title">ترجمه به لاتین</string>
     <string name="learn_more">بیشتر بدانید</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -722,9 +712,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">صادر کردن همه نشان‌ها و مسیرها</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">تنظیمات سنتز گفتار سیستم</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">تنظیمات Speech Synthesis پیدا نشد، آیا اُستیگان هستید که دستگاه شما از آن پشتیبانی می کند؟</string>
     <string name="drive_through">رانندگی از طریق</string>
     <string name="clear_the_search">جستجو را پاک کنید</string>
     <string name="zoom_in">بزرگ‌نمایی</string>
@@ -764,7 +752,6 @@
     <string name="nav_auto">خودکار در ناوبری</string>
     <string name="telegram_url">https://t.me/CoMapsApp</string>
     <string name="translated_om_site_url">https://comaps.app</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app</string>
     <string name="wikimedia_commons">ویکی‌انبار</string>
     <string name="panoramax">تصویر Panoramax</string>

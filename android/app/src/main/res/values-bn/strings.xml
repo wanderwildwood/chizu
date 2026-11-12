@@ -14,7 +14,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="app_site_url">https://comaps.app/</string>
     <string name="location_is_disabled_long_text">আপনার ডিভাইস বা অ্যাপ এর সব লোকেশন পরিষেবা বন্ধ করা আছে। দয়া করে সেটিংস থেকে চালু করুন।</string>
@@ -116,17 +115,10 @@
     <string name="pref_map_3d_title">দৃষ্টিকোণ দৃশ্য</string>
     <string name="pref_map_3d_buildings_title">3D বিল্ডিং</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D বিল্ডিং দেখানো পাওয়ার সাশ্রয় মোডে বন্ধ হয়ে যায়</string>
-    <string name="pref_tts_enable_title">আওয়াজসহ নির্দেশাবলী</string>
-    <string name="pref_tts_street_names_title">রাস্তার নাম ঘোষণা করুন</string>
-    <string name="pref_tts_language_title">আওয়াজের ভাষা</string>
-    <string name="pref_tts_street_names_description">সক্রিয় করা হলে, যে রাস্তা বা প্রস্থানের দিকে ঘুরতে হবে তার নাম বলা হবে।</string>
-    <string name="pref_tts_test_voice_title">আওয়াজ দ্বারা দিকনির্দেশনা পরীক্ষা করুন</string>
-    <string name="pref_tts_unavailable">উপলব্ধ নয়</string>
     <string name="pref_map_auto_zoom">স্বয়ংক্রিয় জুম</string>
     <string name="placepage_distance">দুরত্ব</string>
     <string name="menu">মেনু</string>
     <string name="news">সংবাদ</string>
-    <string name="pref_tts_playing_test_voice">যদি এখন আওয়াজ শুনতে না পান, তাহলে আওয়াজ অথবা সিস্টেমের \"টেক্সট-টু-স্পিচ\" সেটিংস পরীক্ষা করুন</string>
     <string name="website">ওয়েবসাইট</string>
     <string name="google_play_services">গুগল দ্বারা মিশ্রিত অবস্থান সেবা</string>
     <string name="search_show_on_map">মানচিত্রে দেখুন</string>
@@ -334,7 +326,6 @@
     <string name="existence_confirmed_time_ago">%s অস্তিত্ব নিশ্চিত হয়েছে</string>
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) একটি সাম্প্রদায়িক প্রকল্প যা একটি মুক্ত ও উন্মুক্ত মানচিত্র তৈরি করে। এটি Atlas-এ মানচিত্র তথ্যের প্রধান উৎস এবং উইকিপিডিয়ার মতো কাজ করে। আপনি স্থান যোগ বা সম্পাদনা করতে পারেন এবং সেগুলো সারা বিশ্বের লক্ষ লক্ষ ব্যবহারকারীর জন্য উপলব্ধ হয়ে ওঠে। \nকমিউনিটিতে যোগ দিন এবং সবার জন্য আরও ভালো মানচিত্র তৈরি করতে সাহায্য করুন!</string>
     <string name="bookmark_lists">প্রিয় তালিকা</string>
-    <string name="prefs_languages_information_off_link">আরও তথ্যের জন্য এই নির্দেশিকা চেক করুন</string>
     <string name="accept">স্বীকার করুন</string>
     <string name="decline">অস্বীকার করুন</string>
     <string name="medicine">ওষুধ</string>
@@ -426,18 +417,12 @@
     <string name="continue_recording">রেকর্ড করে যান</string>
     <string name="bookmarks_create_new_group">একটি নতুন তালিকা তৈরি করুন</string>
     <string name="pref_about_summary">সমস্যা রিপোর্ট করুন, সাহায্য পান, দান করুন\nসংস্করণ: v%1$s</string>
-    <string name="prefs_group_map_appearance_summary">মানচিত্রের ভাষা, লেবেলের আকার, 2D/3D স্থাপনা</string>
     <string name="prefs_group_interface">ইন্টারফেস</string>
-    <string name="prefs_group_interface_summary">রাতের মোড, বোতামগুলো, ভাষা</string>
     <string name="prefs_group_data_management">ডেটা ব্যবস্থাপনা</string>
-    <string name="prefs_group_data_management_summary">মানচিত্রের স্টোরেজ, পছন্দগুলোর ব্যাকআপ</string>
     <string name="prefs_group_advanced">উন্নত সেটিংস</string>
-    <string name="prefs_group_advanced_summary">লগ সংরক্ষণ চালু করুন</string>
     <string name="download_resources_custom_url_title">কাস্টম মানচিত্র সার্ভার</string>
     <string name="download_resources_custom_url_message">মানচিত্র ডাউনলোডের জন্য ব্যবহৃত ডিফল্ট সার্ভার পরিবর্তন করুন। CoMaps এর ডিফল্ট সার্ভার ব্যবহার করতে ঘরটি খালি রাখুন।</string>
     <string name="download_resources_custom_url_summary_none">সেট করা হয়নি</string>
     <string name="download_resources_custom_url_error_scheme">দায়া করে একটি URL প্রদান করুন যা http:// বা https:// দিয়ে শুরু হয়</string>
-    <string name="tts_toggle_enable">কণ্ঠ নির্দেশনা চালু করুন</string>
-    <string name="tts_toggle_disable">কণ্ঠ নির্দেশনা বন্ধ করুন</string>
     <string name="enable_long_tap_fullscreen">ইউজার ইন্টারফেস লুকাতে দীর্ঘক্ষণ চাপুন</string>
 </resources>

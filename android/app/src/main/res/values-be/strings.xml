@@ -199,19 +199,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">У рэжыме энергазберажэння 3D-будынкі адключаны</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Галасавыя інструкцыі</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Абвяшчаць назвы вуліц</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Калі ўключана, назва вуліцы або выезду, на які трэба павярнуць, будзе прамаўляцца ўслых.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Мова агучвання</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Тэставыя галасавыя ўказанні (TTS, Text-To-Speech)</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Праверце гучнасць або сістэмныя налады пераўтварэння тэксту ў маўленне, калі вы зараз не чуеце голас.</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Не даступны</string>
     <string name="pref_map_auto_zoom">Аўтаматычны маштаб</string>
     <string name="placepage_distance">Адлегласць</string>
     <string name="search_show_on_map">Паглядзець на карце</string>
@@ -523,9 +516,6 @@
     <string name="enable_logging">Уключыць вядзенне журнала</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Агульны водгук</string>
-    <string name="prefs_languages_information">Мы выкарыстоўваем сістэмны сінтэзатар маўлення (TTS). На большасці прылад Android выкарыстоўваецца Google TTS, яго можна спампаваць або абнавіць праз Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Для некаторых моў вам спатрэбіцца ўсталяваць сінтэзатар маўлення або дадатковы моўны пакет з крамы праграм (Google Play, Galaxy Store, App Gallery, F-Droid). \nЗайдзіце на вашай прыладзе ў Налады → Мова і ўвод → Маўленне → Сінтэз маўлення. \nТут вы можаце задаць налады сінтэзу маўлення (напрыклад, спампаваць моўны пакет для выкарыстання без падключэння да інтэрнэту) або выбраць іншы сінтэзатар маўлення.</string>
-    <string name="prefs_languages_information_off_link">Больш падрабязная інфармацыя знаходзіцца ў гэтым кіраўніцтве.</string>
     <string name="transliteration_title">Транслітарацыя лацінкай</string>
     <string name="learn_more">Даведацца больш</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -748,9 +738,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Экспартаваць усе закладкі і маршруты</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Сістэмныя налады сінтэзу маўлення</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Налады сінтэзу маўлення не знойдзены. Вы ўпэўнены, што ваша прылада падтрымлівае гэта?</string>
     <string name="drive_through">З акенцам для кіроўцаў</string>
     <string name="clear_the_search">Ачысціць пошук</string>
     <string name="zoom_in">Наблізіць</string>
@@ -797,7 +785,6 @@
     <string name="disk_error">Немагчыма стварыць папку і перамясціць файлы на ўнутраную памяць прылады або SD-карту</string>
     <string name="error_enter_correct_facebook_page">Увядзіце сапраўдны вэб-адрас уліковага запісу ці імя старонкі Facebook</string>
     <string name="error_enter_correct_instagram_page">Увядзіце сапраўднае імя карыстальніка або спасылку Instagram</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <plurals name="bookmarks_detect_message">
         <item quantity="one">Знойдзены %d файл. Вы можаце ўбачыць яго пасля пераўтварэння.</item>
         <item quantity="few">Знойдзена %d файлы. Вы можаце ўбачыць іх пасля пераўтварэння.</item>

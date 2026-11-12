@@ -204,19 +204,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">הגדרת מבנים בתלת מימד מבוטלת במצב חיסכון בחשמל</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">הנחיות קוליות</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">הקראת שמות רחובות</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">כאשר מופעל, שם הרחוב או היציאה שאליו יש לפנות יוקרא בקול.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">שפת קול</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">בדיקת הנחיות קוליות</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">נא לבדוק את עוצמת הקול או את הגדרות הטקסט לדיבור אם לא שמעת את הקול כעת</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">לא זמין</string>
     <string name="pref_map_auto_zoom">זום אוטומטי</string>
     <string name="placepage_distance">מרחק</string>
     <string name="search_show_on_map">הראה במפה</string>
@@ -529,8 +522,6 @@
     <string name="enable_logging">הפעל logging</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">משוב כללי</string>
-    <string name="prefs_languages_information">אנחנו משתמשים מערכת TTS של המערכת כדי לספק הנחיות קוליות. הרבה מכשירי Android מוגדרים להשתמש ב-Google TTS, שניתן להוריד ולעדכן מחנות Play (כאן: https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off_link">למידע נוסף, נא לעיין במדריך הזה</string>
     <string name="transliteration_title">תעתוק לאותיות לטיניות</string>
     <string name="learn_more">למידע נוסף</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -756,9 +747,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">ייצוא כל המועדפים</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">הגדרות סינתזת דיבור במערכת</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">הגדרות סינתזת דיבור לא נמצאו, האם אתה בטוח שהמכשיר שלך תומך בזה?</string>
     <string name="drive_through">דרייב ת\'רו</string>
     <string name="clear_the_search">נקה את החיפוש</string>
     <string name="zoom_in">לְהִתְמַקֵד</string>
@@ -799,7 +788,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app</string>
     <string name="wikimedia_commons">ויקישיתוף</string>
     <string name="panoramax">תמונת Panoramax</string>
@@ -873,11 +861,8 @@
     <string name="my_position_share_email">שלחתי לך את המיקום שלי, יש לפתוח את הקישור %1$s או לחפש את הקואורדינטות %2$s במפה כדי לראות אותו.</string>
     <string name="pref_about_summary">דיווח על בעיות, קבלת עזרה, תרומה\nגרסה: v%1$s</string>
     <string name="prefs_group_map_appearance">עיצוב מפה</string>
-    <string name="prefs_group_map_appearance_summary">שפת מפה, גודל גופן, בניינים ב2/3 מימדים</string>
     <string name="prefs_group_interface">ממשק</string>
-    <string name="prefs_group_interface_summary">מצב לילה, כפתורים, שפה</string>
     <string name="prefs_group_data_management">ניהול נתונים</string>
-    <string name="prefs_group_route_summary">יחידות מרחק, הנחיות קוליות, אפשרויות מסלול</string>
     <string name="capacity_disabled">חניות לנכים: %s</string>
     <string name="download_resources_custom_url_title">שרת מפות מותאם אישית</string>
     <string name="bookmarks_text_placement_title">הצגת שמות של מועדפים על המפה</string>
@@ -890,7 +875,6 @@
     <string name="long_tap_disabled_toast">להסתרת הממשק יש להפעיל אפשרות לחיצה ארוכה בהגדרות</string>
     <string name="pref_openexternallinks_summary">פתיחה של קישורי צד-שלישי ב-Atlas כברירת מחדל</string>
     <string name="download_resources_custom_url_summary_none">לא מוגדר</string>
-    <string name="prefs_group_privacy_summary">היסטוריית חיפוש</string>
     <string name="pref_backup_summary">גיבוי אוטומטי לתיקייה על המכשיר שלך</string>
     <string name="level_value_generic">קומה: %s</string>
     <string name="editor_building_levels">מספר קומות (כולל קומת קרקע, לא כולל קומת גג)</string>

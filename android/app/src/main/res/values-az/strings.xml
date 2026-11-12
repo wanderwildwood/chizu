@@ -205,19 +205,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D binalar enerjiyə qənaət rejimində söndürülür</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Səsli təlimatlar</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Küçə adlarını elan edin</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Aktiv edildikdə, dönmək üçün küçənin və ya çıxışın adı ucadan səsləndiriləcək.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Audio Dil</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Test səsli göstərişlər (TTS, Text-to-Speech)</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">İndi səs eşitmirsinizsə, səs səviyyəsini və ya sistemin mətndən nitqə çevirmə parametrlərini yoxlayın.</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Mövcud deyil</string>
     <string name="pref_map_auto_zoom">Avtomatik böyütmə</string>
     <string name="placepage_distance">Məsafə</string>
     <string name="search_show_on_map">Xəritədə baxın</string>
@@ -534,9 +527,6 @@
     <string name="enable_logging">Girişi aktivləşdirin</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Ümumi rəy</string>
-    <string name="prefs_languages_information">Biz səsli təlimatlar üçün TTS sistemindən istifadə edirik. Əksər Android cihazları Google TTS-dən istifadə edir. Siz proqramı Google Play-dən yükləyə və ya yeniləyə bilərsiniz (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Bəzi dillər üçün proqram mağazasından (Google Play, Galaxy Store, App Gallery, FDroid) fərqli nitq sintezatoru və ya əlavə dil paketi quraşdırmalı ola bilərsiniz. \nCihaz parametrləri → Dil və Daxiletmə → Nitq → Mətndən nitqə funksiyasını yandırın. \nBuradan siz nitq sintezi parametrlərini idarə edə bilərsiniz (məsələn, oflayn istifadə üçün dil paketini endirə bilərsiniz) və başqa mətndən-nitqə mühərrik seçə bilərsiniz.</string>
-    <string name="prefs_languages_information_off_link">Əlavə məlumat üçün bu təlimatı nəzərdən keçirin.</string>
     <string name="transliteration_title">Latın transliterasiyası</string>
     <string name="learn_more">Daha ətraflı</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -738,9 +728,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Bütün Əlfəcinləri və Parçaları ixrac edin</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Sistem nitq sintezi parametrləri</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Nitq sintezi parametrləri tapılmadı, cihazınızın bunu dəstəklədiyinə əminsiniz?</string>
     <string name="drive_through">Sürüşmə</string>
     <string name="clear_the_search">Axtarışı təmizləyin</string>
     <string name="zoom_in">Yaxınlaşdırma</string>
@@ -779,7 +767,6 @@
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Naviqasiyada avtomatik</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="wikimedia_commons">Vikianbar</string>
     <string name="panoramax">Panoramax Şəkil</string>

@@ -116,13 +116,6 @@
     <string name="pref_map_3d_title">Pogled iz zraka pod kotom</string>
     <string name="pref_map_3d_buildings_title">3D stavbe</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D stavbe so onemogočene v načinu varčevanja z energijo</string>
-    <string name="pref_tts_enable_title">Glasovni ukazi</string>
-    <string name="pref_tts_street_names_title">Najavi imena ulic</string>
-    <string name="pref_tts_street_names_description">Ko je to omogočeno, bodo na glas izgovorjena imena ulic ali izvozov, na katere morate zaviti.</string>
-    <string name="pref_tts_language_title">Jezik glasu</string>
-    <string name="pref_tts_test_voice_title">Preizkusi glasovne napotke</string>
-    <string name="pref_tts_playing_test_voice">Če zdajle ne slišite glasu, preverite glasnost naprave ali nastavitve sistema pretvorbe besedila v govor</string>
-    <string name="pref_tts_unavailable">Ni na voljo</string>
     <string name="pref_map_auto_zoom">Samodejno približaj</string>
     <string name="placepage_distance">Razdalja</string>
     <string name="search_show_on_map">Poglej na zemljevidu</string>
@@ -363,8 +356,6 @@
     <string name="traffic_data_unavailable">Prometni podatki niso na voljo</string>
     <string name="enable_logging">Omogoči dnevniške zapise</string>
     <string name="feedback_general">Splošne povratne informacije</string>
-    <string name="prefs_languages_information">Za glasovne napotke uporabljamo sistemski TTS. Mnoge naprave s sistemom Android uporabljajo Googlov TTS, ki ga lahko prenesete ali posodobite prek storitve Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off_link">Več informacij najdete v tem vodiču</string>
     <string name="transliteration_title">Prečrkuj v latinico</string>
     <string name="learn_more">Več o tem</string>
     <string name="routing_add_start_point">Za dodajanje izhodišča poti uporabite iskalno vrstico ali izberite točko na zemljevidu</string>
@@ -514,7 +505,6 @@
     <string name="splash_subtitle">Kartografski podatki OpenStreetMap</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_tip_00">Hvala, ker uporabljate naše javno narejene zemljevide!</string>
     <string name="app_tip_01">Z vašo podporo lahko ustvarimo najboljše zemljevide na svetu!</string>
@@ -533,7 +523,6 @@
     <string name="google_play_services">Googleovo združeno zaznavanje položaja</string>
     <string name="create">Ustvari</string>
     <string name="editor_place_doesnt_exist_description">Opišite, kako to mesto izgleda sedaj, da pošljete obvestilo skupnosti OpenStreetMap</string>
-    <string name="prefs_languages_information_off">Za nekatere jezike boste morali namestiti sintetizator govora ali dodatni jezikovni paket iz trgovine z orodji (Google Play, Galaxy Store, App Gallery, FDroid).\nOdprite nastavitve naprave → Jezik in vnos → Govor → Izhod besedila v govor.\nTukaj lahko upravljate nastavitve za sintezo govora (na primer prenesete jezikovni paket za uporabo brez povezave) in izberete drug gonilnik za pretvorbo besedila v govor.</string>
     <string name="category_desc_more">… več</string>
     <string name="avoid_steps">Izogni se stopnicam</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
@@ -550,8 +539,6 @@
     <string name="browser_not_available">Spletni brskalnik ni na voljo</string>
     <string name="volume">Glasnost</string>
     <string name="bookmarks_export">Izvozi vse zaznamke</string>
-    <string name="pref_tts_open_system_settings">Sistemske nastavitve sintetizatorja govora</string>
-    <string name="pref_tts_no_system_tts">Nastavitve za sintezo govora niso bile najdene. Ali ste prepričani, da vaša naprava to podpira?</string>
     <string name="drive_through">Vožnja skozi</string>
     <string name="clear_the_search">Počisti iskanje</string>
     <string name="website_menu">Povezava do menija</string>
@@ -605,7 +592,6 @@
     <string name="at">ob %s</string>
     <string name="share_track">Deli sled</string>
     <string name="delete_track_dialog_title">Izbriši %s?</string>
-    <string name="pref_tts_no_system_tts_short">Nobeno orodje za pretvorbo besedila v govor ni bilo najdeno, preverite nastavitve aplikacije</string>
     <string name="charge_socket_type2">Vrsta 2 (brezžično)</string>
     <string name="charge_socket_type2_combo">Vrsta 2 kombinirano</string>
     <string name="charge_socket_type1">Vrsta 1</string>
@@ -648,8 +634,6 @@
     <string name="prefs_speed_cameras_information">Opozorila o merilnikih hitrosti so onemogočena v državah, kjer so prepovedana s tamkajšnjimi zakoni.</string>
     <string name="power_management">Energetsko upravljanje</string>
     <string name="avoid_paved">Izogni se neasfaltiranim cestam</string>
-    <string name="navigation_start_tts_message">"Začenjanje potnega usmerjanja, jezik glasovnih napotkov: "</string>
-    <string name="navigation_start_tts_disabled_message">Glasovni napotki so onemogočeni: ustvarjalec glasu (TTS) ni na voljo</string>
     <string name="charge_socket_schuko">standardna evropska vtičnica (Schuko)</string>
     <string name="list_description_empty">Uredite seznam, da dodate opis</string>
     <string name="pref_maplanguage_local">Krajevni jezik</string>
@@ -681,9 +665,6 @@
     <string name="setting_value_system_default">Privzeto sistemsko</string>
     <string name="change_app_locale">Jezik orodja</string>
     <string name="downloader_check_updates_no_updates">Posodobitev ni na voljo</string>
-    <string name="prefs_group_route_summary">Merske enote, glasovno vodenje, možnosti načrtovanja poti</string>
-    <string name="tts_toggle_enable">Vklopi glasovno vodenje</string>
-    <string name="tts_toggle_disable">Izklopi glasovno vodenje</string>
     <string name="enable_long_tap_fullscreen">Dolki pritisk za skritje uporabniškega vmesnika</string>
     <string name="long_tap_disabled_toast">Da skrijete uporabniški vmesnik vklopite dolgi pritisk v nastavitvah</string>
     <string name="downloader_check_updates_button">Preveri posodobitve</string>
@@ -692,8 +673,6 @@
     <string name="downloader_check_updates_eol">Za to verzijo aplikacije posodobitve zemljevidov niso več na voljo. Prosimo posodobite aplikacijo!</string>
     <string name="downloader_check_updates_error">Napaka pri preverjanju posodobitev</string>
     <string name="oh_unknown">Odpiralni časi neznani</string>
-    <string name="prefs_group_privacy_summary">Zgodovina iskanja</string>
-    <string name="prefs_group_power_summary">Časovna omejitev zaslona, mobilni prenos podatkov</string>
     <string name="sort_categories">Razvrstite sezname zaznamkov</string>
     <string name="by_recently_used">Po zadnji uporabi</string>
     <string name="by_custom">Po lastnem vrstnem redu</string>
@@ -711,12 +690,8 @@
     <string name="permission_read_navigation_label">Branje Atlas navigacijskih podatkov</string>
     <string name="permission_read_navigation_description">branje trenutnih navigacijskih podatkov, kot so prihodnji zavoji ali ime trenutne ulice</string>
     <string name="prefs_group_map_appearance">Izgled zemljevida</string>
-    <string name="prefs_group_map_appearance_summary">Jezik zemljevida, velikost napisov, 2D/3D stavbe</string>
     <string name="prefs_group_interface">Vmesnik</string>
-    <string name="prefs_group_interface_summary">Nočni način, gumbi, jezik</string>
     <string name="prefs_group_data_management">Upravljanje podatkov</string>
-    <string name="prefs_group_data_management_summary">Shramba zemljevidov, varnostno kopiranje priljubljenih</string>
-    <string name="prefs_group_advanced_summary">Omogoči beleženje</string>
     <string name="planning_route_preview">Predogled</string>
     <string name="search_in_all_lists">Išči po vseh seznamih</string>
     <string name="pref_enable_auto_reroute_title">Samodejno preusmerjanje</string>

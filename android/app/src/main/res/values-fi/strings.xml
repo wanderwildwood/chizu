@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-rakennukset ovat poissa päältä virransäästötilassa</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Ääniohjeistukset</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Ilmoita kadunnimet</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Kun tämä on käytössä, sen kadun tai liittymän nimi, jolle käännytään, puhutaan ääneen.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Äänen kieli</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Testaa puheohjeita</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Jos et kuule ääntä nyt, tarkista äänenvoimakkuus tai järjestelmän tekstistä puheeksi -asetukset</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Ei saatavilla</string>
     <string name="pref_map_auto_zoom">Automaattinen zoomaus</string>
     <string name="placepage_distance">Etäisyys</string>
     <string name="search_show_on_map">Näytä kartalla</string>
@@ -541,9 +534,6 @@
     <string name="enable_logging">Ota loki käyttöön</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Yleinen palaute</string>
-    <string name="prefs_languages_information">Käytämme ääniohjeisiin tekstistä puheeksi -järjestelmää. Monet Android-laitteet käyttävät Googlen tekstistä puheeksi -sovellusta, jonka voit ladata tai päivittää Google Playssä (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Joidenkin kielien osalta sinun täytyy asentaa toinen puhesyntetisaattori tai lisäkielipaketti sovelluskaupasta (Google Play, Galaxy Store, App Gallery, FDroid).\nAvaa laitteen asetukset → Kieli ja syöttötapa → Puhe → Teksistä puheeksi -toisto. \nTäällä voit hallita puhesynteesin asetuksia (esimerkiksi ladata offline-tilassa käytettävän kielipaketin) ja valita toisen tekstistä puheeksi -moottorin.</string>
-    <string name="prefs_languages_information_off_link">Lisätietoja saat tästä oppaasta</string>
     <string name="transliteration_title">Translitterointi latinalaisiksi aakkosiksi</string>
     <string name="learn_more">Lisätietoja</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -766,9 +756,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Vie kaikki suosikit</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Puhesynteesijärjestelmän asetukset</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Puhesynteesin asetuksia ei löytynyt, oletko varma, että laitteesi tukee sitä?</string>
     <string name="drive_through">Ajaa läpi</string>
     <string name="clear_the_search">Tyhjennä haku</string>
     <string name="zoom_in">Suurenna</string>
@@ -807,7 +795,6 @@
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Automaattinen navigointi</string>
     <string name="level_value_generic">Kerros: %s</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/fi/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
@@ -860,7 +847,6 @@
     <string name="share_track">Jaa Reitti</string>
     <string name="hours_confirmed_time_ago">Vahvistettu %s</string>
     <string name="existence_confirmed_time_ago">Olemassaolo vahvistettu %s</string>
-    <string name="pref_tts_no_system_tts_short">Tekstistä puheeksi -moottoria ei löytynyt, tarkista sovelluksen asetukset</string>
     <string name="unknown_power_output">tuntematon</string>
     <string name="charge_socket_count">Lukumäärä</string>
     <string name="unknown_count">tuntematon</string>
@@ -902,8 +888,6 @@
     <string name="place_page_too_old_to_edit">OpenStreetMap-muokkaus on poistettu käytöstä, koska karttadata on liian vanhaa.</string>
     <string name="prefs_speed_cameras_information">Nopeuskameravaroitukset on poistettu käytöstä niissä maissa, missä varoitukset on kielletty lain nojalla.</string>
     <string name="power_management">Virranhallinta</string>
-    <string name="navigation_start_tts_message">"Käynnistetään navigointi, ääniohjeistuksen kieli: "</string>
-    <string name="navigation_start_tts_disabled_message">Ääniohjeistukset pois käytöstä: TTS-moottori ei saatavilla</string>
     <string name="charge_socket_schuko">EU</string>
     <string name="pref_speedlimit_title">Näytä nopeusrajoitukset</string>
     <string name="bookmark_share_email_subject">Seuraa tätä linkkiä %1$s tai liitä seuraavat koordinaatit %2$s karttasovellukseesi nähdäksesi tämän sijainnin.</string>
@@ -929,15 +913,8 @@
     <string name="route_recalculating">Lasketaan reittiä uudelleen…</string>
     <string name="pref_about_summary">Ilmoita ongelmista, tuki, lahjoita\nVersio: v%1$s</string>
     <string name="prefs_group_map_appearance">Kartan ulkoasu</string>
-    <string name="prefs_group_map_appearance_summary">Kartan kieli, nimikkeiden koko, 2D-/3D-rakennukset</string>
     <string name="prefs_group_interface">Käyttöliittymä</string>
-    <string name="prefs_group_interface_summary">Yötila, painikkeet, kieli</string>
     <string name="prefs_group_data_management">Datan hallinta</string>
-    <string name="prefs_group_data_management_summary">Kartan tallennustila, suosikkien varmuuskopiointi</string>
-    <string name="prefs_group_route_summary">Yksiköt, ääniohjeet, reititysvalinnat</string>
-    <string name="prefs_group_advanced_summary">Käytä lokitusta</string>
-    <string name="tts_toggle_enable">Käytä ääniohjeita</string>
-    <string name="tts_toggle_disable">Poista ääniohjeet käytöstä</string>
     <string name="enable_long_tap_fullscreen">Pitkä napautus piilottaa käyttöliittymän</string>
     <string name="downloader_check_updates_button">Tarkista päivitykset</string>
     <string name="downloader_check_updates_checking">Tarkistetaan päivityksiä...</string>
@@ -946,8 +923,6 @@
     <string name="downloader_check_updates_eol">Tälle sovellusversiolle ei ole enää luvassa karttapäivityksiä. Päivitä sovellus!</string>
     <string name="downloader_check_updates_error">Päivityksiä tarkistaessa tapahtui virhe</string>
     <string name="oh_unknown">Aukiolotunnit eivät ole tiedossa</string>
-    <string name="prefs_group_privacy_summary">Hakuhistoria</string>
-    <string name="prefs_group_power_summary">Näytön sammuttaminen, mobiilidata</string>
     <string name="setting_value_system_default">Järjestelmän oletus</string>
     <string name="change_app_locale">Sovelluksen kieli</string>
     <string name="planning_route_preview">Esikatselu</string>

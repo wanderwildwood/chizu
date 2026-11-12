@@ -132,7 +132,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="translated_om_site_url">https://comaps.app/hr/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="wikimedia_commons">Zajednički poslužitelj</string>
     <string name="self_service">Samoposluživanje</string>
@@ -226,13 +225,6 @@
     <string name="pref_zoom_title">Gumbi za zumiranje</string>
     <string name="pref_map_3d_title">Pogled iz perspektive</string>
     <string name="pref_map_3d_buildings_title">3D zgrade</string>
-    <string name="pref_tts_enable_title">Glasovne upute</string>
-    <string name="pref_tts_street_names_title">Najavi nazive ulica</string>
-    <string name="pref_tts_street_names_description">Kada je omogućeno, naziv ulice ili izlaza na koji treba skrenuti bit će izgovoren naglas.</string>
-    <string name="pref_tts_language_title">Jezik glasovnih najava</string>
-    <string name="pref_tts_test_voice_title">Testiranje glasovnih uputa</string>
-    <string name="pref_tts_playing_test_voice">Provjerite glasnoću ili sistemske postavke za pretvaranje teksta u govor ako sada ne čujete glas</string>
-    <string name="pref_tts_unavailable">Nije dostupno</string>
     <string name="pref_map_auto_zoom">Automatsko zumiranje</string>
     <string name="search_show_on_map">Prikaži na karti</string>
     <string name="feedback">Povratne informacije</string>
@@ -399,9 +391,6 @@
     <string name="traffic_data_unavailable">Podaci o prometu nisu dostupni</string>
     <string name="enable_logging">Omogući zapisivanje</string>
     <string name="feedback_general">Opće povratne informacije</string>
-    <string name="prefs_languages_information">Za glasovne upute koristimo sistemski TTS. Mnogi Android uređaji koriste Google TTS, možete ga preuzeti ili ažurirati s Google Playa (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Za neke jezike morat ćete instalirati sintetizator govora ili dodatni jezični paket iz trgovine aplikacija (Google Play, Galaxy Store, App Gallery, FDroid). . \nOtvorite postavke uređaja → Jezik i unos → Govor → Izlaz teksta u govor. \nOvdje možete upravljati postavkama za sintezu govora (na primjer, preuzeti jezični paket za izvanmrežnu upotrebu) i odabrati drugi program za pretvaranje teksta u govor.</string>
-    <string name="prefs_languages_information_off_link">Za više informacija molimo provjerite ovaj vodič</string>
     <string name="prefs_speed_cameras_information">Upozorenja na kamere za nadzor brzine onemogućena su u državama u kojima su takva upozorenja zabranjena lokalnim zakonima.</string>
     <string name="transliteration_title">Prikaži u latinici</string>
     <string name="learn_more">Saznajte više</string>
@@ -568,8 +557,6 @@
     <string name="level">Kat</string>
     <string name="level_value_generic">Razina: %s</string>
     <string name="volume">Volumen</string>
-    <string name="pref_tts_open_system_settings">Postavke sustava za sintezu govora</string>
-    <string name="pref_tts_no_system_tts">Postavke sinteze govora nisu pronađene, jeste li sigurni da vaš uređaj to podržava?</string>
     <string name="drive_through">Prolaz za automobile</string>
     <string name="clear_the_search">Obriši pretragu</string>
     <string name="website_menu">Poveznica na Jelovnik</string>
@@ -614,9 +601,6 @@
     <string name="closed_now">Zatvoreno sada</string>
     <string name="at">u %s</string>
     <string name="delete_track_dialog_title">Izbrisati %s?</string>
-    <string name="pref_tts_no_system_tts_short">Nije pronađen program za pretvaranje teksta u govor, provjerite postavke aplikacije</string>
-    <string name="navigation_start_tts_message">"Pokretanje navigacije, jezik glasovnih uputa: "</string>
-    <string name="navigation_start_tts_disabled_message">Glasovne upute onemogućene: TTS mehanizam nije dostupan</string>
     <string name="unknown_power_output">nepoznato</string>
     <string name="charge_socket_type2">Tip 2 (bez kabela)</string>
     <string name="charge_socket_type2_cable">Tip 2 (s kabelom)</string>

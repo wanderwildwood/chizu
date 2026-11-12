@@ -174,10 +174,6 @@
     <string name="pref_map_style_title">Il-mod ta’ bil-lejl</string>
     <string name="pref_map_3d_title">Dehra tal-perspettiva</string>
     <string name="pref_map_3d_buildings_disabled_summary">Il-binjiet 3D huma mitfigħin fil-mod tal-iffrankar tal-enerġija</string>
-    <string name="pref_tts_enable_title">Istruzzjonijiet tal-vuċi</string>
-    <string name="pref_tts_street_names_description">Meta jkun attivat, l-isem tat-triq jew tal-ħruġ biex iddur fuqu se jiġi mitkellem b’ leħen għoli.</string>
-    <string name="pref_tts_test_voice_title">Ittestja id-direzzjonijiet tal-vuċi</string>
-    <string name="pref_tts_unavailable">Mhux disponibbli</string>
     <string name="pref_map_auto_zoom">Iżżumja awtomatikament</string>
     <string name="placepage_distance">Distanza</string>
     <string name="search_show_on_map">Uri fuq il-mappa</string>
@@ -197,7 +193,6 @@
     <string name="downloader_near_me_subtitle">Ħdejja</string>
     <string name="length">Tul</string>
     <string name="bookmarks">Werrejja</string>
-    <string name="pref_tts_language_title">Lingwa tal-vuċi</string>
     <string name="donate">Donazzjoni</string>
     <string name="compass_calibration_recommended">Tejjeb id-direzzjoni tal-vleġġa billi tmexxi l-mowbajl f’moviment forma ta\' tmienja biex tikkalibra l-boxxla.</string>
     <string name="downloader_cancel_all">Ikkanċella kollox</string>
@@ -207,9 +202,7 @@
     <string name="off">Itfi</string>
     <string name="pref_map_3d_buildings_title">Bini 3D</string>
     <string name="on">Ixgħel</string>
-    <string name="pref_tts_street_names_title">Ħabbar l-ismijiet tat-toroq</string>
     <string name="downloader_status_maps">Mappep</string>
-    <string name="pref_tts_playing_test_voice">Iċċekkja l-volum jew is-settings tas-sistema Text-To-Speech jekk ma tismax vuċi</string>
     <string name="feedback">Agħti Rispons</string>
     <string name="downloader_downloading">Tniżżil:</string>
     <string name="downloader_delete_map_while_routing_dialog">Biex tħassar il-mappa, waqqaf in-navigazzjoni</string>
@@ -340,7 +333,6 @@
     <string name="increase_font_size">Żid id-daqs għat-tikketti tal-mapep</string>
     <string name="traffic_update_app">Aġġorna Atlas</string>
     <string name="enable_logging">Attiva l-illoggjar</string>
-    <string name="prefs_languages_information_off_link">Għal aktar informazzjoni jekk jogħġbok iċċekkja din il-gwida</string>
     <string name="routing_add_finish_point">Uża t-tiftixa jew għafas fuq il-mappa biex iżżid punt tad-destinazzjoni</string>
     <string name="planning_route_manage_route">Immaniġġja r-Rotta</string>
     <string name="button_plan">Pjan</string>
@@ -495,7 +487,6 @@
     <string name="editor_add_phone">Żid in-Numru tat-Telefown</string>
     <string name="p2p_reroute_from_current">Tixtieq tippjana rotta mill-post attwali tiegħek?</string>
     <string name="detailed_problem_description">Deskrizzjoni dettaljata tal-kwistjoni</string>
-    <string name="prefs_languages_information">Aħna nużaw is-sistema TTS għall-istruzzjonijiet tal-vuċi. Ħafna tagħmir tal-Android jużaw Google TTS, inti tista tniżżel jew taġġornah minn Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
     <string name="editor_time_allday">Il-Ġurnata Kollha (24 siegħa)</string>
     <string name="editor_report_problem_send_button">Ibgħat</string>
     <string name="add_language">Żid lingwa</string>
@@ -524,7 +515,6 @@
     <string name="feedback_general">Feedback Ġenerali</string>
     <string name="please_wait">Stenna ftit…</string>
     <string name="routing_options_title">Għażliet tar-rotta</string>
-    <string name="prefs_languages_information_off">Għal xi lingwi, se jkollok bżonn tinstalla sintetizzatur tad-diskors jew pakkett tal-lingwa addizzjonali mill-App Store (Google Play, Galaxy Store, App Gallery, FDroid).\nIftaħ is-settings tat-tagħmir → Language and input → Speech → Text to speech output.\nHawnhekk tista’ timmaniġġja s-settings għas-sinteżi tad-diskors (pereżempju, niżżel il-pakkett tal-lingwa għall-użu offline) u agħżel magna oħra minn kitba għal diskors.</string>
     <string name="by_distance">Skont id-distanza</string>
     <string name="transliteration_title">Jittraduċi ruħu fl-alfabett Latin</string>
     <string name="export_file">Esporta KMZ</string>
@@ -598,13 +588,11 @@
     <string name="aa_connected_title">Int imqabbad ma’ Android Auto</string>
     <string name="car_continue_in_the_car">Lejn l-iskrin tal-karozza</string>
     <string name="button_layer_outdoor">Barra</string>
-    <string name="pref_tts_open_system_settings">Settings tas-sistema tas-sinteżi tad-diskors</string>
     <string name="track_recording_toast_nothing_to_save">Il-Korsija hija vojta - xejn x’ tissejvja</string>
     <string name="error_no_file_manager_app">Ma jistax juri d-djalogu tal-għażla tal-fowlder għax l-ebda applikazzjoni xierqa mhi installata fuq it-tagħmir tiegħek. Installa applikazzjoni tal-maniġer tal-fajl u erġa ’pprova.</string>
     <string name="browser_not_available">Brawżer tal-web mhux disponibbli</string>
     <string name="view_menu">Ara l-Menu</string>
     <string name="aa_location_permissions_request">Atlas teħtieġ aċċess għall-post. Meta jkun sigur, iċċekkja n-notifika fuq il-mowbajl tiegħek.</string>
-    <string name="pref_tts_no_system_tts">Is-settings tas-Sinteżi tad-diskors ma nstabux, żgur li t-tagħmir tiegħek jappoġġjah?</string>
     <string name="track_recording_alert_title">Issejvja fil-Bookmarks u l-Korsiji?</string>
     <string name="settings">Settings</string>
     <string name="auto">Auto</string>
@@ -616,7 +604,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="panoramax">Ritratt Panoramax</string>
     <string name="app_site_url">https://comaps.app/</string>

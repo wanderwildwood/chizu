@@ -202,19 +202,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Bangunan 3D dinonaktifkan dalam mode hemat daya</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Instruksi Suara</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Sebutkan Nama Jalan</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Jika diaktifkan, nama jalan atau pintu keluar untuk berbelok akan diucapkan dengan lantang.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Bahasa Suara</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Uji Petunjuk Suara</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Periksa volume atau pengaturan Text-To-Speech sistem jika Anda tidak mendengar suara sekarang</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Tidak Tersedia</string>
     <string name="pref_map_auto_zoom">Zoom otomatis</string>
     <string name="placepage_distance">Jarak</string>
     <string name="search_show_on_map">Lihat di peta</string>
@@ -517,9 +510,6 @@
     <string name="enable_logging">Aktifkan pencatatan (logging)</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Umpan Balik Umum</string>
-    <string name="prefs_languages_information">Kami menggunakan TTS sistem untuk instruksi suara. Banyak perangkat Android menggunakan Google TTS, Anda dapat mengunduh atau memperbaruinya dari Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Untuk beberapa bahasa, Anda perlu menginstal penyintesis ucapan atau paket bahasa tambahan dari toko aplikasi (Google Play, Galaxy Store, App Gallery, F-Droid). \nBuka pengaturan perangkat Anda → Bahasa dan masukan → Ucapan → Output text-to-speech. \nDi sini Anda dapat mengelola pengaturan untuk sintesis ucapan (misalnya, untuk mengunduh paket bahasa untuk penggunaan offline) dan memilih mesin text-to-speech yang berbeda.</string>
-    <string name="prefs_languages_information_off_link">Untuk informasi lebih lanjut, silakan periksa panduan ini</string>
     <string name="transliteration_title">Transliterasi ke alfabet Latin</string>
     <string name="learn_more">Pelajari selengkapnya</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -726,9 +716,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Ekspor semua Favorit</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Pengaturan sistem sintesis ucapan</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Pengaturan Sintesis Ucapan tidak ditemukan, apakah Anda yakin perangkat Anda mendukungnya?</string>
     <string name="drive_through">Layanan tanpa turun (Lantatur)</string>
     <string name="clear_the_search">Hapus pencarian</string>
     <string name="zoom_in">Perbesar</string>
@@ -769,7 +757,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="panoramax">Gambar Panoramax</string>
     <string name="app_site_url">https://comaps.app/id/</string>
     <string name="saved">Tersimpan</string>
@@ -875,9 +862,6 @@
     <string name="at">pukul %s</string>
     <string name="share_track">Bagikan Trek</string>
     <string name="delete_track_dialog_title">Hapus %s?</string>
-    <string name="pref_tts_no_system_tts_short">Mesin text-to-speech tidak ditemukan, periksa pengaturan aplikasi</string>
-    <string name="navigation_start_tts_message">"Memulai Navigasi, bahasa instruksi suara: "</string>
-    <string name="navigation_start_tts_disabled_message">Instruksi suara dinonaktifkan: mesin TTS tidak tersedia</string>
     <string name="unknown_power_output">tidak diketahui</string>
     <string name="charge_socket_type2">Tipe 2 (tanpa kabel)</string>
     <string name="charge_socket_type2_cable">Tipe 2 (dengan kabel)</string>

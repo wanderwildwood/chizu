@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Sq:About_OpenStreetMap</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
     <string name="wikimedia_commons">\"Wikimedia Commons\"</string>
@@ -85,10 +84,6 @@
     <string name="pref_map_3d_title">Pamje nga perspektiva</string>
     <string name="pref_map_3d_buildings_title">Ndërtesa 3D</string>
     <string name="pref_map_3d_buildings_disabled_summary">Ndërtesat 3D janë të çaktivizuara në modalitetin e kursimit të energjisë</string>
-    <string name="pref_tts_street_names_title">Njofto për emrat e rrugëve</string>
-    <string name="pref_tts_street_names_description">Kur është e ndezur, emri i rrugës ose vendit ku dilet do të thuhet me zë të lartë.</string>
-    <string name="pref_tts_language_title">Gjuha e zërit</string>
-    <string name="pref_tts_test_voice_title">Testo instruksionet me zë</string>
     <string name="pref_map_auto_zoom">Zmadho / zvogëlo automatikisht</string>
     <string name="placepage_distance">Distanca</string>
     <string name="search_show_on_map">Shiko në hartë</string>

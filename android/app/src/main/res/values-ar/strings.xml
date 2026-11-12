@@ -208,19 +208,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">تشغيل المباني ثلاثية الأبعاد مُعطّلة في وضع توفير الطاقة</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">تعليمات صوتية</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">أعلن أسماء الشوارع</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">عند التفعيل، سيتم النطق باسم الشارع أو المخرج الذي يجب الانعطاف إليه بصوت عالٍ.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">لغة الصوت</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">اختبر الاتجاهات الصوتية</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">تحقق من مستوى الصوت أو إعدادات تحويل النص إلى كلام في النظام إذا كنت لا تسمع الصوت الآن</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">غير متاح</string>
     <string name="pref_map_auto_zoom">تقريب تلقائي</string>
     <string name="placepage_distance">المسافة</string>
     <string name="search_show_on_map">اعرض على الخريطة</string>
@@ -533,9 +526,6 @@
     <string name="enable_logging">فعِّل التسجيل</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">تعقيب عام</string>
-    <string name="prefs_languages_information">نحن نستخدم نظام تحويل النص إلى كلام (TTS) الخاص بالنظام للتعليمات الصوتية. تستخدم العديد من أجهزة أندرويد محرك Google TTS، ويمكنك تنزيله أو تحديثه من متجر Google Play عبر الرابط التالي: (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">بالنسبة لبعض اللغات، ستحتاج إلى تثبيت مُصنِّع صوت أو حزمة لغة إضافية من متجر التطبيقات (Google Play أو Galaxy Store أو App Gallery أو F-Droid).\nافتح إعدادات جهازك ← إمكانية الوصول ← الكلام ← إخراج تحويل النص إلى كلام.\nهنا يمكنك إدارة إعدادات توليد الكلام (على سبيل المثال، لتنزيل حزمة لغة للاستخدام دون اتصال بالإنترنت) واختيار محرك تحويل نص إلى كلام مختلف.</string>
-    <string name="prefs_languages_information_off_link">لمزيد من المعلومات، يُرجى مراجعة هذا الدليل</string>
     <string name="transliteration_title">ترجم حرفيًا إلى الأبجدية اللاتينية</string>
     <string name="learn_more">معرفة المزيد</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -772,9 +762,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">صدِّر كل المفضلات</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">إعدادات تركيب الكلام النظام</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">لم يُعثر على إعدادات تركيب الكلام، أمتأكد من أن جهازك يدعمها؟</string>
     <string name="drive_through">الشراء من السيارة</string>
     <string name="clear_the_search">مسح البحث</string>
     <string name="zoom_in">قرِّب</string>
@@ -814,7 +802,6 @@
     <string name="nav_auto">تلقائي في التنقل</string>
     <string name="translated_om_site_url">https://comaps.app/ar</string>
     <string name="telegram_url">https://t.me/CoMapsApp</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app</string>
     <string name="wikimedia_commons">ويكيميديا كومنز</string>
     <string name="panoramax">صورة Panoramax</string>
@@ -884,9 +871,6 @@
     <string name="open_now">مفتوح الآن</string>
     <string name="at">على %s</string>
     <string name="share_track">شارك المسار</string>
-    <string name="pref_tts_no_system_tts_short">لم يُعثر على محرك تحويل النص إلى كلام، يُرجى التحقق من إعدادات التطبيق</string>
-    <string name="navigation_start_tts_message">"يبدأ الملاحة، لغة التعليمات الصوتية: "</string>
-    <string name="navigation_start_tts_disabled_message">التعليمات الصوتية مُعطَّلة: محرك تحويل النص إلى كلام غير متوفر</string>
     <string name="unknown_power_output">مجهول</string>
     <string name="charge_socket_type2">النوع 2 (دون كبل)</string>
     <string name="charge_socket_type2_cable">النوع 2 (مع كبل)</string>
@@ -952,8 +936,6 @@
     <string name="downloader_check_updates_no_updates">لا توجد تحديثات متوفرة</string>
     <string name="downloader_check_updates_eol">لا توجد تحديثات خرائط إضافية لهذا الإصدار من التطبيق. يُرجى تحديث التطبيق!</string>
     <string name="downloader_check_updates_error">حدث خطأ أثناء التحقق من التحديثات</string>
-    <string name="tts_toggle_enable">فعِّل التعليمات الصوتية</string>
-    <string name="tts_toggle_disable">عطِّل التعليمات الصوتية</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">ثُبّت التطبيق من متجر جوجل Play، ويمكنك استخدامه في سيارتك.</string>
     <string name="pref_aa_support_summary_no">لم يُثبّت التطبيق من متجر جوجل Play، لذا لا يمكنك استخدامه في سيارتك. اضغط على الإعدادات للحصول على مزيد من التفاصيل من خلال الأسئلة الشائعة.</string>
@@ -971,20 +953,13 @@
     <string name="capacity_charging">أماكن مزودة بشواحن: %s</string>
     <string name="capacity_charging_yes">يحتوي على أماكن مزودة بشواحن</string>
     <string name="capacity_charging_no">لا أماكن مزودة بشواحن</string>
-    <string name="prefs_group_route_summary">الوحدات والتعليمات الصوتية وخيارات المسار</string>
-    <string name="prefs_group_privacy_summary">سجل البحث</string>
-    <string name="prefs_group_power_summary">مهلة الشاشة وبيانات الجوّال</string>
     <string name="permission_read_navigation_label">قراءة بيانات الملاحة من Atlas</string>
     <string name="permission_read_navigation_description">قراءة معلومات الملاحة المباشرة، مثل المنعطفات القادمة أو اسم الطريق الذي تسير عليه</string>
     <string name="prefs_group_map_appearance">مظهر الخريطة</string>
-    <string name="prefs_group_map_appearance_summary">لغة الخريطة وحجم التسميات و مباني 2D/3D</string>
     <string name="planning_route_preview">معاينة</string>
     <string name="search_in_all_lists">ابحث في كل القوائم</string>
     <string name="pref_about_summary">بلِغ عن علل واحصل على مساعدة وتبرَّع\nإصدار: v%1$s</string>
-    <string name="prefs_group_interface_summary">الوضع الليلي والأزرار واللغة</string>
     <string name="prefs_group_data_management">إدارة البيانات</string>
-    <string name="prefs_group_data_management_summary">مساحة الخريطة ونسخ احتياطي المفضلات</string>
-    <string name="prefs_group_advanced_summary">فعِّل التسجيل</string>
     <string name="pref_enable_auto_reroute_title">إعادة المسار التلقائي</string>
     <string name="pref_enable_auto_reroute_description">عند تفعيل هذه الميزة، سيُنشئ مسار جديد تلقائيًّا عند الخروج عن المسار المخطّط.</string>
     <string name="off_route">أنت خارج المسار</string>

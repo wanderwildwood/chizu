@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-Gebäude werden im Energiesparmodus ausgeschaltet</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Sprachführung</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Straßennamen ankündigen</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Wenn aktiviert, wird der Name der Straße oder Ausfahrt, in die abgebogen werden soll, laut angekündigt.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Sprache</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Sprachanweisungen testen</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Überprüfe die Lautstärke oder die Text-To-Speech-Einstellungen des Systems, wenn du die Stimme jetzt nicht hören kannst</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Nicht verfügbar</string>
     <string name="pref_map_auto_zoom">Auto-Zoom</string>
     <string name="placepage_distance">Entfernung</string>
     <string name="search_show_on_map">Auf der Karte ansehen</string>
@@ -538,9 +531,6 @@
     <string name="enable_logging">Protokollierung aktivieren</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Allgemeines Feedback</string>
-    <string name="prefs_languages_information">Wir verwenden Text-to-Speech-Systeme (TTS; zu deutsch: Text-zu-Sprache) für Sprachanweisungen. Viele Android-Geräte nutzen Google-TTS, das du bei Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts) herunterladen oder aktualisieren kannst</string>
-    <string name="prefs_languages_information_off">Für einige Sprachen musst du einen anderen Sprachgenerator oder ein zusätzliches Sprachpaket aus deinem App-Store installieren (Google Play Store, Samsung Galaxy Store, Huawei AppGallery, F-Droid).\nÖffne die Einstellungen deines Gerätes → Sprache und Eingabe → Sprache → Text-to-Speech-Ausgabe.\nHier kannst du die Einstellungen für Sprachsynthese verwalten (beispielsweise ein Sprachpaket für die Offline-Verwendung herunterladen) und ein anderes Sprachausgabeprogramm auswählen.</string>
-    <string name="prefs_languages_information_off_link">Weitere Informationen findest du in dieser Anleitung</string>
     <string name="transliteration_title">Transliteration ins lateinische Alphabet</string>
     <string name="learn_more">Weitere Informationen</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -767,9 +757,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Alle Favoriten exportieren</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Sprachsynthesesystem-Einstellungen (TTS)</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Die Einstellungen für die Sprachsynthese wurden nicht gefunden. Bist du sicher, dass sie dein Endgerät unterstützt?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Lösche die Suche</string>
     <string name="zoom_in">Zoom hinein</string>
@@ -810,7 +798,6 @@
     <string name="menu">Menü</string>
     <string name="read_in_wikipedia">Wikipedia</string>
     <string name="wikimedia_commons">Wikimedia Commons</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="app_site_url">https://comaps.app/de/</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
@@ -860,7 +847,6 @@
     <string name="delete_track_dialog_title">%s löschen?</string>
     <string name="existence_confirmed_time_ago">Existenz bestätigt %s</string>
     <string name="hours_confirmed_time_ago">Bestätigt %s</string>
-    <string name="pref_tts_no_system_tts_short">Kein Text-zu-Sprache-Modul (TTS) gefunden, überprüfe die App-Einstellungen</string>
     <string name="avoid_steps">Treppen vermeiden</string>
     <string name="editor_place_doesnt_exist_description">Beschreibe wie der Ort jetzt aussieht, um eine Fehlermeldung an die OpenStreetMap Community zu senden</string>
     <string name="offline_explanation_title">Offline-Karten</string>
@@ -905,8 +891,6 @@
     <string name="place_page_update_too_old_map">Kartenregion aktualisieren</string>
     <string name="place_page_too_old_to_edit">OpenStreetMap-Bearbeitung ist deaktiviert, da die Kartendaten zu alt sind.</string>
     <string name="prefs_speed_cameras_information">Blitzerwarnungen sind in Ländern deaktiviert, in denen Warnungen durch lokale Gesetze verboten sind.</string>
-    <string name="navigation_start_tts_message">"Navigation wird gestartet, Sprache der Sprachansagen: "</string>
-    <string name="navigation_start_tts_disabled_message">Sprachansagen deaktiviert: TTS-Engine nicht verfügbar</string>
     <string name="pref_maplanguage_local">Lokale Sprache</string>
     <string name="location_privacy_info">Apps erhalten Standortdaten von dem Standortdienst deines Betriebssystems, der deinen Standort möglicherweise an Google und/oder deinen Gerätehersteller weitergibt. Verwende ein datenschutzkonformes Android-Betriebssystem, um dies zu vermeiden.</string>
     <string name="location_privacy">Standort-Datenschutz</string>
@@ -941,8 +925,6 @@
     <string name="downloader_check_updates_no_updates">Keine Aktualisierungen verfügbar</string>
     <string name="downloader_check_updates_eol">Kartenaktualisierungen wurden für diese App-Version eingestellt. Bitte aktualisiere die App!</string>
     <string name="downloader_check_updates_error">Fehler beim Prüfen auf Aktualisierungen</string>
-    <string name="tts_toggle_enable">Sprachführung aktivieren</string>
-    <string name="tts_toggle_disable">Sprachführung deaktvieren</string>
     <string name="oh_unknown">Unbekannte Öffnungszeiten</string>
     <string name="editor_add_select_category_all_subtitle">Alle Kategorien</string>
     <string name="pref_aa_support_summary_yes">Die App wurde über Google Play installiert, du kannst sie in deinem Auto nutzen.</string>
@@ -957,14 +939,8 @@
     <string name="capacity_disabled">Behindertenparkplätze: %s</string>
     <string name="pref_about_summary">Melde Probleme, bekomme Hilfe, spende\nVersion: v%1$s</string>
     <string name="prefs_group_map_appearance">Kartendarstellung</string>
-    <string name="prefs_group_map_appearance_summary">Kartensprache, Schriftgröße, 2D/3D-Gebäude</string>
-    <string name="prefs_group_interface_summary">Nachtmodus, Menüfelder, Sprache</string>
     <string name="prefs_group_data_management">Speicherverwaltung</string>
-    <string name="prefs_group_data_management_summary">Kartenspeicher, Favoriten sichern</string>
-    <string name="prefs_group_route_summary">Einheiten, Sprachführung, Routenoptionen</string>
-    <string name="prefs_group_advanced_summary">Protokollierung aktivieren</string>
     <string name="planning_route_preview">Vorschau</string>
-    <string name="prefs_group_power_summary">Bildschirmauszeit, mobile Daten</string>
     <string name="search_in_all_lists">Suche in allen Listen</string>
     <string name="pref_enable_auto_reroute_title">Automatische Routenneuberechnung</string>
     <string name="pref_enable_auto_reroute_description">Wenn aktiviert, wird eine neue Route automatisch erstellt sofern du die geplante Route verlässt.</string>
@@ -978,7 +954,6 @@
     <string name="permission_read_navigation_label">Atlas-Navigationsdaten lesen</string>
     <string name="permission_read_navigation_description">Abrufen von Live-Navigationsinformationen wie anstehende Abbiegungen oder den Namen der Straße auf der du dich gerade befindest</string>
     <string name="prefs_group_interface">Benutzeroberfläche</string>
-    <string name="prefs_group_privacy_summary">Suchverlauf</string>
     <string name="bookmarks_text_placement_title">Favoritennamen auf Karte anzeigen</string>
     <string name="place_reviews_title">Rezensionen zu Orten</string>
     <string name="place_reviews">%1$s Rezensionen</string>

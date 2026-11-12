@@ -204,19 +204,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Clădirile 3D sunt oprite în modul de economisire a energiei</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Instrucțiuni vocale</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Anunțați numele străzilor</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Când este activată, numele străzii sau al ieșirii pe care să o pornim va fi rostit cu voce tare.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Limba ghidului vocal</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Testează direcțiile vocale</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Dacă nu auziți vocea acum, verificați volumul sau setările sistemului text-to-speech</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Nu este disponibil</string>
     <string name="pref_map_auto_zoom">Zoom automat</string>
     <string name="placepage_distance">Distanță</string>
     <string name="search_show_on_map">Vezi pe hartă</string>
@@ -533,9 +526,6 @@
     <string name="enable_logging">Activează jurnalizarea</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Părere generală</string>
-    <string name="prefs_languages_information">Pentru instrucțiuni vocale utilizăm sistemul TTS. Multe dispozitive Android folosesc Google TTS. Poți descărca sau actualiza aplicația din Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Pentru unele limbi trebuie să instalezi alt sintetizator de voce sau un pachet lingvistic suplimentar din Magazinul de aplicații (Google Play, Galaxy Store, App Gallery, FDroid). \nDeschide setările dispozitivului → Limbă → Transformare text în vorbire → Motor preferat. \nAici poți alege motorul de transformare a textului în vorbire și poți descărca o limbă pentru utilizare fără internet.</string>
-    <string name="prefs_languages_information_off_link">Consultă acest ghid pentru informații suplimentare</string>
     <string name="transliteration_title">Transcrie în alfabet latin</string>
     <string name="learn_more">Mai multe</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -757,9 +747,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Exportați toate marcajele și piesele</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Setări ale sistemului de sinteză vocală</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Nu au fost găsite setările de sinteză vocală, sunteți sigur că dispozitivul dvs. le acceptă?</string>
     <string name="drive_through">Servire în mașină</string>
     <string name="clear_the_search">Ștergeți căutarea</string>
     <string name="zoom_in">Mărește</string>
@@ -801,7 +789,6 @@
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="panoramax">Imagine Panoramax</string>
     <string name="app_site_url">https://comaps.app/</string>
     <string name="saved">Salvat</string>
@@ -855,7 +842,6 @@
     <string name="pref_backup_title">Salvare backup pentru marcaje și trasee</string>
     <string name="error_enter_correct_fediverse_page">Introduceți un nume de utilizator Mastodon valid sau o adresă web</string>
     <string name="pref_backup_now_summary_ok">Copie de rezervă finalizată cu succes</string>
-    <string name="pref_tts_no_system_tts_short">Nu s-a găsit un motor de text-to-speech, verifică setările aplicației</string>
     <string name="osm_note_hint">Sau, alternativ, lăsați un mesaj comunității OpenStreetMap, astfel încât altcineva să poată adăuga sau corecta un loc aici.</string>
     <string name="osm_note_toast">Nota va fi trimisă către OpenStreetMap</string>
     <string name="opens_at">Deschide la %s</string>
@@ -887,7 +873,6 @@
     <string name="place_page_update_too_old_map">Actualizează regiunea</string>
     <string name="place_page_too_old_to_edit">Editarea OpenStreetMap este dezactivată pentru că harta descărcată este prea veche.</string>
     <string name="prefs_speed_cameras_information">Avertizările pentru radare sunt dezactivate unde avertizarea este interzisă de legea locală.</string>
-    <string name="navigation_start_tts_disabled_message">Instrucțiuni vocale dezactivate: Nu este disponibil niciun sistem TTS</string>
     <string name="charge_socket_count">Număr</string>
     <string name="unknown_count">Necunoscut</string>
     <string name="pref_speedlimit_title">Afișează limita de viteză</string>
@@ -905,22 +890,14 @@
     <string name="pref_maplanguage_local">Limbă Locală</string>
     <string name="bookmark_share_email_subject">Urmărește acest link %1$s sau copiază aceste coordonate %2$s în aplicația ta de hărți ca să vezi această locație.</string>
     <string name="my_position_share_email">Urmărește acest link %1$s sau copiază aceste coordonate %2$s în aplicația ta de hărți ca să vezi locația mea.</string>
-    <string name="tts_toggle_enable">Activează instrucțiunile vocale</string>
-    <string name="tts_toggle_disable">Dezactivează instrucțiunile vocale</string>
     <string name="enable_long_tap_fullscreen">Apasă lung ca să ascunzi interfața</string>
     <string name="long_tap_disabled_toast">Ca să ascunzi interfața, activează apăsarea lungă în setări</string>
     <string name="downloader_check_updates_updated">Actualizări pentru hărți disponibile!</string>
     <string name="downloader_check_updates_eol">Nu mai există actualizări de hărți pentru această versiune a aplicației. Te rugăm să actualizezi aplicația!</string>
     <string name="pref_about_summary">Raportează probleme, cere ajutor, donează\nVersiune: v%1$s</string>
-    <string name="prefs_group_map_appearance_summary">Limbă hartă, mărime informații, clădiri 2D/3D</string>
-    <string name="prefs_group_interface_summary">Mod nocturn, butoane, limbă</string>
     <string name="prefs_group_data_management">Gestionare stocare</string>
-    <string name="prefs_group_data_management_summary">Stocare hărți, backup favorite</string>
-    <string name="prefs_group_route_summary">Unități de măsură, instrucțiuni vocale, opțiuni rutare</string>
     <string name="downloader_check_updates_error">Eroare căutând actualizări</string>
     <string name="oh_unknown">Program necunoscut</string>
-    <string name="prefs_group_privacy_summary">Istoric căutări</string>
-    <string name="prefs_group_power_summary">Timp așteptare ecran, date mobile</string>
     <string name="population">Populație: %s</string>
     <string name="sort_categories">Sortează listele cu preferate</string>
     <string name="by_recently_used">După ultima folosită</string>
@@ -941,7 +918,6 @@
     <string name="pref_openexternallinks_title">Deschide linkuri terțe automat</string>
     <string name="prefs_group_map_appearance">Aspectul hărții</string>
     <string name="prefs_group_interface">Interfață</string>
-    <string name="prefs_group_advanced_summary">Activează jurnalizarea</string>
     <string name="setting_value_system_default">Valoare prestabilită</string>
     <string name="stop">Stop</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>

@@ -240,7 +240,6 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
 
   public void refresh(Context context)
   {
-    mNavMenu.refreshTts();
     UiUtils.showIf(mSharedPreferences.getBoolean(getString(context, R.string.pref_speedlimit), true), mSpeedLimit);
 
     // Update intermediate stops in progress bar in navigation panel.

@@ -204,19 +204,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D зграде се не приказују у режиму чувања батерије</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Гласовне инструкције</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Најави име улице</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Када је укључено, име улице или излаз на који треба скренути ће бити изговорен.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Језик гласа</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Тестирај гласовне инструкције</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Проверите гласноћу или системска подешавања Текста-у-говор ако сада не чујете глас</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Није доступно</string>
     <string name="pref_map_auto_zoom">Аутоматско увећавање</string>
     <string name="placepage_distance">Раздаљина</string>
     <string name="search_show_on_map">Прикажи на мапи</string>
@@ -530,9 +523,6 @@
     <string name="enable_logging">Снимање лог фајлова</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Ваше мишљење</string>
-    <string name="prefs_languages_information">Користимо системски сервис текст-у-говор за гласовне инструкције. Многи Андроид уређаји користе Google Препознавање и синтезу говора, који можете да преузмете или ажурирате путем Google Play продавнице (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">За поједине језике, мораћете да инсталирате синтетизатор говора или језички пакет путем продавнице апликација (Google Play, Galaxy Store, App Gallery, FDroid).\nОтворите Подешавања вашег уређаја → Језик и унос → Говор → Излаз Текста у говор.\nОвде можете да управљате подешавањима за синтезу говора (на пример, да преузмете језички пакет за употребу без интернета) и да изаберете неку другу машину за Текст-у-говор.</string>
-    <string name="prefs_languages_information_off_link">За више информација погледајте ово упутство</string>
     <string name="transliteration_title">Транслитерација у латиницу</string>
     <string name="learn_more">Сазнај више</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -750,9 +740,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Експортуј све маркере и путање</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Системска подешавања синтезе говора</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Синтеза говора није пронађена, да ли сте сигурни да је ваш уређај подржава?</string>
     <string name="drive_through">Пролаз за возила</string>
     <string name="clear_the_search">Обриши претрагу</string>
     <string name="zoom_in">Увећај</string>
@@ -801,7 +789,6 @@
     <string name="editor_focus_map_on_location">Превуците мапу да поставите крст на локацију места или посла.</string>
     <string name="precise_location_is_disabled_long_text">Да би се осигурала тачна навигација омогућите прецизну локацију у подешавањима</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="editor_osm_history">Ваша историја уређивања</string>
     <string name="editor_osm_notes">Ваши подаци о мапи</string>
     <string name="aa_request_permission_activity_text">Atlas у Android Auto-у је потребна дозвола за локацију да ефикасно раде</string>
@@ -856,7 +843,6 @@
     <string name="share_track">Подели путању</string>
     <string name="existence_confirmed_time_ago">Проверено да постоји %s</string>
     <string name="hours_confirmed_time_ago">Проверено %s</string>
-    <string name="pref_tts_no_system_tts_short">Није пронађен програм за претварање текста у говор, проверите подешавања апликације</string>
     <string name="osm_note_hint">Или оставите напомену OpenStreetMap заједници да би неко други могао да дода или паправи ово место.</string>
     <string name="osm_note_toast">Напомена ће бити послата на OpenStreetMap</string>
     <string name="error_invalid_number">Неисправан број</string>
@@ -903,8 +889,6 @@
     <string name="place_page_too_old_to_edit">Уређивање OpenStreetMap-а је онемогућено јер су подаци мапе сувише стари.</string>
     <string name="prefs_speed_cameras_information">Упозорења о прекршајним камерама за брзину су онемогућена у земљама у којима су упозорења забрањена законом.</string>
     <string name="power_management">Управљање напајањем</string>
-    <string name="navigation_start_tts_message">"Покретање навигације, језик гласовних инструкција: "</string>
-    <string name="navigation_start_tts_disabled_message">Гласовне инструкције онемогућене: ТТС мотор није доступан</string>
     <string name="charge_socket_schuko">Шухо</string>
     <string name="pref_maplanguage_local">Локални језик</string>
     <string name="location_privacy_info">Апликације добијају податке о локацији од услуге локације вашег ОС-а, која може да дели вашу локацију са Гугл-ом и/или продавцем вашег уређаја. Користите Андроид ОС који чува приватност да бисте ово избегли.</string>
@@ -940,8 +924,6 @@
     <string name="downloader_check_updates_no_updates">Нема доступних ажурирања</string>
     <string name="downloader_check_updates_eol">За ову верзију апликације више нема ажурирања мапе. Молим Вас, ажурирајте апликацију!</string>
     <string name="downloader_check_updates_error">Грешка при провери ажурирања</string>
-    <string name="tts_toggle_enable">Укључи гласовне инструкције</string>
-    <string name="tts_toggle_disable">Искључи гласовне инструкције</string>
     <string name="oh_unknown">Непознато радно време</string>
     <string name="editor_add_select_category_all_subtitle">Све категорије</string>
     <string name="pref_aa_support_title">Андроид Ауто</string>
@@ -954,12 +936,7 @@
     <string name="enable_long_tap_fullscreen">Дуги додир за сакривање интерфејса</string>
     <string name="long_tap_disabled_toast">Да бисте сакрили интерфејс укључите дуги додир у подешавањима</string>
     <string name="pref_about_summary">Пријава проблема, помоћ, донација\nВерзија: %1$s</string>
-    <string name="prefs_group_map_appearance_summary">Језик мапе, величина слова, 2Д/3Д зграде</string>
-    <string name="prefs_group_interface_summary">Ноћни режим, дугмад, језик</string>
     <string name="prefs_group_data_management">Управљање подацима</string>
-    <string name="prefs_group_data_management_summary">Чување мапа, бекап маркера</string>
-    <string name="prefs_group_route_summary">Јединице мере, гласовне инструкције, опције рутирања</string>
-    <string name="prefs_group_power_summary">Гашење екрана, мобилни подаци</string>
     <string name="search_in_all_lists">Претражи у свим листама</string>
     <string name="pref_enable_auto_reroute_title">Аутоматско прерачунавање руте</string>
     <string name="pref_enable_auto_reroute_description">Када је укључено, нова рута ће бити аутоматски прерачуната када напустите планирану руту.</string>
@@ -974,8 +951,6 @@
     <string name="prefs_group_interface">Интерфејс</string>
     <string name="capacity_disabled">Места за паркинг за особе са инвалидитетом: %s</string>
     <string name="prefs_group_map_appearance">Изглед мапе</string>
-    <string name="prefs_group_privacy_summary">Историја претраге</string>
-    <string name="prefs_group_advanced_summary">Снимање лог фајлова</string>
     <string name="planning_route_preview">Преглед</string>
     <string name="recalculate_route">Прерачунај</string>
     <string name="pref_font_size">Увећана слова на мапи</string>

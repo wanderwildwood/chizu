@@ -33,7 +33,6 @@
     <string name="editor_reset_edits_button">Desbotar cambios</string>
     <string name="category_parking">Aparcamento</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="select_cuisine">Seleccionar cociña</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="menu">Menú</string>
@@ -68,7 +67,6 @@
     <string name="traffic_update_maps_text">Para mostrar os datos de tráfico, deben actualizarse os mapas</string>
     <string name="increase_font_size">Aumentar tamaño do texto no mapa</string>
     <string name="traffic_update_app">Por favor, actualice Atlas</string>
-    <string name="prefs_languages_information_off_link">Para obter máis información, consulte esta guía</string>
     <string name="prefs_group_privacy">Privacidade</string>
     <string name="privacy_policy">Normativa de privacidade</string>
     <string name="terms_of_use">Condiciones de uso</string>
@@ -205,13 +203,6 @@
     <string name="pref_map_3d_title">Vista en perspectiva</string>
     <string name="pref_map_3d_buildings_title">Edificios en 3D</string>
     <string name="pref_map_3d_buildings_disabled_summary">Os edificios 3D desactívanse no modo de aforro de enerxía</string>
-    <string name="pref_tts_language_title">Idioma de voz</string>
-    <string name="pref_tts_enable_title">Instrucións de voz</string>
-    <string name="pref_tts_street_names_title">Anunciar nomes de rúas</string>
-    <string name="pref_tts_street_names_description">Cando se activa, o nome da rúa ou a saída para virar pronunciarase en voz alta.</string>
-    <string name="pref_tts_test_voice_title">Probar indicacións por voz</string>
-    <string name="pref_tts_playing_test_voice">Comprobe o volume ou a configuración de texto a voz do sistema se non oe a voz agora</string>
-    <string name="pref_tts_unavailable">Non dispoñible</string>
     <string name="pref_map_auto_zoom">Zoom automático</string>
     <string name="search_show_on_map">Ver no mapa</string>
     <string name="feedback">Comentarios</string>
@@ -358,8 +349,6 @@
     <string name="mobile_data_description">Necesítase Internet móbil para notificacións de actualizacións do mapa e subir edicións</string>
     <string name="traffic_data_unavailable">Os datos de tráfico non están dispoñibles</string>
     <string name="feedback_general">Opinión xeral</string>
-    <string name="prefs_languages_information">Utilizamos o sistema TTS para as instrucións de voz. Moitos dispositivos de Android usan Google TTS. Pode descargar ou actualizalo desde Google Play (https://play.google.com/store/apps/details?ide=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Para algúns idiomas, deberá instalar un sintetizador de voz ou un paquete de idioma adicional desde a tenda de aplicacións (Google Play, Galaxy Store, App Gallery, F-Droid).\nAbra a configuración do seu dispositivo → Idioma e entrada de texto → Voz → Opcións texto a voz.\nAquí podes administrar a configuración de síntese de voz (por exemplo, descargar un paquete de idioma para usalo sen conexión) ou seleccionar outro motor de texto a voz.</string>
     <string name="transliteration_title">Transliteración ao alfabeto latino</string>
     <string name="learn_more">Coñecer máis</string>
     <string name="button_plan">Planificar</string>
@@ -440,8 +429,6 @@
     <string name="button_layer_outdoor">Sendeirismo</string>
     <string name="browser_not_available">A navegador web non está dispoñible</string>
     <string name="bookmarks_export">Exportar Todos os Favoritos</string>
-    <string name="pref_tts_open_system_settings">Configuración de síntese de voz do sistema</string>
-    <string name="pref_tts_no_system_tts">Non se atoparon as configuracións de sínteses de voz. Sabe se o seu dispositivo admítea?</string>
     <string name="drive_through">Servizo desde o coche</string>
     <string name="clear_the_search">Borrar procura</string>
     <string name="zoom_in">Achegar</string>
@@ -597,7 +584,6 @@
     <string name="hours_confirmed_time_ago">Confirmado %s</string>
     <string name="existence_confirmed_time_ago">Existencia confirmada %s</string>
     <string name="share_track">Compartir ruta</string>
-    <string name="pref_tts_no_system_tts_short">Non se atopa un motor texto-a-fala, comproba os axustes da app</string>
     <string name="unknown_power_output">descoñecida</string>
     <string name="charge_socket_type2">Tipo 2 (sen cable)</string>
     <string name="charge_socket_type2_cable">Tipo 2 (con cable)</string>
@@ -641,8 +627,6 @@
     <string name="place_page_too_old_to_edit">A edición de OpenStreetMap está desactivada porque o mapa é demasiado antigo.</string>
     <string name="prefs_speed_cameras_information">Os avisos de radares están desactivados nos paises onde a lei local prohibe estas alertas.</string>
     <string name="power_management">Xestión da enerxía</string>
-    <string name="navigation_start_tts_message">"Comezando a Navegación, idioma das instruccións por voz: "</string>
-    <string name="navigation_start_tts_disabled_message">Instruccións por voz desactivadas: non hai un motor TTS dispoñible</string>
     <string name="charge_socket_schuko">Doméstico na UE</string>
     <string name="bookmark_share_email_subject">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver esta localización.</string>
     <string name="my_position_share_email">Sigue esta ligazón %1$s ou pega estas coordenadas %2$s na túa aplicación de mapas para ver a miña localización.</string>
@@ -695,15 +679,8 @@
     <string name="permission_read_navigation_description">ler información de navegación en directo, como viraxes ou nomes da vía na que se encontre</string>
     <string name="pref_about_summary">Informe de problemas, consiga axuda, doe\nVersión: v%1$s</string>
     <string name="prefs_group_map_appearance">Aparencia do mapa</string>
-    <string name="prefs_group_map_appearance_summary">Idioma do Mapa, tamaño da fonte, edificios en 2D/3D</string>
-    <string name="prefs_group_interface_summary">Modo nocturno, botóns, idioma</string>
     <string name="prefs_group_data_management">Xestión dos datos</string>
-    <string name="prefs_group_data_management_summary">Almacenamento do mapa, copias de seguridade favoritas</string>
-    <string name="prefs_group_route_summary">Unidades, instrucións a voz, opcións de enrutado</string>
-    <string name="tts_toggle_enable">Habilitar instrucións a voz</string>
-    <string name="tts_toggle_disable">Deshabilitar instrucións a voz</string>
     <string name="long_tap_disabled_toast">Para ocultar a interface habilite o presionado longo na configuración</string>
-    <string name="prefs_group_power_summary">Tempo de apagado da pantalla, datos móbiles</string>
     <string name="sort_categories">Ordenar Listas de Favoritos</string>
     <string name="pref_alt_map_lang_handling_ignore_alternatives">Non usar alternativas</string>
     <string name="planning_route_preview">Previsualización</string>
@@ -713,8 +690,6 @@
     <string name="stop">Stop</string>
     <string name="editor_add_select_category_recent_subtitle">Usados Recentemente</string>
     <string name="prefs_group_interface">Interface</string>
-    <string name="prefs_group_advanced_summary">Activar rexistros</string>
-    <string name="prefs_group_privacy_summary">Historial de procuras</string>
     <string name="pref_alt_map_lang_handling_local_only">Preferir e só usar cando sexa na lingua nativa</string>
     <string name="pref_font_size">Tamaño da fonte para as etiquetas do mapa</string>
     <string name="decrease_font_size">Reducir a fonte das etiquetas do mapa</string>

@@ -198,17 +198,11 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Os edifícios 3D são desativados no modo de economia de energia</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Orientação por voz</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Quando ativado, o nome da rua ou saída para virar será falado em voz alta.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Idioma da voz</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Testar orientação por voz</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Verifique o volume ou as configurações do sistema de conversão de texto em fala se você não estiver ouvindo a voz agora</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Não disponível</string>
     <string name="pref_map_auto_zoom">Zoom automático</string>
     <string name="placepage_distance">Distância</string>
     <string name="search_show_on_map">Ver no mapa</string>
@@ -478,8 +472,6 @@
     <string name="enable_logging">Ativar registros de execução</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Opinão geral</string>
-    <string name="prefs_languages_information">Utilizamos o sistema TTS (texto-para-voz) para instruções de voz. Muitos dispositivos do Android usam o TTS do Google, onde você pode baixá-lo ou atualizá-lo no Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off_link">Para obter mais informações, consulte este guia</string>
     <string name="transliteration_title">Transliterar para o alfabeto latino</string>
     <string name="learn_more">Saber mais</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -690,9 +682,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Exportar todos os favoritos</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Configurações do sistema de síntese de fala</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">As configurações do Speech Synthesis não foram encontradas. Você tem certeza de que seu dispositivo é compatível?</string>
     <string name="zoom_in">Aumentar zoom</string>
     <!-- Restaurant or other food place's menu URL field in the Editor -->
     <string name="website_menu">Link do cardápio</string>
@@ -735,7 +725,6 @@
     <string name="news">Notícias</string>
     <string name="about_developed_by_enthusiasts">Totalmente de código aberto, sem fins lucrativos, com processos de tomada de decisões e finanças transparentes.</string>
     <string name="limited_accuracy">Precisão limitada</string>
-    <string name="pref_tts_street_names_title">Anunciar nomes de ruas</string>
     <string name="faq">Perguntas frequentes</string>
     <string name="app_site_url">https://comaps.app/pt-BR/</string>
     <string name="dialog_routing_change_intermediate">Não foi possível localizar o ponto intermediário</string>
@@ -780,7 +769,6 @@
     <string name="error_enter_correct_facebook_page">Insira um endereço da web, conta ou nome de página válidos do Facebook</string>
     <string name="error_enter_correct_line_page">Insira um ID de LINE ou endereço da web válido</string>
     <string name="social_media">Redes sociais</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="editor_add_phone">Adicionar telefone</string>
     <string name="outdoor_seating">Mesas externas</string>
     <string name="capacity">Capacidade: %s</string>
@@ -795,7 +783,6 @@
     <string name="error_enter_correct_vk_page">Digite um nome de usuário ou endereço da web válido do VK</string>
     <string name="error_enter_correct_fediverse_page">Digite um nome de usuário ou endereço da web válido do Mastodon</string>
     <string name="error_enter_correct_bluesky_page">Digite um nome de usuário ou endereço da web válido do Bluesky</string>
-    <string name="prefs_languages_information_off">Para alguns idiomas, você precisará instalar um sintetizador de voz ou um pacote de idiomas adicional a partir de uma loja de aplicativos (Google Play, Galaxy Store, App Gallery, FDroid).\nAbra as configurações do seu dispositivo → Idioma e entrada → Fala → Saída de texto para fala.\nAqui, você pode gerenciar as configurações de síntese de voz (por exemplo, baixar o pacote de idiomas para uso offline) e selecionar outro mecanismo de conversão de texto para fala.</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="editor_building_levels">Andares (incl. térreo, excl. sótão)</string>
     <string name="error_enter_correct_level">Digite um número de andares válido</string>
@@ -837,7 +824,6 @@
     <string name="share_track">Compartilhar trilha</string>
     <string name="existence_confirmed_time_ago">Existência confirmada %s</string>
     <string name="hours_confirmed_time_ago">Confirmado %s</string>
-    <string name="pref_tts_no_system_tts_short">Nenhum mecanismo de conversão de texto em voz encontrado, verifique as configurações do aplicativo</string>
     <string name="unknown_power_output">desconhecido</string>
     <string name="charge_socket_type2">Tipo 2 (sem cabo)</string>
     <string name="charge_socket_type2_cable">Tipo 2 (com cabo)</string>
@@ -883,8 +869,6 @@
     <string name="place_page_update_too_old_map">Atualizar região do mapa</string>
     <string name="place_page_too_old_to_edit">A edição do OpenStreetMap está desativada porque os dados do mapa são antigos demais.</string>
     <string name="prefs_speed_cameras_information">Alertas de radar fotográfico de velocidade estão desativados em países onde os alertas são proibidos pelas leis locais.</string>
-    <string name="navigation_start_tts_message">"Iniciando navegação, idioma da instrução por voz: "</string>
-    <string name="navigation_start_tts_disabled_message">Instrução por voz desativada: nenhum motor de texto para voz disponível</string>
     <string name="pref_maplanguage_local">Linguagem Local</string>
     <string name="location_privacy_info">Os aplicativos usam dados de localização do serviço de localização, que podem compartilhar sua localização com o Google e/ou com o fabricante do seu dispositivo. Use um sistema Android que preserve a sua privacidade para evitar isso.</string>
     <string name="location_privacy">Privacidade da localização</string>
@@ -920,8 +904,6 @@
     <string name="downloader_check_updates_eol">Não haverá mais atualização de mapas para esta versão do aplicativo. Por favor, atualize o aplicativo!</string>
     <string name="downloader_check_updates_error">Erro ao buscar atualização</string>
     <string name="oh_unknown">Horário de funcionamento desconhecido</string>
-    <string name="tts_toggle_enable">Ativar orientação por voz</string>
-    <string name="tts_toggle_disable">Desativar orientação por voz</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">O aplicativo foi instalado a partir do Google Play e você pode usá-lo no seu carro.</string>
     <string name="pref_aa_support_summary_no">O aplicativo não foi instalado a partir do Google Play, portanto, você não pode usá-lo no seu carro. Vá para as configurações para obter mais detalhes em nossas perguntas frequentes.</string>
@@ -935,9 +917,6 @@
     <string name="capacity_disabled_no">Sem espaços dedicados para deficientes</string>
     <string name="capacity_charging_yes">Possui espaços com carregadores</string>
     <string name="capacity_charging_no">Sem espaços com carregadores</string>
-    <string name="prefs_group_route_summary">Unidades, instruções de voz, opções de roteamento</string>
-    <string name="prefs_group_privacy_summary">Histórico de pesquisa</string>
-    <string name="prefs_group_power_summary">Tempo limite da tela, dados móveis</string>
     <string name="capacity_disabled">Vagas de estacionamento para deficientes: %s</string>
     <string name="capacity_disabled_yes">Possui espaço dedicado para deficientes</string>
     <string name="capacity_charging">Espaços com carregadores: %s</string>
@@ -946,12 +925,8 @@
     <string name="planning_route_preview">Pré-visualizar</string>
     <string name="pref_about_summary">Reportar problemas, obter ajuda, fazer uma doação\nVersão: v%1$s</string>
     <string name="prefs_group_map_appearance">Aparência do mapa</string>
-    <string name="prefs_group_map_appearance_summary">Idioma do mapa, tamanho dos rótulos, edifícios 2D/3D</string>
     <string name="prefs_group_interface">Interface</string>
-    <string name="prefs_group_interface_summary">Modo noturno, botões, idioma</string>
     <string name="prefs_group_data_management">Gestão de dados</string>
-    <string name="prefs_group_data_management_summary">Armazenamento de mapas, backup de favoritos</string>
-    <string name="prefs_group_advanced_summary">Ativar registros de execução</string>
     <string name="search_in_all_lists">Buscar em todas as listas</string>
     <string name="pref_enable_auto_reroute_title">Redirecionamento automático</string>
     <string name="pref_enable_auto_reroute_description">Quando ativado, uma nova rota será automaticamente calculada se sair da rota planejada.</string>

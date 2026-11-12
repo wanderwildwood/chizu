@@ -206,19 +206,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Gli edifici 3D sono disattivati in modalità risparmio energetico</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Istruzioni vocali</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Annunciare i nomi delle strade</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Se abilitato, verrà pronunciato ad alta voce il nome della via o dell\'uscita in cui svoltare.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Lingua per la voce</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Prova le indicazioni vocali</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Controlla il volume o le impostazioni del sistema di sintesi vocale se non senti la voce</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Non disponibile</string>
     <string name="pref_map_auto_zoom">Zoom automatico</string>
     <string name="placepage_distance">Distanza</string>
     <string name="search_show_on_map">Visualizza sulla mappa</string>
@@ -534,9 +527,6 @@
     <string name="enable_logging">Abilita il logging</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Feedback generale</string>
-    <string name="prefs_languages_information">Usiamo il TTS di sistema per le istruzioni vocali. Molti dispositivi Android utilizzano Google TTS, lo puoi scaricare o aggiornare dal Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Per alcune lingue, sarà necessario installare un altro sintetizzatore vocale o un language pack aggiuntivo dall\'app store (Google Play, Galaxy Store, App Gallery, F-Droid).\nApri le impostazioni del tuo dispositivo → Lingua e inserimento → Da testo a voce → Motore sintesi vocale.\nQui puoi gestire le impostazioni di sintesi vocale (ad esempio, scaricare una lingua per l\'utilizzo offline) e selezionare un altro motore di sintesi vocale.</string>
-    <string name="prefs_languages_information_off_link">Per maggiori informazioni, consulta questa guida</string>
     <string name="transliteration_title">Traslittera in caratteri latini</string>
     <string name="learn_more">Scopri di più</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -713,7 +703,6 @@
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Dati della mappa da OpenStreetMap</string>
     <!-- A link to the TTS FAQ -->
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/it/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
@@ -764,9 +753,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Esporta tutti i preferiti</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Impostazioni del sistema di sintesi vocale</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Le impostazioni della sintesi vocale non sono state trovate, sei sicuro che il tuo dispositivo la supporti?</string>
     <string name="drive_through">Accesso con auto</string>
     <string name="clear_the_search">Cancella la ricerca</string>
     <string name="zoom_in">Ingrandisci</string>
@@ -861,7 +848,6 @@
     <string name="existence_confirmed_time_ago">Esistenza confermata %s</string>
     <string name="share_track">Traccia condivisa</string>
     <string name="delete_track_dialog_title">Eliminare %s?</string>
-    <string name="pref_tts_no_system_tts_short">Motore testo - parlato non trovato, controlla le impostazioni dell\'app</string>
     <string name="avoid_steps">Evita scale</string>
     <string name="unknown_power_output">Sconosciuto</string>
     <string name="charge_socket_type2">Tipo 2 (senza cavo)</string>
@@ -894,9 +880,7 @@
     <string name="place_page_app_too_old_description">Le mappe correnti sono molto vecchie, si suggerisce di aggiornare Atlas.</string>
     <string name="place_page_map_too_old_description">La mappa corrente è molto vecchia, si suggerisce di aggiornarla.</string>
     <string name="place_page_map_too_old_title">Mappa obsoleta</string>
-    <string name="navigation_start_tts_disabled_message">Istruzioni vocali disabilitate: TTS non disponibile</string>
     <string name="prefs_speed_cameras_information">Gli avvisi di Autovelox sono disabilitati dove proibito dalla legge locale.</string>
-    <string name="navigation_start_tts_message">"Inizio Navigazione, lingua per istruzioni vocali: "</string>
     <string name="opens_at">Apre alle %s</string>
     <string name="closes_at">Chiude alle %s</string>
     <string name="pref_maplanguage_local">Lingua locale</string>
@@ -905,15 +889,8 @@
     <string name="my_position_share_email">Segui questo link %1$s o incolla queste coordinate %2$s nella tua app mappe per vedere la mia posizione.</string>
     <string name="pref_about_summary">Segnala problemi, ottieni aiuto, dona\nVersione: v%1$s</string>
     <string name="prefs_group_map_appearance">Aspetto della mappa</string>
-    <string name="prefs_group_map_appearance_summary">Lingua mappa, dimensione etichette, edifici 2D/3D</string>
     <string name="prefs_group_interface">Interfaccia</string>
-    <string name="prefs_group_interface_summary">Modalità notte, pulsanti, lingua</string>
     <string name="prefs_group_data_management">Gestione dati</string>
-    <string name="prefs_group_data_management_summary">Archiviazione mappe, backup preferiti</string>
-    <string name="prefs_group_route_summary">Unità, istruzioni vocali, opzioni percorso</string>
-    <string name="prefs_group_advanced_summary">Abilita registrazione</string>
-    <string name="tts_toggle_enable">Abilita istruzioni vocali</string>
-    <string name="tts_toggle_disable">Disabilita istruzioni vocali</string>
     <string name="enable_long_tap_fullscreen">Tocca a lungo per nascondere l\\\'interfaccia utente</string>
     <string name="long_tap_disabled_toast">Per nascondere l\\\'interfaccia abilita il tocco prolungato nelle impostazioni</string>
     <string name="downloader_check_updates_button">Controlla aggiornamenti</string>
@@ -927,8 +904,6 @@
     <string name="closes_day_at">Chiude %1$s alle %2$s</string>
     <string name="oh_unknown">Orari di apertura sconosciuti</string>
     <string name="planning_route_preview">Anteprima</string>
-    <string name="prefs_group_privacy_summary">Cronologia ricerche</string>
-    <string name="prefs_group_power_summary">Timeout schermo, dati mobili</string>
     <string name="population">Popolazione: %s</string>
     <string name="sort_categories">Ordina liste preferiti</string>
     <string name="setting_value_system_default">Predefinito di sistema</string>

@@ -204,19 +204,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-bygninger er deaktiveret i strømbesparende tilstand</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Stemmevejledninger</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Annoncer gadenavne</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Hvis aktiveret bliver navnet på den gade eller frakørsel, du skal dreje ind på, sagt højt.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Stemmesprog</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Test stemmevejledninger</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Tjek lydstyrken eller systemets tekst-til-tale-indstillinger, hvis du ikke kan høre stemmen nu</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Ikke til rådighed</string>
     <string name="pref_map_auto_zoom">Auto-zoom</string>
     <string name="placepage_distance">Afstand</string>
     <string name="search_show_on_map">Vis på kort</string>
@@ -520,9 +513,6 @@
     <string name="enable_logging">Aktiver logføring</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Generel feedback</string>
-    <string name="prefs_languages_information">Vi bruger systemets TTS til stemmevejledning. Mange Android-enheder bruger Google TTS, du kan hente eller opdatere det via Google Play Butik (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Nogle sprog kræver, at du installerer en talesyntese eller et ekstra sprogpakke fra en app-butik (Google Play, Galaxy Store, App Gallery, F-Droid). \nÅbn din enheds indstillinger → Sprog og input → Tale → Tekst til tale. \nHer kan du administrere indstillingerne for talesyntese (f.eks. downloade en sprogpakke til offline brug) og vælge et andet tekst-til-tale-program.</string>
-    <string name="prefs_languages_information_off_link">Se denne vejledning for flere oplysninger</string>
     <string name="transliteration_title">Translitterer til det latinske alfabet</string>
     <string name="learn_more">Flere oplysninger</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -732,9 +722,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Eksportér alle favoritter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Indstillinger for talesyntese-system</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Indstillingerne for talesyntese blev ikke fundet, er du sikker på, at din enhed understøtter det?</string>
     <string name="drive_through">Drive-through</string>
     <string name="clear_the_search">Ryd søgningen</string>
     <string name="zoom_in">Zoom ind</string>
@@ -788,7 +776,6 @@
     <string name="navigation_stop_button">Stop</string>
     <string name="error_enter_correct_vk_page">Indtast et gyldigt VK-brugernavn eller en webadresse</string>
     <string name="error_enter_correct_line_page">Indtast et gyldigt LINE ID eller en webadresse</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="level_value_generic">Etage: %s</string>
     <string name="closes_in">Lukker om %s</string>
     <string name="enable_show_on_lock_screen_description">Hvis aktiveret fungerer appen på låseskærmen, selv når enheden er låst.</string>
@@ -844,7 +831,6 @@
     <string name="at">kl. %s</string>
     <string name="share_track">Del spor</string>
     <string name="delete_track_dialog_title">Slet %s?</string>
-    <string name="pref_tts_no_system_tts_short">Der blev ikke fundet nogen tekst-til-tale-motor. Kontrollér appens indstillinger</string>
     <string name="osm_note_hint">Alternativt kan du efterlade en bemærkning til OpenStreetMap-fællesskabet, så en anden kan tilføje eller rette et sted her.</string>
     <string name="osm_note_toast">Bemærkning vil blive sendt til OpenStreetMap</string>
     <string name="existence_confirmed_time_ago">Eksistens bekræftet for %s</string>
@@ -888,13 +874,11 @@
     <string name="power_management">Strømbesparelse</string>
     <string name="charge_socket_schuko">Europæisk</string>
     <string name="prefs_speed_cameras_information">Advarsler om hastighedskameraer er deaktiveret i lande, hvor advarsler er forbudt i henhold til lokal lovgivning.</string>
-    <string name="navigation_start_tts_message">"Starter navigation, sprog for stemmeinstruktioner: "</string>
     <string name="place_page_map_too_old_title">Kortdata forældet</string>
     <string name="place_page_map_too_old_description">Dine nuværende kortdata er meget gamle. Opdater kortet.</string>
     <string name="place_page_app_too_old_description">Dine nuværende kortdata er meget gamle. Opdater Atlas-appen.</string>
     <string name="place_page_update_too_old_map">Opdater kortregion</string>
     <string name="place_page_too_old_to_edit">Redigering af OpenStreetMap er deaktiveret, fordi kortdataene er for gamle.</string>
-    <string name="navigation_start_tts_disabled_message">Stemmevejledninger deaktiveret: TTS-motor ikke tilgængelig</string>
     <string name="pref_maplanguage_local">Lokalt sprog</string>
     <string name="location_privacy_info">Apps modtager placeringsdata fra din OS-placeringstjeneste, som muligvis deler din placering med Google og/eller din enhedsleverandør. Brug et Android-operativsystem, der beskytter dit privatliv, for at undgå dette.</string>
     <string name="location_privacy">Placeringsbeskyttelse</string>
@@ -929,8 +913,6 @@
     <string name="downloader_check_updates_error">Fejl ved søgning efter opdateringer</string>
     <string name="downloader_check_updates_no_updates">Ingen opdateringer tilgængelige</string>
     <string name="downloader_check_updates_updated">Kortopdateringer tilgængelige!</string>
-    <string name="tts_toggle_enable">Aktivér stemmevejledninger</string>
-    <string name="tts_toggle_disable">Deaktivér stemmevejledninger</string>
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">Appen er installeret fra Google Play. Du kan bruge den i din bil.</string>
     <string name="pref_aa_support_summary_no">Appen er ikke installeret fra Google Play, du kan ikke bruge den i din bil. Tryk på indstillingen for flere oplysninger i vores FAQ.</string>
@@ -943,11 +925,7 @@
     <string name="by_recently_used">Efter senest anvendte</string>
     <string name="by_custom">Efter brugerdefineret rækkefølge</string>
     <string name="prefs_group_map_appearance">Kortets udseende</string>
-    <string name="prefs_group_map_appearance_summary">Kortsprog, størrelse på etiketter, 2D/3D-bygninger</string>
-    <string name="prefs_group_route_summary">Enheder, stemmevejledninger, indstillinger for ruteberegning</string>
     <string name="planning_route_preview">Forhåndsvisning</string>
-    <string name="prefs_group_privacy_summary">Søgehistorik</string>
-    <string name="prefs_group_power_summary">Skærmtimeout, mobildata</string>
     <string name="search_in_all_lists">Søg i alle lister</string>
     <string name="capacity_disabled">Handicap-parkeringspladser: %s</string>
     <string name="capacity_disabled_yes">Har særlige pladser for handicappede</string>
@@ -959,10 +937,7 @@
     <string name="permission_read_navigation_description">læs live-navigationsoplysninger, såsom kommende sving eller navnet på den vej, du kører på</string>
     <string name="pref_about_summary">Indberet problemer, få hjælp, donér\nVersion: v%1$s</string>
     <string name="prefs_group_interface">Brugerflade</string>
-    <string name="prefs_group_interface_summary">Nattilstand, knapper, sprog</string>
     <string name="prefs_group_data_management">Datahåndtering</string>
-    <string name="prefs_group_data_management_summary">Kortlagring, sikkerhedskopiering af favoritter</string>
-    <string name="prefs_group_advanced_summary">Aktivér logning</string>
     <string name="pref_enable_auto_reroute_title">Automatisk omdirigering</string>
     <string name="pref_enable_auto_reroute_description">Hvis aktiveret oprettes der automatisk en ny rute, når du forlader den planlagte rute.</string>
     <string name="recalculate_route">Genberegn</string>

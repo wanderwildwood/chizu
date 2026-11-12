@@ -205,19 +205,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">省電力モードで建物の 3D 表示がオフになっている</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">音声指示</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">通りの名前を発表</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">有効にすると、右折する通りまたは出口の名前が読み上げられます。</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">音声言語</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">音声案内をテストする</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">音声が聞こえない場合は、音量またはシステムの音声合成設定を確認してください</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">利用不可</string>
     <string name="pref_map_auto_zoom">自動ズーム</string>
     <string name="placepage_distance">距離</string>
     <string name="search_show_on_map">地図に表示</string>
@@ -538,9 +531,6 @@
     <string name="enable_logging">ログを有効化</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">一般的なフィードバック</string>
-    <string name="prefs_languages_information">音声案内にはシステムの TTS を使用します。多くの Android 端末が Google の TTS を使用しており、Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts) からダウンロードや更新を行うことができます</string>
-    <string name="prefs_languages_information_off">いくつかの言語では、アプリストア(Google Play、Galaxy Store 、Huawei AppGallery、F-Droid)から音声合成または追加の言語パックをインストールする必要があります。\nお使いのデバイスで [設定] → [言語と入力] → [音声] → [音声出力] を開いてください。\nここで音声合成の設定 (たとえば、オフラインで使用する言語パックのダウンロードなど) を管理し、別の音声合成エンジンを選択できます。</string>
-    <string name="prefs_languages_information_off_link">詳細については、このガイドをご確認ください。</string>
     <string name="transliteration_title">ラテン文字への翻字</string>
     <string name="learn_more">詳細情報</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -762,9 +752,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">すべてのブックマークとトラックをエクスポートする</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">音声合成システムの設定</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">音声合成の設定が見つからなかった、お使いのデバイスがサポートしていますか？</string>
     <string name="drive_through">ドライブスルー</string>
     <string name="clear_the_search">検索をクリアする</string>
     <string name="zoom_in">ズームイン</string>
@@ -810,7 +798,6 @@
     <string name="error_enter_correct_bluesky_page">有効なBlueskyのユーザー名またはウェブアドレスを入力してください</string>
     <string name="saved">保存しました</string>
     <string name="error_enter_correct_fediverse_page">有効なMastodonのユーザー名またはウェブアドレスを入力してください</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="app_site_url">https://comaps.app/</string>
     <string name="pref_left_button_title">左ボタンの設定</string>
     <string name="pref_left_button_disable">無効にする</string>
@@ -838,13 +825,8 @@
     <string name="download_resources_custom_url_message">デフォルトの地図ダウンロードサーバーをオーバーライドします。CoMapsのデフォルトサーバーを使用する場合は、空のままにしてください。</string>
     <string name="download_resources_custom_url_error_scheme">http:// または https:// から始めるURLを指定してください</string>
     <string name="prefs_group_interface">インターフェイス</string>
-    <string name="prefs_group_interface_summary">ナイトモード、ボタン、言語</string>
     <string name="prefs_group_data_management">データ管理</string>
-    <string name="prefs_group_data_management_summary">地図ストレージ、お気に入りバックアップ</string>
     <string name="prefs_group_map_appearance">マップの表示</string>
-    <string name="prefs_group_map_appearance_summary">マップの言語、ラベルサイズ、2D/3D建物</string>
-    <string name="tts_toggle_enable">音声案内を有効化</string>
-    <string name="tts_toggle_disable">音声案内を無効化</string>
     <string name="enable_long_tap_fullscreen">ロングタップでユーザーインターフェイスを隠す</string>
     <string name="long_tap_disabled_toast">ユーザーインターフェイスを隠すには、設定でロングタップを有効化してください</string>
     <string name="downloader_check_updates_eol">このアプリバージョンではこれ以上マップの更新はありません。アプリを更新してください。</string>
@@ -854,7 +836,6 @@
     </plurals>
     <string name="hours_confirmed_time_ago">%sに確認済み</string>
     <string name="existence_confirmed_time_ago">%sに存在を確認済み</string>
-    <string name="prefs_group_advanced_summary">ログを有効化</string>
     <string name="download_resources_custom_url_summary_none">未設定</string>
     <string name="closes_at">%sに閉店</string>
     <string name="opens_at">%sに開店</string>

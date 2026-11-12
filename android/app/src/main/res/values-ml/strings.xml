@@ -2,7 +2,6 @@
 <resources>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/Ml:About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="self_service">സെൽഫ് സർവീസ്</string>
     <string name="panoramax">Panoramax ചിത്രം</string>

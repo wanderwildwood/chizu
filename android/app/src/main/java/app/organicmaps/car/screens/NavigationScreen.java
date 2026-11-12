@@ -1,7 +1,6 @@
 package app.organicmaps.car.screens;
 
 import android.location.Location;
-import androidx.annotation.DrawableRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.car.app.CarContext;
@@ -35,7 +34,6 @@ import app.organicmaps.sdk.location.LocationListener;
 import app.organicmaps.sdk.routing.JunctionInfo;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingInfo;
-import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.LocationUtils;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.sdk.util.log.Logger;
@@ -181,7 +179,6 @@ public class NavigationScreen extends BaseMapScreen implements RoutingController
     });
 
     final ActionStrip.Builder builder = new ActionStrip.Builder();
-    builder.addAction(createTtsAction());
     builder.addAction(UiHelpers.createSettingsActionForResult(this, getSurfaceRenderer(), this::onSettingsResult));
     builder.addAction(stopActionBuilder.build());
     return builder.build();
@@ -231,21 +228,6 @@ public class NavigationScreen extends BaseMapScreen implements RoutingController
 
     // TODO (AndrewShkrob): Need to rebuild the route with updated driving options
     Logger.d(TAG, "Driving options changed");
-  }
-
-  @NonNull
-  private Action createTtsAction()
-  {
-    final Action.Builder ttsActionBuilder = new Action.Builder();
-    @DrawableRes
-    final int imgRes = TtsPlayer.isEnabled() ? R.drawable.ic_voice_on : R.drawable.ic_voice_off;
-    ttsActionBuilder.setIcon(new CarIcon.Builder(IconCompat.createWithResource(getCarContext(), imgRes)).build());
-    ttsActionBuilder.setOnClickListener(() -> {
-      TtsPlayer.setEnabled(!TtsPlayer.isEnabled());
-      invalidate();
-    });
-
-    return ttsActionBuilder.build();
   }
 
   private void updateTrip(@Nullable Location location)

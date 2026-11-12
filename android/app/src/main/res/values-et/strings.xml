@@ -204,19 +204,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-vaated lülitatakse energiasäästurežiimis välja</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Hääljuhised</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Teata tänavanimesid</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Kui see on lubatud, öeldakse valjusti tänava või ärapöörde nimi, kuhu peaksid keerama.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Hääljuhiste keel</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Testi hääljuhised</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kontrolli helivaljust või süsteemi kõnesünteesi seadistusi, kui sa ei kuule nüüd häält</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Ei ole saadaval</string>
     <string name="pref_map_auto_zoom">Automaatne suum</string>
     <string name="placepage_distance">Kaugus</string>
     <string name="search_show_on_map">Vaata kaardil</string>
@@ -533,9 +526,6 @@
     <string name="enable_logging">Lülita logimine sisse</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Üldine tagasiside</string>
-    <string name="prefs_languages_information">Hääljuhiste jaoks kasutame kõnesünteesi. Paljud Android-seadmed kasutavad Google\'i TTS-i, saad selle alla laadida või värskendada Google Play teenusest (https:play.google.comstoreappsdetails?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Mõne keele puhul pead paigaldama kõnesüntesaatori või täiendava keelepaketi rakenduste poest (Google Play, Galaxy Store, App Gallery, F-Droid). \nAva oma nutiseadme seadistused → Keel ja sisend → Kõne → Tekst kõneks väljund. \nSiin saad hallata kõnesünteesi seadistusi (näiteks alla laadida keelepaketti võrguühenduseta kasutamiseks) ja valida mõne muu teksti kõneks muutmise mootori.</string>
-    <string name="prefs_languages_information_off_link">Lisainfo saamiseks palun vaata seda juhendit</string>
     <string name="transliteration_title">Transliteratsioon ladina tähestikku</string>
     <string name="learn_more">Lisateave</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -758,9 +748,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Ekspordi kõik lemmikud</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Süsteemsed kõnesünteesi seadistused</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Kõnesünteesi seadistusi ei leidu, kas oled kindel, et sinu nutiseade toetab seda?</string>
     <string name="drive_through">Läbisõit</string>
     <string name="clear_the_search">Tühjenda otsing</string>
     <string name="zoom_in">Suumi sisse</string>
@@ -805,7 +793,6 @@
     <string name="menu">Menüü</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/et/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="about_developed_by_enthusiasts">Täielikult avatud lähtekoodiga, kasumit mittetaotlev, läbipaistva otsustusprotsessiga ning rahastamisega.</string>
     <string name="app_site_url">https://comaps.app/et/</string>
@@ -856,7 +843,6 @@
     <string name="delete_track_dialog_title">Kas kustutame: %s?</string>
     <string name="existence_confirmed_time_ago">Olemasolu on kontrollitud %s</string>
     <string name="hours_confirmed_time_ago">Kontrollitud %s</string>
-    <string name="pref_tts_no_system_tts_short">Ühtegi kõnesünteesimootorit ei leidu, palun kontrolli rakenduse seadistusi</string>
     <string name="unknown_power_output">pole teada</string>
     <string name="charge_socket_type2">Tüüp 2 (ilma kaablita)</string>
     <string name="charge_socket_type2_cable">Tüüp 2 (kaabliga)</string>
@@ -896,13 +882,11 @@
     <string name="power_management">Toitehaldus</string>
     <string name="charge_socket_schuko">EU-sisene</string>
     <string name="prefs_speed_cameras_information">Kiiruskaamerate teavitused on nendes riikides lülitatud välja, kus seda keelab kohalik seadusandlus.</string>
-    <string name="navigation_start_tts_message">"Alustan tee juhatamist, hääljuhiste keel: "</string>
     <string name="place_page_map_too_old_title">Kaardiandmed on aegunud</string>
     <string name="place_page_map_too_old_description">Sinu kasutatavad kaardiandmed on väga vanad. Palun uuenda andmeid.</string>
     <string name="place_page_app_too_old_description">Sinu kasutatavad kaardiandmed on väga vanad. Palun uuenda Atlasi rakendust.</string>
     <string name="place_page_update_too_old_map">Uuenda piirkonna kaardiandmeid</string>
     <string name="place_page_too_old_to_edit">Kuna kaardiandmed on liiga vanad, siis OpenStreetMapi muutmise võimalus on lülitatud välja.</string>
-    <string name="navigation_start_tts_disabled_message">Hääljuhiste kasutamine on lülitatud välja: kõnesünteesimootorit pole saadaval</string>
     <string name="pref_maplanguage_local">Kohalik keel</string>
     <string name="location_privacy_info">Rakendused saavad asukohaandmed sinu operatsioonisüsteemi asukohateenuselt, mis võib jagada sinu asukohta Google\'i ja/või seadme valmistajaga. Selle vältimiseks kasuta mõnda privaatsusega arvestavat Androidi versiooni.</string>
     <string name="location_privacy">Asuukohaandmete privaatsus</string>
@@ -940,8 +924,6 @@
     <string name="pref_aa_support_title">Android Auto liidestus</string>
     <string name="pref_aa_support_summary_yes">Rakendus on paigaldatud Google Play rakendustepoest ja saad seda oma autos kasutada Android Auto liidestusega.</string>
     <string name="pref_aa_support_summary_no">Rakendus pole paigaldatud Google Play rakendustepoest ja saad seda oma autos ei saa kasutada Android Auto liidestusega. Vajuta seadistuste nuppu ja loe lisateavet meie KKK lehelt.</string>
-    <string name="tts_toggle_enable">Lülita hääljuhised sisse</string>
-    <string name="tts_toggle_disable">Lülita hääljuhised välja</string>
     <string name="oh_unknown">Tööaeg pole teada</string>
     <string name="editor_add_select_category_all_subtitle">Kõik kategooriad</string>
     <string name="editor_add_select_category_recent_subtitle">Hiljuti kasutatud</string>
@@ -954,21 +936,14 @@
     <string name="capacity_disabled_no">Pole eraldi parkimiskohti puuetega inimeste jaoks</string>
     <string name="capacity_charging_yes">On laadijatega parkimiskohad</string>
     <string name="capacity_charging_no">Pole laadijatega parkimiskohti</string>
-    <string name="prefs_group_route_summary">Ühikud, hääljuhised, teekonna koostamise valikud</string>
-    <string name="prefs_group_privacy_summary">Otsinguajalugu</string>
-    <string name="prefs_group_power_summary">Ekraani väljalülitumine, mobiilne andmeside</string>
     <string name="capacity_disabled_yes">On eraldi parkimiskohti puuetega inimeste jaoks</string>
     <string name="capacity_charging">Laadijatega parkimiskohti: %s</string>
     <string name="permission_read_navigation_label">Atlasi teejuhatamise teabe ettelugemine</string>
     <string name="permission_read_navigation_description">teejuhatamise teabe ettelugemine reaalajas, näiteks järgmised pöörded ja hetkel kasutusel tee nimi</string>
     <string name="planning_route_preview">Eelvaade</string>
     <string name="prefs_group_interface">Kasutajaliides</string>
-    <string name="prefs_group_advanced_summary">Lülita logimine sisse</string>
     <string name="pref_about_summary">Teata vigadest, otsi abiteavet, toeta rahaliselt\nVersioon: %1$s</string>
-    <string name="prefs_group_map_appearance_summary">Kaardi keel, siltide suurus, 2D/3D hooned</string>
-    <string name="prefs_group_interface_summary">Öörežiim, nupud, keel</string>
     <string name="prefs_group_data_management">Andmehaldus</string>
-    <string name="prefs_group_data_management_summary">Kaardi andmeruum, lemmikute varukoopia</string>
     <string name="search_in_all_lists">Otsi kõikidest loenditest</string>
     <string name="pref_enable_auto_reroute_title">Automaatne teekonna ümberarvutus</string>
     <string name="pref_enable_auto_reroute_description">Selle eelistuse sisselülitamisel koostatakse vanalt teekonnalt lahkudes uus teekond.</string>

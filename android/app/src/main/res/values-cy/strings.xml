@@ -148,7 +148,6 @@
     <string name="elevation_profile_time">Amser:</string>
     <string name="downloader_loading_ios">Wrthi\'n lawrlwytho</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="volume">Sain</string>
     <string name="drive_through">Gyrru trwodd</string>
@@ -172,9 +171,6 @@
     <string name="pref_zoom_title">Botymau chwyddo</string>
     <string name="pref_map_style_title">Modd Nos</string>
     <string name="pref_map_3d_buildings_title">Adeiladau 3D</string>
-    <string name="pref_tts_enable_title">Cyfarwyddiadau Llais</string>
-    <string name="pref_tts_language_title">Iaith Lais</string>
-    <string name="pref_tts_unavailable">Ddim Ar Gael</string>
     <string name="pref_map_auto_zoom">Awtochwyddo</string>
     <string name="panoramax">Llun Panoramax</string>
     <string name="downloader_update_all_button">Diweddaru Popeth</string>
@@ -294,8 +290,6 @@
     <string name="continue_recording">Parhau i Recordio</string>
     <string name="edit_track">Golygu Ôl</string>
     <string name="avoid_steps">Osgoi grisiau</string>
-    <string name="pref_tts_street_names_title">Cyhoeddi Enwau Strydoedd</string>
-    <string name="pref_tts_test_voice_title">Profi Cyfarwyddiadau Llais</string>
     <string name="search_show_on_map">Gweld ar y map</string>
     <string name="rate_the_app">Sgorio\'r ap</string>
     <string name="dialog_routing_location_turn_on">Galluogi gwasanaethau lleoli</string>

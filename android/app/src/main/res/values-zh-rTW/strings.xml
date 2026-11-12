@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D 建築在省電模式下將會關閉</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">語音提示</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">播報街道名稱</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">啟用後，將大聲播報即將進入的街道或出口的名稱。</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">語音語言</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">測試語音指令</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">如果您現在聽不到聲音，請檢查音量或系統文字轉語音系統的設定</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">無法使用</string>
     <string name="pref_map_auto_zoom">自動縮放</string>
     <string name="placepage_distance">距離</string>
     <string name="search_show_on_map">在地圖上查看</string>
@@ -547,9 +540,6 @@
     <string name="enable_logging">啟用日誌記錄</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">一般反應</string>
-    <string name="prefs_languages_information">我們的語音導航使用“文字轉語音”系統。許多 Android 裝置使用 Google 的文字轉語音系統，您可以從 Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts) 下載或更新這一功能</string>
-    <string name="prefs_languages_information_off">某些語言需要從應用商店（Google Play、三星Galaxy Store、華為應用市場、F-Droid）安裝相關的語音合成器或語言套件，才能使用此功能。\n打開您的裝置的設定 → 語言和輸入法 → 語音 → 文字轉語音 (TTS) 輸出\n您可以在這裡管理語音合成的設定（例如，下載語言套件供離線使用）和選擇其他 TTS 引擎。</string>
-    <string name="prefs_languages_information_off_link">如需瞭解更多資訊，請參閱此指南</string>
     <string name="transliteration_title">拉丁字母音譯</string>
     <string name="learn_more">瞭解更多資訊</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -773,9 +763,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">匯出所有最愛</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">文字轉語音系統設定</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">未找到語音合成設定，您確定您的裝置支援該設定嗎？</string>
     <string name="drive_through">得來速通道</string>
     <string name="clear_the_search">清除搜尋</string>
     <string name="zoom_in">放大</string>
@@ -816,7 +804,6 @@
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="app_site_url">https://comaps.app/zh-Hant/</string>
     <string name="saved">已儲存</string>
     <string name="error_enter_correct_fediverse_page">請輸入有效的 Mastodon 使用者名稱或網址</string>
@@ -886,9 +873,6 @@
     <string name="pref_maplanguage_local">本地語言</string>
     <string name="share_track">分享軌跡</string>
     <string name="delete_track_dialog_title">刪除 %s 嗎？</string>
-    <string name="pref_tts_no_system_tts_short">找不到文字轉語言引擎，請檢查 app 設定</string>
-    <string name="navigation_start_tts_message">"開始導航，語音指道的語言是： "</string>
-    <string name="navigation_start_tts_disabled_message">語音指引關閉：沒有 TTS 引擎</string>
     <string name="unknown_power_output">未知</string>
     <string name="charge_socket_type2">類型2 (沒有線)</string>
     <string name="charge_socket_type2_cable">類型2 (有線)</string>
@@ -924,15 +908,8 @@
     <string name="invalid_route">無效的導航</string>
     <string name="pref_about_summary">回報問題，尋求協助，以及捐助計劃\n版本：v%1$s</string>
     <string name="prefs_group_map_appearance">地圖外觀</string>
-    <string name="prefs_group_map_appearance_summary">地圖語言、標示大小，2D/3D建築</string>
     <string name="prefs_group_interface">介面</string>
-    <string name="prefs_group_interface_summary">夜間模式，按鈕，語言</string>
     <string name="prefs_group_data_management">資料管理</string>
-    <string name="prefs_group_data_management_summary">地圖儲存，備份我的最愛</string>
-    <string name="prefs_group_route_summary">單位，語音指引，導航選項</string>
-    <string name="prefs_group_advanced_summary">啟用記錄</string>
-    <string name="tts_toggle_enable">啟用語音指引</string>
-    <string name="tts_toggle_disable">關閉語音指引</string>
     <string name="enable_long_tap_fullscreen">長按來隱藏使用者介面</string>
     <string name="long_tap_disabled_toast">要隱藏介面，請在設定中啟用長按</string>
     <string name="downloader_check_updates_button">檢查更新</string>
@@ -945,8 +922,6 @@
     <string name="pref_font_size">地圖標示的字型大小</string>
     <string name="decrease_font_size">減少地圖標示的大小</string>
     <string name="planning_route_preview">預覽</string>
-    <string name="prefs_group_privacy_summary">搜尋歷史</string>
-    <string name="prefs_group_power_summary">螢幕時間中止，行動數據</string>
     <string name="bookmarks_text_placement_title">在地圖上顯示我的最愛名稱</string>
     <string name="population">人口數：%s</string>
     <string name="sort_categories">排序最愛清單</string>

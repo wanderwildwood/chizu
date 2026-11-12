@@ -10,7 +10,6 @@ import android.util.Pair;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -25,7 +24,6 @@ import app.organicmaps.maplayer.MapButtonsViewModel;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingInfo;
 import app.organicmaps.sdk.routing.RoutingInfo.RoutingSessionState;
-import app.organicmaps.sdk.sound.TtsPlayer;
 import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.sdk.util.Distance;
 import app.organicmaps.util.ThemeUtils;
@@ -33,7 +31,6 @@ import app.organicmaps.util.UiUtils;
 import app.organicmaps.widget.RouteProgressBar;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.button.MaterialButton;
-import com.google.android.material.color.MaterialColors;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
@@ -47,7 +44,6 @@ public class NavMenu
   private final View mBottomSheetBackground;
   private final View mHeaderFrame;
 
-  private final ShapeableImageView mTts;
   private final ShapeableImageView mTrackRecording;
   private final View mEtaViewContainer;
   private final MaterialTextView mEtaValue;
@@ -158,8 +154,6 @@ public class NavMenu
     // Bottom frame buttons.
     ShapeableImageView mSettings = bottomFrame.findViewById(R.id.settings);
     mSettings.setOnClickListener(v -> onSettingsClicked());
-    mTts = bottomFrame.findViewById(R.id.tts_volume);
-    mTts.setOnClickListener(v -> onTtsClicked());
     MaterialButton stop = bottomFrame.findViewById(R.id.stop);
     stop.setOnClickListener(v -> onStopClicked());
     com.wanderwildwood.chizu.ui.StopX.wire(bottomFrame.findViewById(R.id.nav_stop_x), mActivity, this::onStopClicked);
@@ -240,14 +234,6 @@ public class NavMenu
     mNavMenuListener.onSettingsClicked();
   }
 
-  private void onTtsClicked()
-  {
-    if (!TtsPlayer.isReady())
-      Toast.makeText(mActivity, R.string.pref_tts_no_system_tts_short, Toast.LENGTH_SHORT).show();
-    TtsPlayer.setEnabled(!TtsPlayer.isEnabled());
-    refreshTts();
-  }
-
   private void onTrackRecordingClicked()
   {
     mNavMenuListener.onTrackRecordingClicked();
@@ -307,14 +293,6 @@ public class NavMenu
   public int getBottomSheetState()
   {
     return mNavBottomSheetBehavior.getState();
-  }
-
-  public void refreshTts()
-  {
-    boolean ttsEnabled = TtsPlayer.isEnabled();
-    mTts.setImageResource(ttsEnabled ? R.drawable.ic_voice_on : R.drawable.ic_voice_off);
-    mTts.setImageTintList(MaterialColors.getColorStateListOrNull(mActivity, ttsEnabled ? com.google.android.material.R.attr.colorSecondary : R.attr.iconTint));
-    mTts.setContentDescription(mActivity.getResources().getString(ttsEnabled ? R.string.tts_toggle_disable : R.string.tts_toggle_enable));
   }
 
   private void updateTime(int timeInSeconds)

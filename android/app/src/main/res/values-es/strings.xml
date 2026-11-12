@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Los edificios 3D se desactivan en el modo de ahorro de energía</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Indicaciones por voz</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Anunciar nombres de calles</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Cuando se activa, el nombre de la calle o la salida para girar se pronunciará en voz alta.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Idioma de voz</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Probar indicaciones de voz</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Compruebe el volumen o la configuración de texto a voz del sistema si ahora no oye la voz</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">No disponible</string>
     <string name="pref_map_auto_zoom">Auto Zoom</string>
     <string name="placepage_distance">Distancia</string>
     <string name="search_show_on_map">Ver en el mapa</string>
@@ -541,9 +534,6 @@
     <string name="enable_logging">Activar registros</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Opinión general</string>
-    <string name="prefs_languages_information">Utilizamos el sistema TTS para las instrucciones de voz. Muchos dispositivos de Android usan Google TTS. Puede descargar o actualizarlo desde Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Para algunos idiomas, debes instalar otro sintetizador de voz o un paquete de idioma adicional desde la tienda de aplicaciones (Google Play, Galaxy Store, App Gallery, FDroid).\nAbre los Ajustes de su dispositivo → Idioma y entrada de texto → Voz → Opciones texto a voz.\nAquí puedes administrar la configuración de síntesis de voz (por ejemplo, descargar un paquete de idioma para poder usarlo sin conexión) o seleccionar otro motor de texto a voz.</string>
-    <string name="prefs_languages_information_off_link">Para obtener más información, consulta esta guía</string>
     <string name="transliteration_title">Transliteración al alfabeto latino</string>
     <string name="learn_more">Conocer más</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -724,7 +714,6 @@
     <!-- OpenStreetMap text on splash screen -->
     <string name="splash_subtitle">Datos cartográficos de OpenStreetMap</string>
     <!-- A link to the TTS FAQ -->
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <!-- Translated CoMaps site, add new translations here: https://translate.codeberg.org/projects/comaps/website -->
     <string name="translated_om_site_url">https://comaps.app/es/</string>
     <!-- Link to OSM wiki for Editor, Profile and About pages -->
@@ -775,9 +764,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Exportar todos los Favoritos</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Configuración de síntesis de voz del sistema</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">No se encontraron las configuraciones de síntesis de voz. ¿Sabe si su dispositivo la admite?</string>
     <string name="drive_through">Servicio desde el coche</string>
     <string name="clear_the_search">Borrar búsqueda</string>
     <string name="zoom_in">Acercar</string>
@@ -866,7 +853,6 @@
     <string name="existence_confirmed_time_ago">Existencia confirmada %s</string>
     <string name="hours_confirmed_time_ago">Confirmado %s</string>
     <string name="share_track">Compartir traza</string>
-    <string name="pref_tts_no_system_tts_short">No se ha encontrado ningún motor de texto-a-voz, comprueba la configuración de la aplicación</string>
     <string name="unknown_power_output">desconocida</string>
     <string name="charge_socket_type2">Tipo 2 (sin cable)</string>
     <string name="charge_socket_type2_cable">Tipo 2 (con cable)</string>
@@ -912,8 +898,6 @@
     <string name="place_page_update_too_old_map">Actualizar mapa de la región</string>
     <string name="place_page_too_old_to_edit">La edición de OpenStreetMap está deshabilitada porque los datos del mapa están muy anticuados.</string>
     <string name="prefs_speed_cameras_information">Las advertencias de radares de velocidad están deshabilitadas en países donde las alertas están prohibidas por ley.</string>
-    <string name="navigation_start_tts_message">"Iniciando Navegación, idioma de las instrucciones por voz: "</string>
-    <string name="navigation_start_tts_disabled_message">Instrucciones por voz deshabilitadas: Motor de TTS no disponible</string>
     <string name="pref_maplanguage_local">Idioma local</string>
     <string name="rooms">%s habitaciones</string>
     <string name="mb_downloaded">%1$d MB / %2$d MB</string>
@@ -951,8 +935,6 @@
     <string name="pref_aa_support_title">Android Auto</string>
     <string name="pref_aa_support_summary_yes">La aplicación se ha instalado desde Google Play y puedes usarla en tu coche.</string>
     <string name="pref_aa_support_summary_no">La aplicación no se ha instalado desde Google Play, por lo que no puedes usarla en tu coche. Pulsa en Ajustes para obtener más información en nuestras Preguntas frecuentes.</string>
-    <string name="tts_toggle_enable">Activar indicaciones por voz</string>
-    <string name="tts_toggle_disable">Desactivar indicaciones por voz</string>
     <string name="editor_add_select_category_recent_subtitle">Usado recientemente</string>
     <string name="oh_unknown">Horario desconocido</string>
     <string name="editor_add_select_category_all_subtitle">Todas las categorías</string>
@@ -967,21 +949,14 @@
     <string name="capacity_charging">Plazas con cargadores: %s</string>
     <string name="capacity_charging_yes">Dispone de plazas con cargadores</string>
     <string name="capacity_charging_no">No hay plazas con cargadores</string>
-    <string name="prefs_group_route_summary">Unidades, instrucciones de voz, opciones de ruta</string>
-    <string name="prefs_group_privacy_summary">Historial de búsquedas</string>
-    <string name="prefs_group_power_summary">Tiempo de inactividad de la pantalla, datos móviles</string>
     <string name="prefs_group_map_appearance">Aspecto del mapa</string>
-    <string name="prefs_group_map_appearance_summary">Idioma del mapa, tamaño de las etiquetas, edificios en 2D/3D</string>
     <string name="planning_route_preview">Vista previa</string>
     <string name="search_in_all_lists">Buscar en todas las listas</string>
     <string name="permission_read_navigation_label">Leer los datos de navegación de Atlas</string>
     <string name="permission_read_navigation_description">leer información de navegación en tiempo real, como los próximos giros o el nombre de la calle por la que circulas</string>
     <string name="pref_about_summary">Informar de problemas, solicitar ayuda, hacer una donación\nVersión: v%1$s</string>
     <string name="prefs_group_interface">Interfaz</string>
-    <string name="prefs_group_interface_summary">Modo nocturno, botones, idioma</string>
     <string name="prefs_group_data_management">Gestión de datos</string>
-    <string name="prefs_group_data_management_summary">Almacenamiento de mapas, copia de seguridad de favoritos</string>
-    <string name="prefs_group_advanced_summary">Activar el registro</string>
     <string name="pref_enable_auto_reroute_title">Redireccionamiento automático</string>
     <string name="pref_enable_auto_reroute_description">Si se activa esta opción, se creará automáticamente una nueva ruta en cuanto te desvíes de la ruta planificada.</string>
     <string name="recalculate_route">Recalcular</string>

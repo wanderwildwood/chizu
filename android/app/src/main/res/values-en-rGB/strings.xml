@@ -139,12 +139,6 @@
     <string name="pref_map_3d_title">Perspective view</string>
     <string name="pref_map_3d_buildings_title">3D buildings</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D buildings are disabled in power saving mode</string>
-    <string name="pref_tts_enable_title">Voice instructions</string>
-    <string name="pref_tts_street_names_title">Announce street names</string>
-    <string name="pref_tts_street_names_description">When enabled, the name of the street or exit to turn onto will be spoken aloud.</string>
-    <string name="pref_tts_language_title">Voice language</string>
-    <string name="pref_tts_test_voice_title">Test voice directions</string>
-    <string name="prefs_group_data_management_summary">Map storage, backup favourites</string>
     <string name="bookmarks_text_placement_title">Show names of favourites on map</string>
     <string name="sort_categories">Sort favourite lists</string>
     <string name="pref_use_google_play">A proprietary service that combines GPS, Wi-Fi, mobile networks etc. to determine your location more accurately. It may connect to Google servers.</string>
@@ -159,7 +153,5 @@
     <string name="category_rv">RV Facilities</string>
     <string name="pref_about_summary">Report issues, get help, donate\nVersion: v%1$s</string>
     <string name="prefs_group_map_appearance">Map appearance</string>
-    <string name="prefs_group_map_appearance_summary">Map language, label size</string>
     <string name="prefs_group_interface">Interface</string>
-    <string name="prefs_group_interface_summary">Night mode, buttons, language</string>
 </resources>

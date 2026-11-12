@@ -202,19 +202,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Nhà 3D bị tắt ở chế độ tiết kiệm năng lượng</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Hướng dẫn bằng Giọng nói</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Thông báo tên đường</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Nếu bật, sẽ đọc to tên đường hoặc lối ra cần rẽ vào.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Ngôn ngữ Giọng nói</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Kiểm tra chỉ đường bằng giọng nói</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kiểm tra cài đặt âm lượng hoặc chuyển văn bản sang giọng nói của hệ thống nếu bây giờ bạn không nghe thấy giọng nói</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Không có sẵn</string>
     <string name="pref_map_auto_zoom">Tự động thu phóng</string>
     <string name="placepage_distance">Khoảng cách</string>
     <string name="search_show_on_map">Xem trên bản đồ</string>
@@ -517,9 +510,6 @@
     <string name="enable_logging">Bật nhật ký hoạt động</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Phản hồi chung</string>
-    <string name="prefs_languages_information">Chúng tôi sử dụng TTS hệ thống cho chức năng hướng dẫn bằng giọng nói. Nhiều thiết bị Android sử dụng Google TTS, bạn có thể tải về hoặc cập nhật nó từ Cửa hàng Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Đối với một số ngôn ngữ, bạn sẽ cần cài đặt một trình tổng hợp lời nói hoặc một gói ngôn ngữ bổ sung từ cửa hàng ứng dụng (Google Play, Galaxy Store, App Gallery, FDroid). \nMở cài đặt của thiết bị → Ngôn ngữ và nhập liệu → Lời nói → Đầu ra của chuyển văn bản thành lời nói. \nTại đây bạn có thể quản lý các cài đặt tổng hợp lời nói (ví dụ, tải về các gói ngôn ngữ để sử dụng ngoại tuyến) và chọn một công cụ chuyển đổi văn bản thành lời nói khác.</string>
-    <string name="prefs_languages_information_off_link">Để biết thêm thông tin, vui lòng kiểm tra hướng dẫn này</string>
     <string name="transliteration_title">Chuyển ngữ sang chữ Latinh</string>
     <string name="learn_more">Tìm hiểu thêm</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -721,9 +711,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Xuất tất cả mục Ưa thích</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Cài đặt tổng hợp giọng nói của hệ thống</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Không tìm thấy cài đặt Tổng hợp giọng nói, bạn có chắc thiết bị của mình hỗ trợ nó không?</string>
     <string name="drive_through">Mua hàng trên xe</string>
     <string name="clear_the_search">Xóa tìm kiếm</string>
     <string name="zoom_in">Phóng to</string>
@@ -766,7 +754,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="panoramax">Ảnh Panoramax</string>
     <string name="saved">Đã lưu</string>
     <string name="about_headline">Dự án mở được vận hành bởi cộng đồng</string>
@@ -886,9 +873,6 @@
     <string name="dialog_report_error_with_logs">Vui lòng gửi cho chúng tôi một bản báo cáo lỗi:\n - \"Bật nhật ký hoạt động\" trong phần cài đặt\n - tạo lại vấn đề\n - trong phần \"Giới thiệu &amp; Trợ giúp\" nhấn nút \"Báo cáo lỗi\" và gửi qua email hoặc tin nhắn\n - tắt nhật ký hoạt động</string>
     <string name="bookmark_color">Màu cho Ưa thích</string>
     <string name="about_help">Giới thiệu &amp; Trợ giúp</string>
-    <string name="pref_tts_no_system_tts_short">Không có công cụ chuyển văn bản thành giọng nói nào được tìm thấy, kiểm tra cài đặt ứng dụng</string>
-    <string name="navigation_start_tts_message">"Đang bắt đầu Chỉ đường, ngôn ngữ hướng dẫn bằng giọng nói: "</string>
-    <string name="navigation_start_tts_disabled_message">Hướng dẫn bằng giọng nói đã bị tắt: công cụ TTS không có sẵn</string>
     <string name="charge_socket_type2">Loại 2 (không có dây)</string>
     <string name="charge_socket_type2_cable">Loại 2 (có dây)</string>
     <string name="charge_socket_type2_combo">Combo Loại 2</string>
@@ -913,8 +897,6 @@
     <string name="route_recalculating">Đang tính lại tuyến đường…</string>
     <string name="pref_openexternallinks_title">Tự động mở các đường dẫn bên thứ ba</string>
     <string name="pref_openexternallinks_summary">Mặc định mở các đường dẫn bên thứ ba trong Atlas</string>
-    <string name="tts_toggle_enable">Bật chỉ dẫn bằng giọng nói</string>
-    <string name="tts_toggle_disable">Tắt chỉ dẫn bằng giọng nói</string>
     <string name="downloader_check_updates_button">Kiểm tra cập nhật</string>
     <string name="downloader_check_updates_checking">Đang tìm bản cập nhật...</string>
     <string name="downloader_check_updates_updated">Có bản cập nhật mới!</string>
@@ -936,16 +918,9 @@
     <string name="editor_add_select_category_recent_subtitle">Đã dùng gần đây</string>
     <string name="pref_about_summary">Báo cáo lỗi, tìm trợ giúp, ủng hộ\nPhiên bản: v%1$s</string>
     <string name="prefs_group_map_appearance">Giao diện bản đồ</string>
-    <string name="prefs_group_map_appearance_summary">Ngôn ngữ bản đồ, kích thước nhãn, tòa nhà 2D/3D</string>
     <string name="prefs_group_interface">Giao diện</string>
-    <string name="prefs_group_interface_summary">Chế độ tối, các nút, ngôn ngữ</string>
     <string name="prefs_group_data_management">Quản lý dữ liệu</string>
-    <string name="prefs_group_data_management_summary">Bộ nhớ bản đồ, sao lưu ưa thích</string>
-    <string name="prefs_group_route_summary">Đơn vị đo, hướng dẫn bằng giọng nói, tùy chọn điều hướng</string>
-    <string name="prefs_group_advanced_summary">Bật nhật ký hoạt động</string>
     <string name="planning_route_preview">Xem trước</string>
-    <string name="prefs_group_power_summary">Thời gian chờ màn hình, dữ liệu di động</string>
-    <string name="prefs_group_privacy_summary">Lịch sử tìm kiếm</string>
     <string name="search_in_all_lists">Tìm trong tất cả danh sách</string>
     <string name="pref_enable_auto_reroute_title">Tự động điều hướng lại</string>
     <string name="pref_enable_auto_reroute_description">Khi được bật, một tuyến đường mới sẽ được tạo tự động khi bạn rời khỏi lộ trình hiện tại.</string>

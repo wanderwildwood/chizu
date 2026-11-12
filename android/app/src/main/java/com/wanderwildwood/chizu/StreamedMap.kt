@@ -181,8 +181,10 @@ object StreamedMap {
             val v = Framework.nativeGetViewport()
             val zoom = webZoom(v[2], density)
             if (zoom.isNaN() || zoom.isInfinite() || zoom < MIN_ZOOM) return hide()
+            // Out at sea no map file covers the middle of the screen and the name comes back empty:
+            // the map engine stops the app when asked for the status of a map it has no name for.
             val country = MapManager.nativeFindCountry(v[0], v[1])
-            if (country != null && isOnPhone(MapManager.nativeGetStatus(country))) return hide()
+            if (!country.isNullOrEmpty() && isOnPhone(MapManager.nativeGetStatus(country))) return hide()
 
             checkNetwork()
             // Shown before the map is ready: the drawing surface is only made for a view that is visible.

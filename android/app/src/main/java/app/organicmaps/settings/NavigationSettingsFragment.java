@@ -13,8 +13,8 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
+import app.organicmaps.sdk.settings.SpeedCameraMode;
 import app.organicmaps.sdk.settings.UnitLocale;
-import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.Utils;
 import com.wanderwildwood.chizu.OnlineRoutes;
 import com.wanderwildwood.chizu.StreamedMap;
@@ -41,13 +41,13 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     initAutoZoomPrefsCallbacks();
     initAndroidAutoSupportPrefsCallback();
     initAutoRerouteCallback();
+    initSpeedCamerasPrefs();
   }
 
   @Override
   public void onResume()
   {
     super.onResume();
-    updateVoiceInstructionsPrefsSummary();
     updateRoutingSettingsPrefsSummary();
   }
 
@@ -58,12 +58,7 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     if (key == null)
       return super.onPreferenceTreeClick(preference);
 
-    if (key.equals(getString(R.string.pref_tts_screen)))
-    {
-      getSettingsActivity().stackFragment(VoiceInstructionsSettingsFragment.class,
-                                          getString(R.string.pref_tts_enable_title), null);
-    }
-    else if (key.equals(getString(R.string.pref_android_auto_support)))
+    if (key.equals(getString(R.string.pref_android_auto_support)))
     {
       if (!Utils.isAndroidAutoSupported(requireContext()))
         Utils.openUrl(requireContext(), "https://www.comaps.app/support/how-to-use-android-auto/");
@@ -71,10 +66,22 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     return super.onPreferenceTreeClick(preference);
   }
 
-  private void updateVoiceInstructionsPrefsSummary()
+  // Atlas: the speed camera warning sat on the voice page, which is gone; it is not a voice setting.
+  private void initSpeedCamerasPrefs()
   {
-    final Preference pref = getPreference(getString(R.string.pref_tts_screen));
-    pref.setSummary(Config.TTS.isEnabled() ? R.string.on : R.string.off);
+    final ListPreference pref = getPreference(getString(R.string.pref_tts_speed_cameras));
+    pref.setSummary(pref.getEntry());
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      final String speedCamModeValue = (String) newValue;
+      final SpeedCameraMode newCamMode = SpeedCameraMode.valueOf(speedCamModeValue);
+      final CharSequence summary = pref.getEntries()[newCamMode.ordinal()];
+      pref.setSummary(summary);
+      if (pref.getValue().equals(newValue))
+        return true;
+
+      Framework.setSpeedCamerasMode(newCamMode);
+      return true;
+    });
   }
 
   private void initAutoRerouteCallback()

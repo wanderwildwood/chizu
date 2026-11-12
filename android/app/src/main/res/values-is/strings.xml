@@ -297,7 +297,6 @@
     <string name="disconnect_usb_cable_title">Aftengja USB-kapal</string>
     <string name="enable_keep_screen_on">Halda kveiktu á skjánum</string>
     <string name="enable_show_on_lock_screen">Birta á læsiskjánum</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="browser_not_available">Vafri er ekki tiltækur</string>
@@ -307,7 +306,6 @@
     <string name="category_parking">Bílastæði</string>
     <string name="category_secondhand">Notaðar vörur</string>
     <string name="description">Minnispunktar</string>
-    <string name="pref_tts_unavailable">Ekki tiltækt</string>
     <string name="clear_search">Hreinsa leitarferil</string>
     <string name="editor_add_place_title">Bæti við</string>
     <string name="drive_through">Bílaafgreiðsla</string>
@@ -337,7 +335,6 @@
     <string name="category_toilet">Salerni</string>
     <string name="category_rv">Aðstaða fyrir húsbíla</string>
     <string name="pref_map_3d_buildings_title">3D-byggingar</string>
-    <string name="pref_tts_language_title">Tungumál raddar</string>
     <string name="dialog_routing_check_gps">Athuga GPS-merki</string>
     <string name="dialog_routing_location_turn_on">Virkjaðu staðsetningarþjónustur</string>
     <string name="downloader_update_maps">Uppfæra kort</string>
@@ -376,9 +373,6 @@
     <string name="share_bookmarks_email_subject">Atlas bókamerkjum var deilt með þér</string>
     <string name="load_kmz_title">Hleð inn bókamerkjum</string>
     <string name="downloading_is_active">Verið er að sækja landakort.</string>
-    <string name="pref_tts_enable_title">Talaðar leiðbeiningar</string>
-    <string name="pref_tts_street_names_title">Tilkynna götuheiti</string>
-    <string name="pref_tts_test_voice_title">Prófa raddleiðsögn (TTS, texti-í-tal)</string>
     <string name="pref_map_auto_zoom">Sjálfvirkur aðdráttur</string>
     <string name="google_play_services">Google Play staðsetningarþjónustur</string>
     <string name="dialog_routing_change_start">Aðlaga upphafsstað</string>
@@ -424,8 +418,6 @@
     <string name="unknown_file_type">Forritið þekkti ekki skráategundina: \n%1$s</string>
     <string name="cant_change_this_setting">Því miður, stillingar á geymslu korta eru óvirkar.</string>
     <string name="pref_map_3d_buildings_disabled_summary">3D-byggingar eru óvirkar í orkusparnaðarham</string>
-    <string name="pref_tts_street_names_description">Þegar þetta er virkt verður nafn götu eða útafkeyrsla sem á að beygja inn á lesið upphátt.</string>
-    <string name="pref_tts_playing_test_voice">Athugaðu hljóðstyrk eða stillingar á texti-í-tal ef þú heyrir ekkert núna.</string>
     <string name="compass_calibration_recommended">Bættu nákvæmni örvarinnar með því að hreyfa símann í áttu-hreyfingu til að kvarða áttavitann.</string>
     <string name="compass_calibration_required">Hreyfðu símann í áttu-hreyfingu til að kvarða áttavitann og laga þannig stefnu örvarinnar á kortinu.</string>
     <string name="editor_example_values">Dæmi um gildi</string>
@@ -494,7 +486,6 @@
     <string name="editor_share_to_all_dialog_message_2">Ritstjórar OpenStreetMap munu yfirfara breytingarnar og hafa samband við þig ef þeir eru með spurningar.</string>
     <string name="traffic_update_maps_text">Til að birta umferðargögn, þarf að uppfæra kortin.</string>
     <string name="increase_font_size">Auka stærð á skýringum</string>
-    <string name="prefs_languages_information_off_link">Til að sjá nánari upplýsingar, ættirðu að skoða þessar leiðbeiningar.</string>
     <string name="transliteration_title">Umrita yfir í latneskt stafróf</string>
     <string name="routing_add_start_point">Notaðu leit eða ýttu á kortið til að bæta við upphafspunkti leiðar</string>
     <string name="dialog_error_storage_title">Vandamál við aðgang að gagnageymslu</string>
@@ -522,8 +513,6 @@
     <string name="car_continue_in_the_car">Yfir á skjá bílsins</string>
     <string name="aa_location_permissions_request">Atlas þarf aðgang að staðsetningu. Við gott tækifæri, þegar það er öruggt, skaltu skoða tilkynninguna á símanum þínum.</string>
     <string name="aa_request_permission_notification">Þetta forrit þarf heimild frá þér</string>
-    <string name="pref_tts_open_system_settings">Kerfisstillingar talgervils</string>
-    <string name="pref_tts_no_system_tts">Stillingar talgervils fundust ekki, ertu viss um að tækið þitt sé með stuðning við slíkt?</string>
     <string name="power_save_dialog_summary">Til að tryggja nákvæma leiðsögn ættirðu að gera orkusparnaðarham óvirkan í raflöðustillingum símans.</string>
     <string name="nav_auto">Sjálfvirkt við leiðsögn</string>
     <string name="dialog_routing_disclaimer_borders">— Sýndu aðgætni á leiðum nálægt jaðarsvæðum: leiðirnar sem forritið útbýr gætu stundum farið yfir landamæri á stöðum sem ekki er leyfilegt að fara um.</string>
@@ -539,8 +528,6 @@
     <string name="login_osm_presentation">OpenStreetMap.org (OSM) er samfélagsverkefni sem stefnir að uppbyggingu á frjálsu og opnu landakorti. Þetta er meginuppistaðan í Atlas og virkar svipað og Wikipedia. Þú getur bætt við eð breytt stöðum, og verða þeir þá aðgengilegir milljónum notenda um víða veröld. \nTaktu þátt og hjálpaðu til við að gera betri landakort fyrir alla!</string>
     <string name="editor_about_osm">Breytingarnar þínar eru sendar inn í opinbera <a href="https://wiki.openstreetmap.org/wiki/About_OpenStreetMap">OpenStreetMap</a>-gagnagrunninn. Ekki bæta við neinum persónulegum upplýsingum eða upplýsingum með höfundarrétti.</string>
     <string name="editor_category_unsuitable_text">Atlas leyfir aðeins að bæta við flokkum eins-punkts staða, sem þýðir engin sveitarfélagamörk, vegir, vötn, útlínur bygginga o.s.frv. Bættu slíkum atriðum beint inn í <a href="https://www.openstreetmap.org">OpenStreetMap.org</a>. Skoðaðu <a href="https://www.comaps.app/support/advanced-map-editing/">leiðbeiningarnar</a> okkar til að sjá hvernig það er gert, skref-fyrir-skref.</string>
-    <string name="prefs_languages_information">Við notum TTS-talgervil kerfisins fyrir talaðar leiðbeiningar. Mörg Android-tæki nota TTS-kerfi Google, þú getur sótt það eða uppfært á Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Fyrir sum tungumál þarftu að setja upp talgervil eða viðbótar-tungumálapakka úr hugbúnaðarsöfnum (Google Play, Galaxy Store, App Gallery, FDroid). \nOpnaðu stillingar tækisins þíns → Tungumál og innsláttur → Tal → Texti-í-tal úttak upplesturs. \nHér geturðu sýslað með stillingar fyrir talgervilinn (til dæmis sótt tungumálapakka til notkunar án nettengingar) og valið önnur texti-í-tal kerfi.</string>
     <string name="dialog_error_storage_message">Ytra geymsluminnið er ekki aðgengilegt. SD-minniskortið gæti hafa verið fjarlægt, það skemmst eða að skráakerfið sé skrifvarið. Athugaðu SD-minniskortið þitt eða hafðu samband á email@wanderthe.dev</string>
     <string name="enable_logging_warning_message">Virkjaðu þennan valkost tímabundið til að skrá og senda síðan handvirkt nákvæma greiningarskrá um vandamálið þitt með því að nota \"Tilkynna um villu\" í hjálparglugganum. Slíkar atvikaskrár geta innihaldið upplýsingar um staðsetningu.</string>
     <string name="error_no_file_manager_app">Mistókst að birta val á möppum þar sem ekkert hentugt forrit er uppsett á tækinu þínu. Settu upp skráastjóra og prófaðu svo aftur.</string>

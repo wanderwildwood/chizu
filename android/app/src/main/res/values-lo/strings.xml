@@ -101,18 +101,13 @@
     <string name="length">ຄວາມຍາວ</string>
     <string name="share_my_location">ແບ່ງປັນຕຳແໜ່ງຂອງຂ້ອຍ</string>
     <string name="prefs_group_map_appearance">ຮູບແບບແຜນທີ່</string>
-    <string name="prefs_group_map_appearance_summary">ພາສາແຜນທີ່, ຂະໜາດປ້າຍ, ອາຄານ 2D/3D</string>
     <string name="prefs_group_interface">ສ່ວນຕິດຕໍ່ຜູ້ໃຊ້</string>
-    <string name="prefs_group_interface_summary">ໂໝດກາງຄືນ, ປຸ່ມ, ພາສາ</string>
     <string name="prefs_group_data_management">ການຈັດການຂໍ້ມູນ</string>
-    <string name="prefs_group_data_management_summary">ບ່ອນເກັບແຜນທີ່, ສຳຮອງຂໍ້ມູນລາຍການທີ່ມັກ</string>
     <string name="prefs_group_information">ຂໍ້ມູນຂ່າວສານ</string>
     <string name="prefs_group_route">ການນຳທາງ</string>
-    <string name="prefs_group_route_summary">ຫົວໜ່ວຍ, ຄຳແນະນຳດ້ວຍສຽງ, ຕົວເລືອກການສ້າງເສັ້ນທາງ</string>
     <string name="pref_zoom_title">ປຸ່ມຊູມ</string>
     <string name="pref_zoom_summary">ສະແດງໃນແຜນທີ່</string>
     <string name="prefs_group_advanced">ຂັ້ນສູງ</string>
-    <string name="prefs_group_advanced_summary">ເປີດໃຊ້ການບັນທຶກ Log</string>
     <string name="download_resources_custom_url_title">ເຊີບເວີແຜນທີ່ກຳນົດເອງ</string>
     <string name="download_resources_custom_url_message">ປ່ຽນແທນເຊີບເວີດາວໂຫຼດແຜນທີ່ມາດຕະຖານ. ປະວ່າງໄວ້ເພື່ອໃຊ້ເຊີບເວີມາດຕະຖານຂອງ CoMaps.</string>
     <string name="download_resources_custom_url_summary_none">ຍັງບໍ່ໄດ້ຕັ້ງຄ່າ</string>
@@ -124,15 +119,6 @@
     <string name="pref_map_3d_title">ມຸມມອງ 3 ມິຕິ</string>
     <string name="pref_map_3d_buildings_title">ອາຄານ 3D</string>
     <string name="pref_map_3d_buildings_disabled_summary">ຕຶກ 3 ມິຕິຖືກປິດໃຊ້ງານໃນໂໝດປະຢັດພະລັງງານ</string>
-    <string name="pref_tts_enable_title">ຄຳແນະນຳດ້ວຍສຽງ</string>
-    <string name="pref_tts_street_names_title">ແຈ້ງຊື່ຖະໜົນ</string>
-    <string name="pref_tts_street_names_description">ເມື່ອເປີດໃຊ້ງານ, ຈະມີການອອກສຽງບອກຊື່ຖະໜົນ ຫຼື ທາງອອກທີ່ຕ້ອງລ້ຽວ.</string>
-    <string name="pref_tts_language_title">ພາສາຂອງສຽງ</string>
-    <string name="pref_tts_test_voice_title">ທົດສອບການບອກທາງດ້ວຍສຽງ</string>
-    <string name="pref_tts_playing_test_voice">ກະລຸນາກວດສອບລະດັບສຽງ ຫຼື ການຕັ້ງຄ່າ Text-To-Speech ຂອງລະບົບ ຖ້າທ່ານບໍ່ໄດ້ຍິນສຽງໃນຕອນນີ້</string>
-    <string name="pref_tts_unavailable">ບໍ່ພ້ອມໃຊ້ງານ</string>
-    <string name="tts_toggle_enable">ເປີດໃຊ້ງານຄຳແນະນຳດ້ວຍສຽງ</string>
-    <string name="tts_toggle_disable">ປິດໃຊ້ງານຄຳແນະນຳດ້ວຍສຽງ</string>
     <string name="pref_map_auto_zoom">ຊູມອັດຕະໂນມັດ</string>
     <string name="placepage_distance">ໄລຍະທາງ</string>
     <string name="search_show_on_map">ເບິ່ງໃນແຜນທີ່</string>
@@ -408,9 +394,6 @@
     <string name="traffic_data_unavailable">ບໍ່ມີຂໍ້ມູນການຈະລາຈອນ</string>
     <string name="enable_logging">ເປີດໃຊ້ການບັນທຶກ Log</string>
     <string name="feedback_general">ຄຳຕິຊົມທົ່ວໄປ</string>
-    <string name="prefs_languages_information">ພວກເຮົາໃຊ້ TTS ຂອງລະບົບສຳລັບຄຳແນະນຳດ້ວຍສຽງ. ອຸປະກອນ Android ຫຼາຍເຄື່ອງໃຊ້ Google TTS, ທ່ານສາມາດດາວໂຫລດ ຫຼື ອັບເດດມັນໄດ້ຈາກ Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">ສຳລັບບາງພາສາ, ທ່ານຈະຕ້ອງໄດ້ຕິດຕັ້ງເຄື່ອງສັງເຄາະສຽງ ຫຼື ຊຸດພາສາເພີ່ມເຕີມຈາກຮ້ານແອັບ (Google Play, Galaxy Store, App Gallery, F-Droid). \nເປີດການຕັ້ງຄ່າຂອງອຸປະກອນຂອງທ່ານ → ພາສາ ແລະ ການປ້ອນຂໍ້ມູນ → ການເວົ້າ → ຜົນອອກຂອງຂໍ້ຄວາມເປັນສຽງເວົ້າ. \nຢູ່ນີ້ທ່ານສາມາດຈັດການການຕັ້ງຄ່າສຳລັບການສັງເຄາະສຽງ (ຕົວຢ່າງ, ເພື່ອດາວໂຫລດຊຸດພາສາສຳລັບການນຳໃຊ້ແບບອອບລາຍ) ແລະ ເລືອກເຄື່ອງຈັກຂໍ້ຄວາມເປັນສຽງເວົ້າອື່ນ.</string>
-    <string name="prefs_languages_information_off_link">ສຳລັບຂໍ້ມູນເພີ່ມເຕີມ ກະລຸນາກວດເບິ່ງຄູ່ມືນີ້</string>
     <string name="prefs_speed_cameras_information">ການເຕືອນກ້ອງກວດຈັບຄວາມໄວຖືກປິດໃຊ້ງານໃນປະເທດທີ່ມີກົດໝາຍທ້ອງຖິ່ນຫ້າມການແຈ້ງເຕືອນ.</string>
     <string name="transliteration_title">ຖອດອັກສອນເປັນພາສາລາແຕັງ</string>
     <string name="learn_more">ຮຽນຮູ້ເພີ່ມເຕີມ</string>
@@ -453,10 +436,8 @@
         <item quantity="other">%d ເສັ້ນທາງ</item>
     </plurals>
     <string name="prefs_group_privacy">ຄວາມເປັນສ່ວນຕົວ</string>
-    <string name="prefs_group_privacy_summary">ປະຫວັດການຄົ້ນຫາ</string>
     <string name="privacy_policy">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
     <string name="power_management">ການຈັດການພະລັງງານ</string>
-    <string name="prefs_group_power_summary">ການປິດໜ້າຈໍອັດຕະໂນມັດ, ອິນເຕີເນັດມືຖື</string>
     <string name="terms_of_use">ເງື່ອນໄຂການນຳໃຊ້</string>
     <string name="button_layer_traffic">ການຈະລາຈອນ</string>
     <string name="subway">ລົດໄຟໃຕ້ດິນ</string>
@@ -569,7 +550,6 @@
     <string name="splash_subtitle">ຂໍ້ມູນແຜນທີ່ຈາກ OpenStreetMap</string>
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/About_OpenStreetMap</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
@@ -596,8 +576,6 @@
     <string name="browser_not_available">ບໍ່ມີບຣາວເຊີເວັບ</string>
     <string name="volume">ລະດັບສຽງ</string>
     <string name="bookmarks_export">ສົ່ງອອກລາຍການທີ່ມັກທັງໝົດ</string>
-    <string name="pref_tts_open_system_settings">ການຕັ້ງຄ່າລະບົບການສັງເຄາະສຽງ</string>
-    <string name="pref_tts_no_system_tts">ບໍ່ພົບການຕັ້ງຄ່າການສັງເຄາະສຽງ, ທ່ານແນ່ໃຈບໍວ່າອຸປະກອນຂອງທ່ານຮອງຮັບ?</string>
     <string name="drive_through">ໄດຣຟ໌ທຣູ (ຂັບລົດຜ່ານ)</string>
     <string name="clear_the_search">ລຶບລ້າງການຄົ້ນຫາ</string>
     <string name="zoom_in">ຊູມເຂົ້າ</string>
@@ -656,9 +634,6 @@
     <string name="at">ໃນເວລາ %s</string>
     <string name="share_track">ແບ່ງປັນເສັ້ນທາງ</string>
     <string name="delete_track_dialog_title">ລຶບ %s ບໍ?</string>
-    <string name="pref_tts_no_system_tts_short">ບໍ່ພົບເຄື່ອງມືສັງເຄາະສຽງ, ກະລຸນາກວດເບິ່ງການຕັ້ງຄ່າແອັບ</string>
-    <string name="navigation_start_tts_message">"ກຳລັງເລີ່ມການນຳທາງ, ພາສາຂອງຄຳແນະນຳສຽງ: "</string>
-    <string name="navigation_start_tts_disabled_message">ປິດຄຳແນະນຳສຽງ: ບໍ່ມີເຄື່ອງມື TTS</string>
     <string name="unknown_power_output">ບໍ່ຮູ້ຈັກ</string>
     <string name="charge_socket_type2">ປະເພດ 2 (ບໍ່ມີສາຍ)</string>
     <string name="charge_socket_type2_cable">ປະເພດ 2 (ມີສາຍ)</string>

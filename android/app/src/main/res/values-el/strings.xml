@@ -208,19 +208,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">Τα 3D κτίρια είναι απενεργοποιημένα σε λειτουργία εξοικονόμησης ενέργειας</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Φωνητικές οδηγίες</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Αναγγελία ονόματων οδών</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Όταν είναι ενεργοποιημένο, το όνομα της οδού ή της εξόδου στην οποία θα μεταβείτε θα εκφωνείται δυνατά.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Γλώσσα φωνής</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Δοκιμή φωνητικών οδηγιών</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Ελέγξτε την ένταση ήχου ή τις ρυθμίσεις συστήματος Κείμενο-Σε-Ομιλία αν δεν ακούτε τη φωνή τώρα</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Δεν είναι διαθέσιμη</string>
     <string name="pref_map_auto_zoom">Αυτόματη μεγέθυνση</string>
     <string name="placepage_distance">Απόσταση</string>
     <string name="search_show_on_map">Προβολή στο χάρτη</string>
@@ -535,9 +528,6 @@
     <string name="enable_logging">Ενεργοποίηση αρχείου καταγραφής</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Αποστολή σχολίων</string>
-    <string name="prefs_languages_information">Χρησιμοποιούμε το σύστημα TTS για τις φωνητικές οδηγίες. Αρκετές συσκευές Android χρησιμοποιούν το Google TTS, μπορείτε να το κατεβάσετε ή να το ενημερώσετε από το Google Play (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Για μερικές γλώσσες θα χρειαστεί να εγκαταστήσετε συνθεσάιζερ ομιλίας ή κάποιο συμπληρωματικό πακέτο γλώσσας από κατάστημα εφαρμογών (Google Play, Galaxy Store, App Gallery, F-Droid). \nΑνοίξτε τις Ρυθμίσεις της συσκευής σας → Γλώσσα και εισαγωγή → Ομιλία → Μετατροπή κειμένου σε ομιλία. \nΕδώ μπορείτε να διαχειριστείτε τις ρυθμίσεις της σύνθεσης ομιλίας (για παράδειγμα, μπορείτε να κατεβάσετε πακέτο γλώσσας για χρήση εκτός σύνδεσης) και να επιλέξετε άλλη μηχανή μετατροπής κειμένου σε ομιλία.</string>
-    <string name="prefs_languages_information_off_link">Για περισσότερες πληροφορίες δείτε αυτό τον οδηγό</string>
     <string name="transliteration_title">Μεταγραφή στο λατινικό αλφάβητο</string>
     <string name="learn_more">Μάθετε περισσότερα</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -762,9 +752,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Εξαγωγή όλων των Αγαπημένων</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Ρυθμίσεις συστήματος σύνθεσης ομιλίας</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Δεν βρέθηκαν οι ρυθμίσεις σύνθεσης ομιλίας, είστε σίγουροι ότι η συσκευή σας την υποστηρίζει;</string>
     <string name="drive_through">Εξυπηρέτηση απ\' το αυτοκίνητο</string>
     <string name="clear_the_search">Καθαρίστε την αναζήτηση</string>
     <string name="zoom_in">Μεγέθυνση</string>
@@ -805,7 +793,6 @@
     <string name="wikimedia_commons">Κοινά της Wikimedia</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="level_value_generic">Όροφος: %s</string>
     <string name="miles_per_hour">μλ/ώ</string>
     <string name="minute">λεπ</string>
@@ -865,9 +852,6 @@
     <string name="error_invalid_number">Άκυρος αριθμός</string>
     <string name="offline_explanation_title">Χάρτες εκτός σύνδεσης</string>
     <string name="list_description_empty">Επεξεργαστείτε τη λίστα για να προσθέσετε περιγραφή</string>
-    <string name="navigation_start_tts_message">"Εκκίνηση Πλοήγησης, γλώσσα φωνητικών οδηγιών: "</string>
-    <string name="navigation_start_tts_disabled_message">Φωνητικές οδηγίες απενεργοποιημένες: δεν υπάρχει διαθέσιμη μηχανή TTS</string>
-    <string name="pref_tts_no_system_tts_short">Δεν βρέθηκε μηχανή κείμενο-σε-ομιλία, ελέγξτε τις ρυθμίσεις της εφαρμογής</string>
     <string name="pref_left_button_title">Ρύθμιση αριστερού κουμπιού</string>
     <string name="editor_place_doesnt_exist_description">Περιγράψτε το πως μοιάζει το μέρος τώρα για να στείλετε μια σημείωση λάθους στην κοινότητα του OpenStreetMap</string>
     <string name="editor_submit">Υποβολή</string>
@@ -927,8 +911,6 @@
     <string name="editor_add_select_category_recent_subtitle">Πρόσφατα χρησιμοποιημένα</string>
     <string name="bookmark_share_email_subject">Ακολουθήστε αυτόν τον σύνδεσμο %1$s ή επικολλήστε αυτές τις συντεταγμένες %2$s στην εφαρμογή χαρτών σας για να δείτε αυτή τη τοποθεσία.</string>
     <string name="my_position_share_email">Ακολουθήστε αυτόν τον σύνδεσμο %1$s ή επικολλήστε αυτές τις συντεταγμένες %2$s στην εφαρμογή χαρτών σας για να δείτε τη τοποθεσία μου.</string>
-    <string name="tts_toggle_enable">Ενεργοποίηση φωνητικών οδηγιών</string>
-    <string name="tts_toggle_disable">Απενεργοποίηση φωνητικών οδηγιών</string>
     <string name="enable_long_tap_fullscreen">Παρατεταμένο πάτημα για απόκρυψη διεπαφής χρήστη</string>
     <string name="long_tap_disabled_toast">Για να αποκρύψετε την διεπαφή χρήστη, ενεργοποιήστε το παρατεταμένο πάτημα στις ρυθμίσεις</string>
     <string name="sort_categories">Ταξινόμηση Λιστών Αγαπημένων</string>
@@ -962,18 +944,11 @@
     <string name="capacity_disabled">Θέσεις για ΑΜΕΑ: %s</string>
     <string name="permission_read_navigation_label">Ανάγνωση δεδομένων πλοήγησης Atlas</string>
     <string name="permission_read_navigation_description">ανάγνωση ζωντανών πληροφοριών πλοήγησης, όπως επερχόμενες στροφές ή ονομασία του δρόμου όπου βρίσκεστε</string>
-    <string name="prefs_group_route_summary">Μονάδες μέτρησης, φωνητικές οδηγίες, επιλογές δρομολόγησης</string>
-    <string name="prefs_group_privacy_summary">Ιστορικό αναζητήσεων</string>
-    <string name="prefs_group_power_summary">Σβήσιμο οθόνης, δεδομένα κινητής τηλεφωνίας</string>
     <string name="planning_route_preview">Προεπισκόπηση</string>
     <string name="pref_about_summary">Αναφέρετε ζητήματα, λάβετε βοήθεια, κάντε δωρεά\nΈκδοση: v%1$s</string>
     <string name="prefs_group_map_appearance">Εμφάνιση χάρτη</string>
-    <string name="prefs_group_map_appearance_summary">Γλώσσα χάρτη, μέγεθος ετικετών, 2D/3D κτίρια</string>
     <string name="prefs_group_interface">Διεπαφή</string>
-    <string name="prefs_group_interface_summary">Νυχτερινή λειτουργία, κουμπιά, γλώσσα</string>
     <string name="prefs_group_data_management">Διαχείριση δεδομένων</string>
-    <string name="prefs_group_data_management_summary">Αποθηκευτικός χώρος χάρτη, αντίγραφο ασφαλείας αγαπημένων</string>
-    <string name="prefs_group_advanced_summary">Ενεργοποίηση αρχείου καταγραφής</string>
     <string name="search_in_all_lists">Αναζήτηση σε όλες τις λίστες</string>
     <string name="pref_enable_auto_reroute_title">Αυτόματη επαναδρομολόγηση</string>
     <string name="pref_enable_auto_reroute_description">Όταν είναι ενεργό, μια νέα διαδρομή θα δημιουργείται αυτόματα όταν αφήνετε την σχεδιασμένη διαδρομή.</string>

@@ -1,158 +1,167 @@
+/* In ink, as the default style is: greys only, a white ground, dark features and labels.
+ * A name the default style has too takes its value from there. The exceptions follow from this
+ * style drawing its roads without an edge until zoom 14 or 15, and the small roads without one at
+ * any zoom: a white road would not show on the white ground, so the roads are grey lines, darker
+ * the bigger the road, with a black edge (casing_road) once they are wide. The areas roads run
+ * through (parks, airfields) are kept lighter than those roads for the same reason.
+ */
+
 /* BASE */
 
-@background: #E3E1D2;
+@background: #FFFFFF;
 
 /* BOUNDARIES */
-@border_country: #63635C;
-/* @border_country_light: #73726B; */
-@border_region: #73726B;
+@border_country: #535353;
+/* @border_country_light: #535353; */
+@border_region: #444444;
 
 
 /* ROADS */
 
-@trunk0: #FF9140;
-@trunk1: #FF8742;
-@primary0:  #FF8726;
-@primary1: #FFAD57;
-@primary2: #FFAD57;
-@secondary0: #FFFFFF;
-@residential: #FCFCFC;
-@unclassified: #FCFCFC;
-@pedestrian: #FCFCFC;
-@footway: #FCFCFC;
-@cycleway: #5654FF;
-@construction: #BBBBAA;
-@track: #635730;
-@path: #A05012;
-@bridleway: #3D361E;
+/* trunk0 is every motorway and trunk; trunk1 only the far-out roads of the world map. */
+@trunk0: #666666;
+@trunk1: #666666;
+@primary0:  #777777;
+@primary1: #888888;
+@primary2: #DDDDDD;
+@secondary0: #999999;
+@residential: #AAAAAA;
+@unclassified: #AAAAAA;
+@pedestrian: #777777;
+@footway: #777777;
+@cycleway: #555555;
+@construction: #999999;
+@track: #444444;
+@path: #4D4D4D;
+@bridleway: #1A1A1A;
 
 
 /* bridges */
-@bridge_background: #E5E4D5;
-@bridge_casing: #808080;
-@casing_road:  #F5F3E4;
+@bridge_background: #FFFFFF;
+@bridge_casing: #000000;
+@casing_road:  #000000;
 
 /* tunnels */
 
-@primary_tunnel: #FCA462;
-@trunk_tunnel: #FCA462;
-@primary_tunnel_casing: #808080;
-@trunk_tunnel_casing: #808080;
-@secondary_tunnel: #FFFFFF;
-@secondary_tunnel_casing:  #808080;
+@primary_tunnel: #E9E9E9;
+@trunk_tunnel: #D8D8D8;
+@primary_tunnel_casing: #7A7A7A;
+@trunk_tunnel_casing: #7A7A7A;
+@secondary_tunnel: #F2F2F2;
+@secondary_tunnel_casing:  #7A7A7A;
 @tertiary_tunnel: #FFFFFF;
-@tertiary_tunnel_casing:  #808080;
+@tertiary_tunnel_casing:  #7A7A7A;
 @unclassified_tunnel: #FFFFFF;
-@unclassified_tunnel_casing: #808080;
+@unclassified_tunnel_casing: #7A7A7A;
 
 /* TRANSPORT */
-@railway_light: #B2B1A2;
-@railway: #8C8B80;
-@railway_tourism: #9C7D65;
-@railway_dash: #EEEEEE;
-@railway_tunnel: #808080;
-/* @aerialway: #444444; */
-@tram: #7A7A7A;
-/* @ferry: #4499Bb; */
+@railway_light: #666666;
+@railway: #444444;
+@railway_tourism: #444444;
+@railway_dash: #FFFFFF;
+@railway_tunnel: #7A7A7A;
+/* @aerialway: #2B2B2B; */
+@tram: #444444;
+/* @ferry: #555555; */
 
 /*aerodrome*/
-@aerodrome0: #D8D1E8;
-@aerodrome1: #D8D1E8;
-@aerodrome2: #D8D1E8;
-@aerodrome3: #D8D1E8;
-@aerodrome4: #D8D1E8;
-@aerodrome5: #D8D1E8;
+@aerodrome0: #E6E6E6;
+@aerodrome1: #E6E6E6;
+@aerodrome2: #E6E6E6;
+@aerodrome3: #E6E6E6;
+@aerodrome4: #E6E6E6;
+@aerodrome5: #E6E6E6;
 
 /* NATURAL */
 @glacier: #FFFFFF;
-@water: #8BD3E0;
-@water_bad: #9dc7c1;
-@river: #36B0BF;
-@wetland: #c9ddd6;
-@forest:  #C8DBAD;
+@water: #CCCCCC;
+@water_bad: #CCCCCC;
+@river: #8D8D8D;
+@wetland: #E9E9E9;
+@forest:  #DDDDDD;
 /*
-@park: #C8DBAD;
-@natpark: #C8DBAD;
+@park: #DDDDDD;
+@natpark: #DDDDDD;
 */
-@beach: #FCEC7E;
-@barerock: #D9D2BF;
-@desert: #EEE5B2;
+@beach: #FDFDFD;
+@barerock: #EAEAEA;
+@desert: #FFFFFF;
 
 /*forest-park*/
-@green0: #C6D9AB;
-@green1: #C6D9AB;
-@green2: #C6D9AB;
-@green3: #C6D9AB;
-@green4: #C6D9AB;
-@green5: #C6D9AB;
-@green6: #888C38;
+@green0: #E3E3E3;
+@green1: #E3E3E3;
+@green2: #E3E3E3;
+@green3: #E3E3E3;
+@green4: #E3E3E3;
+@green5: #E3E3E3;
+@green6: #838383;
 
 /* BUILDINGS */
-@housenumber: #65655E;
-@building_label: #61615A;
-@building0: #D4D3CA;
-@building1: #C7C6BF;
-@building_border0: #D4D3CA;
+@housenumber: #333333;
+@building_label: #222222;
+@building0: #DDDDDD;
+@building1: #DDDDDD;
+@building_border0: #444444;
 
 /* LANDUSE */
 
 /*
-@unversity: #F8E4BA;
-@hospital: #F8D9D9;
+@unversity: #FFFFFF;
+@hospital: #FFFFFF;
 */
-@general_area: #FAEFE1;
-@industrial: #E1DCE3;
-@construction_area: #E4E3E6;
-@sport: #C8DBAD;
-@parking: #E8EFEC;
-@parking_l: #E1EDE9;
-@military: #E53935;
-@prison: #727272;
-@farmland: #ededc3;
-@farmyard: #e8dabb;
+@general_area: #FFFFFF;
+@industrial: #FFFFFF;
+@construction_area: #FFFFFF;
+@sport: #FFFFFF;
+@parking: #FFFFFF;
+@parking_l: #FFFFFF;
+@military: #6A6A6A;
+@prison: #676767;
+@farmland: #F8F8F8;
+@farmyard: #F1F1F1;
 
 /* BARRIERS */
-@fence: #888888;
-@hedge: #36831C;
-@cliff: #8C5826;
+@fence: #555555;
+@hedge: #777777;
+@cliff: #545454;
 
 
 /* LABELS COLORS */
-@label_dark: #222222;
-@label_medium: #333333;
-@label_light: #444444;
+@label_dark: #010101;
+@label_medium: #161616;
+@label_light: #2B2B2B;
 
-@label_halo_medium: #EDEBDB;
+@label_halo_medium: #FFFFFF;
 @label_halo_light: #FFFFFF;
 
 
 /* PLACE LABELS */
-@city_label: #666666;
+@city_label: #000000;
 /*
-@city_label_light: #7F7F7F;
-@city_halo: #DDDDCC;
-@city_halo_light: #DDDDCC;
+@city_label_light: #333333;
+@city_halo: #FFFFFF;
+@city_halo_light: #FFFFFF;
 */
-@country_label: #8C8C8C;
-@state_label: #8C8C8C;
-@district_label: #7F7F7F;
+@country_label: #333333;
+@state_label: #444444;
+@district_label: #333333;
 
-@poi_label: #444444;
-@subway_label: #333333;
-@shop_label: #8C5678;
-@industry_label: #907E9E;
-@food_label: #BA7141;
-@entertainment_label: #D16B53;
-@culture_label: #82512D;
-@hotel_label: #54413B;
-@sport_label: #459177;
-@nature_label: #40662A;
-@water_label: #06829E;
-@water_light_label: #06829E;
-@neutral_label: #494F54;
-@healthcare_label: #A6454B;
-@public_transport_label: #234B73;
-@emergency_label: #247F52;
+@poi_label: #2B2B2B;
+@subway_label: #161616;
+@shop_label: #222222;
+@industry_label: #333333;
+@food_label: #222222;
+@entertainment_label: #222222;
+@culture_label: #222222;
+@hotel_label: #2D2D2D;
+@sport_label: #222222;
+@nature_label: #222222;
+@water_label: #222222;
+@water_light_label: #333333;
+@neutral_label: #383838;
+@healthcare_label: #222222;
+@public_transport_label: #313131;
+@emergency_label: #222222;
 
 /* ROADS LABELS */
 @shield_text: #000000;
@@ -160,10 +169,10 @@
 @shield: #FFFFFF;
 @shield_outline: #000000;
 
-@label_dark: #333333;
-@label_light: #444444;
+@label_dark: #010101;
+@label_light: #2B2B2B;
 
 /* NATURAL LABELS */
-@water_label: #4499Bb;
-@park_label: #3A7921;
+@water_label: #222222;
+@park_label: #222222;
 @halo_park_label: #FFFFFF;

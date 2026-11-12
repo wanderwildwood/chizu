@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D-bygninger er slått av i strømsparingsmodus</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Taleveiledning</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Kunngjør gatenavn</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Når aktivert, vil navnet på gaten eller avkjørselen du skal svinge inn på, bli lest opp.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Talespråk</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Test taleanvisninger</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Kontroller volumet eller systeminnstillingene for tekst-til-tale hvis du ikke hører tale nå</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Ikke tilgjengelig</string>
     <string name="pref_map_auto_zoom">Automatisk zooming</string>
     <string name="placepage_distance">Avstand</string>
     <string name="search_show_on_map">Vis på kartet</string>
@@ -539,9 +532,6 @@
     <string name="enable_logging">Aktiver loggføring</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Generell tilbakemelding</string>
-    <string name="prefs_languages_information">Vi bruker system-TTS for taleveiledning. Mange Android-enheter bruker Google TTS, du kan laste ned eller oppdatere via Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">For enkelte språk er det nødvendig å installere en talesyntese eller en ekstra språkpakke fra en appbutikk (Google Play, Galaxy Store, App Gallery, F-Droid). \nÅpne enhetens innstillinger og finn funksjonen \'Tekst til tale\'. \nHer kan du håndtere innstillingene for talesyntese, for eksempel laste ned en språkpakke for offline bruk og velge en annen tekst-til-tale-motor.</string>
-    <string name="prefs_languages_information_off_link">Les denne veiledningen for mer informasjon</string>
     <string name="transliteration_title">Transliterer til det latinske alfabetet</string>
     <string name="learn_more">Finn ut mer</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -764,9 +754,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Eksporter alle favoritter</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Systeminnstillinger for talesyntese</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Innstillinger for talesyntese ble ikke funnet, er du sikker på at enheten din støtter dette?</string>
     <string name="drive_through">Gjennomkjøring</string>
     <string name="clear_the_search">Fjern søket</string>
     <string name="zoom_in">Zoom inn</string>
@@ -811,7 +799,6 @@
     <string name="telegram_url">https://t.me/CoMapsApp/</string>
     <string name="osm_wiki_about_url">https://wiki.openstreetmap.org/wiki/No:Hva_er_OpenStreetmap</string>
     <string name="translated_om_site_url">https://comaps.app/</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="instagram_url">https://www.instagram.com/comaps.app/</string>
     <string name="panoramax">Panoramax-bilde</string>
     <string name="app_site_url">https://comaps.app/</string>
@@ -840,7 +827,6 @@
     <string name="level_value_generic">Nivå: %s</string>
     <string name="editor_building_levels">Etasjer (inkl. bakkeplan, ekskl. tak)</string>
     <string name="at">kl. %s</string>
-    <string name="pref_tts_no_system_tts_short">Ingen tekst-til-tale-motor funnet, sjekk appinnstillingene</string>
     <string name="pref_left_button_title">Venstreknappoppsett</string>
     <string name="pref_backup_title">Sikkerhetskopier favoritter</string>
     <string name="pref_backup_summary">Automatisk sikkerhetskopiering til en mappe på enheten din</string>
@@ -888,8 +874,6 @@
     <string name="editor_submit">Send</string>
     <string name="charge_socket_schuko">Schuko</string>
     <string name="power_management">Strømstyring</string>
-    <string name="navigation_start_tts_disabled_message">Taleveiledninger deaktivert: TTS-motor ikke tilgjengelig</string>
-    <string name="navigation_start_tts_message">"Starter navigering, taleveiledningsspråk: "</string>
     <string name="prefs_speed_cameras_information">Fotoboksvarsler er deaktivert i land hvor varsler er forbudt i henhold til lokal lovgivning.</string>
     <string name="place_page_map_too_old_title">Kartdata utdatert</string>
     <string name="place_page_map_too_old_description">Gjeldende kartdata er gamle, oppdater kartet.</string>
@@ -934,8 +918,6 @@
     <string name="downloader_check_updates_eol">Ingen flere kartoppdateringer for denne app-versjonen. Oppdater appen!</string>
     <string name="downloader_check_updates_updated">Kartoppdateringer er tilgjengelige!</string>
     <string name="downloader_check_updates_button">Se etter oppdateringer</string>
-    <string name="tts_toggle_enable">Slå på taleveiledning</string>
-    <string name="tts_toggle_disable">Slå av taleveiledning</string>
     <string name="pref_aa_support_summary_no">Appen er ikke installert fra Google Play så du kan ikke bruke den i bilen. Trykk på innstillingen for å få mer informasjon i vår FAQ (Ofte stilte spørsmål).</string>
     <string name="pref_aa_support_summary_yes">Appen er installert fra Google Play, og du kan bruke den i bilen din.</string>
     <string name="pref_aa_support_title">Android Auto</string>

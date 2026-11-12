@@ -210,19 +210,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">3D будівлі вимкнені в режимі енергозбереження</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Голосові інструкції</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Проговорювати назви вулиць</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Якщо ввімкнено, назва вулиці або виїзду, на яку потрібно повернути, буде вимовлена вголос.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Мова підказок</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Тестування голосових підказок</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Перевірте гучність або налаштування системного перетворення тексту в мовлення, якщо зараз не чуєте голосу</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Не доступнi</string>
     <string name="pref_map_auto_zoom">Автозум</string>
     <string name="placepage_distance">Відстань</string>
     <string name="search_show_on_map">Подивитись на мапі</string>
@@ -536,9 +529,6 @@
     <string name="enable_logging">Увімкнути журналювання</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Загальний відгук</string>
-    <string name="prefs_languages_information">Ми використовуємо системний синтез мовлення (TTS) для голосових інструкцій. Багато пристроїв Android використовують Google TTS, ви можете завантажити або оновити його в Google Play Store (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Для деяких мов вам потрібно буде встановити синтезатор мовлення або додатковий мовний пакет із магазину застосунків (Google Play, Galaxy Store, App Gallery, F-Droid).\nВідкрийте налаштування пристрою → Мова та введення → Мовлення → Синтез мовлення.\nТут ви можете керувати налаштуваннями синтезу мовлення (наприклад, завантажити мовний пакет для використання поза мережею) та вибрати інший механізм синтезу мовлення.</string>
-    <string name="prefs_languages_information_off_link">Додаткову інформацію див. у цьому керівництві</string>
     <string name="transliteration_title">Транслітерувати латиницею</string>
     <string name="learn_more">Докладніше</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -771,9 +761,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Експортувати все улюблене</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Системні налаштування синтезу мови</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">Налаштування синтезу мовлення не знайдено, ви впевнені, що ваш пристрій його підтримує?</string>
     <string name="drive_through">З віконцем для водіїв</string>
     <string name="clear_the_search">Очистити пошук</string>
     <string name="zoom_in">Збільшити</string>
@@ -812,7 +800,6 @@
     <!-- preference string for using auto theme only in navigation mode -->
     <string name="nav_auto">Авто в навігації</string>
     <string name="level_value_generic">Поверх: %s</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="wikimedia_commons">Вікісховище</string>
     <string name="editor_add_phone">Додати телефон</string>
     <string name="comma_separated_pair">%1$s, %2$s</string>
@@ -891,9 +878,6 @@
     <string name="at">о %s</string>
     <string name="share_track">Поділитися маршрутом</string>
     <string name="delete_track_dialog_title">Видалити %s?</string>
-    <string name="pref_tts_no_system_tts_short">Рушій перетворення тексту в мовлення не знайдено, перевірте налаштування застосунку</string>
-    <string name="navigation_start_tts_message">"Початок навігації, мова голосових інструкцій: "</string>
-    <string name="navigation_start_tts_disabled_message">Голосові інструкції вимкнено: ТУМ-рушій недоступний</string>
     <string name="charge_socket_type2">2 тип (без кабелю)</string>
     <string name="charge_socket_type2_cable">2 тип (з кабелем)</string>
     <string name="charge_socket_type2_combo">2 тип: комбо</string>

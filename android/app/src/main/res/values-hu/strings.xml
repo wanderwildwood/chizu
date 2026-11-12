@@ -205,19 +205,12 @@
     <!-- A message in Settings/Preferences explaining why is it not possible to enable 3D buildings when max power saving mode is enabled -->
     <string name="pref_map_3d_buildings_disabled_summary">A 3D-s épületek energiatakarékos módban ki vannak kapcsolva</string>
     <!-- Settings «Route» category: «Tts enabled» title -->
-    <string name="pref_tts_enable_title">Hangutasítások</string>
     <!-- Settings «Route» category: «Tts announce street names» title -->
-    <string name="pref_tts_street_names_title">Utcanevek felolvasása</string>
     <!-- Settings «Route» category: «Tts announce street names» description -->
-    <string name="pref_tts_street_names_description">Ha engedélyezve van, a rendszer hangosan kimondja annak az utcának vagy kijáratnak a nevét, amelyre be kell kanyarodni.</string>
     <!-- Settings «Route» category: «Tts language» title -->
-    <string name="pref_tts_language_title">Hangutasítások nyelve</string>
     <!-- Settings «Route» category: «Test Voice Directions» title -->
-    <string name="pref_tts_test_voice_title">Hangutasítások tesztelése</string>
     <!-- Settings «Route» category: Pop-up message when clicking «Test Voice Directions» -->
-    <string name="pref_tts_playing_test_voice">Ellenőrizze a hangerőt vagy a rendszer TTS-beállításait, ha most nem hallja a hangot</string>
     <!-- Settings «Route» category: «Tts unavailable» subtitle -->
-    <string name="pref_tts_unavailable">Nem érhető el</string>
     <string name="pref_map_auto_zoom">Automatikus nagyítás</string>
     <string name="placepage_distance">Távolság</string>
     <string name="search_show_on_map">Megtekintés a térképen</string>
@@ -519,9 +512,6 @@
     <string name="enable_logging">Naplózás engedélyezése</string>
     <!-- Settings: "Send general feedback" button -->
     <string name="feedback_general">Általános visszajelzés</string>
-    <string name="prefs_languages_information">A Atlas TTS-rendszert használ a hangnavigációhoz. Sok androidos eszköz használja a Google TTS-t; töltse le vagy frissítse a Google Play áruházból (https://play.google.com/store/apps/details?id=com.google.android.tts)</string>
-    <string name="prefs_languages_information_off">Egyes nyelveknél másik beszédszintetizátort vagy további nyelvi csomagot kell telepítenie az alkalmazás-áruházból (Google Play, Galaxy Store, App Gallery, F-Droid).\nNyissa meg az eszköz beállításait → Nyelv és bevitel → Beszéd → Beszédfelismerés és -szintézis.\nItt kezelheti a beszédszintézis beállításait (például: nyelvi csomag letöltése kapcsolat nélküli használathoz) és másik szövegfelolvasót jelölhet ki.</string>
-    <string name="prefs_languages_information_off_link">Ebben az útmutatóban további tájékoztatást talál</string>
     <string name="transliteration_title">Átírás latin betűkre</string>
     <string name="learn_more">Tudjon meg többet</string>
     <!-- User selected the destination by pressing Route To, but the current position is unknown. User needs to select a starting point of a route using search or by tapping on the map and then pressing "Route From". -->
@@ -739,9 +729,7 @@
     <!-- Bookmark categories screen, button that opens share dialog to export all bookmarks and tracks -->
     <string name="bookmarks_export">Összes kedvenc exportálása</string>
     <!-- button in (app) TTS settings, to open the system TTS settings. -->
-    <string name="pref_tts_open_system_settings">Beszédszintézis-beállítások</string>
     <!-- toast displayed when pressing the "Speech synthesis system settings" button, and the system settings aren't found. -->
-    <string name="pref_tts_no_system_tts">A beszédszintézis-beállítások nem találhatók, biztos benne, hogy az eszköze támogatja?</string>
     <string name="drive_through">Autós kiszolgálás</string>
     <string name="clear_the_search">Törölje a keresést</string>
     <string name="zoom_in">Nagyítás</string>
@@ -796,7 +784,6 @@
     <string name="error_enter_correct_vk_page">Adjon meg egy érvényes VK felhasználónevet vagy webcímet</string>
     <string name="editor_add_phone">Telefonszám hozzáadása</string>
     <string name="download_map_title">Áttekintő világtérkép letöltése</string>
-    <string name="tts_info_link">https://www.comaps.app/support/tts-configuration-guide-for-android/</string>
     <string name="disconnect_usb_cable_title">USB-kábel leválasztása</string>
     <string name="error_enter_correct_facebook_page">Adjon meg egy érvényes Facebook webcímet, fiók- vagy oldalnevet</string>
     <string name="error_enter_correct_twitter_page">Adjon meg egy érvényes X (Twitter) felhasználónevet vagy webcímet</string>
@@ -849,7 +836,6 @@
     <string name="bookmark_color">Kedvenc színe</string>
     <string name="about_help">Névjegy és súgó</string>
     <string name="share_track">Nyomvonal megosztása</string>
-    <string name="pref_tts_no_system_tts_short">Nem található szövegfelolvasási szolgáltatás (TTS), ellenőrizze az alkalmazás beállításait a „Hangutasítások” menüpontban</string>
     <string name="dialog_report_error_with_logs">Küldjön hibajelentést:\n - „Naplózás engedélyezése” a beállításokban\n - reprodukálja a hibát\n - A „Névjegy és súgó” képernyőn nyomja meg a „Hibajelentés” gombot, és küldje el e-mailben vagy csevegésben.\n - naplózás kikapcsolása</string>
     <string name="charge_socket_type2">2. típus (nincs kábel)</string>
     <string name="charge_socket_type2_cable">2. típus (kábel nélküli)</string>
@@ -872,9 +858,6 @@
     <string name="error_invalid_number">Érvénytelen szám</string>
     <string name="offline_explanation_title">Offline térképek</string>
     <string name="offline_explanation_text">A terület megtekintéséhez és az azon való navigálásához egy térképet kell letölteni.\nTöltsön le térképeket azokra a területekre, ahová utazni szeretne.</string>
-    <string name="prefs_group_route_summary">Mértékegységek, hangutasítások, útvonaltervezési beállítások</string>
-    <string name="tts_toggle_enable">Hangutasítások engedélyezése</string>
-    <string name="tts_toggle_disable">Hangutasítások letiltása</string>
     <string name="enable_long_tap_fullscreen">Érintse meg hosszan a felület elrejtéséhez</string>
     <string name="long_tap_disabled_toast">A felület elrejtéséhez kapcsolja be a hosszú érintést a beállításokban</string>
     <string name="downloader_check_updates_button">Frissítések keresése</string>
@@ -903,9 +886,7 @@
     <string name="place_page_app_too_old_description">A jelenlegi térkép nagyon régi, frissítse a Atlas alkalmazást.</string>
     <string name="place_page_update_too_old_map">Térképterület frissítése</string>
     <string name="place_page_too_old_to_edit">Az OpenStreetMap szerkesztése le van tiltva, mert a térképadatok túl régiek.</string>
-    <string name="prefs_group_privacy_summary">Keresési előzmények</string>
     <string name="power_management">Energiagazdálkodás</string>
-    <string name="prefs_group_power_summary">Képernyő időtúllépése, mobiladat-forgalom</string>
     <string name="population">Népesség: %s</string>
     <string name="sort_categories">Kedvenclisták rendezése</string>
     <string name="setting_value_system_default">Rendszer alapértelmezése</string>
@@ -916,8 +897,6 @@
     <string name="pref_maplanguage_local">Helyi nyelv</string>
     <string name="destination">Célállomás</string>
     <string name="stop">Állj</string>
-    <string name="navigation_start_tts_message">"Navigáció indítása, hangutasítások nyelve: "</string>
-    <string name="navigation_start_tts_disabled_message">Hangutasítások letiltva: nem érhető el TTS szolgáltatás</string>
     <string name="charge_socket_type1_combo">1. típus, kombinált</string>
     <string name="charge_socket_schuko">Helyi, EU-s</string>
     <string name="bookmark_share_email_subject">Kövesse a %1$s hivatkozást, vagy illessze be a %2$s koordinátákat a térképalkalmazásába a hely megtekintéséhez.</string>
@@ -960,12 +939,8 @@
     <string name="permission_read_navigation_description">élő navigációs információk felolvasása, mint a következő kanyarok, vagy a jelenleg használt út neve</string>
     <string name="pref_about_summary">Hibák jelentése, segítség kérése, adományozás\nVerzió: v%1$s</string>
     <string name="prefs_group_map_appearance">Térkép megjelenése</string>
-    <string name="prefs_group_map_appearance_summary">Térkép nyelve, szöveg mérete, 2D/3D-s épületek</string>
     <string name="prefs_group_interface">Alkalmazás megjelenése</string>
-    <string name="prefs_group_interface_summary">Éjszakai mód, gombok, nyelv</string>
     <string name="prefs_group_data_management">Adatok kezelése</string>
-    <string name="prefs_group_data_management_summary">Térkép mentési helye, kedvencek biztonsági mentése</string>
-    <string name="prefs_group_advanced_summary">Naplózás engedélyezése</string>
     <string name="pref_font_size">Betűméret a térképen</string>
     <string name="decrease_font_size">Betűméret csökkentése a térképen</string>
     <string name="planning_route_preview">Előnézet</string>
