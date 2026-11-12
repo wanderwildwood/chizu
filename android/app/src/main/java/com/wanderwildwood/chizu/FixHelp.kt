@@ -14,6 +14,7 @@ import android.view.View
 import android.widget.TextView
 import app.organicmaps.MwmApplication
 import app.organicmaps.R
+import app.organicmaps.sdk.Map
 import app.organicmaps.sdk.location.LocationState
 import app.organicmaps.sdk.routing.RoutingController
 import app.organicmaps.sdk.util.LocationUtils
@@ -63,7 +64,10 @@ class FixHelp(private val activity: Activity, private val line: TextView) {
     }
 
     private fun update() {
-        val waiting = LocationState.getMode() == LocationState.PENDING_POSITION &&
+        // The first tick can come before the map engine exists (a cold start, or the return from the
+        // world map download): the location mode can't be asked for until it does.
+        val waiting = Map.isEngineCreated() &&
+            LocationState.getMode() == LocationState.PENDING_POSITION &&
             LocationUtils.checkFineLocationPermission(activity) &&
             LocationUtils.areLocationServicesTurnedOn(activity) &&
             !RoutingController.get().isPlanning && !RoutingController.get().isNavigating

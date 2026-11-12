@@ -15,4 +15,4 @@ val bash = if (isWindows) "C:\\Program Files\\Git\\bin\\bash.exe" else "bash"
 rootProject.ext["versionCode"] = Integer.parseInt(run(listOf(bash, "../tools/unix/version.sh", "android_code")))
 // Atlas carries its own version name, raised by hand for each release. The version code stays
 // CoMaps' date code (yyMMdd + the day's commit count): parts of the map core read the date from it.
-rootProject.ext["versionName"] = "0.1.5"
+rootProject.ext["versionName"] = "0.1.6"
