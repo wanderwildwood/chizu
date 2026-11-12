@@ -4,6 +4,7 @@
 
   <SwitchPreferenceCompat
     android:key="@string/pref_3d_buildings"
+    app:isPreferenceVisible="false"
     android:title="@string/pref_map_3d_buildings_title"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />

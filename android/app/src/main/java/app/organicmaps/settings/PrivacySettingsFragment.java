@@ -44,6 +44,8 @@ public class PrivacySettingsFragment extends BaseXmlSettingsFragment
     }
     else
     {
+      // Hidden in the XML, so it never shows for a moment on a phone without Google's services.
+      pref.setVisible(true);
       ((TwoStatePreference) pref).setChecked(Config.useGoogleServices());
       pref.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
         @SuppressLint("MissingPermission")

@@ -6,6 +6,7 @@
     android:entries="@array/mobile_data_options"
     android:entryValues="@array/mobile_data_options_values"
     android:key="@string/pref_use_mobile_data"
+    app:isPreferenceVisible="false"
     android:summary="@string/mobile_data_description"
     android:title="@string/mobile_data"
     app:icon="@drawable/ic_network_manage"

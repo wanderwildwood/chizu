@@ -12,6 +12,7 @@
   <SwitchPreferenceCompat
     android:defaultValue="true"
     android:key="@string/pref_play_services"
+    app:isPreferenceVisible="false"
     android:summary="@string/pref_use_google_play"
     android:title="@string/google_play_services"
     android:widgetLayout="@layout/preference_switch"

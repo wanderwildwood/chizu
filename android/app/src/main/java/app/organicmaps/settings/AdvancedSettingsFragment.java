@@ -77,8 +77,8 @@ public class AdvancedSettingsFragment extends BaseXmlSettingsFragment
     final Preference pref = findPreference(getString(R.string.pref_emulate_bad_external_storage));
     if (pref == null)
       return;
-    if (!SharedPropertiesUtils.shouldShowEmulateBadStorageSetting())
-      pref.setVisible(false);
+    // Hidden in the XML, so it never shows for a moment; shown only where it applies.
+    pref.setVisible(SharedPropertiesUtils.shouldShowEmulateBadStorageSetting());
   }
 
   private void initOpenExternalLinksPrefsCallback()
