@@ -7,6 +7,7 @@
     android:key="@string/pref_osm_profile"
     android:title="@string/profile"
     app:icon="@drawable/ic_profile"
+    app:isPreferenceVisible="false"
     app:singleLineTitle="false"
     tools:summary="LongLongUsernameHere" />
 
