@@ -7,8 +7,6 @@
   <string name="guidance_turns">Turns</string>
   <!-- A speed with its unit on the guidance card: "45 mph". -->
   <string name="guidance_speed">%1$d %2$s</string>
-  <!-- Settings, Navigation: on = miles and feet, off = kilometers and meters. -->
-  <string name="units_miles_switch">Miles and feet</string>
 
   <!-- The minus and plus beside a value that moves a step at a time. -->
   <string name="step_smaller">Smaller</string>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Settings, Advanced: the row that opens the system's "open links" page exists from Android 12.
+       Decided here, before the page is drawn, so the row does not slide in after it. -->
+  <bool name="open_links_row_shown">false</bool>
+</resources>

@@ -14,7 +14,6 @@ import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.routing.RoutingController;
 import app.organicmaps.sdk.routing.RoutingOptions;
 import app.organicmaps.sdk.settings.SpeedCameraMode;
-import app.organicmaps.sdk.settings.UnitLocale;
 import app.organicmaps.util.Utils;
 import com.wanderwildwood.chizu.OnlineRoutes;
 import com.wanderwildwood.chizu.StreamedMap;
@@ -33,7 +32,6 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
   {
     super.onViewCreated(view, savedInstanceState);
 
-    initMeasureUnitsPrefsCallbacks();
     initOnlineRoutesPrefsCallbacks();
     initOnlineAddressPrefsCallbacks();
     initStreamedMapPrefsCallbacks();
@@ -101,16 +99,6 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
     final Preference pref = getPreference(getString(R.string.prefs_routing));
     pref.setSummary(RoutingOptions.hasAnyOptions(RoutingController.get().getLastRouterType()) ? R.string.on
                                                                                               : R.string.off);
-  }
-
-  private void initMeasureUnitsPrefsCallbacks()
-  {
-    final TwoStatePreference pref = getPreference(getString(R.string.pref_munits_miles));
-    pref.setChecked(UnitLocale.getUnits() == UnitLocale.UNITS_FOOT);
-    pref.setOnPreferenceChangeListener((preference, newValue) -> {
-      UnitLocale.setUnits((Boolean) newValue ? UnitLocale.UNITS_FOOT : UnitLocale.UNITS_METRIC);
-      return true;
-    });
   }
 
   // Atlas: the switch for the streamed map, and the address of a tile server of one's own.

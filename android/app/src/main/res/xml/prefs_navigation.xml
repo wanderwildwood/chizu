@@ -2,14 +2,10 @@
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
-  <!-- Atlas: miles or kilometers is a switch. Not persisted here: the value lives in the map core. -->
-  <SwitchPreferenceCompat
+  <!-- Atlas: mph or km/h, two choices side by side. Not persisted here: the value lives in the map core. -->
+  <com.wanderwildwood.chizu.ui.UnitsChoicePreference
     android:key="@string/pref_munits_miles"
-    android:persistent="false"
-    android:title="@string/units_miles_switch"
-    android:widgetLayout="@layout/preference_switch"
-    app:icon="@drawable/ic_straighten"
-    app:singleLineTitle="false" />
+    android:persistent="false" />
 
   <PreferenceScreen
       android:key="@string/prefs_routing"

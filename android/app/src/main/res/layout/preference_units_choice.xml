@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: Settings, Navigation. Miles or kilometers as two choices side by side, like the two routes. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="56dp"
+  android:background="@color/house_paper"
+  android:orientation="horizontal"
+  android:paddingHorizontal="@dimen/margin_half">
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/units_mph"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/house_choice"
+    android:gravity="center"
+    android:maxLines="1"
+    android:text="@string/miles_per_hour"
+    android:textColor="@color/house_tab_text"
+    android:textSize="16sp"
+    android:textStyle="bold" />
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/units_kmh"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:background="@drawable/house_choice"
+    android:gravity="center"
+    android:maxLines="1"
+    android:text="@string/kilometers_per_hour"
+    android:textColor="@color/house_tab_text"
+    android:textSize="16sp"
+    android:textStyle="bold" />
+</LinearLayout>
