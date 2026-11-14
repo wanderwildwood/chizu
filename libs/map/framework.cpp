@@ -2202,9 +2202,15 @@ void Framework::OnTapEvent(place_page::BuildInfo const & buildInfo)
     return;
   }
 
-  if (buildInfo.m_isLongTap)
+  // A held track goes the way of a tapped one below (its own selection steps).
+  if (buildInfo.m_isLongTap && placePageInfo.GetTrackId() == kml::kInvalidTrackId)
   {
-    SwitchFullScreen();
+    // Atlas: a held tap opens the page of what is held (a business, a building, a saved place), or puts a
+    // pin on the bare point when nothing is there. Either way the page offers Route to and Save, and Add
+    // stop while a route is up. CoMaps hides the interface on a held tap instead; Atlas has no such mode.
+    DeactivateHotelSearchMark();
+    m_currentPlacePageInfo = placePageInfo;
+    ActivateMapSelection();
   }
   else
   {

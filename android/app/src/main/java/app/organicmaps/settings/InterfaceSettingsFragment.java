@@ -21,6 +21,7 @@ import app.organicmaps.leftbutton.LeftButton;
 import app.organicmaps.leftbutton.LeftButtonsHolder;
 import app.organicmaps.sdk.util.Config;
 import app.organicmaps.util.ThemeSwitcher;
+import com.wanderwildwood.chizu.ui.DarkMode;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -42,6 +43,7 @@ public class InterfaceSettingsFragment extends BaseXmlSettingsFragment implement
 
     initZoomPrefsCallbacks();
     initLeftButtonPrefs();
+    initDarkModePref();
   }
 
   @Override
@@ -109,6 +111,16 @@ public class InterfaceSettingsFragment extends BaseXmlSettingsFragment implement
       final ThemeMode mode = ThemeMode.getInstance(themeName);
       final CharSequence summary = pref.getEntries()[mode.ordinal()];
       pref.setSummary(summary);
+      return true;
+    });
+  }
+
+  private void initDarkModePref()
+  {
+    final TwoStatePreference pref = getPreference(getString(R.string.pref_dark_mode));
+    pref.setChecked(DarkMode.INSTANCE.getOn());
+    pref.setOnPreferenceChangeListener((preference, newValue) -> {
+      DarkMode.INSTANCE.set(requireContext(), (boolean) newValue);
       return true;
     });
   }

@@ -135,6 +135,17 @@
       android:textSize="24sp"
       tools:text="45 mph" />
 
+    <ImageButton
+      android:id="@+id/card_search"
+      android:layout_width="48dp"
+      android:layout_height="48dp"
+      android:layout_marginEnd="@dimen/margin_half"
+      android:background="?selectableItemBackgroundBorderless"
+      android:contentDescription="@string/search"
+      android:scaleType="center"
+      app:srcCompat="@drawable/ic_search"
+      app:tint="@color/house_ink" />
+
     <com.google.android.material.button.MaterialButton
       android:id="@+id/card_map"
       style="@style/MwmWidget.M3.Button.Primary"

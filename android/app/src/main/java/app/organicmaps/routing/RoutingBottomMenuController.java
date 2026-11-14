@@ -310,7 +310,8 @@ final class RoutingBottomMenuController implements View.OnClickListener
   {
     if (show)
     {
-      mStart.setText(mContext.getText(R.string.p2p_start));
+      mStart.setText(mContext.getText(RoutingController.get().isTripPaused() ? R.string.atlas_resume_route
+                                                                             : R.string.p2p_start));
       mStart.setOnClickListener(v -> {
         // Ignore the event if the back and start buttons are pressed at the same time.
         // See {@link #RoutingPlanController.onUpClick()}.

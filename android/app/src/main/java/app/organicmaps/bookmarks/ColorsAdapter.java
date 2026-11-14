@@ -11,6 +11,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.bookmarks.data.PredefinedColors;
 import app.organicmaps.util.Graphics;
 import com.google.android.material.imageview.ShapeableImageView;
+import com.wanderwildwood.chizu.ui.DarkMode;
 import java.util.List;
 import java.util.Objects;
 
@@ -67,6 +68,7 @@ public class ColorsAdapter extends ArrayAdapter<Integer>
     SpinnerViewHolder(View convertView)
     {
       icon = convertView.findViewById(R.id.iv__color);
+      DarkMode.INSTANCE.keep(icon);
     }
   }
 

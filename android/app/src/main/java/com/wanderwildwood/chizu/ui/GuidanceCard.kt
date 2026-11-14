@@ -25,13 +25,13 @@ import app.organicmaps.widget.SpeedLimitView
 
 /*
  * The guidance card. While a route is followed it covers the map: the next turn in large type,
- * the two turns after it, the speed limit and the speed, and a Map button. An E Ink panel cannot
+ * the two turns after it, the speed limit and the speed, a search button and a Map button. An E Ink panel cannot
  * keep up with a map that moves under the car, so the map is asked for (Map, and Turns to come
  * back) and, while it shows, takes a new position once every MAP_STEP_SEC seconds.
  *
  * Nothing here is set twice with the same value: on E Ink every setText is a redraw.
  */
-class GuidanceCard(private val card: View, private val turnsButton: View) {
+class GuidanceCard(private val card: View, private val turnsButton: View, private val onSearch: Runnable) {
     private val turn: ImageView = card.findViewById(R.id.card_turn)
     private val exit: TextView = card.findViewById(R.id.card_exit)
     private val distance: TextView = card.findViewById(R.id.card_distance)
@@ -55,6 +55,8 @@ class GuidanceCard(private val card: View, private val turnsButton: View) {
 
     init {
         card.findViewById<View>(R.id.card_map).setOnClickListener { showMap(true) }
+        // Search from the card: what is found is shown on the map, so the map comes up with it.
+        card.findViewById<View>(R.id.card_search).setOnClickListener { showMap(true); onSearch.run() }
         turnsButton.setOnClickListener { showMap(false) }
         ViewCompat.setOnApplyWindowInsetsListener(card) { _, insets ->
             topInset = insets.getInsets(WindowInsetsCompat.Type.systemBars()).top

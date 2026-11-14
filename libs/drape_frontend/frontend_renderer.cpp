@@ -2106,13 +2106,8 @@ void FrontendRenderer::OnTap(m2::PointD const & pt, bool isLongTap)
   m2::PointD const pxPoint2d = screen.P3dtoP(pt);
   m2::PointD mercator = screen.PtoG(pxPoint2d);
 
-  // Long tap should show/hide the interface. There is no need to detect tapped features.
-  if (isLongTap)
-  {
-    m_tapEventInfoHandler({mercator, isLongTap, isMyPosition, FeatureID(), kml::kInvalidMarkId});
-    return;
-  }
-
+  // Atlas: a held tap finds what is under the finger just as a tap does (CoMaps skipped that, since its
+  // held tap only showed or hid the interface).
   if (m_myPositionController->IsModeHasPosition())
   {
     m2::PointD const pixelPos = screen.PtoP3d(screen.GtoP(m_myPositionController->Position()));

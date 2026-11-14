@@ -32,10 +32,16 @@ What Atlas changes:
 - **The drive.** While a route is followed, a card covers the map: the next turn in large
   type with its distance and road, the two turns after it, the speed limit and your speed
   in steps of five. The map is one tap away and, while it shows, moves once every five
-  seconds. A round button in the foot stops the drive on its second tap.
+  seconds. A search button on the card finds fuel, food or anything else on the way: pick
+  a place, Add stop, and Resume carries on with the stop in the route. A round button in
+  the foot stops the drive on its second tap.
 - **Getting going.** A Home button on the map plans the way home in one tap; the places
   you last drove to head the search screen. While planning, the fastest route and one
   that keeps off the highways are side by side.
+- **Hold the map.** Hold a finger on a shop, a building or a saved place and its page opens;
+  hold a bare point and a black ring marks exactly that spot. Either way: Route to plans the way, Save
+  keeps it among your favorites, and while a route is up, Add stop puts it on the way.
+  (CoMaps hides its buttons on a held tap; Atlas has no such mode, and no switch for it.)
 - **A route without the map.** For a place whose region is not on the phone, Atlas can
   get the route from a route server and guide by the card all the same. It asks before the
   first time. The server is the routing server of [FOSSGIS](https://www.fossgis.de/)

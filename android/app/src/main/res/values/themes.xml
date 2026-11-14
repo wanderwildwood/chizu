@@ -160,7 +160,10 @@
 
   </style>
 
-  <style name="MwmTheme" parent="HouseTheme"/>
+  <style name="MwmTheme" parent="HouseTheme">
+      <!-- No start-up window: in dark mode it would flash white before the first frame. -->
+      <item name="android:windowDisablePreview">true</item>
+  </style>
 
   <!-- Atlas: a blank white launch screen. A logo held for a moment is a full-panel refresh
        before the app has done anything. The v31 copy also empties the platform's own splash. -->

@@ -135,26 +135,39 @@ void GenerateJoinsTriangles(glsl::vec3 const & pivot, std::vector<glsl::vec2> co
 drape_ptr<RenderNode> SelectionShapeGenerator::GenerateSelectionMarker(ref_ptr<dp::GraphicsContext> context,
                                                                        ref_ptr<dp::TextureManager> mng)
 {
-  size_t constexpr kTriangleCount = 40;
+  // Atlas: the mark is a black ring with a dot at its center, not CoMaps' pale translucent disc, which an
+  // e-ink screen all but loses. The ring leaves what is selected readable inside it.
+  size_t constexpr kSectorCount = 40;
+  size_t constexpr kTriangleCount = 3 * kSectorCount;  // two for the ring, one for the dot
   size_t constexpr kVertexCount = 3 * kTriangleCount;
-  auto const etalonSector = static_cast<float>(2.0 * math::pi / kTriangleCount);
+  auto const etalonSector = static_cast<float>(2.0 * math::pi / kSectorCount);
+  float constexpr kRingInner = 0.78f;
+  float constexpr kDot = 0.2f;
 
   dp::TextureManager::ColorRegion color;
-  mng->GetColorRegion(df::GetColorConstant(df::kSelectionColor), color);
+  mng->GetColorRegion(dp::Color::Black(), color);
   auto const colorCoord = glsl::ToVec2(color.GetTexRect().Center());
 
-  buffer_vector<MarkerVertex, kTriangleCount> buffer;
+  buffer_vector<MarkerVertex, kVertexCount> buffer;
 
   glsl::vec2 const startNormal(0.0f, 1.0f);
 
-  for (size_t i = 0; i < kTriangleCount + 1; ++i)
+  for (size_t i = 0; i < kSectorCount; ++i)
   {
     auto const normal = glsl::rotate(startNormal, i * etalonSector);
     auto const nextNormal = glsl::rotate(startNormal, (i + 1) * etalonSector);
 
-    buffer.emplace_back(glsl::vec2(0.0f, 0.0f), colorCoord);
+    buffer.emplace_back(normal * kRingInner, colorCoord);
     buffer.emplace_back(normal, colorCoord);
     buffer.emplace_back(nextNormal, colorCoord);
+
+    buffer.emplace_back(normal * kRingInner, colorCoord);
+    buffer.emplace_back(nextNormal, colorCoord);
+    buffer.emplace_back(nextNormal * kRingInner, colorCoord);
+
+    buffer.emplace_back(glsl::vec2(0.0f, 0.0f), colorCoord);
+    buffer.emplace_back(normal * kDot, colorCoord);
+    buffer.emplace_back(nextNormal * kDot, colorCoord);
   }
 
   auto state = CreateRenderState(gpu::Program::Accuracy, DepthLayer::OverlayLayer);

@@ -75,6 +75,8 @@ public class RoutingController
   private BuildState mBuildState = BuildState.NONE;
   private State mState = State.NONE;
   private boolean mIsPreviewingTurn;
+  // Atlas: a trip under way was put back to its plan (Back, or a stop added), so the button says Resume.
+  private boolean mTripPaused;
   private int mPreviewedTurnSegmentIndex = -1;
   @Nullable
   private RouteMarkType mWaitingPoiPickType = null;
@@ -445,6 +447,7 @@ public class RoutingController
     // and then app crashes. So, the previous route will be restored on the next app launch.
     saveRoute();
 
+    mTripPaused = false;
     setState(State.NAVIGATION);
 
     cancelPlanning(false);
@@ -494,6 +497,7 @@ public class RoutingController
   {
     if (isNavigating())
     {
+      mTripPaused = true;
       build();
       setState(State.PREPARE);
       cancelNavigation(false);
@@ -513,6 +517,11 @@ public class RoutingController
     return MapObject.createMapObject(FeatureId.EMPTY, point.mIsMyPosition ? MapObject.MY_POSITION : MapObject.POI,
                                      point.mTitle == null ? "" : point.mTitle,
                                      point.mSubtitle == null ? "" : point.mSubtitle, point.mLat, point.mLon);
+  }
+
+  public boolean isTripPaused()
+  {
+    return mTripPaused && isPlanning();
   }
 
   public boolean isStopPointAllowed()
@@ -535,6 +544,7 @@ public class RoutingController
     Logger.d(TAG, "cancelInternal");
 
     mWaitingPoiPickType = null;
+    mTripPaused = false;
 
     setBuildState(BuildState.NONE);
     setState(State.NONE);

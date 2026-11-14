@@ -15,6 +15,8 @@
   <!-- Home and recent destinations. -->
   <string name="go_home">Home</string>
   <string name="go_set_home">Set as Home</string>
+  <!-- The route plan's button when Back (or an added stop) put a trip under way back to its plan -->
+  <string name="atlas_resume_route">Resume</string>
   <string name="go_home_set">Home is now %1$s.\n\nThe Home button on the map plans the route there.</string>
   <string name="go_home_is">Home is %1$s.\n\nTo change it, open another place and choose Set as Home.</string>
   <!-- Under Home in Favorites when no place is Home yet. -->

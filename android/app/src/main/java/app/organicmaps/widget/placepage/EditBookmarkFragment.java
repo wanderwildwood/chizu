@@ -190,6 +190,14 @@ public class EditBookmarkFragment extends DialogFragment implements View.OnClick
     if (dialog != null)
     {
       dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+      // Atlas: this page is a window of its own. In dark mode it is turned dark like the rest, but its status
+      // bar kept the dark icons of the light theme, which do not show on black. Ask for the light ones here.
+      if (com.wanderwildwood.chizu.ui.DarkMode.INSTANCE.getOn())
+      {
+        final androidx.core.view.WindowInsetsControllerCompat bars =
+            androidx.core.view.WindowCompat.getInsetsController(dialog.getWindow(), dialog.getWindow().getDecorView());
+        bars.setAppearanceLightStatusBars(false);
+      }
     }
 
     // Focus name and show keyboard for "Unknown Place" bookmarks

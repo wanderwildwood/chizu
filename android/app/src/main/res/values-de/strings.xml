@@ -974,4 +974,6 @@
     <string name="route_preview_cancel">Routenvorschau schließen</string>
     <string name="route_preview_previous_turn">Vorheriger Richtungswechsel</string>
     <string name="route_preview_next_turn">Nächster Richtungswechsel</string>
+    <string name="settings_dark">Dunkelmodus</string>
+    <string name="settings_dark_note">Weiß auf Schwarz, in dieser App. Home hat einen Schalter für alle Apps.</string>
 </resources>

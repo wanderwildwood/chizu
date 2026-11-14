@@ -27,6 +27,7 @@ import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.textview.MaterialTextView;
+import com.wanderwildwood.chizu.ui.DarkMode;
 
 public class Holders
 {
@@ -342,6 +343,7 @@ public class Holders
     {
       super(itemView);
       mIcon = itemView.findViewById(R.id.iv__bookmark_color);
+      DarkMode.INSTANCE.keep(mIcon);
       mName = itemView.findViewById(R.id.tv__bookmark_name);
       mDistance = itemView.findViewById(R.id.tv__bookmark_distance);
       mCategoryName = itemView.findViewById(R.id.tv__bookmark_category);
@@ -408,6 +410,7 @@ public class Holders
     {
       super(itemView);
       mIcon = itemView.findViewById(R.id.iv__bookmark_color);
+      DarkMode.INSTANCE.keep(mIcon);
       mName = itemView.findViewById(R.id.tv__bookmark_name);
       mDistance = itemView.findViewById(R.id.tv__bookmark_distance);
       mMoreButton = itemView.findViewById(R.id.more);

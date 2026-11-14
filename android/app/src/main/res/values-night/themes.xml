@@ -152,7 +152,10 @@
     <item name="appBackground">@color/bg_app</item>
   </style>
 
-  <style name="MwmTheme" parent="HouseTheme"/>
+  <style name="MwmTheme" parent="HouseTheme">
+      <!-- No start-up window: in dark mode it would flash white before the first frame. -->
+      <item name="android:windowDisablePreview">true</item>
+  </style>
 
   <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.Material3.DayNight">
     <item name="android:textColorHint">@color/text_light_hint</item>

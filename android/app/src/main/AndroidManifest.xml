@@ -60,6 +60,8 @@
       android:protectionLevel="dangerous" />
 
   <queries>
+      <!-- Home, whose dark mode switch this app follows when Home is installed. -->
+      <package android:name="com.wanderwildwood.iori" />
     <intent>
       <action android:name="android.intent.action.TTS_SERVICE"/>
     </intent>
@@ -96,6 +98,12 @@
       tools:targetApi="33">
 
     <!-- Allows for config and orientation change without killing/restarting main activity -->
+    <!-- Starts dark mode before the first screen is drawn. Holds no data. -->
+    <provider
+        android:name="com.wanderwildwood.chizu.ui.DarkModeInit"
+        android:authorities="${applicationId}.darkmodeinit"
+        android:exported="false" />
+
     <activity
       android:name="app.organicmaps.SplashActivity"
       android:theme="@style/MwmTheme.Splash"

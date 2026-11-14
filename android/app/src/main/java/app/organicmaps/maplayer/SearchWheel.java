@@ -250,13 +250,9 @@ public class SearchWheel implements View.OnClickListener
       return;
     }
 
-    if (mIsExpanded)
-    {
-      showSearchInParent();
-      return;
-    }
-
-    toggleSearchLayout();
+    // Atlas: during a trip the button opens the whole search, with its categories (fuel, food and the rest),
+    // so a stop can be found and added without leaving the trip. CoMaps opens a wheel of five shortcuts first.
+    showSearchInParent();
   }
 
   private void showSearchInParent()

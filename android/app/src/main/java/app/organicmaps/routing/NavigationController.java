@@ -89,7 +89,10 @@ public class NavigationController implements TrafficManager.TrafficCallback, Nav
     mMapButtonsViewModel = new ViewModelProvider(activity).get(MapButtonsViewModel.class);
 
     mFrame = activity.findViewById(R.id.navigation_frame);
-    mCard = new GuidanceCard(mFrame.findViewById(R.id.nav_card), mFrame.findViewById(R.id.nav_turns));
+    mCard = new GuidanceCard(mFrame.findViewById(R.id.nav_card), mFrame.findViewById(R.id.nav_turns), () -> {
+      if (activity instanceof app.organicmaps.MwmActivity mwm)
+        mwm.onMapButtonClick(app.organicmaps.maplayer.MapButtonsController.MapButtons.search);
+    });
     final View navBottomSheet = mFrame.findViewById(R.id.nav_bottom_sheet);
     mNavMenu = new NavMenu(activity, this, () -> {
       onMenuSizeChangedListener.OnMenuSizeChange();
