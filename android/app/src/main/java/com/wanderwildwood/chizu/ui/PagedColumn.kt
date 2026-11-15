@@ -32,12 +32,14 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.alpha
@@ -45,14 +47,22 @@ import androidx.compose.ui.draw.drawWithContent
 import androidx.compose.ui.geometry.CornerRadius
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Size
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.SolidColor
 import androidx.compose.ui.graphics.drawscope.clipRect
+import androidx.compose.ui.graphics.vector.ImageVector
+import androidx.compose.ui.graphics.vector.addPathNodes
+import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.max
 
@@ -80,7 +90,10 @@ import kotlin.math.max
  *
  * The bar is drawn as MMD's `VerticalScrollbar` draws it (MMD 1.0.2, `LazyMMD.kt`, Apache-2.0,
  * Copyright 2025 The Android Open Source Project, modified by Mudita Sp. z o.o.), with its own
- * chevron drawables; only where a turn lands is ours.
+ * chevron drawables; only where a turn lands is ours, and (15 Nov 2026) the arrow at an end the
+ * list cannot turn past, drawn as a plain outline instead of MMD's dotted one (a grey dither on
+ * e-ink). A screen reader calls the arrows "Previous page" and "Next page" (the app's strings
+ * `page_arrow_previous` and `page_arrow_next` where it has them).
  *
  * Called as `LazyColumnMMD` was. [isScrollbarVisible] is on by default; a list that must not show
  * one passes false. [folio] and [rowStep] are kept so every existing call compiles.
@@ -89,6 +102,13 @@ import kotlin.math.max
  * the bar ends that far above the foot of the list, so the button keeps its corner and the lower
  * chevron stands over it instead of under it, where a press meant for the next page pressed the
  * button. One 56 dp button on its 16 dp margin is 72 dp. The rows are not moved.
+ *
+ * A list that gets shorter under its page (15 Nov 2026) comes back to its last real page. Level's
+ * Settings: turned on to "Forget calibration", then forgotten, the row went and the page was left
+ * on the blank tail alone, with no scrollbar and nothing a swipe could turn. The page that ends
+ * on the last row is shown instead, as a turn back from the end would show it. Only then: a list
+ * that grows, or a page that still shows a row, is left where it is, and a turn under way is let
+ * finish first.
  *
  * [onPullAtTop], when given, is called when a swipe down starts on the first page of the rows: the
  * list asks for them again. It asks for nothing otherwise, and does not take the swipe from the
@@ -149,6 +169,13 @@ fun PagedColumn(
     val cutRow by rememberUpdatedState(showCutRow)
     val shown by remember(state) { derivedStateOf { state.layoutInfo.totalItemsCount > if (cutRow) 0 else 1 } }
     val pages by remember(state) { derivedStateOf { state.layoutInfo.view(cutRow).pages } }
+    // The rows went from under the page: back to the last real one (see above).
+    val lost by remember(state) { derivedStateOf { stranded(state.layoutInfo.view(cutRow)) } }
+    LaunchedEffect(state, lost) {
+        if (!lost) return@LaunchedEffect
+        snapshotFlow { state.isScrollInProgress }.first { !it }
+        if (stranded(state.layoutInfo.view(cutRow))) state.resnap(cutRow)
+    }
     Row(
         modifier = (if (onPullAtTop == null) modifier else modifier.pullAtTop(state) { pull?.invoke(); Unit })
             .then(widen)
@@ -287,6 +314,16 @@ internal fun backSnap(page: PageView): Int? {
     return page.rows.getOrNull(1)?.index
 }
 
+/**
+ * Whether [page] is past the end of a list that got shorter under it: no row with anything in it
+ * is on the page (only the blank tail, or rows of no height), the list has rows, and the page is
+ * not the first. A turn never lands there (the last page opens on the last row), so only a list
+ * that shrank does. Never with the cut row shown: that list has no tail and ends flush by itself.
+ */
+internal fun stranded(page: PageView): Boolean =
+    !page.showsCut && page.count > 0 && page.height > 0 &&
+        page.rows.none { it.index == 0 } && page.rows.none { it.bottom > it.top }
+
 private fun LazyListLayoutInfo.view(cutRow: Boolean = false): PageView {
     val items = visibleItemsInfo.filter { it.contentType != TAIL }
     val rows = items.map { RowSpan(it.index, it.offset - viewportStartOffset, it.offset - viewportStartOffset + it.size) }
@@ -307,6 +344,19 @@ private suspend fun LazyListState.turnBack(cutRow: Boolean = false) {
     val page = layoutInfo.view(cutRow)
     if (page.atStart) return
     scrollBy(-page.height.toFloat())
+    backSnap(layoutInfo.view(cutRow))?.let { scrollToItem(it) }
+}
+
+/**
+ * Back to the last real page from past the end ([stranded]): the tail's top on the foot, so the
+ * last row ends the page, then onto a whole row at the top, as a turn back does.
+ */
+private suspend fun LazyListState.resnap(cutRow: Boolean = false) {
+    scrollToItem((layoutInfo.totalItemsCount - 1).coerceAtLeast(0))
+    val info = layoutInfo
+    val tail = info.visibleItemsInfo.lastOrNull { it.contentType == TAIL } ?: return
+    val back = info.view(cutRow).height - (tail.offset - info.viewportStartOffset)
+    if (back > 0) scrollBy(-back.toFloat())
     backSnap(layoutInfo.view(cutRow))?.let { scrollToItem(it) }
 }
 
@@ -332,6 +382,8 @@ private fun PageBar(
 ) {
     val page = state.layoutInfo.view(cutRow)
     if (page.count == 0) return
+    val previous = pageLabel("page_arrow_previous", "Previous page")
+    val next = pageLabel("page_arrow_next", "Next page")
     val containerColor = MaterialTheme.colorScheme.onPrimary
     val sliderColor = MaterialTheme.colorScheme.primary
     Column(
@@ -339,12 +391,12 @@ private fun PageBar(
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
         Icon(
-            painter = painterResource(if (page.atStart) com.mudita.mmd.R.drawable.chevron_dotted_up else com.mudita.mmd.R.drawable.chevron_filled_up),
-            contentDescription = null,
+            painter = if (page.atStart) rememberVectorPainter(ChevronOutlineUp) else painterResource(com.mudita.mmd.R.drawable.chevron_filled_up),
+            contentDescription = previous,
             modifier = Modifier
                 .padding(vertical = 16.dp)
                 .size(24.dp)
-                .combinedClickable(onClick = onBack, onLongClick = onFirst),
+                .combinedClickable(role = Role.Button, onClick = onBack, onLongClick = onFirst),
         )
         val whole = page.whole
         val visible = whole.size.coerceAtLeast(1)
@@ -376,15 +428,49 @@ private fun PageBar(
             )
         }
         Icon(
-            painter = painterResource(if (page.atEnd) com.mudita.mmd.R.drawable.chevron_dotted_down else com.mudita.mmd.R.drawable.chevron_filled_down),
-            contentDescription = null,
+            painter = if (page.atEnd) rememberVectorPainter(ChevronOutlineDown) else painterResource(com.mudita.mmd.R.drawable.chevron_filled_down),
+            contentDescription = next,
             modifier = Modifier
                 .padding(vertical = 16.dp)
                 .size(24.dp)
-                .combinedClickable(onClick = onForward, onLongClick = onLast),
+                .combinedClickable(role = Role.Button, onClick = onForward, onLongClick = onLast),
         )
     }
 }
+
+/**
+ * The words a screen reader says for a page arrow: the app's own string of that name (its
+ * strings.xml, translated where the app is), or English when the app has none. Looked up by name
+ * because this file is shared and cannot see an app's R; the name is a string in the code, so R8's
+ * resource shrinker (default, non-strict) keeps the string. `copy.sh` adds both strings.
+ */
+@Composable
+private fun pageLabel(name: String, english: String): String {
+    val context = LocalContext.current
+    return remember(name) {
+        val id = context.resources.getIdentifier(name, "string", context.packageName)
+        if (id == 0) english else context.getString(id)
+    }
+}
+
+/**
+ * The arrow at an end the list cannot turn past (15 Nov 2026): MMD's filled chevron drawn as an
+ * outline in the ink color, the same shape, size and place. MMD's own end chevron is dotted, which
+ * e-ink shows as a grey dither.
+ */
+private val ChevronOutlineUp: ImageVector = chevronOutline(
+    "ChevronOutlineUp",
+    "M13.347,6.001C12.621,5.215 11.379,5.215 10.653,6.001L3.84,13.382C2.756,14.556 3.589,16.458 5.187,16.458H18.813C20.411,16.458 21.244,14.556 20.16,13.382L13.347,6.001Z",
+)
+private val ChevronOutlineDown: ImageVector = chevronOutline(
+    "ChevronOutlineDown",
+    "M10.653,17.999C11.379,18.785 12.621,18.785 13.347,17.999L20.16,10.618C21.244,9.444 20.411,7.542 18.813,7.542L5.187,7.542C3.589,7.542 2.756,9.444 3.84,10.618L10.653,17.999Z",
+)
+
+private fun chevronOutline(name: String, path: String): ImageVector =
+    ImageVector.Builder(name = name, defaultWidth = 24.dp, defaultHeight = 24.dp, viewportWidth = 24f, viewportHeight = 24f)
+        .addPath(pathData = addPathNodes(path), stroke = SolidColor(Color.Black), strokeLineWidth = 1.5f)
+        .build()
 
 /**
  * Calls [onPull] when a swipe that began with the list on its first page ends further down than
