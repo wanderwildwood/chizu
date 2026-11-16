@@ -14,6 +14,7 @@ import app.organicmaps.sdk.bookmarks.data.KmlFileType;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.SharingUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -60,14 +61,14 @@ public enum BookmarksSharingHelper
     case BookmarkSharingResult.SUCCESS ->
       SharingUtils.shareBookmarkFile(context, launcher, result.getSharingPath(), result.getMimeType());
     case BookmarkSharingResult.EMPTY_CATEGORY ->
-      new MaterialAlertDialogBuilder(context)
+      new DarkAlertDialogBuilder(context)
           .setTitle(R.string.bookmarks_error_title_share_empty)
           .setMessage(R.string.bookmarks_error_message_share_empty)
           .setPositiveButton(R.string.ok, null)
           .show();
     case BookmarkSharingResult.ARCHIVE_ERROR, BookmarkSharingResult.FILE_ERROR ->
     {
-      new MaterialAlertDialogBuilder(context)
+      new DarkAlertDialogBuilder(context)
           .setTitle(R.string.dialog_routing_system_error)
           .setMessage(R.string.bookmarks_error_message_share_general)
           .setPositiveButton(R.string.ok, null)

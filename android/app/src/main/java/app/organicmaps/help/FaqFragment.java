@@ -19,6 +19,7 @@ import app.organicmaps.util.SharingUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class FaqFragment extends BaseMwmFragment
@@ -66,7 +67,7 @@ public class FaqFragment extends BaseMwmFragment
     FloatingActionButton feedbackFab = root.findViewById(R.id.feedback_fab);
     feedbackFab.setOnClickListener(
         v
-        -> new MaterialAlertDialogBuilder(requireActivity())
+        -> new DarkAlertDialogBuilder(requireActivity())
                .setTitle(R.string.feedback)
                .setNegativeButton(R.string.cancel, null)
                .setItems(new CharSequence[] {getString(R.string.feedback_general), getString(R.string.report_a_bug)},

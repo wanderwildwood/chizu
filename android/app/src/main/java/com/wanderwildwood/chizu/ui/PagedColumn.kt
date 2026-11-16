@@ -19,11 +19,13 @@ import androidx.compose.foundation.layout.calculateEndPadding
 import androidx.compose.foundation.layout.calculateStartPadding
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyItemScope
 import androidx.compose.foundation.lazy.LazyListLayoutInfo
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.LazyListState
@@ -36,9 +38,11 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.rememberUpdatedState
+import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -56,15 +60,19 @@ import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import androidx.compose.ui.input.pointer.PointerEventPass
 import androidx.compose.ui.input.pointer.pointerInput
 import androidx.compose.ui.layout.layout
+import androidx.compose.ui.layout.onPlaced
+import androidx.compose.ui.layout.positionInParent
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.semantics.Role
+import androidx.compose.ui.semantics.clearAndSetSemantics
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlin.math.max
+import kotlin.math.roundToInt
 
 /**
  * The list every screen uses: Mudita's list look, with its scrollbar (a chevron at each end that
@@ -74,7 +82,8 @@ import kotlin.math.max
  * (3 Nov 2026: pages end on whole rows; the scrollbar stays):
  *
  * - a turn forward brings the first row that did not fit to the top of the page;
- * - a row that does not fit at the foot is not drawn (nor pressable) until the next page;
+ * - a row that does not fit at the foot is not drawn (nor pressable) until the next page, and
+ *   (16 Nov 2026) is not there for a screen reader either;
  * - a blank tail after the last row lets that row come to the top, so the last page also starts on
  *   a row and is never shifted back to end flush, mid-row at its top;
  * - a turn back goes one page back and lands on a row.
@@ -102,6 +111,13 @@ import kotlin.math.max
  * the bar ends that far above the foot of the list, so the button keeps its corner and the lower
  * chevron stands over it instead of under it, where a press meant for the next page pressed the
  * button. One 56 dp button on its 16 dp margin is 72 dp. The rows are not moved.
+ *
+ * Whether the bar is needed is decided at the rows' full width (16 Nov 2026). The bar takes width
+ * from the rows, so rows that wrap onto more lines beside it can keep needing it: Wallet's Settings,
+ * shrunk by a dialog's keyboard, got the bar, and when the keyboard closed its narrower rows still
+ * ran onto a second page, so the bar and the narrower text stayed. Now, when the list grows (taller
+ * or wider) while the bar is up, the rows are laid out once without it, and the bar comes back only
+ * if they still run past one page.
  *
  * A list that gets shorter under its page (15 Nov 2026) comes back to its last real page. Level's
  * Settings: turned on to "Forget calibration", then forgotten, the row went and the page was left
@@ -176,6 +192,24 @@ fun PagedColumn(
         snapshotFlow { state.isScrollInProgress }.first { !it }
         if (stranded(state.layoutInfo.view(cutRow))) state.resnap(cutRow)
     }
+    // The bar at full width (see above): while [recheckAt] holds the list's width from before, the
+    // bar is left out until the rows have been laid out wider than that, without it.
+    var recheckAt by remember(state) { mutableStateOf(-1) }
+    val bar = pages && isScrollbarVisible && recheckAt < 0
+    val barNow by rememberUpdatedState(bar)
+    LaunchedEffect(state) {
+        var wide = 0
+        var tall = 0
+        snapshotFlow { state.layoutInfo.viewportSize }.collect { now ->
+            if (recheckAt >= 0) {
+                if (now.width > recheckAt) recheckAt = -1
+            } else if (recheckBar(barNow, wide, tall, now.width, now.height)) {
+                recheckAt = now.width
+            }
+            wide = now.width
+            tall = now.height
+        }
+    }
     Row(
         modifier = (if (onPullAtTop == null) modifier else modifier.pullAtTop(state) { pull?.invoke(); Unit })
             .then(widen)
@@ -216,7 +250,7 @@ fun PagedColumn(
                 // The list turns its own pages.
                 userScrollEnabled = false,
             ) {
-                content()
+                FootScope(this) { row -> FootRow(state, showCutRow, horizontalAlignment, row) }.content()
                 // With the cut row shown there is no tail: the last page ends flush.
                 // The tail has no key of its own (8 Nov 2026): a list keeps its place on the key of its
                 // first row, so a list that opened empty (its rows still loading) and so on the tail alone
@@ -224,7 +258,7 @@ fun PagedColumn(
                 if (!showCutRow) item(contentType = TAIL) { Spacer(Modifier.height(tail)) }
             }
         }
-        if (pages && isScrollbarVisible) {
+        if (bar) {
             PageBar(
                 state = state,
                 cutRow = showCutRow,
@@ -237,6 +271,57 @@ fun PagedColumn(
             )
         }
     }
+}
+
+/**
+ * The caller's rows, each handed through [wrap] (16 Nov 2026), so the list can take a row that is
+ * not drawn at the foot of the page out of what a screen reader is told. Sticky headers are passed
+ * on as they are.
+ */
+@OptIn(ExperimentalFoundationApi::class)
+private class FootScope(
+    private val real: LazyListScope,
+    private val wrap: @Composable (@Composable () -> Unit) -> Unit,
+) : LazyListScope by real {
+    override fun item(key: Any?, contentType: Any?, content: @Composable LazyItemScope.() -> Unit) {
+        val row = wrap
+        real.item(key, contentType) { val scope = this; row { scope.content() } }
+    }
+
+    override fun items(
+        count: Int,
+        key: ((index: Int) -> Any)?,
+        contentType: (index: Int) -> Any?,
+        itemContent: @Composable LazyItemScope.(index: Int) -> Unit,
+    ) {
+        val row = wrap
+        real.items(count, key, contentType) { index -> val scope = this; row { scope.itemContent(index) } }
+    }
+}
+
+/**
+ * One row of the list. A row that starts at or below the foot is not drawn and takes no press (see
+ * [PagedColumn]); here it also says nothing of itself, so a screen reader does not find a row the
+ * page does not show. Where the row stands is noted as it is placed and only "hidden or not" is
+ * read in composition, so a page turn composes a row again only when that changes.
+ */
+@Composable
+private fun FootRow(state: LazyListState, cutRow: Boolean, align: Alignment.Horizontal, content: @Composable () -> Unit) {
+    var top by remember { mutableStateOf(Int.MIN_VALUE) }
+    val shows by rememberUpdatedState(cutRow)
+    val hidden by remember(state) {
+        derivedStateOf {
+            val foot = state.layoutInfo.view(shows).foot
+            foot != null && top >= foot
+        }
+    }
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .onPlaced { top = it.positionInParent().y.roundToInt() }
+            .then(if (hidden) Modifier.clearAndSetSemantics { } else Modifier),
+        horizontalAlignment = align,
+    ) { content() }
 }
 
 /**
@@ -323,6 +408,14 @@ internal fun backSnap(page: PageView): Int? {
 internal fun stranded(page: PageView): Boolean =
     !page.showsCut && page.count > 0 && page.height > 0 &&
         page.rows.none { it.index == 0 } && page.rows.none { it.bottom > it.top }
+
+/**
+ * Whether the bar must be decided again at the rows' full width (see [PagedColumn]): it is shown
+ * ([barShown]) and the list has grown, taller or wider, from a size it had been laid out at. A list
+ * that shrinks, or one with no bar, keeps what it has.
+ */
+internal fun recheckBar(barShown: Boolean, wasWidth: Int, wasHeight: Int, width: Int, height: Int): Boolean =
+    barShown && wasWidth > 0 && wasHeight > 0 && (width > wasWidth || height > wasHeight)
 
 private fun LazyListLayoutInfo.view(cutRow: Boolean = false): PageView {
     val items = visibleItemsInfo.filter { it.contentType != TAIL }

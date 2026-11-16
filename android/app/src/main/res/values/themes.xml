@@ -2,6 +2,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
   <!-- Default theme -->
   <style name="MwmTheme.Base" parent="Theme.Material3.Light.NoActionBar">
+    <!-- Atlas: selection handles that show on the page in light and in dark mode alike. -->
+    <item name="android:textSelectHandleLeft">@drawable/text_select_handle_left_rimmed</item>
+    <item name="android:textSelectHandleRight">@drawable/text_select_handle_right_rimmed</item>
+    <item name="android:textSelectHandle">@drawable/text_select_handle_middle_rimmed</item>
     <item name="materialCalendarStyle">@style/Widget.Material3.MaterialCalendar</item>
     <item name="materialCalendarFullscreenTheme">@style/ThemeOverlay.Material3.MaterialCalendar.Fullscreen</item>
     <item name="materialCalendarTheme">@style/ThemeOverlay.Material3.MaterialCalendar</item>
@@ -197,6 +201,10 @@
   </style>
 
   <style name="MwmTheme.AlertDialog" parent="Theme.Material3.DayNight.Dialog.Alert">
+    <!-- Atlas: selection handles that show on the page in light and in dark mode alike. -->
+    <item name="android:textSelectHandleLeft">@drawable/text_select_handle_left_rimmed</item>
+    <item name="android:textSelectHandleRight">@drawable/text_select_handle_right_rimmed</item>
+    <item name="android:textSelectHandle">@drawable/text_select_handle_middle_rimmed</item>
     <item name="colorAccent">?buttonDialogTextColor</item>
     <item name="colorSecondary">?buttonDialogTextColor</item>
     <item name="colorPrimary">?buttonDialogTextColor</item>
@@ -216,6 +224,10 @@
   </style>
 
   <style name="MwmTheme.DialogFragment.Fullscreen" parent="Theme.Material3.Light">
+    <!-- Atlas: selection handles that show on the page in light and in dark mode alike. -->
+    <item name="android:textSelectHandleLeft">@drawable/text_select_handle_left_rimmed</item>
+    <item name="android:textSelectHandleRight">@drawable/text_select_handle_right_rimmed</item>
+    <item name="android:textSelectHandle">@drawable/text_select_handle_middle_rimmed</item>
     <item name="android:colorPrimaryDark">?statusBar</item>
     <item name="colorAccent">@color/base_accent</item>
     <item name="colorPrimary">@color/bg_primary</item>

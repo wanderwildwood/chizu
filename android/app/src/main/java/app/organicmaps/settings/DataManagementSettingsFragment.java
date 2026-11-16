@@ -36,7 +36,7 @@ public class DataManagementSettingsFragment extends BaseXmlSettingsFragment
     pref.setOnPreferenceClickListener(preference -> {
       if (app.organicmaps.sdk.downloader.MapManager.nativeIsDownloading())
       {
-        new com.google.android.material.dialog.MaterialAlertDialogBuilder(requireActivity())
+        new com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder(requireActivity())
             .setTitle(R.string.downloading_is_active)
             .setMessage(R.string.cant_change_this_setting)
             .setPositiveButton(R.string.ok, null)

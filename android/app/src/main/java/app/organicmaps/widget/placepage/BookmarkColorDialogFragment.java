@@ -13,6 +13,7 @@ import app.organicmaps.R;
 import app.organicmaps.bookmarks.ColorsAdapter;
 import app.organicmaps.sdk.bookmarks.data.PredefinedColors;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.util.List;
 
 public class BookmarkColorDialogFragment extends DialogFragment
@@ -47,7 +48,7 @@ public class BookmarkColorDialogFragment extends DialogFragment
         mIconResId = getArguments().getInt(ICON_RES);
     }
 
-    return new MaterialAlertDialogBuilder(requireActivity())
+    return new DarkAlertDialogBuilder(requireActivity())
         .setView(buildView())
         .setTitle(R.string.choose_color)
         .setNegativeButton(R.string.cancel, null)

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: a black text-selection handle with a white rim. The handles sit in a window of their own
+     that dark mode's filter does not reach, so the rim is what shows on the dark page. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="26dp" android:height="29dp"
+    android:viewportWidth="26" android:viewportHeight="29">
+  <path
+      android:fillColor="#FF000000"
+      android:strokeColor="#FFFFFFFF"
+      android:strokeWidth="1.5"
+      android:pathData="M13,1 L20.78,8.78 A11,11 0 1 1 5.22,8.78 Z" />
+</vector>

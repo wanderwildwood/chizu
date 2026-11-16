@@ -30,6 +30,7 @@ import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.SearchToolbarController;
 import app.organicmaps.widget.ToolbarController;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -356,7 +357,7 @@ public class EditorHostFragment
 
   private void warnSaveNotPossible()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.downloader_no_space_title)
         .setPositiveButton(R.string.ok, null)
         .show();
@@ -390,7 +391,7 @@ public class EditorHostFragment
 
   private void showNoobDialog()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_share_to_all_dialog_title)
         .setMessage(getString(R.string.editor_share_to_all_dialog_message_1) + " "
                     + getString(R.string.editor_share_to_all_dialog_message_2))

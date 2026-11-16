@@ -51,6 +51,7 @@ import app.organicmaps.widget.PlaceholderView;
 import app.organicmaps.widget.SearchToolbarController;
 import app.organicmaps.widget.recycler.DividerItemDecorationWithPadding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -216,7 +217,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
 
       int checked = currentType;
 
-      new MaterialAlertDialogBuilder(requireActivity())
+      new DarkAlertDialogBuilder(requireActivity())
           .setTitle(R.string.sort_categories)
           .setSingleChoiceItems(options, checked, (dialog, which) -> {
             BookmarkManager.INSTANCE.setCategorySortType(sortTypes[which]);
@@ -501,7 +502,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
 
   private void showNoFileManagerError()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setMessage(R.string.error_no_file_manager_app)
         .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
         .show();

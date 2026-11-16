@@ -8,6 +8,8 @@
 
 #include "coding/zip_creator.hpp"
 
+#include "geometry/mercator.hpp"
+
 #include "platform/localization.hpp"
 #include "platform/preferred_languages.hpp"
 
@@ -16,6 +18,7 @@
 
 #include <limits>
 #include <utility>
+#include <vector>
 
 using namespace jni;
 using namespace std::placeholders;
@@ -498,6 +501,29 @@ JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManage
                         jni::ToJavaString(env, nTrack->GetName()),
                         ToJavaDistance(env, platform::Distance::CreateFormatted(nTrack->GetLengthMeters())),
                         nTrack->GetColor(0).GetARGB());
+}
+
+// Atlas: a track's own line as latitude, longitude pairs in the order it was drawn, for following
+// it on foot. Empty when the track is gone.
+JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetTrackPoints(
+    JNIEnv * env, jclass, jlong trackId)
+{
+  std::vector<jdouble> coords;
+  if (auto const * nTrack = frm()->GetBookmarkManager().GetTrack(static_cast<kml::TrackId>(trackId)))
+  {
+    auto const line = nTrack->GetGeometry();
+    coords.reserve(line.size() * 2);
+    for (auto const & point : line)
+    {
+      auto const latLon = mercator::ToLatLon(point.GetPoint());
+      coords.push_back(latLon.m_lat);
+      coords.push_back(latLon.m_lon);
+    }
+  }
+  jdoubleArray const result = env->NewDoubleArray(static_cast<jsize>(coords.size()));
+  if (result && !coords.empty())
+    env->SetDoubleArrayRegion(result, 0, static_cast<jsize>(coords.size()), coords.data());
+  return result;
 }
 
 JNIEXPORT jlong JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetTrackIdByPosition(

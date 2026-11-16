@@ -3,15 +3,18 @@ package app.organicmaps.widget.placepage;
 import android.app.KeyguardManager;
 import android.content.Context;
 import android.os.Build;
-import android.view.Menu;
 import android.view.View;
-import android.widget.PopupMenu;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import androidx.appcompat.widget.ListPopupWindow;
+import com.wanderwildwood.chizu.ui.DarkMode;
 import androidx.annotation.NonNull;
 import app.organicmaps.MwmApplication;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.util.Utils;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PlacePageUtils
@@ -88,21 +91,27 @@ public class PlacePageUtils
 
   public static void showCopyPopup(Context context, View popupAnchor, List<String> items)
   {
-    final PopupMenu popup = new PopupMenu(context, popupAnchor);
-    final Menu menu = popup.getMenu();
+    // A list popup rather than a PopupMenu: its window can be handed to dark mode.
+    final ListPopupWindow popup = new ListPopupWindow(context);
     final String copyText = context.getResources().getString(android.R.string.copy);
     // A menu item can be clicked after PlacePageButtons is removed from the Views hierarchy so
     // let's find a container for the snackbar outside of PlacePageButtons and in advance.
     final View snackbarTarget = (View) popupAnchor.getRootView().findViewById(R.id.pp_buttons_layout).getParent();
 
-    for (int i = 0; i < items.size(); i++)
-      menu.add(Menu.NONE, i, i, String.format("%s %s", copyText, items.get(i)));
+    final List<String> labels = new ArrayList<>();
+    for (String item : items)
+      labels.add(String.format("%s %s", copyText, item));
 
-    popup.setOnMenuItemClickListener(item -> {
-      final String text = items.get(item.getItemId());
-      copyToClipboard(context, snackbarTarget, popupAnchor, text);
-      return true;
+    popup.setAnchorView(popupAnchor);
+    popup.setModal(true);
+    popup.setAdapter(new ArrayAdapter<>(context, android.R.layout.simple_list_item_1, labels));
+    popup.setOnItemClickListener((parent, view, position, id) -> {
+      copyToClipboard(context, snackbarTarget, popupAnchor, items.get(position));
+      popup.dismiss();
     });
     popup.show();
+    final ListView list = popup.getListView();
+    if (list != null)
+      DarkMode.INSTANCE.window(list);
   }
 }

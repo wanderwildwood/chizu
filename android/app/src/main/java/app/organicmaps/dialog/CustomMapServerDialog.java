@@ -13,6 +13,7 @@ import androidx.preference.PreferenceManager;
 import app.organicmaps.R;
 import app.organicmaps.sdk.Framework;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -35,7 +36,7 @@ public final class CustomMapServerDialog
     String current = prefs.getString(context.getString(R.string.pref_custom_map_download_url), "");
     edit.setText(current);
 
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(context)
+    MaterialAlertDialogBuilder builder = new DarkAlertDialogBuilder(context)
                                              .setTitle(R.string.download_resources_custom_url_title)
                                              .setMessage(R.string.download_resources_custom_url_message)
                                              .setView(dialogView)

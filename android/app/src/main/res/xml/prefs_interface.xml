@@ -25,7 +25,6 @@
   <SwitchPreferenceCompat
     android:key="@string/pref_dark_mode"
     android:persistent="false"
-    android:summary="@string/settings_dark_note"
     android:title="@string/settings_dark"
     android:widgetLayout="@layout/preference_switch"
     app:singleLineTitle="false" />

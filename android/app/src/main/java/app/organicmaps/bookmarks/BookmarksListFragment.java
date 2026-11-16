@@ -654,6 +654,8 @@ public class BookmarksListFragment extends BaseMwmRecyclerFragment<ConcatAdapter
 
   private void onDeleteTrackSelected(long trackId)
   {
+    // Atlas: a followed trail ends with its track.
+    com.wanderwildwood.chizu.TrailFollow.trackDeleted(requireContext(), trackId);
     BookmarkManager.INSTANCE.deleteTrack(trackId);
     getBookmarkListAdapter().onDelete(mSelectedPosition);
     getBookmarkListAdapter().notifyDataSetChanged();

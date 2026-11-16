@@ -23,6 +23,7 @@ import app.organicmaps.R;
 import app.organicmaps.backup.LocalBackupManager;
 import app.organicmaps.sdk.util.log.Logger;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.text.DateFormat;
 
 @Keep
@@ -337,7 +338,7 @@ public class BackupSettingsFragment extends BaseXmlSettingsFragment
 
   private void showNoFileManagerError()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setMessage(R.string.error_no_file_manager_app)
         .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())
         .show();
@@ -347,7 +348,7 @@ public class BackupSettingsFragment extends BaseXmlSettingsFragment
   {
     requireActivity().runOnUiThread(
         ()
-            -> new MaterialAlertDialogBuilder(requireActivity())
+            -> new DarkAlertDialogBuilder(requireActivity())
                    .setTitle(R.string.pref_backup_now_summary_failed)
                    .setMessage(message)
                    .setPositiveButton(android.R.string.ok, (dialog, which) -> dialog.dismiss())

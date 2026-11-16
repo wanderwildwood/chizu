@@ -152,6 +152,7 @@ public final class PlacePageButtons extends Fragment implements Observer<List<Pl
     ROUTE_AVOID_FERRY,
     ROUTE_AVOID_UNPAVED,
     SET_HOME, // Atlas
+    TRACK_FOLLOW, // Atlas
     MORE
   }
 

@@ -17,6 +17,7 @@ import app.organicmaps.base.BaseMwmFragment;
 import app.organicmaps.sdk.editor.OpeningHours;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 
 public class TimetableContainerFragment extends BaseMwmFragment implements TimetableChangedListener
@@ -153,7 +154,7 @@ public class TimetableContainerFragment extends BaseMwmFragment implements Timet
       if (activity == null)
         return;
 
-      new MaterialAlertDialogBuilder(activity)
+      new DarkAlertDialogBuilder(activity)
           .setMessage(R.string.editor_correct_mistake)
           .setPositiveButton(android.R.string.ok, null)
           .show();

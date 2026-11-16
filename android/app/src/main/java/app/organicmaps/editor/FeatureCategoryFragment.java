@@ -24,6 +24,7 @@ import app.organicmaps.widget.SearchToolbarController;
 import app.organicmaps.widget.ToolbarController;
 import app.organicmaps.widget.recycler.DividerItemDecorationWithPadding;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.util.Arrays;
 import java.util.Comparator;
 
@@ -184,7 +185,7 @@ public class FeatureCategoryFragment
   // Duplicate of showNoobDialog()
   private void showNoteConfirmationDialog(double lat, double lon, String noteText)
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_share_to_all_dialog_title)
         .setMessage(getString(R.string.editor_share_to_all_dialog_message_1) + " "
                     + getString(R.string.editor_share_to_all_dialog_message_2))

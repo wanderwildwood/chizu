@@ -44,6 +44,7 @@ import app.organicmaps.util.bottomsheet.MenuBottomSheetFragment;
 import app.organicmaps.util.bottomsheet.MenuBottomSheetItem;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -516,6 +517,20 @@ public class PlacePageController
     case ROUTE_AVOID_TOLL -> onAvoidTollBtnClicked();
     case ROUTE_AVOID_UNPAVED -> onAvoidUnpavedBtnClicked();
     case ROUTE_AVOID_FERRY -> onAvoidFerryBtnClicked();
+    case TRACK_FOLLOW ->
+    {
+      // mMapObject is set to null when the place page closes
+      if (mMapObject == null || !mMapObject.isTrack())
+        return;
+      final Track track = (Track) mMapObject;
+      if (com.wanderwildwood.chizu.TrailFollow.start(requireContext(), track.getTrackId(), track.getName()))
+        close();
+      else
+        new DarkAlertDialogBuilder(requireContext(), R.style.MwmTheme_M3_AlertDialog)
+            .setMessage(R.string.trail_no_line)
+            .setPositiveButton(R.string.ok, null)
+            .show();
+    }
     case SET_HOME ->
     {
       // mMapObject is set to null when the place page closes
@@ -524,7 +539,7 @@ public class PlacePageController
       final com.wanderwildwood.chizu.GoPlaces.Place home =
           com.wanderwildwood.chizu.GoPlaces.setHome(requireContext(), mMapObject, getString(R.string.go_home));
       // A dialog, not a toast: a toast is brief and easy to miss on E Ink, and the tap looked like nothing.
-      new MaterialAlertDialogBuilder(requireContext(), R.style.MwmTheme_M3_AlertDialog)
+      new DarkAlertDialogBuilder(requireContext(), R.style.MwmTheme_M3_AlertDialog)
           .setTitle(R.string.go_home)
           .setMessage(getString(R.string.go_home_set, home.getName()))
           .setPositiveButton(R.string.ok, null)
@@ -566,13 +581,16 @@ public class PlacePageController
       mAlertDialog.show();
       return;
     }
-    mAlertDialog = new MaterialAlertDialogBuilder(requireContext())
+    mAlertDialog = new DarkAlertDialogBuilder(requireContext())
                        .setTitle(requireContext().getString(R.string.delete_track_dialog_title, mMapObject.getTitle()))
                        .setCancelable(true)
                        .setNegativeButton(R.string.cancel, null)
                        .setPositiveButton(R.string.delete,
                                           (dialog, which) -> {
-                                            BookmarkManager.INSTANCE.deleteTrack(((Track) mMapObject).getTrackId());
+                                            final long trackId = ((Track) mMapObject).getTrackId();
+                                            // Atlas: a followed trail ends with its track.
+                                            com.wanderwildwood.chizu.TrailFollow.trackDeleted(requireContext(), trackId);
+                                            BookmarkManager.INSTANCE.deleteTrack(trackId);
                                             close();
                                           })
                        .setOnDismissListener(dialog -> dismissAlertDialog())
@@ -714,6 +732,10 @@ public class PlacePageController
     {
       if (showBackButton)
         buttons.add(PlacePageButtons.ButtonType.BACK);
+
+      // Atlas: an imported trail can be walked as it is; first, so it is not under More.
+      if (mapObject.isTrack() && !RoutingController.get().isPlanning())
+        buttons.add(PlacePageButtons.ButtonType.TRACK_FOLLOW);
 
       boolean needToShowRoutingButtons = RoutingController.get().isPlanning() || showRoutingButton;
 

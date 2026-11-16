@@ -19,6 +19,7 @@ import app.organicmaps.sdk.location.LocationState
 import app.organicmaps.sdk.routing.RoutingController
 import app.organicmaps.sdk.util.LocationUtils
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder
 
 /**
  * Help while the phone looks for its position. When the map has waited a while for a first fix, a
@@ -102,7 +103,7 @@ class FixHelp(private val activity: Activity, private val line: TextView) {
     private fun explain() {
         val last = MwmApplication.from(activity).locationHelper.savedLocation
         val minutes = last?.let { ((System.currentTimeMillis() - it.time) / 60_000L).toInt() }
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(R.string.fix_help_title)
             .setMessage(activity.getString(R.string.fix_help_body) + "\n\n" + detail(activity, inView, inUse, minutes))
             .setPositiveButton(R.string.fix_help_settings) { _, _ ->

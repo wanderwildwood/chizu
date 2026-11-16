@@ -20,6 +20,7 @@ import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils.ScrollableContentInsetsListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 
 public class OsmLoginFragment extends BaseMwmToolbarFragment
 {
@@ -79,7 +80,7 @@ public class OsmLoginFragment extends BaseMwmToolbarFragment
 
   private void onAuthFail()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_login_error_dialog)
         .setPositiveButton(R.string.ok, null)
         .show();

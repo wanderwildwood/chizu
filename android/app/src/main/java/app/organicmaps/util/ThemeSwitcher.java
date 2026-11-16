@@ -94,8 +94,10 @@ public enum ThemeSwitcher
     }
     else
     {
+      // Atlas: the screens stay light through AppCompat alone. The app as a whole is left on the
+      // phone's own setting (AUTO undoes the NO an older version set), so dark mode can hear it.
       if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S)
-        uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_NO);
+        uiModeManager.setApplicationNightMode(UiModeManager.MODE_NIGHT_AUTO);
       AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
 
       mapAppearance = MapAppearance.Light;

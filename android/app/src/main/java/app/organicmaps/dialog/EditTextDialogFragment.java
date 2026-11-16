@@ -20,6 +20,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.util.InputUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
@@ -112,7 +113,7 @@ public class EditTextDialogFragment extends DialogFragment
       negativeButtonText = args.getString(ARG_NEGATIVE_BUTTON);
     }
 
-    AlertDialog editTextDialog = new MaterialAlertDialogBuilder(requireActivity())
+    AlertDialog editTextDialog = new DarkAlertDialogBuilder(requireActivity())
                                      .setTitle(mTitle)
                                      .setView(buildView())
                                      .setNegativeButton(negativeButtonText, null)

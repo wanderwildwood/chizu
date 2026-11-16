@@ -136,6 +136,7 @@ import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.wanderwildwood.chizu.StreamedMap;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.ArrayList;
 import java.util.Objects;
@@ -199,6 +200,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   @Nullable
   private StreamedMap.Layer mStreamedMap;
   private com.wanderwildwood.chizu.FixHelp mFixHelp;
+  private com.wanderwildwood.chizu.TrailFollow mTrailFollow;
   private boolean mIsTabletLayout;
   @SuppressWarnings("NotNullFieldNotInitialized")
   @NonNull
@@ -452,7 +454,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
 
     dismissLocationErrorDialog();
-    mLocationErrorDialog = new MaterialAlertDialogBuilder(MwmActivity.this)
+    mLocationErrorDialog = new DarkAlertDialogBuilder(MwmActivity.this)
                                .setMessage(R.string.unknown_current_position)
                                .setCancelable(true)
                                .setPositiveButton(R.string.ok, null)
@@ -640,6 +642,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     getLifecycle().addObserver(mMapController);
     mStreamedMap = new StreamedMap.Layer(this, findViewById(R.id.stream_map));
     mFixHelp = new com.wanderwildwood.chizu.FixHelp(this, findViewById(R.id.fix_help));
+    mTrailFollow = new com.wanderwildwood.chizu.TrailFollow(this, findViewById(R.id.trail_line));
     // Atlas: the place whose page is open is marked on the streamed map too.
     mPlacePageViewModel.getMapObject().observe(this, mapObject -> {
       if (mStreamedMap == null)
@@ -708,7 +711,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
         else
         {
           dismissAlertDialog();
-          mAlertDialog = new MaterialAlertDialogBuilder(this)
+          mAlertDialog = new DarkAlertDialogBuilder(this)
                              .setTitle(R.string.message_invalid_feature_position)
                              .setPositiveButton(R.string.ok, null)
                              .setOnDismissListener(dialog -> mAlertDialog = null)
@@ -1183,7 +1186,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     if (type == IsolinesState.EXPIREDDATA)
     {
-      mAlertDialog = new MaterialAlertDialogBuilder(this)
+      mAlertDialog = new DarkAlertDialogBuilder(this)
                          .setTitle(R.string.downloader_update_maps)
                          .setMessage(R.string.isolines_activation_error_dialog)
                          .setPositiveButton(
@@ -1218,6 +1221,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
       mStreamedMap.onResume();
     if (mFixHelp != null)
       mFixHelp.onResume();
+    if (mTrailFollow != null)
+      mTrailFollow.onResume();
     ThemeSwitcher.INSTANCE.restart(mMapController.isRenderingActive());
     refreshSearchToolbar();
     setFullscreen(isFullscreen());
@@ -1252,6 +1257,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
       mStreamedMap.onPause();
     if (mFixHelp != null)
       mFixHelp.onPause();
+    if (mTrailFollow != null)
+      mTrailFollow.onPause();
     MwmApplication.from(this).getSensorHelper().removeListener(this);
     dismissLocationErrorDialog();
     dismissAlertDialog();
@@ -1905,7 +1912,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this)
+        new DarkAlertDialogBuilder(this)
             .setTitle(R.string.unable_to_calc_alert_title)
             .setMessage(R.string.unable_to_calc_alert_subtitle)
             .setPositiveButton(R.string.settings,
@@ -1931,7 +1938,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     Config.acceptRoutingDisclaimer();
 
     dismissAlertDialog();
-    mAlertDialog = new MaterialAlertDialogBuilder(this)
+    mAlertDialog = new DarkAlertDialogBuilder(this)
                        .setTitle(R.string.dialog_routing_disclaimer_title)
                        .setMessage(builder.toString())
                        .setCancelable(false)
@@ -1960,7 +1967,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return true;
 
     final MapObject endPoint = Objects.requireNonNull(controller.getEndPoint());
-    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this)
+    final MaterialAlertDialogBuilder builder = new DarkAlertDialogBuilder(this)
         .setTitle(R.string.p2p_only_from_current)
         .setMessage(R.string.p2p_reroute_from_current)
         .setCancelable(false)
@@ -2155,7 +2162,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
         {
           mPreciseLocationDialogShown = true;
           final MaterialAlertDialogBuilder builder =
-              new MaterialAlertDialogBuilder(this)
+              new DarkAlertDialogBuilder(this)
                   .setTitle("⚠ " + getString(R.string.limited_accuracy))
                   .setMessage(R.string.precise_location_is_disabled_long_text)
                   .setNegativeButton(R.string.close, (dialog, which) -> dialog.dismiss())
@@ -2189,7 +2196,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return;
     }
 
-    mLocationErrorDialog = new MaterialAlertDialogBuilder(this)
+    mLocationErrorDialog = new DarkAlertDialogBuilder(this)
                                .setTitle(R.string.enable_location_services)
                                .setMessage(R.string.location_is_disabled_long_text)
                                .setOnDismissListener(dialog -> mLocationErrorDialog = null)
@@ -2280,7 +2287,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
       return;
     }
 
-    final MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(this)
+    final MaterialAlertDialogBuilder builder = new DarkAlertDialogBuilder(this)
                                                    .setTitle(R.string.enable_location_services)
                                                    .setMessage(R.string.location_is_disabled_long_text)
                                                    .setOnDismissListener(dialog -> mLocationErrorDialog = null)
@@ -2372,7 +2379,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
     dismissAlertDialog();
     final MaterialAlertDialogBuilder builder =
-        new MaterialAlertDialogBuilder(this)
+        new DarkAlertDialogBuilder(this)
             .setTitle(R.string.current_location_unknown_error_title)
             .setCancelable(true)
             .setMessage(R.string.power_save_dialog_summary)
@@ -2397,7 +2404,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this)
+        new DarkAlertDialogBuilder(this)
             .setTitle(R.string.load_kmz_title)
             .setMessage(getString(R.string.unknown_file_type, uri))
             .setPositiveButton(R.string.ok, null)
@@ -2414,7 +2421,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   {
     dismissAlertDialog();
     mAlertDialog =
-        new MaterialAlertDialogBuilder(this)
+        new DarkAlertDialogBuilder(this)
             .setTitle(R.string.load_kmz_title)
             .setMessage(getString(R.string.failed_to_open_file, uri, error))
             .setPositiveButton(R.string.ok, null)
@@ -2436,7 +2443,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public void onBookmarksFileImportFailed()
   {
     dismissAlertDialog();
-    mAlertDialog = new MaterialAlertDialogBuilder(this)
+    mAlertDialog = new DarkAlertDialogBuilder(this)
                        .setTitle(R.string.load_kmz_title)
                        .setMessage(R.string.load_kmz_failed)
                        .setPositiveButton(R.string.ok, null)
@@ -2713,7 +2720,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
 
   private void reportUnsupported()
   {
-    new MaterialAlertDialogBuilder(this)
+    new DarkAlertDialogBuilder(this)
         .setMessage(R.string.unsupported_phone)
         .setCancelable(false)
         .setPositiveButton(R.string.close, (dlg, which) -> this.moveTaskToBack(true))

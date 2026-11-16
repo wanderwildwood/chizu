@@ -44,6 +44,7 @@ import app.organicmaps.util.InputUtils;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.imageview.ShapeableImageView;
 import com.google.android.material.materialswitch.MaterialSwitch;
 import com.google.android.material.textfield.TextInputEditText;
@@ -507,7 +508,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       }
     });
 
-    return new MaterialAlertDialogBuilder(requireActivity())
+    return new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_socket)
         .setView(dialogView)
         .setPositiveButton(
@@ -1026,7 +1027,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
       message = R.string.editor_reset_edits_message;
     }
 
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(message)
         .setPositiveButton(title,
                            (dialog, which) -> {
@@ -1049,7 +1050,7 @@ public class EditorFragment extends BaseMwmFragment implements View.OnClickListe
 
   private void placeDisused()
   {
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setTitle(R.string.editor_mark_business_vacant_title)
         .setMessage(R.string.editor_mark_business_vacant_description)
         .setPositiveButton(R.string.editor_submit,

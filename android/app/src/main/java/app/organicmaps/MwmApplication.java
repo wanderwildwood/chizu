@@ -129,6 +129,8 @@ public class MwmApplication extends Application implements Application.ActivityL
     Logger.i(TAG, "Initializing application");
 
     sInstance = this;
+    // Atlas: every dialog fragment, bottom sheet and alert follows dark mode.
+    com.wanderwildwood.chizu.ui.DarkDialogs.INSTANCE.init(this);
 
     PreferenceManager.setDefaultValues(this, R.xml.prefs_main, false);
     mOrganicMaps = new OrganicMaps(getApplicationContext(), BuildConfig.FLAVOR, BuildConfig.APPLICATION_ID,

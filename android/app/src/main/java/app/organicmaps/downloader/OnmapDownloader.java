@@ -21,6 +21,7 @@ import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import app.organicmaps.widget.WheelProgressView;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import com.wanderwildwood.chizu.StreamedMap;
 import java.util.List;
@@ -227,7 +228,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
     mButton = controls.findViewById(R.id.downloader_button);
     mOnlineButton = mFrame.findViewById(R.id.downloader_online);
     mOnlineButton.setOnClickListener(
-        v -> new MaterialAlertDialogBuilder(mActivity, R.style.MwmTheme_M3_AlertDialog)
+        v -> new DarkAlertDialogBuilder(mActivity, R.style.MwmTheme_M3_AlertDialog)
                  .setTitle(R.string.streamed_map_ask_title)
                  .setMessage(R.string.streamed_map_ask_body)
                  .setPositiveButton(R.string.streamed_map_use,

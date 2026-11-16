@@ -13,6 +13,7 @@ import app.organicmaps.sdk.Framework
 import app.organicmaps.sdk.downloader.CountryItem
 import app.organicmaps.sdk.downloader.MapManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
@@ -145,7 +146,7 @@ object OnlineAddress {
     @JvmStatic
     fun lookUp(activity: Activity, typed: String) {
         if (isOn(activity)) return fetch(activity, typed.trim())
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(R.string.online_address_ask_title)
             .setMessage(R.string.online_address_ask_body)
             .setPositiveButton(R.string.online_address_use) { _, _ ->
@@ -203,7 +204,7 @@ object OnlineAddress {
 
     private fun show(activity: Activity, typed: String, found: List<Found>) {
         if (found.isEmpty()) return say(activity, R.string.online_address_none)
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(R.string.online_address_found)
             .setItems(found.map { it.name }.toTypedArray()) { _, which -> open(activity, found[which]) }
             .setNegativeButton(R.string.close, null)
@@ -211,7 +212,7 @@ object OnlineAddress {
     }
 
     private fun say(activity: Activity, words: Int) {
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setMessage(words)
             .setPositiveButton(R.string.close, null)
             .show()

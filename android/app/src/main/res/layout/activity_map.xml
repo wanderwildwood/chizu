@@ -43,6 +43,24 @@
       android:textAppearance="@style/MwmTextAppearance.Body1"
       android:textColor="#000000"
       android:visibility="gone" />
+    <!-- Atlas: while an imported trail is followed: how far to its end; a press turns or stops it. -->
+    <TextView
+      android:id="@+id/trail_line"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_below="@id/fix_help"
+      android:layout_alignWithParentIfMissing="true"
+      android:layout_marginStart="88dp"
+      android:layout_marginEnd="@dimen/margin_base"
+      android:layout_marginTop="@dimen/margin_half"
+      android:minHeight="48dp"
+      android:gravity="center_vertical"
+      android:paddingStart="12dp"
+      android:paddingEnd="12dp"
+      android:background="@drawable/fix_help_frame"
+      android:textAppearance="@style/MwmTextAppearance.Body1"
+      android:textColor="#000000"
+      android:visibility="gone" />
     <include
       android:id="@+id/onmap_downloader"
       layout="@layout/onmap_downloader"

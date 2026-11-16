@@ -28,7 +28,7 @@ object HomeButton {
     @JvmOverloads
     fun about(activity: Context, changed: Runnable? = null) {
         val home = GoPlaces.home(activity) ?: return explain(activity)
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(R.string.go_home)
             .setMessage(activity.getString(R.string.go_home_is, home.name))
             .setPositiveButton(R.string.ok, null)
@@ -40,7 +40,7 @@ object HomeButton {
     }
 
     private fun explain(activity: Context) {
-        MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(R.string.go_home)
             .setMessage(R.string.go_home_not_set)
             .setPositiveButton(R.string.ok, null)

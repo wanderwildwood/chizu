@@ -7,6 +7,7 @@ import app.organicmaps.sdk.Router
 import app.organicmaps.sdk.routing.ResultCodes
 import app.organicmaps.sdk.routing.RoutingController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder
 
 /**
  * A route from a route server, for when the map a route needs is not on the phone.
@@ -83,7 +84,7 @@ object OnlineRoutes {
             // The server's route failed. The next route starts from the maps on the phone again.
             Router.setOnline(false, "")
             if (resultCode == ResultCodes.ROUTE_NOT_FOUND) return false // It answered: there is no such route.
-            MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+            DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
                 .setTitle(R.string.online_routes_failed_title)
                 .setMessage(R.string.online_routes_failed_body)
                 .setPositiveButton(R.string.online_routes_try_again) { _, _ -> goOnline(activity) }
@@ -100,7 +101,7 @@ object OnlineRoutes {
         offlineMaps = missingMaps
 
         if (!wasAsked(activity)) {
-            MaterialAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+            DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
                 .setTitle(R.string.online_routes_ask_title)
                 .setMessage(R.string.online_routes_ask_body)
                 .setPositiveButton(R.string.online_routes_use) { _, _ ->

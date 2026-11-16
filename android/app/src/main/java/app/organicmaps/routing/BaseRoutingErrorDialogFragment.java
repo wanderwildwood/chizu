@@ -21,6 +21,7 @@ import app.organicmaps.sdk.util.StringUtils;
 import app.organicmaps.sdk.util.Utils;
 import app.organicmaps.util.UiUtils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -56,7 +57,7 @@ abstract class BaseRoutingErrorDialogFragment extends DialogFragment
   public Dialog onCreateDialog(Bundle savedInstanceState)
   {
     parseArguments();
-    MaterialAlertDialogBuilder builder = new MaterialAlertDialogBuilder(requireActivity())
+    MaterialAlertDialogBuilder builder = new DarkAlertDialogBuilder(requireActivity())
                                              .setCancelable(true)
                                              .setNegativeButton(android.R.string.cancel, null);
     beforeDialogCreated(builder);

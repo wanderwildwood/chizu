@@ -29,6 +29,7 @@ import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.util.SharingUtils;
 import app.organicmaps.util.Utils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.io.IOException;
 import java.util.Objects;
 
@@ -120,7 +121,7 @@ public class SplashActivity extends AppCompatActivity
   private void showFatalErrorDialog(@StringRes int titleId, @StringRes int messageId, Exception error)
   {
     mCanceled = true;
-    new MaterialAlertDialogBuilder(this, R.style.MwmTheme_M3_AlertDialog)
+    new DarkAlertDialogBuilder(this, R.style.MwmTheme_M3_AlertDialog)
         .setTitle(titleId)
         .setMessage(messageId)
         .setPositiveButton(

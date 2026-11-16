@@ -8,6 +8,7 @@ import app.organicmaps.R;
 import app.organicmaps.sdk.maplayer.traffic.TrafficManager;
 import app.organicmaps.util.Utils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 
 @SuppressWarnings("unused")
 public class TrafficButtonController implements TrafficManager.TrafficCallback
@@ -107,7 +108,7 @@ public class TrafficButtonController implements TrafficManager.TrafficCallback
     if (mDialog != null && mDialog.isShowing())
       return;
 
-    mDialog = new MaterialAlertDialogBuilder(mActivity)
+    mDialog = new DarkAlertDialogBuilder(mActivity)
                   .setMessage(R.string.common_check_internet_connection_dialog)
                   .setPositiveButton(R.string.ok, (dialog, which) -> TrafficManager.INSTANCE.setEnabled(false))
                   .setCancelable(true)

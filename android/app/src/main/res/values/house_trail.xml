@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Atlas: walking an imported trail. Distances come with their units ("3.2 km", "400 ft"). -->
+  <string name="trail_follow">Follow trail</string>
+  <string name="trail_line_waiting">Trail: looking for your position</string>
+  <string name="trail_line_left">Trail: %1$s to the end</string>
+  <string name="trail_line_off">Off the trail by %1$s. %2$s to the end</string>
+  <string name="trail_line_end">End of the trail</string>
+  <string name="trail_detail_waiting">The trail is %1$s long. Once the phone knows where it is, the line on the map says how far it is to the trail\'s end.</string>
+  <string name="trail_detail">%1$s to the end, %2$s behind you.</string>
+  <string name="trail_detail_off">You are %1$s from the trail.</string>
+  <string name="trail_stop">Stop following</string>
+  <string name="trail_turn_around">Walk it the other way</string>
+  <string name="trail_no_line">This track has no line to follow.</string>
+</resources>

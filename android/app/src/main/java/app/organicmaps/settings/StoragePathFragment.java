@@ -22,6 +22,7 @@ import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.util.SharingUtils;
 import app.organicmaps.util.Utils;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import java.io.File;
 import java.util.List;
@@ -99,7 +100,7 @@ public class StoragePathFragment extends BaseSettingsFragment
     final String oldPath = storages.get(currentIndex).mPath;
     final String newPath = storages.get(newIndex).mPath;
 
-    new MaterialAlertDialogBuilder(requireActivity())
+    new DarkAlertDialogBuilder(requireActivity())
         .setCancelable(false)
         .setTitle(R.string.move_maps)
         .setPositiveButton(R.string.ok, (dlg, which) -> moveStorage(newPath, oldPath))
@@ -135,7 +136,7 @@ public class StoragePathFragment extends BaseSettingsFragment
 
         if (!result)
         {
-          new MaterialAlertDialogBuilder(requireActivity())
+          new DarkAlertDialogBuilder(requireActivity())
               .setTitle(R.string.move_maps_error)
               .setPositiveButton(
                   R.string.report_a_bug,

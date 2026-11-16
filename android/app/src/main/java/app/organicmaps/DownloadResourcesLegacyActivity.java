@@ -45,6 +45,7 @@ import app.organicmaps.util.WindowInsetUtils.PaddingInsetsListener;
 import com.google.android.material.button.MaterialButton;
 import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
+import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.List;
@@ -467,7 +468,7 @@ public class DownloadResourcesLegacyActivity extends BaseMwmFragmentActivity
       default -> throw new AssertionError("Unexpected result code = " + result);
     };
 
-    mAlertDialog = new MaterialAlertDialogBuilder(this)
+    mAlertDialog = new DarkAlertDialogBuilder(this)
                        .setTitle(titleId)
                        .setMessage(messageId)
                        .setCancelable(true)
