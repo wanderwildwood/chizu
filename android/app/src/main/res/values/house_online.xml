@@ -28,7 +28,7 @@
   <string name="streamed_map_wifi_summary">On mobile data, show only the parts of the map already seen.</string>
   <string name="streamed_map_server">Map server</string>
   <string name="streamed_map_server_default">OpenFreeMap (tiles.openfreemap.org)</string>
-  <string name="streamed_map_server_message">The address of a map tile server of your own (OpenMapTiles layout), starting with https://. Leave it empty to use OpenFreeMap.</string>
+  <string name="streamed_map_server_message">The address of a map tile server of your own (OpenMapTiles layout), starting with https://. Leave it empty to use OpenFreeMap. The lettering for the names comes from OpenFreeMap either way.</string>
   <string name="streamed_map_credit">The map shown online: OpenFreeMap © OpenMapTiles. Data from OpenStreetMap.</string>
   <string name="pref_streamed_map" translatable="false">AtlasStreamedMap</string>
   <string name="pref_streamed_map_server" translatable="false">AtlasStreamedMapServer</string>
