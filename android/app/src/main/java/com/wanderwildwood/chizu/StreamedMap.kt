@@ -292,6 +292,9 @@ object StreamedMap {
             val view = MapView(activity, options)
             mapView = view
             frame.addView(view, FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT))
+            // Drawn in a TextureView, which dark mode would turn negative along with the window;
+            // kept, so it matches Atlas's own map, which keeps its colors.
+            com.wanderwildwood.chizu.ui.DarkMode.keep(view)
             view.onCreate(null)
             if (started) view.onStart()
             if (resumed) view.onResume()
