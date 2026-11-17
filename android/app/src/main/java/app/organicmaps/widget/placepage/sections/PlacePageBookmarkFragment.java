@@ -72,6 +72,9 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
     // Atlas: a note can come from any imported file; it reads nothing on the phone.
     settings.setAllowFileAccess(false);
     settings.setAllowContentAccess(false);
+    // Atlas: and nothing from the network either: a picture in a note would tell its server
+    // when the place was opened. A link in the note still opens in the browser when tapped.
+    settings.setBlockNetworkLoads(true);
     settings.setDefaultTextEncodingName("UTF-8");
     final LinearLayout linearLayout = mFrame.findViewById(R.id.place_page_bookmark_layout);
     // Add the webview in last position
