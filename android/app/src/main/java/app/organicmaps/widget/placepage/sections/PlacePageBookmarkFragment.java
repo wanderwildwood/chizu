@@ -69,6 +69,9 @@ public class PlacePageBookmarkFragment extends Fragment implements View.OnClickL
     mWvBookmarkNote = new WebView(requireContext());
     final WebSettings settings = mWvBookmarkNote.getSettings();
     settings.setJavaScriptEnabled(false);
+    // Atlas: a note can come from any imported file; it reads nothing on the phone.
+    settings.setAllowFileAccess(false);
+    settings.setAllowContentAccess(false);
     settings.setDefaultTextEncodingName("UTF-8");
     final LinearLayout linearLayout = mFrame.findViewById(R.id.place_page_bookmark_layout);
     // Add the webview in last position
