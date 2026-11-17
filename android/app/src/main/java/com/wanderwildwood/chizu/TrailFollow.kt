@@ -7,7 +7,10 @@ import android.view.View
 import android.widget.TextView
 import app.organicmaps.MwmApplication
 import app.organicmaps.R
+import app.organicmaps.sdk.Router
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager
+import app.organicmaps.sdk.bookmarks.data.FeatureId
+import app.organicmaps.sdk.bookmarks.data.MapObject
 import app.organicmaps.sdk.location.LocationListener
 import app.organicmaps.sdk.routing.RoutingController
 import app.organicmaps.sdk.util.StringUtils
@@ -16,9 +19,11 @@ import kotlin.math.cos
 import kotlin.math.hypot
 
 /**
- * Walking an imported trail. No route is made and no map data is asked: the track's own line is
- * what is followed. A line on the map says how far it is to the trail's end, and says so when the
- * walker has strayed from it; a press on the line turns the walk around or stops it.
+ * Walking an imported trail, whole or up to a spot on it. No route is made along it and no map
+ * data is asked: the track's own line is what is followed. A line on the map says how far it is to
+ * the end (or to the chosen stop), and says so when the walker has strayed from it; a press on the
+ * line turns the walk around or stops it. Away from the trail, CoMaps' own walking route can take
+ * the walker to the nearest point of it, and following picks up from there.
  */
 class TrailFollow(private val activity: Activity, private val line: TextView) {
     private val listener = LocationListener { location -> onLocation(location) }
@@ -74,7 +79,7 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
             return
         }
         await(false)
-        if (current != null && BookmarkManager.nativeGetTrackPoints(trackId).isNotEmpty()) return
+        if (followed != null && BookmarkManager.nativeGetTrackPoints(trackId).isNotEmpty()) return
         val manager = BookmarkManager.INSTANCE
         val ids = manager.categories.flatMap { list ->
             (0 until list.tracksCount).map { manager.getTrackIdByPosition(list.id, it) }
@@ -86,38 +91,77 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
     }
 
     private fun refresh() {
-        if (current != null && spot == null) MwmApplication.from(activity).locationHelper.savedLocation?.let { onLocation(it) }
+        if (followed != null && spot == null) MwmApplication.from(activity).locationHelper.savedLocation?.let { onLocation(it) }
         show()
     }
 
     private fun show() {
-        val trail = current
         // A route being planned or driven has the top of the map to itself.
-        if (trail == null || RoutingController.get().isPlanning || RoutingController.get().isNavigating) {
+        if (followed == null || RoutingController.get().isPlanning || RoutingController.get().isNavigating) {
             line.visibility = View.GONE
             return
         }
-        line.text = lineText(activity, spot, trail.length) { format(it) }
+        line.text = lineText(activity, spot, current?.length ?: 0.0, isStretch) { format(it) }
         line.visibility = View.VISIBLE
     }
 
     private fun onLocation(location: Location) {
+        val track = followed ?: return
+        // A stretch begins where the walker meets the trail, so it waits for the first position.
+        if (current == null) {
+            val stopAt = stop ?: return
+            begin(activity, track.locate(location.latitude, location.longitude, null).along, stopAt)
+        }
         val trail = current ?: return
         spot = trail.locate(location.latitude, location.longitude, spot?.along)
             .let { it.copy(off = isOff(it.away, if (location.hasAccuracy()) location.accuracy.toDouble() else 0.0)) }
         show()
+        if (offerWalk) {
+            offerWalk = false
+            // Not from inside the call: it can come from the place page's button.
+            if (spot?.off == true) line.post { offerWalkTo() }
+        }
     }
 
     private fun showChoices() {
-        val trail = current ?: return
-        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+        val trail = current
+        val here = spot
+        val dialog = DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
             .setTitle(name)
-            .setMessage(detail(activity, spot, trail.length) { format(it) })
-            // Stacked, they read from the top: turn around, stop, close.
-            .setPositiveButton(R.string.trail_turn_around) { _, _ -> turnAround(activity) }
-            .setNegativeButton(R.string.trail_stop) { _, _ -> stop(activity) }
+            .setMessage(detail(activity, here, trail?.length ?: followed?.length ?: 0.0, isStretch) { format(it) })
+        // Stacked, they read from the top: walk to the trail or turn around, stop, close. Off the
+        // trail, getting back to it comes first; a stretch not yet begun has no way round.
+        if (here?.off == true) dialog.setPositiveButton(R.string.trail_walk_to) { _, _ -> walkTo() }
+        else if (trail != null || !isStretch) dialog.setPositiveButton(R.string.trail_turn_around) { _, _ -> turnAround(activity) }
+        dialog.setNegativeButton(R.string.trail_stop) { _, _ -> stop(activity) }
             .setNeutralButton(R.string.close, null)
             .show()
+    }
+
+    /** Asked once, at the first position after following began, when that is away from the trail. */
+    private fun offerWalkTo() {
+        val here = spot ?: return
+        if (!here.off || RoutingController.get().isPlanning || RoutingController.get().isNavigating) return
+        DarkAlertDialogBuilder(activity, R.style.MwmTheme_M3_AlertDialog)
+            .setTitle(name)
+            .setMessage(activity.getString(R.string.trail_walk_to_offer, format(here.away)))
+            .setPositiveButton(R.string.trail_walk_to) { _, _ -> walkTo() }
+            .setNeutralButton(R.string.close, null)
+            .show()
+    }
+
+    /**
+     * CoMaps' walking route from where the walker is to the point of the trail nearest them. The
+     * trail's line comes back once the route is done or closed, and following goes on from there.
+     */
+    private fun walkTo() {
+        val trail = current ?: return
+        val here = spot ?: return
+        val (lat, lon) = trail.pointAt(here.along)
+        val from = MwmApplication.from(activity).locationHelper.myPosition
+        val to = MapObject.createMapObject(FeatureId.EMPTY, MapObject.API_POINT, name, "", lat, lon)
+        RoutingController.get().prepare(from, to, Router.Pedestrian)
+        show()
     }
 
     private fun format(meters: Double): String = StringUtils.nativeFormatDistance(meters).toString(activity)
@@ -132,13 +176,24 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
     )
 
     /**
-     * What is kept of a followed trail while the app is closed: which way it is walked, and enough
-     * of its line, as the track has it, to know the track again.
+     * What is kept of a followed trail while the app is closed: which way it is walked, or which
+     * stretch of it, and enough of its line, as the track has it, to know the track again.
+     * [begin] and [stop] are meters along the track from its own start; [stop] is null for the
+     * whole trail, [begin] is null for a stretch whose walker had not yet been placed on it.
      */
-    class Saved(val reversed: Boolean, val points: Int, private val samples: DoubleArray) {
-        fun line(): String = "${if (reversed) 1 else 0} $points " + samples.joinToString(" ")
+    class Saved(
+        val reversed: Boolean,
+        val points: Int,
+        private val samples: DoubleArray,
+        val begin: Double? = null,
+        val stop: Double? = null,
+    ) {
+        fun line(): String = "${if (reversed) 1 else 0} $points " + samples.joinToString(" ") +
+            (stop?.let { " $PART ${begin?.toString() ?: NOT_YET} $it" } ?: "")
 
         fun turned(nowReversed: Boolean) = Saved(nowReversed, points, samples)
+
+        fun stretch(from: Double?, to: Double) = Saved(from != null && from > to, points, samples, from, to)
 
         /**
          * True when [coordinates], a track's latitude and longitude pairs, are this trail's line: as
@@ -153,6 +208,8 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
 
         companion object {
             private const val SAMPLES = 5
+            private const val PART = "part"
+            private const val NOT_YET = "-"
             private const val SAME_POINT_DEGREES = 0.00003
 
             @JvmStatic
@@ -164,9 +221,15 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
                 val parts = line?.split(' ') ?: return null
                 if (parts.size < 3 || (parts[0] != "0" && parts[0] != "1")) return null
                 val points = parts[1].toIntOrNull() ?: return null
-                if (points < 2 || parts.size != 2 + 2 * sampled(points).size) return null
-                val samples = parts.drop(2).map { it.toDoubleOrNull() ?: return null }
-                return Saved(parts[0] == "1", points, samples.toDoubleArray())
+                if (points < 2) return null
+                val end = 2 + 2 * sampled(points).size
+                val samples = parts.subList(2, minOf(end, parts.size)).map { it.toDoubleOrNull() ?: return null }
+                if (parts.size == end) return Saved(parts[0] == "1", points, samples.toDoubleArray())
+                // A stretch: "part", where it began (or "-"), where it stops.
+                if (parts.size != end + 3 || parts[end] != PART) return null
+                val begin = if (parts[end + 1] == NOT_YET) null else (parts[end + 1].toDoubleOrNull() ?: return null)
+                val stop = parts[end + 2].toDoubleOrNull() ?: return null
+                return Saved(parts[0] == "1", points, samples.toDoubleArray(), begin, stop)
             }
 
             /** Which points are kept: the first, the last and a few spread between them. */
@@ -195,6 +258,33 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         val length: Double get() = reach[reach.size - 1]
 
         fun reversed(): Trail = Trail(lats.reversedArray(), lons.reversedArray())
+
+        /** The latitude and longitude [along] meters from the start (held to the trail's ends). */
+        fun pointAt(along: Double): Pair<Double, Double> {
+            val at = along.coerceIn(0.0, length)
+            var i = 0
+            while (i < reach.size - 2 && reach[i + 1] < at) i++
+            val piece = reach[i + 1] - reach[i]
+            val t = if (piece == 0.0) 0.0 else ((at - reach[i]) / piece).coerceIn(0.0, 1.0)
+            return Pair(lats[i] + t * (lats[i + 1] - lats[i]), lons[i] + t * (lons[i + 1] - lons[i]))
+        }
+
+        /**
+         * The stretch of the trail from [from] to [to] meters along it, walked in that order: when
+         * [from] is the larger, the stretch runs back toward the trail's start.
+         */
+        fun part(from: Double, to: Double): Trail {
+            val low = minOf(from, to).coerceIn(0.0, length)
+            val high = maxOf(from, to).coerceIn(0.0, length)
+            val la = ArrayList<Double>()
+            val lo = ArrayList<Double>()
+            fun add(point: Pair<Double, Double>) { la.add(point.first); lo.add(point.second) }
+            add(pointAt(low))
+            for (i in reach.indices) if (reach[i] > low && reach[i] < high) add(Pair(lats[i], lons[i]))
+            add(pointAt(high))
+            val stretch = Trail(la.toDoubleArray(), lo.toDoubleArray())
+            return if (from > to) stretch.reversed() else stretch
+        }
 
         /**
          * The point of the trail the walker is at. [last] is how far along the walker was a moment
@@ -253,11 +343,24 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         private const val AHEAD_M = 200.0
         private const val METERS_PER_DEGREE = 111_194.9
 
+        /** The followed track, the way it was drawn. */
+        private var followed: Trail? = null
+
+        /** The line being walked: the track, turned round or cut to a stretch. Null while a stretch waits to begin. */
         private var current: Trail? = null
         private var name: String = ""
         private var spot: Spot? = null
         private var trackId: Long = -1
         private var reversed = false
+
+        /** Meters along the track where a stretch stops; null when the whole trail is walked. */
+        private var stop: Double? = null
+
+        /** Meters along the track where a stretch began: where the walker first met the trail. */
+        private var beginAt: Double? = null
+
+        // At the first position after following began, a walker away from the trail is offered a route to it.
+        private var offerWalk = false
 
         private const val PREFS = "atlas_trail"
         private const val KEY_FOLLOWED = "followed"
@@ -270,7 +373,11 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         private var changed: (() -> Unit)? = null
 
         @JvmStatic
-        val isFollowing: Boolean get() = current != null
+        val isFollowing: Boolean get() = followed != null
+
+        /** True when a stretch of the trail is followed, not the whole of it. */
+        @JvmStatic
+        val isStretch: Boolean get() = stop != null
 
         /**
          * Starts following the track; false when it has no line to follow. [coordinates] holds a
@@ -278,40 +385,108 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
          */
         @JvmStatic
         fun start(trackName: String, coordinates: DoubleArray): Boolean {
+            if (!load(trackName, coordinates)) return false
+            changed?.invoke()
+            return true
+        }
+
+        /** Takes the track up as the whole trail, without yet telling the map screen. */
+        private fun load(trackName: String, coordinates: DoubleArray): Boolean {
             val count = coordinates.size / 2
             if (count < 2) return false
-            current = Trail(DoubleArray(count) { coordinates[2 * it] }, DoubleArray(count) { coordinates[2 * it + 1] })
+            followed = Trail(DoubleArray(count) { coordinates[2 * it] }, DoubleArray(count) { coordinates[2 * it + 1] })
+            current = followed
             name = trackName
             spot = null
             trackId = -1
             reversed = false
+            stop = null
+            beginAt = null
+            offerWalk = true
+            return true
+        }
+
+        /**
+         * Starts following the track up to [stopAt] meters along it. The stretch begins where the
+         * walker meets the trail, so it waits for a position, and runs toward the stop either way.
+         */
+        @JvmStatic
+        fun startPart(trackName: String, coordinates: DoubleArray, stopAt: Double): Boolean {
+            if (!loadPart(trackName, coordinates, stopAt)) return false
             changed?.invoke()
             return true
+        }
+
+        private fun loadPart(trackName: String, coordinates: DoubleArray, stopAt: Double): Boolean {
+            if (!load(trackName, coordinates)) return false
+            stop = stopAt.coerceIn(0.0, followed!!.length)
+            current = null
+            return true
+        }
+
+        /** The stretch begins [from] meters along the track, where the walker met it. */
+        private fun begin(context: Context, from: Double, stopAt: Double) {
+            val track = followed ?: return
+            beginAt = from
+            current = track.part(from, stopAt)
+            reversed = from > stopAt
+            spot = null
+            saved(context)?.let { prefs(context).edit().putString(KEY_FOLLOWED, it.stretch(from, stopAt).line()).apply() }
         }
 
         /** Starts following the track with this id, as the place page's button does, and remembers it. */
         @JvmStatic
         fun start(context: Context, id: Long, trackName: String): Boolean {
             val coordinates = BookmarkManager.nativeGetTrackPoints(id)
-            if (!start(trackName, coordinates)) return false
+            if (!load(trackName, coordinates)) return false
             trackId = id
             prefs(context).edit().putString(KEY_FOLLOWED, Saved.of(coordinates, false).line()).apply()
+            changed?.invoke()
             return true
         }
 
-        /** Follows a remembered trail again, the way it was being walked. */
-        private fun resume(id: Long, trackName: String, coordinates: DoubleArray, saved: Saved) {
-            if (!start(trackName, coordinates)) return
+        /**
+         * Starts following the track with this id up to [stopAt] meters along it, as the place
+         * page's "Walk to here" does, and remembers it.
+         */
+        @JvmStatic
+        fun startPart(context: Context, id: Long, trackName: String, stopAt: Double): Boolean {
+            val coordinates = BookmarkManager.nativeGetTrackPoints(id)
+            if (!loadPart(trackName, coordinates, stopAt)) return false
             trackId = id
-            if (saved.reversed) turnAround()
+            // Kept before the map screen is told: told, it may begin the stretch at once and keep that.
+            prefs(context).edit().putString(KEY_FOLLOWED, Saved.of(coordinates, false).stretch(null, stop!!).line()).apply()
+            changed?.invoke()
+            return true
+        }
+
+        /** Follows a remembered trail again, the way it was being walked, or the same stretch of it. */
+        private fun resume(id: Long, trackName: String, coordinates: DoubleArray, saved: Saved) {
+            val stopAt = saved.stop
+            // Loaded quietly: told at once, the map screen would begin the stretch afresh from here.
+            if (!(if (stopAt == null) load(trackName, coordinates) else loadPart(trackName, coordinates, stopAt))) return
+            trackId = id
+            // Picked up again, not begun: no offer of a route.
+            offerWalk = false
+            val from = saved.begin
+            if (stopAt != null && from != null) {
+                beginAt = from
+                current = followed!!.part(from, stop!!)
+                reversed = from > stop!!
+            } else if (stopAt == null && saved.reversed) turnAround()
+            changed?.invoke()
         }
 
         @JvmStatic
         fun stop() {
+            followed = null
             current = null
             spot = null
             trackId = -1
             reversed = false
+            stop = null
+            beginAt = null
+            offerWalk = false
             changed?.invoke()
         }
 
@@ -328,13 +503,22 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
             if (current != null && id == trackId) stop(context)
         }
 
-        /** The trail's end becomes its start; the place on it stays the same. */
+        /**
+         * The trail's end becomes its start; the place on it stays the same. On a stretch, the walk
+         * goes back to where it began.
+         */
         @JvmStatic
         fun turnAround() {
             val trail = current ?: return
             current = trail.reversed()
             reversed = !reversed
             spot = spot?.let { it.copy(along = trail.length - it.along) }
+            val from = beginAt
+            val to = stop
+            if (from != null && to != null) {
+                beginAt = to
+                stop = from
+            }
             changed?.invoke()
         }
 
@@ -342,8 +526,15 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         @JvmStatic
         fun turnAround(context: Context) {
             turnAround()
-            saved(context)?.let { prefs(context).edit().putString(KEY_FOLLOWED, it.turned(reversed).line()).apply() }
+            val to = stop
+            saved(context)?.let {
+                prefs(context).edit().putString(KEY_FOLLOWED, (if (to == null) it.turned(reversed) else it.stretch(beginAt, to)).line()).apply()
+            }
         }
+
+        /** Where a stretch stops, in meters along the track; null for the whole trail. */
+        @JvmStatic
+        val stopAt: Double? get() = stop
 
         @JvmStatic
         val isReversed: Boolean get() = reversed
@@ -358,20 +549,23 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         @JvmStatic
         fun isAtEnd(spot: Spot, length: Double): Boolean = !spot.off && left(spot, length) <= END_M
 
-        /** The line on the map. */
+        /** The line on the map. A [stretch] ends at the walker's stop, not at the trail's end. */
         @JvmStatic
-        fun lineText(context: Context, spot: Spot?, length: Double, format: (Double) -> String): String = when {
+        fun lineText(context: Context, spot: Spot?, length: Double, stretch: Boolean, format: (Double) -> String): String = when {
             spot == null -> context.getString(R.string.trail_line_waiting)
-            spot.off -> context.getString(R.string.trail_line_off, format(spot.away), format(left(spot, length)))
-            isAtEnd(spot, length) -> context.getString(R.string.trail_line_end)
-            else -> context.getString(R.string.trail_line_left, format(left(spot, length)))
+            spot.off -> context.getString(if (stretch) R.string.trail_line_off_part else R.string.trail_line_off, format(spot.away), format(left(spot, length)))
+            isAtEnd(spot, length) -> context.getString(if (stretch) R.string.trail_line_end_part else R.string.trail_line_end)
+            else -> context.getString(if (stretch) R.string.trail_line_left_part else R.string.trail_line_left, format(left(spot, length)))
         }
 
         /** The words under the trail's name when the line is pressed. */
         @JvmStatic
-        fun detail(context: Context, spot: Spot?, length: Double, format: (Double) -> String): String {
-            if (spot == null) return context.getString(R.string.trail_detail_waiting, format(length))
-            val walked = context.getString(R.string.trail_detail, format(left(spot, length)), format(spot.along))
+        fun detail(context: Context, spot: Spot?, length: Double, stretch: Boolean, format: (Double) -> String): String {
+            if (spot == null) {
+                return if (stretch) context.getString(R.string.trail_detail_waiting_part)
+                else context.getString(R.string.trail_detail_waiting, format(length))
+            }
+            val walked = context.getString(if (stretch) R.string.trail_detail_part else R.string.trail_detail, format(left(spot, length)), format(spot.along))
             return if (spot.off) context.getString(R.string.trail_detail_off, format(spot.away)) + "\n\n" + walked
             else walked
         }

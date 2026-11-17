@@ -78,6 +78,11 @@ public class PlacePageButtonFactory
         titleId = R.string.trail_follow;
         yield R.drawable.ic_pedestrian;
       }
+      case TRACK_FOLLOW_PART ->
+      {
+        titleId = R.string.trail_follow_part;
+        yield R.drawable.ic_route_to;
+      }
       case SET_HOME ->
       {
         titleId = R.string.go_set_home;

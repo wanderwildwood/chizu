@@ -531,6 +531,22 @@ public class PlacePageController
             .setPositiveButton(R.string.ok, null)
             .show();
     }
+    case TRACK_FOLLOW_PART ->
+    {
+      // mMapObject is set to null when the place page closes
+      if (mMapObject == null || !mMapObject.isTrack())
+        return;
+      final Track track = (Track) mMapObject;
+      // "Here" is the spot marked on the track: where it was tapped, or moved to on its height chart.
+      final double stopAt = BookmarkManager.INSTANCE.getElevationActivePointDistance(track.getTrackId());
+      if (com.wanderwildwood.chizu.TrailFollow.startPart(requireContext(), track.getTrackId(), track.getName(), stopAt))
+        close();
+      else
+        new DarkAlertDialogBuilder(requireContext(), R.style.MwmTheme_M3_AlertDialog)
+            .setMessage(R.string.trail_no_line)
+            .setPositiveButton(R.string.ok, null)
+            .show();
+    }
     case SET_HOME ->
     {
       // mMapObject is set to null when the place page closes
@@ -734,8 +750,12 @@ public class PlacePageController
         buttons.add(PlacePageButtons.ButtonType.BACK);
 
       // Atlas: an imported trail can be walked as it is; first, so it is not under More.
+      // Then "Walk to here", for a part of it: up to the spot marked on the track.
       if (mapObject.isTrack() && !RoutingController.get().isPlanning())
+      {
         buttons.add(PlacePageButtons.ButtonType.TRACK_FOLLOW);
+        buttons.add(PlacePageButtons.ButtonType.TRACK_FOLLOW_PART);
+      }
 
       boolean needToShowRoutingButtons = RoutingController.get().isPlanning() || showRoutingButton;
 

@@ -12,4 +12,14 @@
   <string name="trail_stop">Stop following</string>
   <string name="trail_turn_around">Walk it the other way</string>
   <string name="trail_no_line">This track has no line to follow.</string>
+  <!-- Part of a trail: from where you meet it to the spot marked on its page. -->
+  <string name="trail_follow_part">Walk to here</string>
+  <string name="trail_line_left_part">Trail: %1$s to your stop</string>
+  <string name="trail_line_off_part">Off the trail by %1$s. %2$s to your stop</string>
+  <string name="trail_line_end_part">At your stop on the trail</string>
+  <string name="trail_detail_part">%1$s to your stop, %2$s behind you.</string>
+  <string name="trail_detail_waiting_part">Once the phone knows where it is, the walk runs from the nearest point of the trail to the spot you chose.</string>
+  <!-- Away from the trail: a walking route to its nearest point. -->
+  <string name="trail_walk_to">Walk to the trail</string>
+  <string name="trail_walk_to_offer">You are %1$s from the trail. Atlas can plan a walking route to its nearest point.</string>
 </resources>

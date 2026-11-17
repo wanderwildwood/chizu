@@ -218,4 +218,111 @@ class TrailFollowTest {
         TrailFollow.stop()
         assertFalse(TrailFollow.isReversed)
     }
+
+    // Part of a trail: from where the walker meets it to a spot chosen on it.
+
+    @Test
+    fun aPointAlongTheTrailLiesOnIt() {
+        val (lat, lon) = straight.pointAt(250.0)
+        assertEquals(north(250.0), lat, 0.000001)
+        assertEquals(east(0.0), lon, 0.000001)
+        val bend = trail(0.0 to 0.0, 100.0 to 0.0, 100.0 to 100.0)
+        val (bLat, bLon) = bend.pointAt(150.0)
+        assertEquals(north(100.0), bLat, 0.000005)
+        assertEquals(east(50.0), bLon, 0.000005)
+        // Held to the ends.
+        assertEquals(north(1000.0), straight.pointAt(5000.0).first, 0.000001)
+        assertEquals(north(0.0), straight.pointAt(-10.0).first, 0.000001)
+    }
+
+    @Test
+    fun aStretchRunsFromWhereItBeginsToTheStop() {
+        val day = straight.part(200.0, 700.0)
+        assertEquals(500.0, day.length, 1.0)
+        // 300 m north is 100 m into the stretch, 400 m from its stop.
+        val spot = day.locate(north(300.0), east(5.0), null)
+        assertEquals(100.0, spot.along, 1.0)
+        assertEquals(400.0, TrailFollow.left(spot, day.length), 1.0)
+        // Past the stop is the stop.
+        assertTrue(TrailFollow.isAtEnd(day.locate(north(710.0), east(0.0), 480.0), day.length))
+    }
+
+    @Test
+    fun aStopBehindTheWalkerRunsTheStretchBackward() {
+        val back = straight.part(700.0, 200.0)
+        assertEquals(500.0, back.length, 1.0)
+        assertEquals(north(700.0), back.pointAt(0.0).first, 0.000001)
+        assertEquals(north(200.0), back.pointAt(back.length).first, 0.000001)
+        val spot = back.locate(north(600.0), east(0.0), null)
+        assertEquals(100.0, spot.along, 1.0)
+        assertEquals(400.0, TrailFollow.left(spot, back.length), 1.0)
+    }
+
+    @Test
+    fun aStretchKeepsTheBendsBetweenItsEnds() {
+        val bend = trail(0.0 to 0.0, 100.0 to 0.0, 100.0 to 100.0, 200.0 to 100.0)
+        val part = bend.part(50.0, 250.0)
+        assertEquals(200.0, part.length, 1.0)
+        assertEquals(east(50.0), part.pointAt(100.0).second, 0.000005)
+    }
+
+    @Test
+    fun aStretchAtOnePlaceIsStillALine() {
+        val none = straight.part(400.0, 400.0)
+        assertEquals(0.0, none.length, 0.001)
+        assertTrue(TrailFollow.isAtEnd(none.locate(north(400.0), east(3.0), null), none.length))
+    }
+
+    @Test
+    fun aStretchWaitsForAPositionBeforeItBegins() {
+        assertTrue(TrailFollow.startPart("Ridge loop", ridge, 120.0))
+        assertTrue(TrailFollow.isFollowing)
+        assertTrue(TrailFollow.isStretch)
+        assertEquals(120.0, TrailFollow.stopAt!!, 0.001)
+        // Not begun: there is no way round yet.
+        TrailFollow.turnAround()
+        assertFalse(TrailFollow.isReversed)
+        TrailFollow.stop()
+        assertFalse(TrailFollow.isFollowing)
+        assertFalse(TrailFollow.isStretch)
+    }
+
+    @Test
+    fun aStopPastTheEndIsTheEnd() {
+        assertTrue(TrailFollow.startPart("Ridge loop", ridge, 1.0e9))
+        assertTrue(TrailFollow.stopAt!! < 1000.0)
+        TrailFollow.stop()
+        // The whole trail again after a stretch.
+        assertTrue(TrailFollow.start("Ridge loop", ridge))
+        assertFalse(TrailFollow.isStretch)
+        TrailFollow.stop()
+    }
+
+    @Test
+    fun aStretchIsKeptAndReadBack() {
+        val waiting = Saved.parse(Saved.of(ridge, false).stretch(null, 120.5).line())!!
+        assertNull(waiting.begin)
+        assertEquals(120.5, waiting.stop!!, 0.0)
+        assertTrue(waiting.isLineOf(ridge))
+        val begun = Saved.parse(Saved.of(ridge, false).stretch(300.25, 120.5).line())!!
+        assertEquals(300.25, begun.begin!!, 0.0)
+        assertEquals(120.5, begun.stop!!, 0.0)
+        assertTrue(begun.reversed)
+        assertTrue(begun.isLineOf(ridge))
+        // A whole trail kept before stretches existed reads as it did.
+        val whole = Saved.parse(Saved.of(ridge, true).line())!!
+        assertNull(whole.stop)
+        assertTrue(whole.reversed)
+    }
+
+    @Test
+    fun aBadlyKeptStretchIsNoTrail() {
+        val good = Saved.of(ridge, false).line()
+        assertNull(Saved.parse("$good part"))
+        assertNull(Saved.parse("$good part - "))
+        assertNull(Saved.parse("$good part - north"))
+        assertNull(Saved.parse("$good part west 120"))
+        assertNull(Saved.parse("$good park - 120"))
+        assertNull(Saved.parse("$good part - 120 7"))
+    }
 }
