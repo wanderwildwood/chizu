@@ -64,6 +64,27 @@ import java.util.List;
 
 public class SearchFragment extends BaseMwmFragment implements SearchListener, CategoriesAdapter.CategoriesUiListener
 {
+  // Atlas: Contacts are asked off the main thread, one question at a time; an answer for a
+  // query that has since changed is dropped.
+  private static final java.util.concurrent.ExecutorService CONTACTS =
+      java.util.concurrent.Executors.newSingleThreadExecutor();
+  private volatile String mContactsQuery;
+
+  private void findContacts(String query)
+  {
+    mContactsQuery = query;
+    final android.content.Context context = requireContext().getApplicationContext();
+    CONTACTS.execute(() -> {
+      if (!TextUtils.equals(query, mContactsQuery))
+        return;
+      final List<ContactPlaces.Place> found = ContactPlaces.find(context, query);
+      app.organicmaps.sdk.util.concurrency.UiThread.run(() -> {
+        if (isAdded() && TextUtils.equals(query, mContactsQuery))
+          mSearchAdapter.setContacts(found);
+      });
+    });
+  }
+
   private long mLastQueryTimestamp;
   @NonNull
   private final List<HiddenCommand> mHiddenCommands = new ArrayList<>();
@@ -96,7 +117,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
         return;
 
       askForContactsOnce(query);
-      mSearchAdapter.setContacts(ContactPlaces.find(requireContext(), query));
+      findContacts(query);
       mSearchAdapter.setOnlineQuery(
           com.wanderwildwood.chizu.OnlineAddress.offers(requireContext(), query) ? query.trim() : null);
 

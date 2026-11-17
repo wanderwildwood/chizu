@@ -42,7 +42,8 @@ object ContactPlaces {
                         found.add(Place(name, address))
                 }
             }
-        } catch (e: SecurityException) {
+        } catch (e: RuntimeException) {
+            // Permission taken back, or a provider that failed or was busy: no contacts this time.
             return emptyList()
         }
         return found
