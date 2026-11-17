@@ -20,8 +20,8 @@ import app.organicmaps.util.Utils
  * once seen, a choice keeps its minutes and miles beside its name for as long as the trip is the
  * same.
  *
- * "No highways" is the router's own "avoid motorways" option. Chosen here it belongs to this trip:
- * it is taken back when the planning or the drive ends (unless it was already on in Settings).
+ * "No highways" is the router's own "avoid motorways" option. Chosen here, either way, it belongs
+ * to this trip: when the planning or the drive ends the option is back as Settings had it.
  */
 class RouteChoice(private val row: View) {
     private val fastest: TextView = row.findViewById(R.id.route_choice_fastest)
@@ -37,9 +37,9 @@ class RouteChoice(private val row: View) {
 
     private fun choose(avoid: Boolean) {
         if (avoid == avoiding()) return
+        rememberBeforeTrip(row.context, avoiding())
         if (avoid) RoutingOptions.addOption(RoadType.Motorway, Router.Vehicle)
         else RoutingOptions.removeOption(RoadType.Motorway, Router.Vehicle)
-        setForThisTrip(row.context, avoid)
         update()
         row.post { RoutingController.get().rebuildLastRoute() }
     }
@@ -85,19 +85,33 @@ class RouteChoice(private val row: View) {
 
     companion object {
         private const val PREFS = "atlas_go"
+        /** Written by versions before 0.1.14: "No highways" was chosen for the trip. */
         private const val KEY = "no_highways_this_trip"
+        /** Whether motorways were avoided (Settings) before the first choice made for this trip. */
+        private const val KEY_BEFORE = "avoid_motorways_before_trip"
 
-        private fun setForThisTrip(context: Context, on: Boolean) =
-            context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-                .edit().putBoolean(KEY, on).apply()
+        /** Only the first choice of a trip records it, so the trip ends where Settings had it. */
+        private fun rememberBeforeTrip(context: Context, avoiding: Boolean) {
+            val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
+            if (prefs.contains(KEY_BEFORE) || prefs.getBoolean(KEY, false)) return
+            prefs.edit().putBoolean(KEY_BEFORE, avoiding).apply()
+        }
 
-        /** The planning or the drive is over: a "No highways" chosen for that trip goes with it. */
+        /**
+         * The planning or the drive is over: the choice made for that trip goes with it, and
+         * the avoid-motorways setting is back as it was in Settings, whichever way it went.
+         */
         @JvmStatic
         fun tripOver(context: Context) {
             val prefs = context.applicationContext.getSharedPreferences(PREFS, Context.MODE_PRIVATE)
-            if (!prefs.getBoolean(KEY, false)) return
-            RoutingOptions.removeOption(RoadType.Motorway, Router.Vehicle)
-            prefs.edit().remove(KEY).apply()
+            val before = when {
+                prefs.contains(KEY_BEFORE) -> prefs.getBoolean(KEY_BEFORE, false)
+                prefs.getBoolean(KEY, false) -> false
+                else -> return
+            }
+            if (before) RoutingOptions.addOption(RoadType.Motorway, Router.Vehicle)
+            else RoutingOptions.removeOption(RoadType.Motorway, Router.Vehicle)
+            prefs.edit().remove(KEY).remove(KEY_BEFORE).apply()
         }
     }
 }
