@@ -26,6 +26,7 @@ import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import com.google.android.material.textview.MaterialTextView;
 import java.io.File;
 import java.util.List;
+import com.wanderwildwood.chizu.ui.DarkMode;
 
 @Keep
 public class StoragePathFragment extends BaseSettingsFragment
@@ -118,6 +119,7 @@ public class StoragePathFragment extends BaseSettingsFragment
     dialog.setIndeterminate(true);
     dialog.setCancelable(false);
     dialog.show();
+    DarkMode.INSTANCE.window(dialog.getWindow().getDecorView());
     return dialog;
   }
 

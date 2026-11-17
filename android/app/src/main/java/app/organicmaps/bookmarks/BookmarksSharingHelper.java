@@ -17,6 +17,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.wanderwildwood.chizu.ui.DarkAlertDialogBuilder;
 import java.util.ArrayList;
 import java.util.List;
+import com.wanderwildwood.chizu.ui.DarkMode;
 
 public enum BookmarksSharingHelper
 {
@@ -47,6 +48,7 @@ public enum BookmarksSharingHelper
     mProgressDialog.setIndeterminate(true);
     mProgressDialog.setCancelable(false);
     mProgressDialog.show();
+    DarkMode.INSTANCE.window(mProgressDialog.getWindow().getDecorView());
   }
 
   public void onPreparedFileForSharing(@NonNull FragmentActivity context,

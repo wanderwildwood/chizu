@@ -56,6 +56,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import com.wanderwildwood.chizu.ui.DarkMode;
 
 public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<BookmarkCategoriesAdapter>
     implements BookmarkManager.BookmarksLoadingListener, CategoryListCallback, OnItemClickListener<BookmarkCategory>,
@@ -556,6 +557,7 @@ public class BookmarkCategoriesFragment extends BaseMwmRecyclerFragment<Bookmark
     dialog.setIndeterminate(true);
     dialog.setCancelable(false);
     dialog.show();
+    DarkMode.INSTANCE.window(dialog.getWindow().getDecorView());
     Logger.d(TAG, "Importing bookmarks from " + rootUri);
     MwmApplication app = MwmApplication.from(context);
     final File tempDir = new File(StorageUtils.getTempPath(app));
