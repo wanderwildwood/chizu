@@ -442,6 +442,20 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mToolbarController.setQuery(text, isCategory);
   }
 
+  // Atlas: a contact's address put in the search box is not kept in the search history.
+  private String mContactQuery;
+
+  void setQueryFromContact(String address)
+  {
+    mContactQuery = address;
+    setQuery(address, false);
+  }
+
+  private boolean keepsInHistory(String query)
+  {
+    return Config.isSearchHistoryEnabled() && !TextUtils.equals(query, mContactQuery);
+  }
+
   private void readArguments()
   {
     final Bundle arguments = getArguments();
@@ -557,7 +571,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
   void showSingleResultOnMap(@NonNull SearchResult result, int resultIndex)
   {
     final String query = getQuery();
-    if (Config.isSearchHistoryEnabled())
+    if (keepsInHistory(query))
       SearchRecents.add(query, requireContext());
     SearchEngine.INSTANCE.cancel();
     SearchEngine.INSTANCE.setQuery(query);
@@ -591,7 +605,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     SearchEngine.INSTANCE.cancel();
 
     final String query = getQuery();
-    if (Config.isSearchHistoryEnabled())
+    if (keepsInHistory(query))
       SearchRecents.add(query, requireContext());
     mLastQueryTimestamp = System.nanoTime();
 

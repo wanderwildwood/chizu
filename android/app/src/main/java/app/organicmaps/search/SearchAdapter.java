@@ -136,7 +136,7 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
       final SpannableString lines = new SpannableString(place.name + "\n" + place.address);
       lines.setSpan(new StyleSpan(Typeface.BOLD), 0, place.name.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
       ((MaterialTextView) itemView).setText(lines);
-      itemView.setOnClickListener(v -> mSearchFragment.setQuery(place.address, false));
+      itemView.setOnClickListener(v -> mSearchFragment.setQueryFromContact(place.address));
     }
   }
 
