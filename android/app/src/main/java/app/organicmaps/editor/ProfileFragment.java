@@ -28,6 +28,7 @@ import app.organicmaps.util.WindowInsetUtils;
 import app.organicmaps.widget.MobileDataDialogFragment;
 
 import java.text.NumberFormat;
+import com.wanderwildwood.chizu.ui.DarkMode;
 
 public class ProfileFragment extends BaseMwmToolbarFragment
 {
@@ -101,8 +102,12 @@ public class ProfileFragment extends BaseMwmToolbarFragment
           mProfileName.setText(profileUsername);
 
           // Use generic image if user has no profile picture or it failed to load.
+          // A real picture keeps its colors in dark mode; the generic one turns with the page.
           if (profilePicture != null)
+          {
             mProfileImage.setImageBitmap(profilePicture);
+            DarkMode.INSTANCE.keep(mProfileImage);
+          }
           else
             mProfileImage.setImageResource(R.drawable.profile_generic);
 
