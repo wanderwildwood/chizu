@@ -420,13 +420,14 @@ public enum BookmarkManager {
   @WorkerThread
   public boolean importBookmarksFile(@NonNull ContentResolver resolver, @NonNull Uri uri, @NonNull File tempDir)
   {
-    Logger.w(TAG, "Importing bookmarks from " + uri);
+    // Atlas: where from, not the file's whole address (it can carry its name and folders).
+    Logger.w(TAG, "Importing bookmarks from " + uri.getScheme() + "://" + uri.getAuthority());
     try
     {
       String filename = getBookmarksFilenameFromUri(resolver, uri);
       if (filename == null)
       {
-        Logger.w(TAG, "Could not find a supported file type in " + uri);
+        Logger.w(TAG, "Could not find a supported file type in " + uri.getScheme() + "://" + uri.getAuthority());
         UiThread.run(() -> {
           for (BookmarksLoadingListener listener : mListeners)
             listener.onBookmarksFileUnsupported(uri);

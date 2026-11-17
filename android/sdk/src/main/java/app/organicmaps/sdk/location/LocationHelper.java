@@ -202,7 +202,8 @@ public class LocationHelper implements BaseLocationProvider.Listener
 
     if (!LocationUtils.isAccuracySatisfied(location))
     {
-      Logger.w(TAG, "Unsatisfied accuracy for location = " + location);
+      // Atlas: the accuracy and provider only, never the position itself.
+      Logger.w(TAG, "Unsatisfied accuracy " + location.getAccuracy() + " m from " + location.getProvider());
       return;
     }
 
