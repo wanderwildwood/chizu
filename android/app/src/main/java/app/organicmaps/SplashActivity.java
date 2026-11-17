@@ -186,6 +186,8 @@ public class SplashActivity extends AppCompatActivity
     // FORWARD_RESULT_FLAG conflicts with the ActivityResultLauncher.
     // https://github.com/organicmaps/organicmaps/issues/8984
     intent.setFlags(intent.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION);
+    // Atlas: another app's intent may not carry the map's own route-to-here extras.
+    com.wanderwildwood.chizu.GoPlaces.stripFrom(intent);
 
     if (Factory.isStartedForApiResult(intent))
     {

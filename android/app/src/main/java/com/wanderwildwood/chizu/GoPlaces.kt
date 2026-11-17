@@ -73,6 +73,17 @@ object GoPlaces {
         )
     }
 
+    /**
+     * Takes [go]'s extras off an intent that came from outside the app (SplashActivity passes
+     * other apps' intents on to the map): only this app plans a route by them.
+     */
+    @JvmStatic
+    fun stripFrom(intent: Intent) {
+        intent.removeExtra(EXTRA_LAT)
+        intent.removeExtra(EXTRA_LON)
+        intent.removeExtra(EXTRA_NAME)
+    }
+
     /** The map's side of [go]. True when the intent asked for a route. */
     @JvmStatic
     fun routeFrom(activity: MwmActivity, intent: Intent): Boolean {

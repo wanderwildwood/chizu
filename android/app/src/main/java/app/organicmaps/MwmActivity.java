@@ -341,16 +341,17 @@ public class MwmActivity extends BaseMwmFragmentActivity
     final long categoryId = intent.getLongExtra(EXTRA_CATEGORY_ID, -1);
     final long bookmarkId = intent.getLongExtra(EXTRA_BOOKMARK_ID, -1);
     final long trackId = intent.getLongExtra(EXTRA_TRACK_ID, -1);
+    // Atlas: an id that is no longer there (deleted since) is ignored rather than a crash.
     if (bookmarkId != -1)
     {
-      Objects.requireNonNull(BookmarkManager.INSTANCE.getBookmarkInfo(bookmarkId));
-      BookmarkManager.INSTANCE.showBookmarkOnMap(bookmarkId);
+      if (BookmarkManager.INSTANCE.getBookmarkInfo(bookmarkId) != null)
+        BookmarkManager.INSTANCE.showBookmarkOnMap(bookmarkId);
       return;
     }
     else if (trackId != -1)
     {
-      Objects.requireNonNull(BookmarkManager.INSTANCE.getTrack(trackId));
-      Framework.nativeShowTrackRect(trackId);
+      if (BookmarkManager.INSTANCE.getTrack(trackId) != null)
+        Framework.nativeShowTrackRect(trackId);
       return;
     }
     else if (categoryId != -1)
