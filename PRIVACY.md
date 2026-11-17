@@ -1,6 +1,6 @@
 # Atlas — Privacy Policy
 
-Last reviewed 10 November 2026.
+Last reviewed 17 November 2026.
 
 This is the policy for Atlas (chizu, 地図), the app published from this repository.
 
@@ -56,11 +56,12 @@ Your position is used on the phone. It is not sent to the developer or to the ma
 - **The address servers, only if you said yes to looking an address up online.** Under an address typed into Search, Atlas offers a row "Look up … online". Nothing is sent while you type or before you press it; the first press asks. After a yes, each press sends the address as you typed it: to the geocoder of the US Census Bureau (`geocoding.geo.census.gov`) when your phone or the map is in the United States, and to Photon (`photon.komoot.io`, run by Komoot, from OpenStreetMap data) anywhere else and when the first finds nothing. The server sees the address, your internet address and the name of the app; your position is not sent. What comes back is kept until the app closes, so the same address is not asked for twice. Settings, Navigation has the switch to turn the lookup off again and a field for the address of a Photon server of your own, which then receives the addresses instead.
 - **Google**, only on a phone that has Google Play services (or microG) and only while the "Google Fused Location Service" switch in Settings, Privacy is on. Android's fused location service then helps find your position and may contact Google. With the switch off, or on a phone without those services, only the phone's own positioning is used.
 - **Your browser, phone and mail apps.** A website, phone number, email address or Wikipedia link on a place's page opens in the app that handles it; what that site or service learns is between you and it.
+- **Square, only if you give.** "Feed the llamas" in About opens a donation page (square.link) in your browser, only when you press it. The app sends nothing there; if you give, the payment is handled on that page by Square, not by this app.
 
 <!-- shared-about privacy section -->
 ## Who we are
 
-Atlas is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Atlas keeps what you put in it on your phone, apart from what it sends to the CoMaps map servers and, if you agreed to online routes, the route server, as described above, and sends nothing to the developer, so the developer holds no data about you.
+Atlas is made by wander wildwood, an independent developer: one person, not a company. wander wildwood is the data controller for anything the app itself handles, and that is very little. Atlas keeps what you put in it on your phone, apart from what it sends to the servers described above (the CoMaps map servers, and, if you agreed to them, the route server, the streamed map server and the address servers), and sends nothing to the developer, so the developer holds no data about you.
 
 ## How to contact us
 
