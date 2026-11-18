@@ -2432,9 +2432,16 @@ public class MwmActivity extends BaseMwmFragmentActivity
             .setNegativeButton(R.string.report_a_bug,
                                (dialog, which)
                                    -> Utils.sendBugReport(mShareLauncher, this, getString(R.string.load_kmz_title),
-                                                          getString(R.string.unknown_file_type, uri)))
+                                                          getString(R.string.unknown_file_type, whereFrom(uri))))
             .setOnDismissListener(dialog -> mAlertDialog = null)
             .show();
+  }
+
+  /** Atlas: a bug report names where a file came from, not its whole address with its name and folders. */
+  @NonNull
+  private static String whereFrom(@NonNull Uri uri)
+  {
+    return uri.getScheme() + "://" + uri.getAuthority();
   }
 
   @Override
@@ -2449,7 +2456,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
             .setNegativeButton(R.string.report_a_bug,
                                (dialog, which)
                                    -> Utils.sendBugReport(mShareLauncher, this, getString(R.string.load_kmz_title),
-                                                          getString(R.string.failed_to_open_file, uri, error)))
+                                                          getString(R.string.failed_to_open_file, whereFrom(uri), error)))
             .setOnDismissListener(dialog -> mAlertDialog = null)
             .show();
   }

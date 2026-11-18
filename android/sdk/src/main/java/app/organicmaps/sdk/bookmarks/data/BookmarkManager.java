@@ -444,7 +444,10 @@ public enum BookmarkManager {
     }
     catch (IOException | SecurityException e)
     {
-      Logger.e(TAG, "Could not download bookmarks file from " + uri, e);
+      // Atlas: where from and what kind of failure; the address and the exception's message can carry the
+      // file's name and folders.
+      Logger.e(TAG, "Could not download bookmarks file from " + uri.getScheme() + "://" + uri.getAuthority() + ": "
+                        + e.getClass().getSimpleName());
       UiThread.run(() -> {
         for (BookmarksLoadingListener listener : mListeners)
           listener.onBookmarksFileDownloadFailed(uri, e.toString());
