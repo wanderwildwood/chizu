@@ -298,6 +298,19 @@ class TrailFollowTest {
     }
 
     @Test
+    fun aMarkOnTheWayOutStopsOnTheWayOut() {
+        // Out 1000 m to a turnaround and back a few meters to one side.
+        val outBack = trail(0.0 to 0.0, 1000.0 to 0.0, 1000.0 to 4.0, 0.0 to 4.0)
+        // Marked 60 m before the turnaround, on the way out: the return pass is near, not it.
+        assertEquals(940.0, TrailFollow.stopOnTrail(outBack, 940.0, north(940.0), east(0.0)), 1.0)
+        // Marked on the way back, 20 m past the turnaround: the way out is not it either.
+        assertEquals(1024.0, TrailFollow.stopOnTrail(outBack, 1024.0, north(980.0), east(4.0)), 1.0)
+        // On the very same line both ways, the pass marked is still the one kept.
+        assertEquals(940.0, TrailFollow.stopOnTrail(outAndBack, 940.0, north(940.0), east(0.0)), 1.0)
+        assertEquals(1060.0, TrailFollow.stopOnTrail(outAndBack, 1060.0, north(940.0), east(0.0)), 1.0)
+    }
+
+    @Test
     fun aStopPastTheEndIsTheEnd() {
         assertTrue(TrailFollow.startPart("Ridge loop", ridge, 1.0e9))
         assertTrue(TrailFollow.stopAt!! < 1000.0)

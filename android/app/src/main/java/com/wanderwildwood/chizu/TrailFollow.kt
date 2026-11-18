@@ -303,17 +303,9 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
             var nearest = Double.MAX_VALUE
             val east = METERS_PER_DEGREE * cos(Math.toRadians(lat))
             for (i in 0 until n) {
-                // Flat meters around the walker: a trail's pieces are short enough for that.
-                val ax = (lons[i] - lon) * east
-                val ay = (lats[i] - lat) * METERS_PER_DEGREE
-                val bx = (lons[i + 1] - lon) * east
-                val by = (lats[i + 1] - lat) * METERS_PER_DEGREE
-                val dx = bx - ax
-                val dy = by - ay
-                val square = dx * dx + dy * dy
-                val t = if (square == 0.0) 0.0 else (-(ax * dx + ay * dy) / square).coerceIn(0.0, 1.0)
-                away[i] = hypot(ax + t * dx, ay + t * dy)
-                along[i] = reach[i] + t * (reach[i + 1] - reach[i])
+                val spot = onPiece(i, lat, lon, east)
+                away[i] = spot.away
+                along[i] = spot.along
                 if (away[i] < nearest) nearest = away[i]
             }
             val near = nearest + SAME_PLACE_M
@@ -330,6 +322,33 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
             // A first look, or the walker went back toward the start: the earliest of the nearest.
             if (pick < 0) pick = (0 until n).first { away[it] <= nearest + FIRST_LOOK_M }
             return Spot(along[pick], away[pick])
+        }
+
+        /**
+         * The first place, at or after [from] meters along, where the trail runs through [lat],
+         * [lon] to within [within] meters; null when it never does.
+         */
+        fun firstPassAt(lat: Double, lon: Double, from: Double, within: Double): Double? {
+            val east = METERS_PER_DEGREE * cos(Math.toRadians(lat))
+            for (i in 0 until lats.size - 1) {
+                val spot = onPiece(i, lat, lon, east)
+                if (spot.along >= from && spot.away <= within) return spot.along
+            }
+            return null
+        }
+
+        /** The point of piece [i] nearest [lat], [lon]: how far along the trail, and how far from it. */
+        private fun onPiece(i: Int, lat: Double, lon: Double, east: Double): Spot {
+            // Flat meters around the point: a trail's pieces are short enough for that.
+            val ax = (lons[i] - lon) * east
+            val ay = (lats[i] - lat) * METERS_PER_DEGREE
+            val bx = (lons[i + 1] - lon) * east
+            val by = (lats[i + 1] - lat) * METERS_PER_DEGREE
+            val dx = bx - ax
+            val dy = by - ay
+            val square = dx * dx + dy * dy
+            val t = if (square == 0.0) 0.0 else (-(ax * dx + ay * dy) / square).coerceIn(0.0, 1.0)
+            return Spot(reach[i] + t * (reach[i + 1] - reach[i]), hypot(ax + t * dx, ay + t * dy))
         }
     }
 
@@ -349,6 +368,10 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         private const val BEHIND_M = 50.0
         private const val AHEAD_M = 200.0
         private const val METERS_PER_DEGREE = 111_194.9
+
+        // A mark lies on the track's line; the map's distance to it may round a little either way.
+        private const val MARK_ON_LINE_M = 1.0
+        private const val MARK_SLACK_M = 1.0
 
         /** The followed track, the way it was drawn. */
         private var followed: Trail? = null
@@ -435,10 +458,14 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
          * Where the spot marked [markedAt] meters along a track, at [lat], [lon], lies on [trail].
          * The map measures the mark line by line and leaves out the jump from the end of one of a
          * track's lines to the start of the next; the trail joins the lines and counts each jump.
-         * So the mark's own point is found on the trail, near or after the map's distance.
+         * So the map's distance can only fall short, and the mark's point lies on the line itself:
+         * the stop is the first place at or after the map's distance where the trail runs through
+         * that point. A trail that passes the same place twice keeps the pass that was marked.
          */
-        internal fun stopOnTrail(trail: Trail, markedAt: Double, lat: Double, lon: Double): Double =
-            trail.locate(lat, lon, markedAt.coerceIn(0.0, trail.length)).along
+        internal fun stopOnTrail(trail: Trail, markedAt: Double, lat: Double, lon: Double): Double {
+            val from = markedAt.coerceIn(0.0, trail.length)
+            return trail.firstPassAt(lat, lon, from - MARK_SLACK_M, MARK_ON_LINE_M) ?: from
+        }
 
         /** The stretch begins [from] meters along the track, where the walker met it. */
         private fun begin(context: Context, from: Double, stopAt: Double) {
