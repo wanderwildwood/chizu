@@ -99,9 +99,10 @@ it is in [PRIVACY.md](PRIVACY.md).
 
 ## Building
 
-Atlas builds the way CoMaps does: see [docs/INSTALL.md](docs/INSTALL.md). The Android app
-is in `android/`; the build is `assembleFdroidDebug` or `assembleFdroidRelease`. A debug
-build needs `-PdisableHWAsan`.
+Atlas builds the way CoMaps does: see [docs/INSTALL.md](docs/INSTALL.md), which is CoMaps'
+own guide. Of the build variants it lists, Atlas has only Fdroid, and no build needs a key
+from anyone else. The Android app is in `android/`; the build is `assembleFdroidDebug` or
+`assembleFdroidRelease`. A debug build needs `-PdisableHWAsan`.
 
 A release build is signed with a key in a `signing/` folder that is not in this
 repository. Without it, the release comes out unsigned.
