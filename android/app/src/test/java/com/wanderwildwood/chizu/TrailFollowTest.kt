@@ -288,6 +288,16 @@ class TrailFollowTest {
     }
 
     @Test
+    fun aMarkAfterAJumpBetweenLinesStopsAtTheMarkedPoint() {
+        // Two lines joined into one trail: 0..500 north, then a 100 m jump east, then 500 more north.
+        val joined = trail(0.0 to 0.0, 500.0 to 0.0, 500.0 to 100.0, 1000.0 to 100.0)
+        // The map measures 700 m to a mark 200 m up the second line, leaving the jump out.
+        assertEquals(800.0, TrailFollow.stopOnTrail(joined, 700.0, north(700.0), east(100.0)), 1.5)
+        // One line: the map's distance and the trail's agree.
+        assertEquals(700.0, TrailFollow.stopOnTrail(straight, 700.0, north(700.0), east(0.0)), 1.0)
+    }
+
+    @Test
     fun aStopPastTheEndIsTheEnd() {
         assertTrue(TrailFollow.startPart("Ridge loop", ridge, 1.0e9))
         assertTrue(TrailFollow.stopAt!! < 1000.0)

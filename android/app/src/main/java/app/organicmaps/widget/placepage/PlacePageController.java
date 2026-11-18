@@ -32,6 +32,7 @@ import app.organicmaps.intent.Factory;
 import app.organicmaps.sdk.ChoosePositionMode;
 import app.organicmaps.sdk.Framework;
 import app.organicmaps.sdk.bookmarks.data.BookmarkManager;
+import app.organicmaps.sdk.bookmarks.data.ElevationInfo;
 import app.organicmaps.sdk.bookmarks.data.MapObject;
 import app.organicmaps.sdk.bookmarks.data.RoadWarningMarkType;
 import app.organicmaps.sdk.bookmarks.data.Track;
@@ -538,8 +539,10 @@ public class PlacePageController
         return;
       final Track track = (Track) mMapObject;
       // "Here" is the spot marked on the track: where it was tapped, or moved to on its height chart.
-      final double stopAt = BookmarkManager.INSTANCE.getElevationActivePointDistance(track.getTrackId());
-      if (com.wanderwildwood.chizu.TrailFollow.startPart(requireContext(), track.getTrackId(), track.getName(), stopAt))
+      final double markedAt = BookmarkManager.INSTANCE.getElevationActivePointDistance(track.getTrackId());
+      final ElevationInfo.Point mark = BookmarkManager.INSTANCE.getElevationActivePointCoordinates(track.getTrackId());
+      if (com.wanderwildwood.chizu.TrailFollow.startPart(requireContext(), track.getTrackId(), track.getName(), markedAt,
+                                                         mark.getLatitude(), mark.getLongitude()))
         close();
       else
         new DarkAlertDialogBuilder(requireContext(), R.style.MwmTheme_M3_AlertDialog)

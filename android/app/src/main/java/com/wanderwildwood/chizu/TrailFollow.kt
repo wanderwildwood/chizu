@@ -424,6 +424,15 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
             return true
         }
 
+        /**
+         * Where the spot marked [markedAt] meters along a track, at [lat], [lon], lies on [trail].
+         * The map measures the mark line by line and leaves out the jump from the end of one of a
+         * track's lines to the start of the next; the trail joins the lines and counts each jump.
+         * So the mark's own point is found on the trail, near or after the map's distance.
+         */
+        internal fun stopOnTrail(trail: Trail, markedAt: Double, lat: Double, lon: Double): Double =
+            trail.locate(lat, lon, markedAt.coerceIn(0.0, trail.length)).along
+
         /** The stretch begins [from] meters along the track, where the walker met it. */
         private fun begin(context: Context, from: Double, stopAt: Double) {
             val track = followed ?: return
@@ -446,13 +455,15 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         }
 
         /**
-         * Starts following the track with this id up to [stopAt] meters along it, as the place
-         * page's "Walk to here" does, and remembers it.
+         * Starts following the track with this id up to the spot marked on it, as the place page's
+         * "Walk to here" does, and remembers it. [markedAt] is the map's own distance of the mark
+         * along the track, and [lat], [lon] its point.
          */
         @JvmStatic
-        fun startPart(context: Context, id: Long, trackName: String, stopAt: Double): Boolean {
+        fun startPart(context: Context, id: Long, trackName: String, markedAt: Double, lat: Double, lon: Double): Boolean {
             val coordinates = BookmarkManager.nativeGetTrackPoints(id)
-            if (!loadPart(trackName, coordinates, stopAt)) return false
+            if (!loadPart(trackName, coordinates, markedAt)) return false
+            stop = stopOnTrail(followed!!, markedAt, lat, lon)
             trackId = id
             // Kept before the map screen is told: told, it may begin the stretch at once and keep that.
             prefs(context).edit().putString(KEY_FOLLOWED, Saved.of(coordinates, false).stretch(null, stop!!).line()).apply()
