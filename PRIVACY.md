@@ -42,7 +42,7 @@ From the app's manifest (`android/app/src/main/AndroidManifest.xml`):
 - `INTERNET`, `ACCESS_NETWORK_STATE`: downloading maps, and the other connections listed below; whether a connection is there, and whether it is Wi-Fi.
 - `FOREGROUND_SERVICE_DATA_SYNC`: a map download carries on while the app is in the background.
 - `POST_NOTIFICATIONS`: the notifications for navigation, track recording and downloads.
-- `READ_CONTACTS`: asked for once, the first time you open the search, and the search works the same if you say no. If you allow it, typing a name in the search offers people from your contacts who have a postal address, and a tap searches the map for that address. The names and addresses are read on the phone as you type and are not stored, not even in the search history; an address is sent only if you then press Look up online under it, like any typed address.
+- `READ_CONTACTS`: asked for once, when the first two letters of a search are typed, and the search works the same if you say no. If you allow it, typing a name in the search offers people from your contacts who have a postal address, and a tap searches the map for that address. The names and addresses are read on the phone as you type and are not stored, not even in the search history; an address is sent only if you then press Look up online under it, like any typed address.
 - `WAKE_LOCK`: keeping the phone awake during navigation and downloads.
 - `androidx.car.app.NAVIGATION_TEMPLATES`, `androidx.car.app.ACCESS_SURFACE`: showing the map on a car's screen through Android Auto, when you connect to one.
 

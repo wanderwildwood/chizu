@@ -35,6 +35,9 @@ What Atlas changes:
   seconds. A search button on the card finds fuel, food or anything else on the way: pick
   a place, Add stop, and Resume carries on with the stop in the route. A round button in
   the foot stops the drive on its second tap.
+- **Follow a trail.** An imported track's page starts a walk along it. A line on the map says
+  how far it is to the trail's end and when you are off the trail; a press on it turns the walk
+  around or stops it. Close Atlas and open it again and the walk carries on.
 - **Getting going.** A Home button on the map plans the way home in one tap; the places
   you last drove to head the search screen. While planning, the fastest route and one
   that keeps off the highways are side by side.
@@ -63,6 +66,10 @@ What Atlas changes:
   the geocoder of the [US Census Bureau](https://geocoding.geo.census.gov/), anywhere else
   to [Photon](https://photon.komoot.io/) (Komoot, from OpenStreetMap data), unless
   Settings names a Photon server of your own.
+- **Names from your contacts.** Search asks for your contacts once, after the first two letters
+  of a search are typed; if you allow it, people who have a postal address are offered as
+  their name is typed. Search works the same if you say no.
+- **Dark mode.** A switch in Settings; Atlas also follows the phone's own dark setting.
 - **Waiting for a position.** When the phone is slow to find where it is, a line on the
   map says so, with how many satellites it sees; a press explains what helps.
 - **What is left out.** No map editing and no OpenStreetMap sign-in, so no account of any
