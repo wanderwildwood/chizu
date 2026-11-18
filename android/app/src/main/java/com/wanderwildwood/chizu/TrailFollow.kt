@@ -500,7 +500,7 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         /** A track was deleted: if it is the one followed, following ends with it. */
         @JvmStatic
         fun trackDeleted(context: Context, id: Long) {
-            if (current != null && id == trackId) stop(context)
+            if (followed != null && id == trackId) stop(context)
         }
 
         /**
