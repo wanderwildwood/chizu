@@ -46,6 +46,8 @@ From the app's manifest (`android/app/src/main/AndroidManifest.xml`):
 - `WAKE_LOCK`: keeping the phone awake during navigation and downloads.
 - `androidx.car.app.NAVIGATION_TEMPLATES`, `androidx.car.app.ACCESS_SURFACE`: showing the map on a car's screen through Android Auto, when you connect to one.
 
+Atlas also defines one permission of its own, `READ_NAVIGATION_DATA` ("Read Atlas navigation data"), for its navigation provider: while you follow a route, another app on the phone that holds this permission can read the route's line and how the trip is going (the next turn and its distance, the street you are on and the next one, the distance and time left, the destination's name and position). It is a "dangerous" permission, so an app has to ask you for it and you have to say yes; none of the developer's other apps asks for it, and with no app holding it nothing is read. Nothing is sent anywhere by this: an app you allow reads it on the phone.
+
 Your position is used on the phone. It is not sent to the developer or to the map servers; searches are computed on the phone from the downloaded maps, and so are routes, unless you have agreed to online routes (below).
 
 ## Who else receives anything
@@ -57,6 +59,8 @@ Your position is used on the phone. It is not sent to the developer or to the ma
 - **Google**, only on a phone that has Google Play services (or microG) and only while the "Google Fused Location Service" switch in Settings, Privacy is on. Android's fused location service then helps find your position and may contact Google. With the switch off, or on a phone without those services, only the phone's own positioning is used.
 - **Your browser, phone and mail apps.** A website, phone number, email address or Wikipedia link on a place's page opens in the app that handles it; what that site or service learns is between you and it.
 - **Square, only if you give.** "Feed the llamas" in About opens a donation page (square.link) in your browser, only when you press it. The app sends nothing there; if you give, the payment is handled on that page by Square, not by this app.
+
+A server of your own (map downloads, routes, the streamed map, addresses) may be given as an `http://` address, for a server on your home network; what goes to it then travels unencrypted, so anyone on that network can read it. With `https://` it is encrypted as with the public servers.
 
 <!-- shared-about privacy section -->
 ## Who we are
