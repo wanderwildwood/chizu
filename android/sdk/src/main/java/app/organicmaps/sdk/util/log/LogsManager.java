@@ -70,6 +70,9 @@ public final class LogsManager
 
     // Set native logging level, save into shared preferences.
     switchFileLoggingEnabled(mIsFileLoggingEnabled);
+
+    // Remove what bug reports of earlier versions left behind, also for people who never send another one.
+    deleteBugReportLeftovers();
   }
 
   private void assertFileLoggingInit()
