@@ -22,4 +22,6 @@
   <!-- Away from the trail: a walking route to its nearest point. -->
   <string name="trail_walk_to">Walk to the trail</string>
   <string name="trail_walk_to_offer">You are %1$s from the trail. Atlas can plan a walking route to its nearest point.</string>
+  <!-- The label over the walker's own spot on a track's elevation chart. -->
+  <string name="chart_you">You</string>
 </resources>
