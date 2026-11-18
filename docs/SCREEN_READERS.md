@@ -22,7 +22,7 @@ For adding support to the main map, you'll need to translate
 android/sdk/src/main/java/app/.../MapViewAccessibilityDelegate.java
 into iOS-speak.
 
-Please see CONTRIBUTING.md and get in touch
+Please see [CoMaps' CONTRIBUTING.md](https://codeberg.org/comaps/comaps/src/branch/main/docs/CONTRIBUTING.md) and get in touch
 via Zulip if you want to help!
 
 ## Core (drape) accessibility

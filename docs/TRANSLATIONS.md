@@ -23,7 +23,7 @@ The project consists of multiple components, each with its own translation files
 | [F-Droid Descriptions][fdroid_weblate]              | F-Droid descriptions                                       | [android/app/src/fdroid/play/listings][fdroid_git] ([en][fdroid_git_en])                                 |
 | [Website][website_weblate]                          | Website content                                            | [comaps/website][website_git] ([see details][website_guide])                                             |
 
-Components without links haven't been integrated into Weblate and must be translated directly via [Codeberg Pull Requests](CONTRIBUTING.md).
+Components without links haven't been integrated into Weblate and must be translated directly via [Codeberg Pull Requests](https://codeberg.org/comaps/comaps/src/branch/main/docs/CONTRIBUTING.md) to CoMaps.
 
 TTS translations can be improved with [the TTS locale-viewer](https://comaps.codeberg.page/locale-viewer/).
 

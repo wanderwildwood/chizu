@@ -7,7 +7,7 @@ Here is the basic workflow to update styles:
 4. Commit your edits
 5. Send a pull request!
 
-Please prepend `[styles]` to your commit message and add [Developers Certificate of Origin](CONTRIBUTING.md#legal-requirements) to it.
+Please prepend `[styles]` to your commit message and add [Developers Certificate of Origin](https://codeberg.org/comaps/comaps/src/branch/main/docs/CONTRIBUTING.md#legal-requirements) to it.
 
 Please check [a list of current styling issues](https://codeberg.org/comaps/comaps/issues?q=&type=all&sort=&labels=410439)
 and ["icons" issues](https://codeberg.org/comaps/comaps/issues?q=&type=all&sort=&labels=446883).
