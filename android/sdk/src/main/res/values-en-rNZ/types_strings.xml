@@ -59,4 +59,9 @@
     <string name="type.waterway.stream.intermittent">Intermittent Creek</string>
     <string name="type.waterway.stream.tunnel">Creek</string>
     <string name="type.amenity.prep_school">Preschool</string>
+    <string name="type.highway.motorway">Motorway</string>
+    <string name="type.highway.motorway.bridge">Motorway Bridge</string>
+    <string name="type.highway.motorway.tunnel">Motorway Tunnel</string>
+    <string name="type.highway.motorway_link">Motorway Ramp</string>
+    <string name="type.area_highway.motorway">Motorway</string>
 </resources>
