@@ -2445,7 +2445,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   }
 
   @Override
-  public void onBookmarksFileDownloadFailed(@NonNull Uri uri, @NonNull String error)
+  public void onBookmarksFileDownloadFailed(@NonNull Uri uri, @NonNull String error, @NonNull String kind)
   {
     dismissAlertDialog();
     mAlertDialog =
@@ -2456,7 +2456,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
             .setNegativeButton(R.string.report_a_bug,
                                (dialog, which)
                                    -> Utils.sendBugReport(mShareLauncher, this, getString(R.string.load_kmz_title),
-                                                          getString(R.string.failed_to_open_file, whereFrom(uri), error)))
+                                                          getString(R.string.failed_to_open_file, whereFrom(uri), kind)))
             .setOnDismissListener(dialog -> mAlertDialog = null)
             .show();
   }

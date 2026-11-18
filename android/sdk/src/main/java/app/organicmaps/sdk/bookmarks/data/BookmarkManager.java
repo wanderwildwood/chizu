@@ -450,7 +450,7 @@ public enum BookmarkManager {
                         + e.getClass().getSimpleName());
       UiThread.run(() -> {
         for (BookmarksLoadingListener listener : mListeners)
-          listener.onBookmarksFileDownloadFailed(uri, e.toString());
+          listener.onBookmarksFileDownloadFailed(uri, e.toString(), e.getClass().getSimpleName());
       });
       return false;
     }
@@ -983,7 +983,9 @@ public enum BookmarkManager {
     default void onBookmarksLoadingStarted() {}
     default void onBookmarksLoadingFinished() {}
     default void onBookmarksFileUnsupported(@NonNull Uri uri) {}
-    default void onBookmarksFileDownloadFailed(@NonNull Uri uri, @NonNull String string) {}
+    // Atlas: the error in full for the screen, and its kind alone for a bug report, which must not carry
+    // the file's name and folders.
+    default void onBookmarksFileDownloadFailed(@NonNull Uri uri, @NonNull String string, @NonNull String kind) {}
     default void onBookmarksFileImportSuccessful() {}
     default void onBookmarksFileImportFailed() {}
   }
