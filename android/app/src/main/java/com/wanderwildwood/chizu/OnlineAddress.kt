@@ -179,8 +179,13 @@ object OnlineAddress {
         val language = Locale.getDefault().language
         Thread {
             var found: List<Found>? = null
+            // The Census out of reach, or its answer unreadable, is as if it found nothing: Photon is asked.
+            if (american) found = try {
+                parseCensus(get(censusUrl(typed)))
+            } catch (e: Exception) {
+                null
+            }
             try {
-                if (american) found = parseCensus(get(censusUrl(typed)))
                 if (found.isNullOrEmpty()) found = parsePhoton(get(photonUrl(own, typed, language)))
             } catch (e: Exception) {
                 // No answer, or one that cannot be read: said below.
