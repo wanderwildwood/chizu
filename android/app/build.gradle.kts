@@ -165,6 +165,12 @@ android {
         }
     }
 
+    // Release and test (beta) APKs carry arm64-v8a only, as every phone they are for is arm64,
+    // with no -Parm64 needed; an explicit -P processor choice still decides. Debug builds keep
+    // every processor the build made, for the emulator.
+    val processorChosen = listOf("arm32", "armeabi-v7a", "arm64", "arm64-v8a", "x86", "x86_64", "x64")
+        .any { project.hasProperty(it) }
+
     buildTypes {
 
         debug {
@@ -176,6 +182,7 @@ android {
         release {
             // Unsigned without signing/, never signed with a debug key.
             signingConfig = if (hasRealKey) signingConfigs["real"] else null
+            if (!processorChosen) ndk.abiFilters += "arm64-v8a"
 
             isMinifyEnabled = true
             isShrinkResources = true
@@ -187,6 +194,7 @@ android {
             applicationIdSuffix = ".test"
             versionNameSuffix = "-test"
             signingConfig = if (hasRealKey) signingConfigs["real"] else null
+            if (!processorChosen) ndk.abiFilters += "arm64-v8a"
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
