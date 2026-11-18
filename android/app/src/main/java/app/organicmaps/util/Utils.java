@@ -45,11 +45,9 @@ import app.organicmaps.sdk.util.Config;
 import app.organicmaps.sdk.util.Constants;
 import app.organicmaps.sdk.util.Distance;
 import app.organicmaps.sdk.util.StringUtils;
-import app.organicmaps.sdk.util.concurrency.UiThread;
 import app.organicmaps.sdk.util.log.Logger;
 import app.organicmaps.sdk.util.log.LogsManager;
 import com.google.android.material.snackbar.Snackbar;
-import java.lang.ref.WeakReference;
 import java.time.LocalTime;
 import java.util.Objects;
 import java.util.Locale;
@@ -238,9 +236,10 @@ public class Utils
     return url.startsWith("http://") || url.startsWith("https://");
   }
 
-  // subject is optional (could be an empty string).
-
   /**
+   * Opens a mail to the support address with the subject, the body and the system information (versions, device,
+   * networks, location settings) as text, which the person sees before sending. No log is attached.
+   *
    * @param subject could be an empty string
    */
   public static void sendBugReport(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
@@ -248,17 +247,27 @@ public class Utils
   {
     subject =
         activity.getString(R.string.project_name) + " Bug Report" + (TextUtils.isEmpty(subject) ? "" : ": " + subject);
-    LogsManager.INSTANCE.zipLogs(
-        new SupportInfoWithLogsCallback(launcher, activity, subject, body, BuildConfig.SUPPORT_MAIL));
+    sendSupportMail(launcher, activity, subject, body);
   }
 
-  // TODO: Don't send logs with general feedback, send system information only (version, device name, connectivity,
-  // etc.)
   public static void sendFeedback(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
                                   @NonNull Activity activity)
   {
-    LogsManager.INSTANCE.zipLogs(new SupportInfoWithLogsCallback(
-        launcher, activity, activity.getString(R.string.project_name) + " Feedback", "", BuildConfig.SUPPORT_MAIL));
+    sendSupportMail(launcher, activity, activity.getString(R.string.project_name) + " Feedback", "");
+  }
+
+  private static void sendSupportMail(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
+                                      @NonNull Activity activity, @NonNull String subject, @NonNull String body)
+  {
+    LogsManager.INSTANCE.deleteBugReportLeftovers();
+
+    final String systemInformation = LogsManager.INSTANCE.getSystemInformation();
+    final SharingUtils.ShareInfo info = new SharingUtils.ShareInfo();
+    info.mMail = BuildConfig.SUPPORT_MAIL;
+    info.mSubject = "[" + BuildConfig.VERSION_NAME + "] " + subject;
+    info.mText = TextUtils.isEmpty(body) ? systemInformation : body + "\n\n" + systemInformation;
+    info.mMimeType = EMAIL_MIME_TYPE;
+    SharingUtils.shareFile(activity.getApplicationContext(), launcher, info);
   }
 
   public static void navigateToParent(@NonNull Activity activity)
@@ -368,60 +377,6 @@ public class Utils
     if (TextUtils.isEmpty(level))
       return "";
     return context.getString(R.string.level_value_generic, level);
-  }
-
-  private static class SupportInfoWithLogsCallback implements LogsManager.OnZipCompletedListener
-  {
-    @NonNull
-    ActivityResultLauncher<SharingUtils.SharingIntent> mLauncher;
-    @NonNull
-    private final WeakReference<Activity> mActivityRef;
-    @NonNull
-    private final String mSubject;
-    @NonNull
-    private final String mBody;
-    @NonNull
-    private final String mEmail;
-
-    private SupportInfoWithLogsCallback(@NonNull ActivityResultLauncher<SharingUtils.SharingIntent> launcher,
-                                        @NonNull Activity activity, @NonNull String subject, @NonNull String body,
-                                        @NonNull String email)
-    {
-      mActivityRef = new WeakReference<>(activity);
-      mSubject = subject;
-      mBody = body;
-      mEmail = email;
-      mLauncher = launcher;
-    }
-
-    @Override
-    public void onCompleted(final boolean success, @Nullable final String zipPath)
-    {
-      // TODO: delete zip file after its sent.
-      UiThread.run(() -> {
-        final Activity activity = mActivityRef.get();
-        if (activity == null)
-          return;
-
-        SharingUtils.ShareInfo info = new SharingUtils.ShareInfo();
-
-        info.mMail = mEmail;
-        info.mSubject = "[" + BuildConfig.VERSION_NAME + "] " + mSubject;
-        info.mText = mBody;
-
-        if (success)
-        {
-          info.mFileName = zipPath;
-          info.mMimeType = ZIP_MIME_TYPE;
-        }
-        else
-        {
-          info.mMimeType = EMAIL_MIME_TYPE;
-        }
-
-        SharingUtils.shareFile(activity.getApplicationContext(), mLauncher, info);
-      });
-    }
   }
 
   @Nullable

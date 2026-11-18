@@ -40,12 +40,6 @@ import java.util.concurrent.Executors;
  */
 public final class LogsManager
 {
-  public interface OnZipCompletedListener
-  {
-    // Called from the logger thread.
-    void onCompleted(final boolean success, @Nullable final String zipPath);
-  }
-
   private final static String TAG = LogsManager.class.getSimpleName();
 
   public final static LogsManager INSTANCE = new LogsManager();
@@ -201,29 +195,37 @@ public final class LogsManager
   }
 
   /**
+   * Deletes the log archive and the copy of the system log that bug reports of earlier versions left in the
+   * app's files. A bug report now carries the system information only, as text the person sees before sending.
    * NOTE: initFileLogging() must be called before.
    */
-  public synchronized void zipLogs(@NonNull OnZipCompletedListener listener)
+  public synchronized void deleteBugReportLeftovers()
   {
     assertFileLoggingInit();
 
-    if (ensureLogsFolder() == null)
-    {
-      Log.e(TAG, "Can't zip log files: no logs folder.");
-      listener.onCompleted(false, null);
-      return;
-    }
+    final Context context = mApplicationContext;
+    EXECUTOR.execute(() -> {
+      for (File dir : new File[] {context.getExternalFilesDir(null), context.getFilesDir()})
+      {
+        if (dir == null)
+          continue;
+        deleteIfExists(new File(dir, "logs.zip"));
+        deleteIfExists(new File(new File(dir, "logs"), "logcat.log"));
+      }
+    });
+  }
 
-    Log.i(TAG, "Zipping log files in " + mLogsFolder);
-    final Runnable task = new ZipLogsTask(mLogsFolder, mLogsFolder + ".zip", listener);
-    EXECUTOR.execute(task);
+  private static void deleteIfExists(@NonNull File file)
+  {
+    if (file.exists() && !file.delete())
+      Log.e(TAG, "Can't delete " + file.getName());
   }
 
   /**
    * NOTE: initFileLogging() must be called before.
    */
   @NonNull
-  String getSystemInformation()
+  public String getSystemInformation()
   {
     assertFileLoggingInit();
 
