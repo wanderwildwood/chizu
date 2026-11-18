@@ -19,4 +19,4 @@ We use [Prettier](https://github.com/prettier/prettier) to format Markdown and y
 To format files:
 - `npm install prettier`
 - `prettier --write README.md docs/*.md tools/python/**/*.md`
-- `prettier --write .prettierrc.yaml .forgejo/**/*.yaml .forgejo/*.yml`
+- `prettier --write .prettierrc.yaml`
