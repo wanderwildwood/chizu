@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <!-- Atlas: the search screen as a directory of places (2026-11-17). New keys: "categories" and
+       "search" stay as they are, car screens and bookmark headers use them. -->
+  <string name="directory_tab">Directory</string>
+  <string name="directory_search_hint">Search the directory</string>
+  <!-- The full-width tile at the foot of the directory when Atlas starts on it. -->
+  <string name="directory_map_tile">Map</string>
+  <!-- The place screen opened from a search result. -->
+  <string name="directory_phone">Phone</string>
+  <string name="directory_hours">Hours</string>
+  <string name="directory_show_on_map">Show on map</string>
+  <string name="directory_directions">Directions</string>
+  <!-- Settings, Interface. -->
+  <string name="start_on_title">Start on</string>
+  <string name="start_on_map">Map</string>
+  <string name="start_on_directory">Directory</string>
+</resources>

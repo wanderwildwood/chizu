@@ -1946,6 +1946,15 @@ JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeShowFeature(JNIE
     frm()->ShowFeature(f);
 }
 
+JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_Framework_nativeGetPlaceInfo(JNIEnv * env, jclass,
+                                                                               jobject featureId)
+{
+  auto const f = g_framework->BuildFeatureId(env, featureId);
+  if (!f.IsValid())
+    return nullptr;
+  return usermark_helper::CreateMapObject(env, frm()->GetPlaceInfo(f));
+}
+
 JNIEXPORT void JNICALL Java_app_organicmaps_sdk_Framework_nativeMakeCrash(JNIEnv * env, jclass type)
 {
   CHECK(false, ("Diagnostic native crash!"));

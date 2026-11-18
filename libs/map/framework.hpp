@@ -479,6 +479,9 @@ public:
                              PlacePageEvent::OnUpdate onUpdate, PlacePageEvent::OnSwitchFullScreen onSwitchFullScreen);
   bool HasPlacePageInfo() const { return m_currentPlacePageInfo.has_value(); }
   place_page::Info const & GetCurrentPlacePageInfo() const;
+  /// Atlas: details of one feature (phone, hours, website...) without selecting it on the map.
+  /// Used by the Directory place screen. Read-only; leaves the current selection alone.
+  place_page::Info GetPlaceInfo(FeatureID const & fid) const;
   place_page::Info & GetCurrentPlacePageInfo();
   void BuildAndSetPlacePageInfo(place_page::BuildInfo const & buildInfo) { OnTapEvent(buildInfo); }
 

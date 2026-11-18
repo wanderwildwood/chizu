@@ -6,10 +6,18 @@
   xmlns:app="http://schemas.android.com/apk/res-auto"
   android:layout_width="match_parent"
   android:layout_height="match_parent">
+  <!-- Atlas: the search screen over the Map tile, which shows only when Atlas starts on the
+       Directory. The Directory place screen (directory_place) is laid over all of it. -->
+  <LinearLayout
+    android:id="@+id/directory_column"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
   <androidx.coordinatorlayout.widget.CoordinatorLayout
     android:id="@+id/coordinator"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
     android:orientation="vertical">
     <com.google.android.material.appbar.AppBarLayout
       android:id="@+id/app_bar"
@@ -47,11 +55,14 @@
           android:id="@+id/tabs_divider"
           layout="@layout/item_divider" />
 
+        <!-- Atlas: the space left under the tabs, so the grid and its scrollbar end at the foot
+             (above the Map tile on the Directory start screen) instead of running under it. -->
         <androidx.viewpager2.widget.ViewPager2
           android:id="@+id/pages"
           style="@style/MwmWidget.Floating"
           android:layout_width="match_parent"
-          android:layout_height="match_parent"/>
+          android:layout_height="0dp"
+          android:layout_weight="1"/>
       </LinearLayout>
 
       <!-- Results -->
@@ -98,5 +109,17 @@
       android:layout_margin="@dimen/margin_base"/>
 
   </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+  <include
+    android:id="@+id/directory_map_tile"
+    layout="@layout/item_search_category"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_quarter"
+    android:layout_marginTop="@dimen/margin_half"
+    android:layout_marginEnd="@dimen/margin_quarter"
+    android:layout_marginBottom="@dimen/margin_half"
+    android:visibility="gone" />
+  </LinearLayout>
 </FrameLayout>
 

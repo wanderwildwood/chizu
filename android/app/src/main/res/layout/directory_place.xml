@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Atlas: a place opened from a search result, inside search (Directory). Bar with back and the
+     search it came from, name and status, the rows that have data, then Show on map and Directions
+     at the foot. No ripples, no shadows; dotted rules between rows as in the Recent list. -->
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  android:id="@+id/directory_place"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:background="@color/house_paper"
+  android:clickable="true"
+  android:focusable="true"
+  android:orientation="vertical">
+
+  <LinearLayout
+    android:id="@+id/directory_place_bar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/house_paper"
+    android:gravity="center_vertical"
+    android:minHeight="?attr/actionBarSize"
+    android:orientation="horizontal">
+    <com.google.android.material.imageview.ShapeableImageView
+      android:id="@+id/directory_place_back"
+      android:layout_width="?attr/actionBarSize"
+      android:layout_height="?attr/actionBarSize"
+      android:background="@null"
+      android:contentDescription="@string/back"
+      android:scaleType="center"
+      app:srcCompat="?homeAsUpIndicator"
+      app:tint="?iconTint" />
+    <com.google.android.material.textview.MaterialTextView
+      android:id="@+id/directory_place_query"
+      android:layout_width="0dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:ellipsize="end"
+      android:maxLines="1"
+      android:paddingStart="@dimen/margin_half_plus"
+      android:paddingEnd="@dimen/margin_base"
+      android:textAppearance="@style/MwmTextAppearance.Toolbar"
+      android:textStyle="bold" />
+  </LinearLayout>
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/house_rule"
+    android:background="@color/house_ink" />
+
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/directory_place_name"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/margin_base"
+    android:paddingTop="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_base"
+    android:textColor="@color/house_ink"
+    android:textSize="24sp"
+    android:textStyle="bold" />
+
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/directory_place_status"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingStart="@dimen/margin_base"
+    android:paddingTop="@dimen/margin_quarter"
+    android:paddingEnd="@dimen/margin_base"
+    android:paddingBottom="@dimen/margin_half"
+    android:textAppearance="@style/MwmTextAppearance.Body3"
+    android:textColor="@color/house_ink" />
+
+  <androidx.recyclerview.widget.RecyclerView
+    android:id="@+id/directory_place_rows"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:scrollbars="vertical" />
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/house_rule"
+    android:background="@color/house_ink" />
+
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/directory_place_show_on_map"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:drawablePadding="@dimen/margin_base"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:paddingStart="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_base"
+    android:text="@string/directory_show_on_map"
+    android:textAppearance="@style/MwmTextAppearance.Body1"
+    android:textColor="@color/house_ink"
+    app:drawableStartCompat="@drawable/ic_show_on_map"
+    app:drawableTint="@color/house_ink" />
+
+  <View
+    android:layout_width="match_parent"
+    android:layout_height="4dp"
+    android:layout_marginStart="@dimen/margin_base"
+    android:layout_marginTop="-2dp"
+    android:layout_marginEnd="@dimen/margin_base"
+    android:layout_marginBottom="-2dp"
+    android:background="@drawable/dotted_rule"
+    android:layerType="software" />
+
+  <com.google.android.material.textview.MaterialTextView
+    android:id="@+id/directory_place_directions"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:drawablePadding="@dimen/margin_base"
+    android:gravity="center_vertical"
+    android:minHeight="56dp"
+    android:paddingStart="@dimen/margin_base"
+    android:paddingEnd="@dimen/margin_base"
+    android:text="@string/directory_directions"
+    android:textAppearance="@style/MwmTextAppearance.Body1"
+    android:textColor="@color/house_ink"
+    app:drawableStartCompat="@drawable/ic_route_to"
+    app:drawableTint="@color/house_ink" />
+</LinearLayout>

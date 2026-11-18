@@ -716,6 +716,22 @@ search::ReverseGeocoder::Address Framework::GetAddressAtPoint(m2::PointD const &
   return addr;
 }
 
+place_page::Info Framework::GetPlaceInfo(FeatureID const & fid) const
+{
+  place_page::Info info;
+  if (!fid.IsValid())
+    return info;
+
+  FeaturesLoaderGuard const guard(m_featuresFetcher.GetDataSource(), fid.m_mwmId);
+  auto ft = guard.GetFeatureByIndex(fid.m_index);
+  if (!ft)
+    return info;
+
+  info.SetMercator(feature::GetCenter(*ft));
+  FillInfoFromFeatureType(*ft, info);
+  return info;
+}
+
 void Framework::FillFeatureInfo(FeatureID const & fid, place_page::Info & info) const
 {
   if (!fid.IsValid())

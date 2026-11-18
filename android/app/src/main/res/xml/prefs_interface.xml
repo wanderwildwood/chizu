@@ -2,6 +2,11 @@
 <androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto">
 
+  <!-- Atlas: open on the map or on the search screen's Directory tab. Not persisted here: StartOn keeps it. -->
+  <com.wanderwildwood.chizu.ui.StartOnPreference
+    android:key="atlas_start_on"
+    android:persistent="false"
+    android:title="@string/start_on_title" />
   <SwitchPreferenceCompat
     android:key="@string/pref_show_zoom_buttons"
     android:summary="@string/pref_zoom_summary"

@@ -157,6 +157,8 @@ public class MwmActivity extends BaseMwmFragmentActivity
   public static final String EXTRA_BOOKMARK_ID = "bookmark_id";
   public static final String EXTRA_TRACK_ID = "track_id";
   public static final String EXTRA_UPDATE_THEME = "update_theme";
+  // Atlas: created without saved state (a real start, not a restore); see StartOn.
+  private boolean mFreshStart;
   private static final String EXTRA_CONSUMED = "mwm.extra.intent.processed";
   private boolean mPreciseLocationDialogShown = false;
 
@@ -320,6 +322,17 @@ public class MwmActivity extends BaseMwmFragmentActivity
     if (intent == null || intent.getBooleanExtra(EXTRA_CONSUMED, false))
       return;
     intent.putExtra(EXTRA_CONSUMED, true);
+
+    // Atlas: Start on = Directory: the directory over the map, now that the map engine is up
+    // (search needs it). Not over a route being planned or driven.
+    final boolean freshStart = mFreshStart;
+    mFreshStart = false;
+    if (com.wanderwildwood.chizu.StartOn.opensDirectory(this, intent, freshStart)
+        && !RoutingController.get().isPlanning() && !RoutingController.get().isNavigating())
+    {
+      SearchActivity.startDirectory(this);
+      return;
+    }
 
     // Atlas: a recent destination was tapped on the search screen.
     if (com.wanderwildwood.chizu.GoPlaces.routeFrom(this, intent))
@@ -511,6 +524,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
   protected void onSafeCreate(@Nullable Bundle savedInstanceState)
   {
     super.onSafeCreate(savedInstanceState);
+    mFreshStart = savedInstanceState == null;
 
     mIsTabletLayout = getResources().getBoolean(R.bool.tabletLayout);
 
@@ -1338,6 +1352,12 @@ public class MwmActivity extends BaseMwmFragmentActivity
         && !exitRoutePreviewIfPreviewing()
         && !routingController.resetToPlanningStateIfNavigating() && !routingController.cancel())
     {
+      // Atlas: with Start on = Directory, back on the map goes to the directory; back there leaves.
+      if (com.wanderwildwood.chizu.StartOn.directory(this) && isTaskRoot())
+      {
+        SearchActivity.startDirectory(this);
+        return;
+      }
       try
       {
         super.onBackPressed();

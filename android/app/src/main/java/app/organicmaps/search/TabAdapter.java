@@ -38,7 +38,8 @@ class TabAdapter extends FragmentStateAdapter
       @Override
       public int getTitleRes()
       {
-        return R.string.categories;
+        // Atlas: the Categories tab is the Directory; R.string.categories stays for car screens and bookmarks.
+        return R.string.directory_tab;
       }
 
       @Override
@@ -63,9 +64,18 @@ class TabAdapter extends FragmentStateAdapter
   private OnTabSelectedListener mTabSelectedListener;
   private final TabLayout mTabs;
   private final Fragment mFragment;
+  private final boolean mDirectoryFirst;
+
   TabAdapter(@NonNull Fragment fragment, ViewPager2 pager, TabLayout tabs)
   {
+    this(fragment, pager, tabs, false);
+  }
+
+  /** Atlas: [directoryFirst] opens on the Directory tab whatever tab was last used (Start on = Directory). */
+  TabAdapter(@NonNull Fragment fragment, ViewPager2 pager, TabLayout tabs, boolean directoryFirst)
+  {
     super(fragment);
+    this.mDirectoryFirst = directoryFirst;
     this.mFragment = fragment;
     this.mPager = pager;
     this.mContext = pager.getContext();
@@ -113,6 +123,8 @@ class TabAdapter extends FragmentStateAdapter
 
     SharedPreferences preferences = MwmApplication.prefs(mPager.getContext());
     int lastSelectedTabPosition = preferences.getInt(Config.KEY_PREF_LAST_SEARCHED_TAB, 0);
+    if (mDirectoryFirst && mTabs_list.contains(Tab.CATEGORIES))
+      lastSelectedTabPosition = mTabs_list.indexOf(Tab.CATEGORIES);
     mPager.setCurrentItem(lastSelectedTabPosition, false);
   }
 

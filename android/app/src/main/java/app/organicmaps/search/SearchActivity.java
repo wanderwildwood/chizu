@@ -13,6 +13,17 @@ public class SearchActivity extends BaseMwmFragmentActivity
   public static final String EXTRA_QUERY = "search_query";
   public static final String EXTRA_LOCALE = "locale";
   public static final String EXTRA_SEARCH_ON_MAP = "search_on_map";
+  /// Atlas: opened as the start screen (Settings > Start on > Directory): cog for back, Map tile at the foot.
+  public static final String EXTRA_DIRECTORY_HOME = "atlas.directory_home";
+
+  /// Atlas: the directory as Atlas's start screen, over the map (see StartOn).
+  public static void startDirectory(@NonNull Activity activity)
+  {
+    final Intent i = new Intent(activity, SearchActivity.class);
+    i.putExtra(EXTRA_DIRECTORY_HOME, true);
+    i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+    activity.startActivity(i);
+  }
 
   public static void start(@NonNull Activity activity, @Nullable String query)
   {

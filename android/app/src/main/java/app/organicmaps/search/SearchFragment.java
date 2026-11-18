@@ -14,6 +14,10 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import app.organicmaps.settings.SettingsActivity;
+import com.wanderwildwood.chizu.GoPlaces;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.CallSuper;
@@ -181,6 +185,20 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
   @Nullable
   private String mInitialLocale;
   private boolean mInitialSearchOnMap = false;
+  // Atlas: opened as the start screen (Start on = Directory): cog instead of back, Map tile at the foot.
+  private boolean mDirectoryHome = false;
+  @Nullable
+  private View mMapTile;
+  @Nullable
+  private ImageView mHomeButton;
+  @Nullable
+  private android.graphics.drawable.Drawable mUpDrawable;
+  @Nullable
+  private CharSequence mUpDescription;
+  // Atlas: the place screen a result opens (Directory).
+  @SuppressWarnings("NullableProblems")
+  @NonNull
+  private DirectoryPlace mPlace;
 
   private final ActivityResultLauncher<Intent> startVoiceRecognitionForResult =
       registerForActivityResult(new ActivityResultContracts.StartActivityForResult(),
@@ -252,6 +270,10 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
 
     UiUtils.showIf(hasQuery, mResultsFrame);
     UiUtils.showIf(hasQuery, mShowOnMapFab);
+    if (mMapTile != null)
+      UiUtils.showIf(mDirectoryHome && !hasQuery, mMapTile);
+    if (mDirectoryHome)
+      showHomeButtonAsCog(!hasQuery);
 
     if (hasQuery)
       mTabFrame.setImportantForAccessibility(View.IMPORTANT_FOR_ACCESSIBILITY_NO_HIDE_DESCENDANTS);
@@ -298,7 +320,11 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     else
       tabLayout.setVisibility(View.GONE);
 
-    final TabAdapter tabAdapter = new TabAdapter(this, pager, tabLayout);
+    final TabAdapter tabAdapter = new TabAdapter(this, pager, tabLayout, mDirectoryHome);
+    mPlace = new DirectoryPlace(this, root);
+    mToolbarController.setHint(R.string.directory_search_hint);
+    if (mDirectoryHome)
+      setUpDirectoryHome(root);
 
     mResultsFrame = root.findViewById(R.id.results_frame);
     RecyclerView mResults = mResultsFrame.findViewById(R.id.recycler);
@@ -404,6 +430,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     mInitialQuery = arguments.getString(SearchActivity.EXTRA_QUERY);
     mInitialLocale = arguments.getString(SearchActivity.EXTRA_LOCALE);
     mInitialSearchOnMap = arguments.getBoolean(SearchActivity.EXTRA_SEARCH_ON_MAP);
+    mDirectoryHome = arguments.getBoolean(SearchActivity.EXTRA_DIRECTORY_HOME);
   }
 
   private boolean tryRecognizeHiddenCommand(@NonNull String query)
@@ -428,6 +455,82 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
     }
 
     return mHiddenCommands;
+  }
+
+  /**
+   * Atlas: the cog where the back arrow was (Settings), and the Map tile at the foot, for the
+   * directory as Atlas's start screen.
+   */
+  private void setUpDirectoryHome(@NonNull ViewGroup root)
+  {
+    mHomeButton = root.findViewById(R.id.back);
+    if (mHomeButton != null)
+    {
+      mUpDrawable = mHomeButton.getDrawable();
+      mUpDescription = mHomeButton.getContentDescription();
+      showHomeButtonAsCog(true);
+    }
+
+    mMapTile = root.findViewById(R.id.directory_map_tile);
+    ((ImageView) mMapTile.findViewById(R.id.icon)).setImageResource(R.drawable.ic_category_map);
+    ((TextView) mMapTile.findViewById(R.id.title)).setText(R.string.directory_map_tile);
+    mMapTile.setOnClickListener(v -> showMap());
+  }
+
+  /**
+   * Atlas: the cog only on the tiles. With results showing it is the usual back arrow, which
+   * clears the search and returns to the tiles (the toolbar's own up action).
+   */
+  private void showHomeButtonAsCog(boolean cog)
+  {
+    if (mHomeButton == null)
+      return;
+    if (cog)
+    {
+      mHomeButton.setImageResource(R.drawable.ic_settings);
+      mHomeButton.setContentDescription(getString(R.string.settings));
+      mHomeButton.setOnClickListener(v -> startActivity(new Intent(requireContext(), SettingsActivity.class)));
+    }
+    else
+    {
+      mHomeButton.setImageDrawable(mUpDrawable);
+      mHomeButton.setContentDescription(mUpDescription);
+      mHomeButton.setOnClickListener(v -> mToolbarController.onUpClick());
+    }
+  }
+
+  /** Atlas: the Map tile. The map is underneath (StartOn); otherwise it is started. */
+  private void showMap()
+  {
+    mToolbarController.deactivate();
+    final Activity activity = requireActivity();
+    if (activity instanceof SearchActivity && !activity.isTaskRoot())
+      activity.finish();
+    else
+      Utils.navigateToParent(activity);
+  }
+
+  /** Atlas: a result was tapped. The place screen (Directory), or today's drop-in for a route-point pick. */
+  void openResult(@NonNull SearchResult result, int resultIndex)
+  {
+    if (RoutingController.get().isWaitingPoiPick())
+    {
+      showSingleResultOnMap(result, resultIndex);
+      return;
+    }
+    mToolbarController.deactivate();
+    mPlace.show(result, resultIndex, getQuery());
+  }
+
+  /** Atlas: Directions on the place screen: the map, with a route from here to the place. */
+  void directionsTo(@NonNull SearchResult result, @NonNull String name)
+  {
+    final String query = getQuery();
+    if (Config.isSearchHistoryEnabled())
+      SearchRecents.add(query, requireContext());
+    SearchEngine.INSTANCE.cancel();
+    mToolbarController.deactivate();
+    GoPlaces.go(requireContext(), new GoPlaces.Place(name, result.lat, result.lon));
   }
 
   void showSingleResultOnMap(@NonNull SearchResult result, int resultIndex)
@@ -565,6 +668,12 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
   @Override
   public boolean onBackPressed()
   {
+    if (mPlace.isShown())
+    {
+      mPlace.hide();
+      return true;
+    }
+
     if (mToolbarController.hasQuery())
     {
       mToolbarController.clear();
@@ -579,6 +688,14 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
       if (isSearchActivity)
         closeSearch();
       return !isSearchActivity;
+    }
+
+    if (mDirectoryHome && isSearchActivity)
+    {
+      // Atlas: the start screen. Back leaves Atlas (as back on the map does) and opening it again
+      // comes back here; it never goes to the map, so map and directory can't bounce.
+      requireActivity().moveTaskToBack(true);
+      return true;
     }
 
     if (isSearchActivity)

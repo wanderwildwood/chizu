@@ -38,6 +38,12 @@ What Atlas changes:
 - **Getting going.** A Home button on the map plans the way home in one tap; the places
   you last drove to head the search screen. While planning, the fastest route and one
   that keeps off the highways are side by side.
+- **A directory.** Search's Directory tab (Categories in CoMaps) lists the places near you
+  by kind: where to eat, groceries, gas, a pharmacy. A place opens on its own page, with its
+  phone number, address, the week's hours and website from the downloaded map, and Show on
+  map and Directions at the foot. Tapping the number opens the dialer; nothing is called.
+  Settings › Interface › Start on: Directory opens Atlas there instead of on the map. What a
+  place shows is what OpenStreetMap holds for it.
 - **Hold the map.** Hold a finger on a shop, a building or a saved place and its page opens;
   hold a bare point and a black ring marks exactly that spot. Either way: Route to plans the way, Save
   keeps it among your favorites, and while a route is up, Add stop puts it on the way.

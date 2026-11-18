@@ -376,6 +376,10 @@ public class Framework
 
   public static native void nativeShowFeature(@NonNull FeatureId featureId);
 
+  /// Details of one feature (phone, hours, website) without selecting it on the map. Null if it can't be loaded.
+  @Nullable
+  public static native MapObject nativeGetPlaceInfo(@NonNull FeatureId featureId);
+
   public static native void nativeMakeCrash();
 
   public static native void nativeSetPowerManagerFacility(int facilityType, boolean state);

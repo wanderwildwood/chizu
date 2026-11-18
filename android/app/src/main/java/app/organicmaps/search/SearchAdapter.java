@@ -265,8 +265,34 @@ class SearchAdapter extends RecyclerView.Adapter<SearchAdapter.SearchDataViewHol
     @Override
     void processClick(SearchResult result, int order)
     {
-      mSearchFragment.showSingleResultOnMap(result, order);
+      // Atlas: a result opens its place screen in search (Directory); a route-point pick still drops in.
+      mSearchFragment.openResult(result, order);
     }
+  }
+
+  /**
+   * Atlas: the open state as the result row words it ("Open", "Closed", "Closes in 20 min",
+   * "Opens in 10 min"), for the Directory place screen. Null when the hours are not known.
+   */
+  @Nullable
+  static String openState(@NonNull Resources resources, @NonNull SearchResult result)
+  {
+    if (result.description == null
+        || (result.description.openNow != SearchResult.OPEN_NOW_YES
+            && result.description.openNow != SearchResult.OPEN_NOW_NO))
+      return null;
+
+    final boolean isOpen = result.description.openNow == SearchResult.OPEN_NOW_YES;
+    final int minsToNextState = isOpen ? result.description.minutesUntilClosed : result.description.minutesUntilOpen;
+    final boolean shortHorizonClosing = isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_CLOSE_MIN;
+    final boolean shortHorizonOpening = !isOpen && minsToNextState >= 0 && minsToNextState <= SHORT_HORIZON_OPEN_MIN;
+    if (shortHorizonClosing || shortHorizonOpening)
+    {
+      final String minsToChangeStr = resources.getQuantityString(
+          R.plurals.minutes_short, Math.max(minsToNextState, 1), Math.max(minsToNextState, 1));
+      return resources.getString(isOpen ? R.string.closes_in : R.string.opens_in, minsToChangeStr);
+    }
+    return isOpen ? resources.getString(R.string.editor_time_open) : resources.getString(R.string.closed);
   }
 
   SearchAdapter(SearchFragment fragment)
