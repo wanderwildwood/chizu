@@ -306,8 +306,10 @@ void AsyncRouter::CalculateRoute()
 
   try
   {
+    // Atlas: the points themselves are where the user is and is going; only a debug build logs them.
     LOG(LINFO, ("Calculating the route of direct length", checkpoints.GetSummaryLengthBetweenPointsMeters(),
-                "m. checkpoints:", checkpoints, "startDirection:", startDirection, "router name:", router->GetName()));
+                "m. subroutes:", checkpoints.GetNumSubroutes(), "router name:", router->GetName()));
+    LOG(LDEBUG, ("checkpoints:", checkpoints, "startDirection:", startDirection));
 
     // Can be nullptr for the Ruler router.
     if (absentRegionsFinder)

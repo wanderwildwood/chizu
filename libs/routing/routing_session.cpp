@@ -549,7 +549,9 @@ void RoutingSession::PassCheckpoints()
   {
     m_route->PassNextSubroute();
     m_checkpoints.PassNextPoint();
-    LOG(LINFO, ("Pass checkpoint, ", m_checkpoints));
+    // Atlas: the points themselves are where the user is and is going; only a debug build logs them.
+    LOG(LINFO, ("Pass checkpoint", m_checkpoints.GetPassedIdx(), "of", m_checkpoints.GetNumSubroutes()));
+    LOG(LDEBUG, ("Checkpoints:", m_checkpoints));
     m_checkpointCallback(m_checkpoints.GetPassedIdx());
   }
 }

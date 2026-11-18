@@ -365,8 +365,10 @@ RouterResultCode IndexRouter::CalculateRoute(Checkpoints const & checkpoints, m2
         if (code != RouterResultCode::RouteNotFound)
           return code;
 
-        LOG(LWARNING, ("Can't adjust route, do full rebuild, prev start:", mercator::ToLatLon(m_lastRoute->GetStart()),
-                       "start:", mercator::ToLatLon(startPoint), "finish:", mercator::ToLatLon(finalPoint)));
+        // Atlas: the points are where the user is and is going; only a debug build logs them.
+        LOG(LWARNING, ("Can't adjust route, do full rebuild"));
+        LOG(LDEBUG, ("prev start:", mercator::ToLatLon(m_lastRoute->GetStart()), "start:", mercator::ToLatLon(startPoint),
+                     "finish:", mercator::ToLatLon(finalPoint)));
       }
     }
 
@@ -374,8 +376,9 @@ RouterResultCode IndexRouter::CalculateRoute(Checkpoints const & checkpoints, m2
   }
   catch (RootException const & e)
   {
-    LOG(LERROR, ("Can't find path from", mercator::ToLatLon(startPoint), "to", mercator::ToLatLon(finalPoint), ":\n ",
-                 e.what()));
+    // Atlas: the points are where the user is and is going; only a debug build logs them.
+    LOG(LERROR, ("Can't find path:", e.what()));
+    LOG(LDEBUG, ("from", mercator::ToLatLon(startPoint), "to", mercator::ToLatLon(finalPoint)));
     return RouterResultCode::InternalError;
   }
 }
@@ -1062,8 +1065,10 @@ RouterResultCode IndexRouter::AdjustRoute(Checkpoints const & checkpoints, m2::P
   if (redressResult != RouterResultCode::NoError)
     return redressResult;
 
-  LOG(LINFO, ("Adjust route, elapsed:", timer.ElapsedSeconds(), ", prev start:", checkpoints,
-              ", prev route:", steps.size(), ", new route:", result.m_path.size()));
+  // Atlas: the checkpoints are where the user is and is going; only a debug build logs them.
+  LOG(LINFO, ("Adjust route, elapsed:", timer.ElapsedSeconds(), ", prev route:", steps.size(),
+              ", new route:", result.m_path.size()));
+  LOG(LDEBUG, ("prev start:", checkpoints));
 
   return RouterResultCode::NoError;
 }

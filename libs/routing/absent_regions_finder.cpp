@@ -39,8 +39,10 @@ RouterResultCode AbsentRegionsFinder::GenerateAbsentRegions(Checkpoints const & 
     if (currCountry.empty())
     {
       /// @todo We can move checkpoint to the nearest Region's polygon here.
-      LOG(LWARNING, ("For point", mercator::ToLatLon(checkpoint),
-                     "CountryInfoGetter returns empty. It happens when checkpoint is put at gaps between MWMs."));
+      // Atlas: the point is where the user is or is going; only a debug build logs it.
+      LOG(LWARNING, ("For a checkpoint CountryInfoGetter returns empty. It happens when checkpoint is put at gaps "
+                     "between MWMs."));
+      LOG(LDEBUG, ("Point:", mercator::ToLatLon(checkpoint)));
       return RouterResultCode::InternalError;
     }
 
