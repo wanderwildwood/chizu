@@ -3,6 +3,7 @@ package com.wanderwildwood.chizu
 import android.app.Activity
 import android.content.Context
 import android.location.Location
+import android.os.SystemClock
 import android.view.View
 import android.widget.TextView
 import app.organicmaps.MwmApplication
@@ -107,9 +108,12 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
 
     private fun onLocation(location: Location) {
         val track = followed ?: return
-        // A stretch begins where the walker meets the trail, so it waits for the first position.
+        // A stretch begins where the walker meets the trail, so it waits for the first position:
+        // a fresh, close one. The position the phone last had, replayed at once, may be old or rough.
         if (current == null) {
             val stopAt = stop ?: return
+            val age = SystemClock.elapsedRealtimeNanos() - location.elapsedRealtimeNanos
+            if (!canBegin(age, if (location.hasAccuracy()) location.accuracy.toDouble() else null)) return
             begin(activity, track.locate(location.latitude, location.longitude, null).along, stopAt)
         }
         val trail = current ?: return
@@ -333,6 +337,9 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
         /** Farther from the trail than this is off it. */
         const val OFF_TRAIL_M = 50.0
 
+        /** A position older than this many seconds does not begin a stretch. */
+        const val BEGIN_AGE_S = 30L
+
         /** Closer to the end than this is there. */
         const val END_M = 30.0
 
@@ -549,6 +556,15 @@ class TrailFollow(private val activity: Activity, private val line: TextView) {
 
         @JvmStatic
         val isReversed: Boolean get() = reversed
+
+        /**
+         * Whether a position [ageNanos] old, as sure as [accuracy] meters (null when the phone does
+         * not say), is good enough to begin a stretch at: no older than [BEGIN_AGE_S] seconds, and
+         * no rougher than [OFF_TRAIL_M].
+         */
+        @JvmStatic
+        fun canBegin(ageNanos: Long, accuracy: Double?): Boolean =
+            ageNanos <= BEGIN_AGE_S * 1_000_000_000L && (accuracy == null || accuracy <= OFF_TRAIL_M)
 
         /** Off the trail: farther from it than [OFF_TRAIL_M], and than the position is uncertain. */
         @JvmStatic

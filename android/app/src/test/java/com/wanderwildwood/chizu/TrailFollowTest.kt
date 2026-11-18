@@ -335,4 +335,15 @@ class TrailFollowTest {
         assertNull(Saved.parse("$good park - 120"))
         assertNull(Saved.parse("$good part - 120 7"))
     }
+
+    @Test
+    fun aStretchBeginsOnlyAtAFreshClosePosition() {
+        val second = 1_000_000_000L
+        assertTrue(TrailFollow.canBegin(2 * second, 8.0))
+        assertTrue(TrailFollow.canBegin(0, null))
+        assertTrue(TrailFollow.canBegin(30 * second, TrailFollow.OFF_TRAIL_M))
+        assertFalse(TrailFollow.canBegin(31 * second, 8.0))
+        assertFalse(TrailFollow.canBegin(3600 * second, 8.0))
+        assertFalse(TrailFollow.canBegin(2 * second, 900.0))
+    }
 }
