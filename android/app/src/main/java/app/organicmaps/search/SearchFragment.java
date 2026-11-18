@@ -561,7 +561,7 @@ public class SearchFragment extends BaseMwmFragment implements SearchListener, C
   void directionsTo(@NonNull SearchResult result, @NonNull String name)
   {
     final String query = getQuery();
-    if (Config.isSearchHistoryEnabled())
+    if (keepsInHistory(query))
       SearchRecents.add(query, requireContext());
     SearchEngine.INSTANCE.cancel();
     mToolbarController.deactivate();
