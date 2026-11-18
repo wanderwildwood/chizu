@@ -188,6 +188,10 @@ public class SplashActivity extends AppCompatActivity
     intent.setFlags(intent.getFlags() & Intent.FLAG_GRANT_READ_URI_PERMISSION);
     // Atlas: another app's intent may not carry the map's own route-to-here extras.
     com.wanderwildwood.chizu.GoPlaces.stripFrom(intent);
+    // Nor the bookmark lists' own extras: their ids are only good within one start of the app.
+    intent.removeExtra(MwmActivity.EXTRA_CATEGORY_ID);
+    intent.removeExtra(MwmActivity.EXTRA_BOOKMARK_ID);
+    intent.removeExtra(MwmActivity.EXTRA_TRACK_ID);
 
     if (Factory.isStartedForApiResult(intent))
     {

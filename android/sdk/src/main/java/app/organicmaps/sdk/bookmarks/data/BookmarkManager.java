@@ -967,6 +967,9 @@ public enum BookmarkManager {
 
   public static native ElevationInfo nativeGetTrackElevationInfo(long trackId);
 
+  // Atlas: whether a track with this id is there; getTrack must only be asked for one that is.
+  public static native boolean nativeHasTrack(long trackId);
+
   // Atlas: the track's line as latitude, longitude pairs; empty when the track is gone.
   @NonNull
   public static native double[] nativeGetTrackPoints(long trackId);

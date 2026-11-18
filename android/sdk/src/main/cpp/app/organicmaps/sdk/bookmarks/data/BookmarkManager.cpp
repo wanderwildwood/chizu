@@ -503,6 +503,13 @@ JNIEXPORT jobject JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManage
                         nTrack->GetColor(0).GetARGB());
 }
 
+// Atlas: whether a track with this id is there (deleted tracks and ids from an earlier start are not).
+JNIEXPORT jboolean JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeHasTrack(JNIEnv *, jclass,
+                                                                                                 jlong trackId)
+{
+  return static_cast<jboolean>(frm()->GetBookmarkManager().GetTrack(static_cast<kml::TrackId>(trackId)) != nullptr);
+}
+
 // Atlas: a track's own line as latitude, longitude pairs in the order it was drawn, for following
 // it on foot. Empty when the track is gone.
 JNIEXPORT jdoubleArray JNICALL Java_app_organicmaps_sdk_bookmarks_data_BookmarkManager_nativeGetTrackPoints(

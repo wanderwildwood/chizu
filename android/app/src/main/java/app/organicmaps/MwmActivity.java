@@ -350,7 +350,7 @@ public class MwmActivity extends BaseMwmFragmentActivity
     }
     else if (trackId != -1)
     {
-      if (BookmarkManager.INSTANCE.getTrack(trackId) != null)
+      if (BookmarkManager.nativeHasTrack(trackId))
         Framework.nativeShowTrackRect(trackId);
       return;
     }
