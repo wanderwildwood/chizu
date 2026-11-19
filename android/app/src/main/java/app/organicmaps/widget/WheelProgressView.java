@@ -67,7 +67,8 @@ public class WheelProgressView extends FrameLayout
   public void setProgress(int progress)
   {
     if (mProgress.getProgress() == progress) return;
-    mProgress.setProgressCompat(progress, true);
+    // No sweep: on E Ink each frame of it is a redraw.
+    mProgress.setProgressCompat(progress, false);
   }
 
   public void setPending(boolean pending)

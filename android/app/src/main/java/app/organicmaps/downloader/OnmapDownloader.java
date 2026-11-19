@@ -164,15 +164,15 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
         UiUtils.showIf(hasParent, mParent);
 
         if (hasParent)
-          mParent.setText(mCurrentCountry.topmostParentName);
+          ProgressSteps.setTextIfNew(mParent, mCurrentCountry.topmostParentName);
 
-        mTitle.setText(mCurrentCountry.name);
+        ProgressSteps.setTextIfNew(mTitle, mCurrentCountry.name);
 
         String sizeText;
 
         if (progress)
         {
-          int roundedProgress = Math.round(mCurrentCountry.progress);
+          int roundedProgress = ProgressSteps.of(mCurrentCountry.progress);
           mProgress.setPending(false);
           mProgress.setProgress(roundedProgress);
           sizeText = mActivity.getString(R.string.downloader_downloading) + " "
@@ -208,7 +208,7 @@ public class OnmapDownloader implements MwmActivity.LeftAnimationTrackListener
           }
         }
 
-        mSize.setText(sizeText);
+        ProgressSteps.setTextIfNew(mSize, sizeText);
       }
     }
 

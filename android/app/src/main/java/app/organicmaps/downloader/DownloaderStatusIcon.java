@@ -66,7 +66,7 @@ public class DownloaderStatusIcon
     if (inProgress)
     {
       if (!pending)
-        mProgress.setProgress(Math.round(country.progress));
+        mProgress.setProgress(ProgressSteps.of(country.progress));
       return;
     }
 
