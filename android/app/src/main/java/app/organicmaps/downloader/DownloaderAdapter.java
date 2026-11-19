@@ -659,6 +659,10 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
     }
 
     MapManager.nativeListItems(parent, lat, lon, hasLocation, mMyMapsMode, mItems);
+    // Download maps lists only what is not on the phone yet; your maps have their own list.
+    // A region with some of its parts downloaded (STATUS_PARTLY) stays, to fetch the rest.
+    if (!mMyMapsMode)
+      mItems.removeIf(ci -> ci.status == CountryItem.STATUS_DONE || ci.status == CountryItem.STATUS_UPDATABLE);
     processData();
   }
 
