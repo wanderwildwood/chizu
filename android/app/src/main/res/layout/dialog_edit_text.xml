@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/margin_base"
     android:paddingBottom="@dimen/margin_half"
     app:hintEnabled="false">
-    <com.google.android.material.textfield.TextInputEditText
+    <com.wanderwildwood.chizu.ui.SteadyCaretEditText
       android:id="@+id/et__input"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

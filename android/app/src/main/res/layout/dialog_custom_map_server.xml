@@ -13,7 +13,7 @@
     app:placeholderText="@string/download_resources_custom_url_hint"
     app:endIconMode="clear_text">
 
-  <com.google.android.material.textfield.TextInputEditText
+  <com.wanderwildwood.chizu.ui.SteadyCaretEditText
       android:id="@+id/edit_custom_map_server"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"

@@ -20,7 +20,7 @@
     android:scaleType="center"
     android:contentDescription="@string/back"/>
 
-  <com.google.android.material.textfield.TextInputEditText
+  <com.wanderwildwood.chizu.ui.SteadyCaretEditText
     android:id="@+id/query"
     style="@style/MwmTextAppearance.Toolbar.Search"
     android:layout_width="0dp"

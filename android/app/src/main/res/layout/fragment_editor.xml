@@ -419,7 +419,7 @@
             android:minHeight="74dp"
             android:textColorHint="?android:textColorSecondary"
             app:hintEnabled="false">
-          <com.google.android.material.textfield.TextInputEditText
+          <com.wanderwildwood.chizu.ui.SteadyCaretEditText
               android:id="@+id/input"
               style="@style/MwmWidget.Editor.FieldLayout.EditText"
               android:inputType="textMultiLine"

@@ -33,7 +33,7 @@
     android:textColorHint="?android:textColorSecondary"
     android:layout_marginTop="@dimen/margin_base_plus"
     app:hintEnabled="false">
-    <com.google.android.material.textfield.TextInputEditText
+    <com.wanderwildwood.chizu.ui.SteadyCaretEditText
       android:id="@+id/note_edit_text"
       style="@style/MwmWidget.Editor.FieldLayout.EditText"
       android:layout_width="match_parent"

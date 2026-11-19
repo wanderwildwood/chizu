@@ -47,7 +47,7 @@
           app:endIconMode="custom"
           app:endIconDrawable="@drawable/ic_clear_rounded"
           app:endIconTint="?android:textColorSecondary">
-        <com.google.android.material.textfield.TextInputEditText
+        <com.wanderwildwood.chizu.ui.SteadyCaretEditText
           android:id="@+id/edit_list_name_view"
           style="@style/MwmWidget.Editor.CustomTextInput"
           android:textAlignment="viewStart"
@@ -61,7 +61,7 @@
       app:hintAnimationEnabled="false"
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:textColorHint="?android:textColorSecondary">
-    <com.google.android.material.textfield.TextInputEditText
+    <com.wanderwildwood.chizu.ui.SteadyCaretEditText
       android:id="@+id/edit_description"
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:hint="@string/placepage_personal_notes_hint"

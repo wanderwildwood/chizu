@@ -31,7 +31,7 @@
               android:layout_marginBottom="@dimen/margin_half"
               app:hintEnabled="false">
 
-          <com.google.android.material.textfield.TextInputEditText
+          <com.wanderwildwood.chizu.ui.SteadyCaretEditText
               android:id="@+id/et__timetable"
               android:layout_width="match_parent"
               android:layout_height="wrap_content"

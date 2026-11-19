@@ -26,7 +26,7 @@
       app:endIconContentDescription="@string/clear"
       app:endIconDrawable="@drawable/ic_clear_rounded"
       app:endIconTint="?android:textColorSecondary">
-      <com.google.android.material.textfield.TextInputEditText
+      <com.wanderwildwood.chizu.ui.SteadyCaretEditText
         android:id="@+id/et__bookmark_name"
         style="@style/MwmWidget.Editor.CustomTextInput"
         android:layout_width="match_parent"
@@ -95,7 +95,7 @@
     android:hint="@string/placepage_personal_notes_hint"
     android:textColorHint="?android:textColorSecondary">
 
-    <com.google.android.material.textfield.TextInputEditText
+    <com.wanderwildwood.chizu.ui.SteadyCaretEditText
       android:id="@+id/et__description"
       style="@style/MwmWidget.Editor.CustomTextInput"
       android:layout_width="match_parent"
