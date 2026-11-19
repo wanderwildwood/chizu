@@ -6,6 +6,7 @@
 |---|---|
 | ![The map, with Home, search and favorites in the bar](screenshots/1-map.png) | ![The guidance card: the next turn, the two after it, speed limit and speed](screenshots/2-card.png) |
 | ![Planning a drive: the fastest route and one that keeps off the highways](screenshots/3-routes.png) | ![The search screen, headed by the places last driven to](screenshots/4-recent.png) |
+| ![The Directory: kinds of place, one tap from the start](screenshots/5-directory.png) | ![Places to eat nearby, nearest first](screenshots/6-directory-results.png) |
 
 An offline map of the world for an E Ink phone. Download a region once, then search it,
 find a route and follow it by car, on foot or by bike, with no connection. Black on white,
