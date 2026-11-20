@@ -660,10 +660,21 @@ class DownloaderAdapter extends RecyclerView.Adapter<DownloaderAdapter.ViewHolde
 
     MapManager.nativeListItems(parent, lat, lon, hasLocation, mMyMapsMode, mItems);
     // Download maps lists only what is not on the phone yet; your maps have their own list.
-    // A region with some of its parts downloaded (STATUS_PARTLY) stays, to fetch the rest.
     if (!mMyMapsMode)
-      mItems.removeIf(ci -> ci.status == CountryItem.STATUS_DONE || ci.status == CountryItem.STATUS_UPDATABLE);
+      mItems.removeIf(DownloaderAdapter::wholeOnPhone);
     processData();
+  }
+
+  /**
+   * A map, or a region with every one of its maps, already on the phone (up to date or with an
+   * update waiting). A region with only some of its maps keeps its place, to fetch the rest:
+   * its status alone does not say so, since an update waiting for one of its maps marks the
+   * whole region UPDATABLE.
+   */
+  private static boolean wholeOnPhone(CountryItem ci)
+  {
+    boolean onPhone = ci.status == CountryItem.STATUS_DONE || ci.status == CountryItem.STATUS_UPDATABLE;
+    return onPhone && (!ci.isExpandable() || ci.childCount >= ci.totalChildCount);
   }
 
   void setSearchResultsMode(@NonNull Collection<CountryItem> results, String query)
