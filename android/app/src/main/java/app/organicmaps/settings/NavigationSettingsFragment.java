@@ -106,8 +106,15 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
   {
     final TwoStatePreference onPref = getPreference(getString(R.string.pref_streamed_map));
     onPref.setChecked(StreamedMap.isOn(requireContext()));
+    // The Wi-Fi-only and server rows show only while the switch is on.
+    final Preference wifiRow = getPreference(getString(R.string.pref_streamed_map_wifi));
+    final Preference serverRow = getPreference(getString(R.string.pref_streamed_map_server));
+    wifiRow.setVisible(onPref.isChecked());
+    serverRow.setVisible(onPref.isChecked());
     onPref.setOnPreferenceChangeListener((preference, newValue) -> {
       StreamedMap.setOn(requireContext(), (Boolean) newValue);
+      wifiRow.setVisible((Boolean) newValue);
+      serverRow.setVisible((Boolean) newValue);
       return true;
     });
 
@@ -136,12 +143,15 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
   {
     final TwoStatePreference onPref = getPreference(getString(R.string.pref_online_address));
     onPref.setChecked(com.wanderwildwood.chizu.OnlineAddress.isOn(requireContext()));
+    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_address_server));
+    // The server row shows only while the switch is on.
+    serverPref.setVisible(onPref.isChecked());
     onPref.setOnPreferenceChangeListener((preference, newValue) -> {
       com.wanderwildwood.chizu.OnlineAddress.setOn(requireContext(), (Boolean) newValue);
+      serverPref.setVisible((Boolean) newValue);
       return true;
     });
 
-    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_address_server));
     final String server = com.wanderwildwood.chizu.OnlineAddress.server(requireContext());
     serverPref.setText(server);
     serverPref.setSummary(server.isEmpty() ? getString(R.string.online_address_server_default) : server);
@@ -159,12 +169,15 @@ public class NavigationSettingsFragment extends BaseXmlSettingsFragment
   {
     final TwoStatePreference onPref = getPreference(getString(R.string.pref_online_routes));
     onPref.setChecked(OnlineRoutes.isOn(requireContext()));
+    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_route_server));
+    // The server row shows only while the switch is on.
+    serverPref.setVisible(onPref.isChecked());
     onPref.setOnPreferenceChangeListener((preference, newValue) -> {
       OnlineRoutes.setOn(requireContext(), (Boolean) newValue);
+      serverPref.setVisible((Boolean) newValue);
       return true;
     });
 
-    final EditTextPreference serverPref = getPreference(getString(R.string.pref_online_route_server));
     final String server = OnlineRoutes.server(requireContext());
     serverPref.setText(server);
     serverPref.setSummary(server.isEmpty() ? getString(R.string.online_routes_server_default) : server);
