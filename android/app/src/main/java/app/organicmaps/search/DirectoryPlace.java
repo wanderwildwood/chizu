@@ -25,8 +25,10 @@ import app.organicmaps.sdk.bookmarks.data.Metadata;
 import app.organicmaps.sdk.editor.OpeningHours;
 import app.organicmaps.sdk.editor.data.Timetable;
 import app.organicmaps.sdk.search.SearchResult;
+import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.util.Utils;
 import app.organicmaps.util.WindowInsetUtils;
+import app.organicmaps.widget.placepage.MonthHours;
 import app.organicmaps.widget.placepage.sections.PlaceOpeningHoursAdapter;
 import com.google.android.material.textview.MaterialTextView;
 import com.wanderwildwood.chizu.ui.DottedRules;
@@ -198,7 +200,7 @@ class DirectoryPlace
 
     if (place != null)
     {
-      final List<HoursLine> hours = hoursOf(res, place.getMetadata(Metadata.MetadataType.FMD_OPEN_HOURS));
+      final List<HoursLine> hours = hoursOf(context, place.getMetadata(Metadata.MetadataType.FMD_OPEN_HOURS));
       if (!hours.isEmpty())
         rows.add(new Row(res.getString(R.string.directory_hours), null, hours, null));
 
@@ -232,8 +234,9 @@ class DirectoryPlace
    * the same parser, the same day ranges and shift strings, all laid out at once instead of folded.
    */
   @NonNull
-  private static List<HoursLine> hoursOf(@NonNull Resources res, @Nullable String ohStr)
+  private static List<HoursLine> hoursOf(@NonNull Context context, @Nullable String ohStr)
   {
+    final Resources res = context.getResources();
     final List<HoursLine> lines = new ArrayList<>();
     if (TextUtils.isEmpty(ohStr))
       return lines;
@@ -241,6 +244,22 @@ class DirectoryPlace
     final Timetable[] timetables = OpeningHours.nativeTimetablesFromString(ohStr);
     if (timetables == null || timetables.length == 0)
     {
+      // Hours by the month ("Jan-Apr,Oct-Dec 09:00-19:00; May-Sep 09:00-22:00"): one line a rule.
+      final List<MonthHours.Line> byMonth =
+          MonthHours.parse(ohStr, DateUtils.is24HourFormat(context), Locale.getDefault());
+      if (byMonth != null)
+      {
+        final Calendar now = Calendar.getInstance();
+        boolean found = false;
+        for (MonthHours.Line line : byMonth)
+        {
+          final boolean today = !found && line.holdsOn(now);
+          found |= today;
+          lines.add(new HoursLine(line.when, line.isOff() ? res.getString(R.string.day_off)
+                                                          : TextUtils.join(", ", line.shifts), today));
+        }
+        return lines;
+      }
       // Not parsed: shown as it is, as the place page does.
       switch (ohStr)
       {

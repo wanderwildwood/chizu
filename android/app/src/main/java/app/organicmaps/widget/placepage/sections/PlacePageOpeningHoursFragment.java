@@ -3,6 +3,7 @@ package app.organicmaps.widget.placepage.sections;
 import android.animation.ValueAnimator;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -27,10 +28,12 @@ import app.organicmaps.sdk.editor.data.Timetable;
 import app.organicmaps.sdk.util.DateUtils;
 import app.organicmaps.util.ThemeUtils;
 import app.organicmaps.util.UiUtils;
+import app.organicmaps.widget.placepage.MonthHours;
 import app.organicmaps.widget.placepage.PlacePageUtils;
 import app.organicmaps.widget.placepage.PlacePageViewModel;
 import com.google.android.material.textview.MaterialTextView;
 import java.util.Calendar;
+import java.util.List;
 import java.util.Locale;
 
 public class PlacePageOpeningHoursFragment extends Fragment implements Observer<MapObject>
@@ -169,7 +172,24 @@ public class PlacePageOpeningHoursFragment extends Fragment implements Observer<
       if (!ohStr.isEmpty())
       {
         UiUtils.show(mFrame);
-        switch (ohStr)
+        // Hours by the month ("Jan-Apr,Oct-Dec 09:00-19:00; May-Sep 09:00-22:00") are worded
+        // like the rest, one line a rule, rather than shown as the raw tag.
+        final List<MonthHours.Line> byMonth =
+            MonthHours.parse(ohStr, DateUtils.is24HourFormat(requireContext()), Locale.getDefault());
+        if (byMonth != null)
+        {
+          final StringBuilder text = new StringBuilder();
+          for (MonthHours.Line line : byMonth)
+          {
+            if (text.length() > 0)
+              text.append('\n');
+            if (!line.when.isEmpty())
+              text.append(line.when).append(": ");
+            text.append(line.isOff() ? getString(R.string.day_off) : TextUtils.join(", ", line.shifts));
+          }
+          refreshTodayOpeningHours(text.toString(), color);
+        }
+        else switch (ohStr)
         {
           case "off", "closed" -> refreshTodayOpeningHours(getString(R.string.day_off), getResources().getColor(R.color.base_red));
           case "unknown" -> refreshTodayOpeningHours(getString(R.string.oh_unknown), color);
